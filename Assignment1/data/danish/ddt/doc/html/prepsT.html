@@ -1,0 +1,1732 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>Annotation guide for the Danish Dependency Treebank: Prepositions</title>
+    <link rel="parent" href="http://www.id.cbs.dk/~mtk/treebank/guide.html" id="Treebank" title="Treebank">
+    <link rel="sibling" href="theory.html" id="Theory" title="Theory">
+    <link rel="sibling" href="nouns.html" id="Nouns" title="Nouns">
+    <link rel="sibling" href="verbs.html" id="Verbs" title="Verbs">
+    <link rel="sibling" href="adjs.html" id="Adjectives" title="Adjectives">
+    <link rel="self" href="preps.html" id="Prepositions" title="Prepositions">
+    <link rel="sibling" href="misc.html" id="Miscellaneous" title="Miscellaneous word classes">
+    <link rel="sibling" href="spoken.html" id="Spoken" title="Spoken language">
+    <link rel="sibling" href="discourse.html" id="Discourse" title="Discourse structure">
+    <link rel="sibling" href="search.html" id="Search" title="Search">
+	<link rel="sibling" href="learn.html" id="Learning" title="Learning">
+	<link rel="sibling" href="refs.html" id="References" title="References">
+	<link rel="stylesheet" href="text.css" media="screen" type="text/css">
+	<link rel="stylesheet" href="text.css" media="print" type="text/css">
+    <meta name="author" content="Matthias Trautner Kromann">
+    <link rel="stylesheet" href="text.css" media="screen" type="text/css"><meta name="robot" content="index"></head> 
+
+<body><script language="javascript" type="text/javascript">if (self == top) { top.location = 'preps.html'; } else { top.menu.location = 'prepsM.html' }</script>
+<h1 align="center">Danish Dependency Treebank</h1>
+<h2 align="center">Annotation guide: Prepositions <span class="stine">and adverbs</span></h2>
+
+<p align="center"><b>
+    <a href="../index.html" target="_parent">Matthias T. Kromann</a><br>
+    <a href="../../../www.cbs.dk/id" target="_parent">Department of
+        Computational Linguistics</a><br>
+    <a href="http://www.cbs.dk" target="_parent">Copenhagen Business
+        School</a>
+</b></p>
+
+<p align="center"><b>
+	<a href="http://people.ucsc.edu/~lmikkels" target="_parent">Line
+		Mikkelsen</a><br>
+	<a href="http://ling.ucsc.edu" target="_parent">Department of
+		Linguistics</a><br>
+	<a href="http://www.ucsc.edu" target="_parent">University of
+		California, Santa Cruz</a>
+</b></p>
+
+<a name="Prepositions"></a>
+<h2>Prepositions</h2>
+
+	<p>Prepositions are a closed word class consisting of the following
+	words (the parentheses indicate the number of occurrences in the
+	PAROLE corpus):</p>
+
+<center><table>
+<tr>
+<tr><td>i (7196)</td>		<td>over (491)</td>		<td>bag (86)</td>
+	<td>indtil (34)</td>	<td>udover (7)</td>		<td>ovenpå (1)</td></r>
+<tr><td>til (3757)</td>		<td>mod (317)</td>		<td>ad (68)</td>
+	<td>foran (33)</td> 	<td>undtagen (6)</td>	<td>henad (1)</td></r>
+<tr><td>på (3733)</td>		<td>under (299)</td>	<td>per (66)</td>
+	<td>uanset (21)</td> 	<td>udenfor (6)</td>	<td>iblandt (1)</td></r>
+<tr><td>af (3496)</td>		<td>mellem (237)</td>	<td>siden (58)</td>
+	<td>overfor (20)</td>	<td>nær (5)</td>		<td>udfra (1)</td></r>
+<tr><td>med (3005)</td>		<td>uden (217)</td>		<td>før (56)</td>
+	<td>bortset_fra (16)</td><td>inklusive (5)</td>	<td>opad (1)</td></r>
+<tr><td>for (2846)</td>		<td>hos (166)</td>		<td>inden (55)</td>
+	<td>indenfor (15)</td>	<td>angående (3)</td>	<td>henover (1)</td></r>
+<tr><td>om (1445)</td>		<td>gennem (151)</td>	<td>trods (52)</td>
+	<td>foruden (14)</td>	<td>apropos (3)</td>	<td>kontra (1)</td></r>
+<tr><td>fra (1196)</td>		<td>omkring (134)</td>	<td>igennem (43)</td>
+	<td>forbi (12)</td>		<td>vedrørende (2)</td> <td>&nbsp;</td></r>
+<tr><td>ved (703)</td>		<td>blandt (95)</td>	<td>via (37)</td>
+	<td>langs (11)</td>		<td>førend (2)</td> 	<td>&nbsp;</td></r>
+<tr><td>efter (554)</td>	<td>ifølge (95)</td>	<td>imod (37)</td>
+	<td>imellem (11)</td> 	<td>nedover (1)</td> 	<td>&nbsp;</td></r>
+</table></center>
+
+
+<h2>Tests</h2>
+
+	Tests for determining whether an adverb and a following PP form a
+	phrase, or if they modify the verb separately:
+	<ul>
+		<li> <b>topicalization test:</b> 
+			<ul> 
+				<li> Adv+PP is a single phrase, with the PP as the
+					dependent of the adverb, if Adv+PP can be
+					topicalized jointly (possibly after the insertion
+					of other modifiers)
+				<li> Adv and PP are separate phrases if Adv or PP
+					can be topicalized separately, but not jointly
+					(possibly after the insertion of other modifiers)
+				<li> the test is indeterminate if neither Adv, PP,
+					or Adv+PP can be topicalized
+			</ul>
+			In "Vi gik op på loftet", "op på loftet" is one phrase
+			because "Op på loftet gik vi ikke" is possible. In "Lyset gik
+			ud i stuen", "ud i stuen" consists of two phrases because
+			"*ud i stuen gik lyset ikke" is not possible, although "i
+			stuen gik lyset ud" and "ud gik lyset i stuen" are
+			possible.
+
+		<li> <b>insertion test:</b> 
+			<ul>
+				<li> Adv+PP consists of two phrases if it is possible
+				to insert an adverbial between them without changing
+				the meaning, otherwise it consists of a single phrase
+			</ul>
+			In "Vi gik op på loftet", insertion is not possible
+			(without change of meaning): "vi gik op i dag på loftet". 
+			In "Lyset gik ud i stuen", insertion is possible: "Lyset
+			gik ud i dag i stuen".
+	</ul>
+
+	<ul>
+	<li> <b>locational adverbs</b> (<i>bilen var fastgjort ___</i>)<br>
+		bagved borte fremme henne (henover) her hjemme inde indenfor
+		nede nedenfor nedenunder (nedover) opad_til oppe ovenfor
+		ovenpå overfor ovre ude udenfor (udover) (væk)
+
+	<li> <b>locational prep.</b> (<i>bilen var fastgjort ___ bjælken</i>)<br>
+		bag bagved efter foran forbi fra i inden indenfor indtil langs
+		nedenunder om omkring over overfor på til under ved
+
+	<li> <b>directional adverbs</b> (<i>han gik ___ til hende</i>)<br>
+		frem fremad hen hjem ind ned nedad nedenunder op opad over
+		rundt tilbage ud udad videre væk
+
+	<li> <b>directional prep.</b> (<i>han gik ___ hende</i>)<br>
+		bag bagved efter imellem ned_under nedenunder over på til
+		under ved
+
+
+		<li> <b>durational adv.</b> (<i>det varede ___</i>)<br>
+			lidt længe
+
+		<li> <b>temporal adv.</b> (<i>det fandt først sted ___</i>)<br>
+			derefter efter før inden samtidig
+
+		<li> <b>temporal prep.</b> (<i>det fandt sted ___ middagen</i>)<br>
+			efter før inden
+
+		<li> <b>other:</b> sammen med lige ad uden
+	</ul>
+
+	<ul>
+		<li> Han gik i døren.<br>
+			<i>Han var i døren. Han gik.</i>
+
+		<li> Han gik (ind (i laden)).<br>
+			<i>&ne; Han var i laden. Han gik ind.</i><br>
+			<i>= Først var han ikke i laden. Derefter gik han ind i den.</i>
+		
+		<li> Han gik (ind (i døren)).<br>
+			<i>&ne Han var i døren. Derefter gik han ind.</i><br>
+			<i>= Først var han ikke i døren. Derefter gik han ind i den.</i>
+	</ul>
+
+	<ul>
+		<li> Han gik ind i laden.<br>
+		<i>= han var inde i laden og gik ind i traktoren.<br>
+		= han var uden for laden og gik ind i laden.<br></i>
+
+		<li> Han gik ind i laden.<br>
+			<i>Det var i laden han gik ind.</i>
+
+		<li> Han tog hatten af for hende.<br>
+			<i>Det var for hende han tog hatten af.</i>
+
+		<li> Han stod inde i laden.<br>
+			<i>*Det var i laden han stod inde.</i>
+
+		<li> De dirigerede rundt med ham.<br>
+			<i>Det var med ham de dirigerede rundt.</i>
+
+		<li> De var sammen med ham.<br>
+			<i>?Det var med ham de var sammen.</i>
+			
+		<li> De sang med på omkvædet.<br>
+			<i>Det var på omkvædet de sang med.</i>
+
+		<li> De boede oppe på bjerget.<br>
+			<i>*Det var på bjerget de boede oppe.</i>
+
+		<li> Det går ud på at overleve.<br>
+			<i>*Det er på at overleve det går ud.</i>
+
+		<li> De afleverede opgaven sidst på ugen.<br>
+			<i>*Det var på ugen de afleverede opgaven sidst.</i>
+		
+		<li> De meldte sig ind i partiet.<br>
+			<i>Det var i partiet de meldte sig ind.</i>
+
+		<li> De kom af med gælden.<br>
+			<i>*Det var med gælden de kom af.</i>
+
+		<li> Der er noget forkert i at snyde.</i>
+	</ul>
+
+
+
+
+
+<a name="Edges"></a>
+<h3>Edges</h3>
+
+<table border=1>
+<tr>
+    <th>Edge type</th>
+    <th>Edge label</th>
+    <th>Description</th></tr>
+<tr>
+    <td>complement</td>
+    <td>nobj</td>
+    <td>nominal object</td></tr>
+<tr>
+    <td></td>
+    <td>vobj</td>
+    <td>verbal object</td></tr>
+<tr>
+    <td></td>
+    <td>pred</td>
+    <td>predicative complement</td></tr
+
+<tr>
+    <td>adjunct</td>
+    <td>mod</td>
+    <td>modifier</td></tr>
+</table>
+
+<p><b>Nominal complements</b> Nominal complements to prepositions,
+including complements headed by "at", are tagged as nobj:
+
+        <ul>
+	        <li> i haven
+		<li> på torsdag
+		<li> uden at de faldt
+		<li> uden at falde
+        </ul>
+
+      <p align="center">
+		      <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-01.png" alt="i haven">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		      <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-02.png" alt="uden at falde">
+	      </p>
+</div>
+
+<div class="discussion">
+The analysis of "at"-complements as nobj is consistent with their
+analysis as dobj when occurring as complements to verbs. If the
+analysis of "at"+infinitive is changed, it should be changed across
+the board.
+</div>
+
+<div class="analysis">
+<p>
+<b>Verbal complements</b> Finite clause complements without
+"at" are tagged as vobj:
+
+        <ul>
+		<li> uden de faldt
+		<li> når han kommer
+		<li> efter vi har spist 
+        </ul>
+
+      <p align="center">
+		      <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-03.png" alt="uden de faldt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	      </p>
+
+</div>
+
+<div class="discussion">
+<p>
+Anternatively, finite clauses without "at" could be analyzed as nobj,
+where the verbal head has undergone syntactic type-shifting to a
+nominal (in analogy with the analysis of certain uses of adjectives as
+type-shifted nouns). This would simplify the valency frame of
+prepositions by excluding vobj. On the other hand there does not
+appear to any independent evidence for type-shifting with finite
+clauses, as there could be said to be in the case of adjectives. And
+there are distributional constrasts between bare finite clauses and
+finite clauses with "at". For instance, bare finite clauses cannot
+occur in subject position, whereas clauses with "at" can:
+
+<ul>
+        <li>*<b>De kommer</b> er vigtigt.
+	<li><b>At de kommer</b> er vigtigt.
+</ul>
+
+If bare finite clauses are (type-shifted into) nominals, this contrast
+has to be encoded by specific selection restrictions on the
+subject. If bare finite clauses are verbal, it follows from the
+generalization that verbs cannot be subjects.
+
+</div>
+
+<div class="analysis">
+<p>
+<b>Predicative complements</b> Predicative complements are found in
+so-called absolutive constructions, headed by the prepositions "med" or
+"under". The preposition takes a nominal object (nobj) and a predicative
+complement (pred), which may be a preposition, adjective or noun. Note
+that a nominal predicative complement is preceded by "som" (as), which
+we analyze as the head of the predicative complement. 
+
+        <ul>
+		<li> <b>Uden Susan på holdet</b> taber vi
+		<li> <b>Med halvdelen af holdet syge</b> taber vi
+		<li> Vi taber <b>med ham som formand</b> 
+        </ul>
+
+      <p align="center">
+		      <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-04.png" alt="uden Susan på
+		      holdet taber vi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		      <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-05.png" alt="vi taber med ham som formand">
+	      </p>
+
+</div>
+
+<div class="discussion">
+Alternatively, the predicative complement could be analyzed as a
+dependent of the noun:
+
+<p align="center">
+		      <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-18.png" alt="uden Susan på
+		      holdet taber vi">
+</p>
+
+However, this would be (one of the) only context where nouns could take
+predicative complements. In ordinary predicative constructions a
+verbal head is required:
+
+<ul>
+        <li>Han er læge.
+	<li>*Han læge.
+</ul>
+
+There is a reading of "Uden Susan på holdet" where "på holdet" is a
+dependent of "Susan", but then it is a modifier, which helps establish
+the referent of Susan:
+
+<p align="center">
+		      <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-19.png" alt="uden Susan på
+		      holdet taber vi">
+</p>
+
+
+</div>
+
+<div class="analysis">
+
+The analysis of "som" as the head of the predicative complement
+carries over to the use of "som" + nominal as (adverbial) modifiers:
+
+
+        <ul>
+		<li> <b>Som formand</b> er han udemærket
+		<li> Jeg kender ham ikke <b>som privatperson</b>.
+        </ul>
+</div>
+
+<div class="question">
+Is this a different "som"? Which means something like "qua"? If so, do
+we need to distinguish the two syntactically?
+</div>
+
+<div class="analysis">
+<p>
+<a name="modifiers"></a>
+<h3>Modifiers</h3>
+Prepositions can take premodifiers (nouns, adjectives or
+adverbs). These are tagged as mod. 
+
+       <ul>
+		<li> <b>to minutter</b> i syv
+		<li> <b>lidt</b> i syv
+		<li> <b>seks grader</b> under frysepunktet
+		<li> <b>lige</b> bag skolen
+		<li> <b>tværs</b> over gaden
+       </ul>
+
+              <p align="center"> 
+		      <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-20.png" alt="to minutter
+		      i syv">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		      <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-07.png" alt="lige bag skolen">
+	      </p>
+
+<p>
+</div>
+
+<a name="time_expr"></a>
+<div class="discussion">
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-06.png" alt="to minutter i syv">
+	</p>
+For several reasons, this analysis might not be appropriate for time
+expressions like "to minutter i syv". First, "to minutter"
+is not optional in this construction, as the modifiers in the other
+prepositional constructions are:
+
+<ul>
+       <li> Klokken er <b>to minutter i syv</b>.
+       <li>*Klokken er <b>i syv</b>. 
+</ul>
+
+Second, the external distribution of the whole phrase "to minutter i syv" is
+not that of a prepositional phrase, but closer to that of a noun:
+
+<ul>
+       <li> Klokken er <b>to minutter i syv</b>.
+       <li> Klokken er <b>syv</b>.
+       <li> Klokken er <b>mange</b> 
+</ul>
+
+To accomodate these facts, one could proposen to analyze the initial
+numeral as the head of the construction. Since we analyze numerals as
+nominals, this would make the construction a nominal with respect to
+its external syntax. 
+
+<p align="center">
+		      <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-20.png" alt="to minutter
+		      i syv">
+</p>
+
+
+The following contrast would still need to be accounted for:
+<ul>
+        <li>De gik (klokken) to minutter i syv.
+	<li>De gik *(klokken) syv. 
+</ul>
+</div>
+
+
+<div class="analysis">
+<a name="Individual prepositions"></a>
+<h3>Individual prepositions</h3>
+
+
+<b>FOR</b> Occurs with full range of complements.
+
+<ul> 
+        <li>PAROLE sammenskrivinger: for_tiden, for_øvrigt, for_nylig
+<p>
+	<li>Special constructions
+<p>
+	<ul>
+	        <li><b>for</b> to dage <b>siden</b>
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-21.png" alt="for to dage siden">
+		</p>
+
+	</ul> 
+<p>
+	<li>Fixed expressions
+<p>
+	<ul>
+	        <li>for så vidt
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-22.png" alt="for så vidt">
+		</p>
+		</div>
+
+<div class="question">
+What type of obj is "vidt"?
+</div>
+<div class="stine"><p>"Vidt" is analysed as avobj in the corpus.
+</p>
+</div>
+<p>
+<div class="analysis">
+		<li>i stedet for
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-23.png" alt="i stedet for">
+		</p>
+	</ul>
+</div>
+
+<div class="analysis">
+
+<p>
+	<li>Adverbial uses (tagged as RG): "For" can be used as a
+	premodifier to adjectives, which takes an optional complement
+	headed by "til" :
+
+	<ul>
+	        <li>Han er <b>for</b> høj.
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-24.png" alt="Han er for høj">
+		</p>
+		<li>Han er <b>for</b> stor <b>til</b> at gå i
+		vuggestue.
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-25.png" alt="Han er for stor til
+		at gå i vuggestue ">
+		</p> 
+		<li>De fik alt <b>for</b> lidt søvn.
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-26.png" alt="De fik alt for lidt søvn">
+		</p> 
+	</ul>
+</div>
+
+<div class="discussion">
+As an alternative one could analyze "for" as a preposition that takes
+an adjectival complement: 
+
+<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-27.png" alt="De fik alt for lidt søvn">
+</p> 
+
+One reason to prefer the modifier analysis is that "for" + adjective
+can also occur as an attributive modifier to a nominal, which is a
+role that adjectives, but not prepositions, can normally take:
+<p>
+<ul>
+        <li>En <b>alt for lang</b> dag
+</ul>
+</div>
+</ul>
+
+<div class="analysis">
+<p>
+<ul>
+	<li>"For" can also be used to introduce a subordinate clause,
+	in which case it is tagged as a modfier to the root of the
+	matrix clause:
+<p>
+	<ul>
+	        <li>Jeg blev hurtigt træt, <b>for</b> sneen føg.
+
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-28.png" alt="Jeg blev hurtigt
+		træt, for sneen føg"> 
+		</p> 
+	</ul>
+
+	Note that in this use, the verbal complement to "for" cannot
+	include "at":
+<p>
+	<ul>
+	<li>*Jeg blev hurtigt træt, for <b>at</b> sneen føg.
+	</ul>
+
+</ul>
+</div>
+
+<div class="analysis">
+<p>
+
+<b>MED</b> Occurs with full range of complements.
+<p>
+<ul>
+        <li>PAROLE sammensatninger: med_hensyn_til, med_rette
+<p>
+
+	<li>Special constructions: [Verb + part + pobj]
+<p>
+	<ul>
+	        <li>Den skrumper ind <b>med</b> 50%.
+		<li>De holdt op <b>med</b> at synge.
+		<li>De dirigerede rundt <b>med</b> ham.
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-29.png" alt="De dirigerede rundt
+		med ham"> 
+		</p> 
+		
+	</ul> 
+<p>
+	<li>Fixed expressions
+<p>
+	<ul>
+	        <li>sammen <b>med</b> ham
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-30.png" alt="sammen med ham"> 
+		</p> 
+
+		<li>i forbindelse <b>med</b> festen
+		&nbsp;&nbsp;&nbsp;&nbsp;[same structure as "i stedet for ham"]
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-31.png" alt="i forbindelse med festen"> 
+		</p>
+	</ul>
+<p>
+	<li>Adverbial uses (tagged as RG)
+
+	<ul>
+	        <li>"med" can be used as a particle with many verbs,
+	        including spille, synge, tage, skulle, være, følge,
+	        komme, and have.  
+		
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-32.png" alt="de sang med"> 
+		</p>
+</div>
+
+<div class="discussion">
+When "med" occurs as a complement to "være", it could alternatively be
+analyzed as pred. However, "med" does not occur with all copula verbs,
+which speaks against the pred analysis:
+<p>
+<ul>
+        <li>??de synes med
+	<li>*de blev med
+</ul>
+<p>
+</div>
+
+        <li>As a particle "med" can cooccur with prepositional complements:
+<p>
+	<ul>
+	<li>De sang med på omkvædet.
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-33.png" alt="de sang med på omkvædet"> 
+	</p>
+
+<div class="discussion">
+Alternatively, "med" could be (re)analyzed as a preposition and "på
+omkvædet" as a dependent (pobj) of "med".
+
+<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-34.png" alt="de sang med på omkvædet"> 
+</p>
+
+This would require that we allow (at least some) prepositions to take
+prepositional complements, which is otherwise not allowed.     
+</div>
+
+<div class="analysis">
+
+	</ul>
+</ul>
+</ul>
+<div class="analysis">
+<p>
+<b>På</b> Occurs with full range of complements.
+<p>
+<ul>
+        <li>PAROLE sammensatninger: på_grund_af, på_tide, på_ny, på_fode
+<p>
+
+	<li>Special constructions
+<p>
+	<ul>
+	        <li>De boede <b>oppe på bjerget</b>
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-35.png" alt="de boede oppe på
+		bjerget">  
+		</p>
+		
+		We analyze "oppe" as a modifier to the preposition. As a
+		modifier it is optional: De boede på bjerget.
+<p>
+		<li>Det <b>går ud på</b> at overleve.
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-36.png" alt="Det går ud på at overleve">  
+		</p>
+		This construction is slightly idiomatic. None of the
+		elements can be left out or replaced without changing
+		the meaning of the other elements. We therefore
+		analyze both "ud" and "på at overleve" as complements
+		to the verb (part and pobj, respectively).
+</div>
+
+<div class="discussion">
+<p>
+The alternative is to analyze "ud" as a modifier to "på" in analogy
+with "oppe på". 
+</div>
+<p>
+<div class="analysis">
+        <li>De afleverede opgaven <b>sidst</b> på ugen
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-38.png" alt="De afleverede opgaven
+	sidst på ugen">  
+	</p>
+</div>
+<div class="discussion">
+	Here we analyze "sidst" as a modifer to the preposition in
+	analogy with the analysis of time expression like "to minutter
+	i syv". As discussed <a href="prepsT.html#time_expr">here</a> this might
+	not be the correct analysis. In any case, the two
+	constructions ("sidst på ugen" and "to minutter i syv") should
+	be analyzed the same way.
+</div>
+
+<div class="analysis">
+	
+	</ul>
+
+<p>
+	<li>Particle constructions
+<p>
+	<ul>
+	        <li>have håndjern på, skrue charmen på, passe på, se
+	        på, stå på, klø på, klæde sig på
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-37.png" alt="De havde håndjern på">  
+		</p>
+		
+		<li>Note that in some cases the verb-particle
+		construction alternates with a verb-pobj contruction:
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-39.png" alt="De havde håndjern på
+		hænderne">   
+		</p>
+
+	</ul>
+</ul>
+
+</div>
+
+<div class="analysis">
+<p>
+<b>I</b> Occurs with full range of complements.
+
+<ul>
+        <li>PAROLE sammensatninger:i_dag, i_nat, i_aftes, i_øvrigt,
+        i_forvejen, i_det_hele_taget, i_gang, i_hvert_fald
+<p>
+
+	<li>Special constructions 
+</div>
+<p>
+<div class="question">
+        Perhaps these are not special after all, and should instead be
+	covered in a general section on the external syntax of
+	prepositional phrases?
+</div>
+<p>
+<div class="analysis">
+	<ul>
+	        <li>As pobj for a verb: De meldte sig ind <b>i
+	        partiet</b>.
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-41.png" alt="de meldte sig ind i
+		partiet">   
+<p>
+		<li>As pobj for adjective: Der er noget forkert <b>i
+		at snyde</b>.
+		 <p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-40.png" alt="der er noget forkert i
+		at snyde">   
+		</p>
+<p>
+		<li>De kørte <b>rundt i landet</b>.
+		
+</div>
+
+<div class="discussion">
+<p>
+This example presents several difficult, and partly interrelated,
+analytical choices: 
+<p>
+<ol>
+        <li>Is "rundt" a dependent of the verb or a dependent of the
+        preposition? Note that both "De kørte rundt" and "De kørte i
+        landet" are possible.
+
+<p>
+	<li>Is the preposition (and it's dependents) a modifier to the
+	verb or a complement?
+<p>
+	<li>If it is a complement is it a regular pobj, or a
+	`locative-directional complement' of the sort used in the
+	Dutch treebank (see the discussion at the beginning of the
+	chapter in verbs). 
+</ol>
+
+</div>
+
+<div class="analysis">
+	</ul> 
+<p>
+	<li>Fixed expressions
+	<ul>
+<p>
+	        <li>i stedet for, i løbet af: 
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-23.png" alt="i stedet for">
+		</p>
+	</ul>
+<p>
+	<li>Particle constructions
+<p>
+	<ul>
+	        <li>smække døren i, stemme i, hælde løgene i, sætte
+	        neglene i, proppen sidder i
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-42.png" alt="han smækkede døren i">
+		</p>
+	</ul>	
+<p>
+
+	<li>Other constructions: 
+	        <ul>	
+<p>
+		<li>vinflasker <b>med proppen i</b>
+
+</div>
+<div class="discussion">
+<p>
+		<li>Is this an absolutive construction?
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-43.png" alt="vinflasker med
+		proppen i">
+		</p>
+
+		<li>Or perhaps a reduced relative clause?
+		
+</div>
+		</ul>
+
+<div class="analysis">
+</ul>	
+<p>
+
+
+
+<b>TIL</b> Occurs with full range of complements.
+
+<ul>
+        <li>PAROLE sammensatninger:til_sidst, til_bunds, til_fulde,
+        til_døde, til_gode, til_rette, til_fods, til_huse, til_stede,
+        til_tops, til_veje, til_tåls, til_vejrs, til_lands, til_lands,
+        til_rors, til_orde, til_vægs, med_hensyn_til, af_og_til, nu_til_dags
+<p>
+
+	<li>Special constructions
+<p>
+	<ul>
+	        <li>efter to <b>til</b> fire
+	        måneder &nbsp;&nbsp;&nbsp;&nbsp;[analyzed as coordination]
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-44.png" alt="efter to til fire måneder">
+		</p>
+
+		<li>ja/nej <b>til</b> pakken
+		&nbsp;&nbsp;&nbsp;&nbsp;[analyzed as ordinary pobj] 
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-45.png" alt="ja til pakken">
+		</p>
+		<li>fra før <b>til</b> nu
+		&nbsp;&nbsp;&nbsp;&nbsp;[analyzed as correlative coordination]
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-46.png" alt="fra før til nu">
+		</p>
+</div>
+<div class="discussion">
+                Alternatively, "fra" could be analyzed as the head of the
+		construction:
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-47.png" alt="fra før til nu">
+		</p>
+		The question is what type of complements "før" and
+		"nu" are. They are tagged as adverbs (RG) in the
+		corpus (in this use), but prepositions do not normally
+		take adverbs as complements.
+</div>
+
+<div class="analysis">
+<p>
+		<li>en gang <b>til</b>, tre meter <b>til</b>, to point
+		<b>fra eller til</b> &nbsp;&nbsp;&nbsp;&nbsp;[analyzed as a
+		(coordinated) modifier]
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-50.png" alt="en gang
+		til">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-51.png" alt="to point fra eller til"> 
+		</p>
+		<li>med ryggen <b>til</b>, med kager <b>til</b>
+		&nbsp;&nbsp;&nbsp;&nbsp;[analyzed as absolutives] 
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-52.png" alt="med ryggen til">
+		</p>
+	</ul> 
+<p>
+	<li>Fixed expressions
+<p>
+	<ul>
+	        <li> af og <b>til</b>
+	        &nbsp;&nbsp;&nbsp;&nbsp;[analyzed as coordination] 
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-48.png" alt="af og til">
+		</p>
+	</ul>
+<p>
+	<li>Particle constructions
+<p>
+	<ul>
+	        <li>skulle til, være til, komme til, blive til, svine til, tage
+		til, træde til, sætte til, smage til, gå til, stå til,
+		fro til, holde til, dække til, klemme til, hjælpe til,
+		høre til, lægge til     
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-49.png" alt="stormen tog til">
+		</p>
+
+		<li>gå ad helvede til
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-53.png" alt="gå ad helvede til">
+		</p>
+	</ul>
+</ul>
+</div>
+
+<div class="analysis">
+<p>
+
+<b>AF</b> Occurs with full range of complements.
+
+<ul>
+        <li>PAROLE sammensatninger: af_sted, af_og_til, på_grund_af
+<p>
+
+	<li>Special constructions
+<p>
+	<ul>
+	        <li>partitives: en <b>af</b> deres artikler, to
+		<b>af</b> de fjorten, et utal <b>af</b> skoler:
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-54.png" alt="to af de fjorten">
+		</p>
+		 
+		<li>passives: det blev købt <b>af</b> et hollandsk firma
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-55.png" alt="det blev købt af et
+		hollandsk firma">
+		</p>
+	</ul> 
+<p>
+	<li>Fixed expressions
+<p>
+	<ul>
+	        <li>i kraft af, ved siden af, på trods af 
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-56.png" alt="på trods af regnen">
+		</p>
+	</ul>
+<p>
+	<li>Particle constructions
+<p>
+	<ul>
+	        <li>slappe af, smitte af, fyre af, blive af, gå af,
+		slibe af, klippe af, klæde (sig) af, læsse af, dryppe
+		af, falde af, betale af, brænde af, rense af, bide af,
+		sætte af, danse af, takke af, løje af
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-57.png" alt="de slapper af">
+		</p>
+		<li>være af med, komme af med, blive af med
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-58.png" alt="de kom af med gælden">
+		</p>
+	</ul>
+</ul>
+</div>
+
+<div class="analysis">
+<p>
+<b>OVER</b> Occurs with full range of complements.
+
+<ul>
+        <li>PAROLE sammensatninger:over_bords, over_bord
+<p>
+
+	<li>Special constructions
+<p>
+	<ul>
+	        <li>på skoler landet <b>over</b>
+	        &nbsp;&nbsp;&nbsp;&nbsp;["over" as a post-position] 
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-59.png" alt="på skoler landet over">
+		</p>
+</div>
+<div class="discussion">
+<p>
+Alternatively, "over" could be analyzed as a modifier to "landet", but
+this miss the fact that "landet over" has the distribution of a
+prepositional phrase and not that of a noun:
+<p>
+<ul>
+        <li>på skoler <b>i hele landet</b>
+	<li>*på skoler <b>hele landet</b>
+</ul>
+</div>
+<div class="analysis">
+<p>
+		<li>{til/med/på/i/for} <b>over</b> tyve {kroner/timer}
+		&nbsp;&nbsp;&nbsp;&nbsp;["over" as modifier to nobj]  
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-60.png" alt="i over tyve timer">
+		</p>
+		<li>Han blev klar <b>over</b> problemet.
+		&nbsp;&nbsp;&nbsp;&nbsp;["over" as pobj to adjective]   
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-61.png" alt="han blev klar over problemet">
+		</p>
+		<li>fem minutter <b>over</b> &nbsp;&nbsp;&nbsp;&nbsp;["over"
+		as modifier to nominal]
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-62.png" alt="fem minutter over">
+		</p>
+</div>
+<div class="discussion">
+<p>
+Alternatively, "to minutter" could be analyzed as a (obligatory)
+modifier to "over". This would be more in line with the analysis of
+time expressions like "fem minutter over syv", though this analysis
+has some problems of its own, as discussed <a href="prepsT.html#time_expr">above</a>.
+</div>
+<div class="analysis">
+<p>
+
+		<li>format ud <b>over</b> det sædvanlige
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-63.png" alt="format ud over det
+		sædvanlige"> 
+		</p>
+</div>
+<div class="discussion">
+Alternatively, one could analyze "ud over" (along with "ned over",
+"inden for", "uden for" etc.) as a complex preposition, which takes
+"det" as its nobj. 
+</div>
+
+<div class="analysis">
+	</ul> 
+<p>
+	<li>Fixed expressions
+	<ul>
+<p>
+	        <li>sove over sig
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-64.png" alt="sove over sig"> 
+		</p>
+	</ul>
+<p>
+	<li>Particle uses
+
+	<ul>
+	        <li>save grenen (midt) over, springe nogle trin over,
+		tørre skoene over, hugge grenen over, lakere gulvet
+		over, tippe over, sætte over, det gik over
+		<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-65.png" alt="save grenen over">
+		&nbsp;&nbsp;&nbsp;&nbsp; 
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-66.png" alt="det gik over"> 
+		</p>
+
+	        <li>over for kvinder, over til bageren
+		<li>gå over, komme over 
+		<li>gå over for at lave kaffe (ikke sammen relation
+		mellem "over" og "for" som i "over for kvinden")
+		<li>gå over mod, komme over mod, køre over til hende
+		<li>flytte over til, tone over i, gå over i historien
+	</ul>
+</ul>
+
+<p>
+
+<b>OM</b> Occurs with full range of complements.
+
+<ul>
+        <li>PAROLE sammensatninger: om_muligt, om_end, selv_om, som_om
+        (these are based on "om" as a coordinator), om_bord
+<p>
+
+	<li>Fixed expressions
+	<ul>
+	        <li>være tale om, ikke tale om
+		<li>(stå) sammen om 
+		<li>om igen
+	</ul>
+<p>
+	<li>Adverbial uses (tagged as RG)
+
+	<ul>
+	        <li>se (sig) om, vende (sig) om, klæde (sig) om
+		<li>tænke sig om 
+		<li>skrive om, bytte om (på), rykke om (på), flytte om
+		(på)
+		<li>lave om (på/til), tro om, lægge om, gå om
+		<li>uden om, rundt om, viden om
+		<li>gå om til muren, rejse om på den anden side af jorden
+	</ul>
+<p>
+	<li>As a subordinate coordinator (cannot insert "at" after "om")
+	<ul>
+	        <li>Om han kommer eller ej, så tager vi afsted.
+		<li>Det er bedst om du kommer i morgen
+		<li>tage stilling til om de skal være med
+	</ul>
+</ul>
+
+<p>
+
+<b>FRA</b> Occurs with full range of complements.
+
+<ul>
+        <li>PAROLE sammensatninger: bortset_fra
+<p>
+
+	<li>Special constructions
+
+	<ul>
+	        <li><b>fra</b> syv <b>til</b> otte meter, <b>fra</b>
+	        1979 <b>til</b> 1980
+		<li>Han er <b>meget langt</b> fra Roskilde
+	        (modification of "fra", or is "fra" a complement to "langt"?)
+		<li> (gå) væk fra vinduet, (gå) ud fra, vurdere ud
+	        fra, kigge frem fra skjulet
+		<li>sætte/lægge/give noget <b>fra</b> sig 
+	</ul> 
+<p>
+	<li>Fixed expressions
+	<ul>
+	        <li>fra nær og fjern (what type of complement is
+	        this?)
+		<li>(komme) mange steder <b>fra</b> (postposition?)
+		<li>fra eller til
+	</ul>
+<p>
+	<li>Adverbial uses (tagged as RG)
+
+	<ul>
+	        <li>trække fra, sælge fra, hælde fra, vælge fra, skære
+		fra, slå fra, 
+		<li> melde fra, sige (stærkt) fra
+		<li>han tog chancen langt ude <b>fra</b>
+		<li>det er <b>langt fra</b> nogen garanti
+		<li>to point <b>fra eller til</b>
+	</ul>
+<p>
+	<li>Tagged as SC (subordinate conjunction)
+	<ul>
+	        <li><b>Fra</b> han var syn til han var fem, boede de i
+	        Rønne -- couldn't "fra" be analyzed as a preposition
+	        with a (bare) finite clause complement? cf. "Fra
+	        <b>at</b> han var syv ..."
+	</ul>
+</ul>
+
+
+
+<b>VED</b> Occurs with full range of complements.
+
+<ul>
+	<li>Special constructions
+
+	<ul>
+	        <li>let/svært <b>ved</b> at sove (er "at sove"
+	        dependent til "ved" or "let"?)
+		<li>den er <b>ved</b> at være klar
+		<li>bag <b>ved</b> skolen 
+	</ul> 
+<p>
+	<li>Fixed expressions
+	<ul>
+	        <li>ved siden af, ved hjælp af
+	</ul>
+<p>
+	<li>Adverbial uses (tagged as RG)
+
+	<ul>
+	        <li>blive ved med
+		<li>vare ved 
+		<li>komme noget/nogen ved
+		<li>tage ved
+		<li>hælde ved, hænge ved
+	</ul>
+
+</ul>
+
+<p>
+
+<b>EFTER</b> Occurs with full range of complements.
+
+<ul>
+	<li>Special constructions
+
+	<ul>
+	        <li>næst efter Søren (modification?)
+		<li>møde <b>efter</b> møde, N efter N
+	</ul> 
+<p>
+	<li>Fixed expressions
+	<ul>
+	        <li>sætte næsen op efter
+	</ul>
+<p>
+	<li>Adverbial uses (tagged as RG)
+
+	<ul>
+	        <li>året/lang tid/kort/straks/et
+		sekund/øjeblikket/noget <b>efter</b>, gik de
+		<li>følge efter, høre efter 
+		<li>se (noget) efter, give efter, tænke efter, 
+	</ul>
+<p>
+	<li>CS: subordinate conjunction
+
+	<ul>
+	        <li>Efter han blev dømt, flyttede de -- could this be
+	        analyzed as prep + finite clause (cf. "Efter <b>at</b>
+	        han blev dømt, flyttede de"?)
+	</ul>
+</ul>
+
+<p>
+
+<b>MOD</b> Occurs with full range of complements.
+
+<ul>
+
+	<li>Special constructions
+
+	<ul>
+	        <li>gå {frem/hen/op/ind/over/ud} <b>mod</b> byen
+		<li>op <b>mod</b> 100 mennesker
+	</ul> 
+<p>
+	<li>Fixed expressions
+	<ul>
+	        <li>på vej mod
+<p>
+	<li>Adverbial uses (tagged as RG): None!
+	</ul>
+</ul>
+
+<p>
+
+<b>UNDER</b> Occurs only with nominal complements!
+
+<ul>
+
+	<li>Special constructions
+
+	<ul>
+	        <li>på <b>under</b> 10 minutter 
+	</ul> 
+<p>
+
+	<li>Adverbial uses (tagged as RG)
+
+	<ul>
+	        <li>skrive under (på X)
+		<li>bukke under (for X) 
+		<li>gå under
+	</ul>
+</ul>
+<p>
+
+<b>MELLEM</b> Occurs, at least in principle, with all types of complements
+
+<ul>
+	<li>Adverbial uses (tagged as RG): none!
+</ul>
+
+<p>
+
+<b>UDEN</b> Occurs with full range of complements.
+
+<ul>
+
+<p>
+	<li>Adverbial uses (tagged as RG)
+
+	<ul>
+	        <li>uden for stationen
+		<li>uden på skjorten 
+		<li>uden om busken
+	</ul>
+<p>
+	<li>Tagged as subordinate conjunction
+
+	<ul>
+	        <li>De gjorde det uden jeg vidste det. -- could this
+	        be analyzed as prep + finite clause?
+	</ul>
+</ul>
+
+<p>
+
+<b>HOS</b> Occurs with nominal complements only!
+
+<ul>
+
+	<li>Special constructions
+
+	<ul>
+	        <li>han er med hos os
+	</ul>
+<p>
+	<li>Adverbial uses (tagged as RG):None!
+</ul>
+
+<p>
+
+<b>GENNEM</b> Seems to occur only with nominal complements
+
+
+<ul>
+	<li>Special constructions
+
+	<ul>
+	        <li>{frem/ned/ud/ind} gennem
+	</ul> 
+<p>
+	<li>Adverbial uses (tagged as RG): None!
+</ul>
+
+<p>
+
+<b>OMKRING</b> Seems to occur only with nominal complements (but there
+is a change from "om" -> "omkring" which widens the complementation of
+"omkring") 
+
+<ul>
+
+	<li>Special constructions
+
+	<ul>
+	        <li>fra/på <b>omkring</b> 15 kroner (i betydingen ca.)
+	</ul> 
+<p>
+	<li>Adverbial uses (tagged as RG)
+
+	<ul>
+	        <li>{ude/vidt/rundt} omkring
+		<li>gå/krybe/løbe omkring 
+		<li>se sig omkring
+	</ul>
+</ul>
+
+<p>
+
+<b>BAG</b> Occurs only with nominal complements
+
+<ul>
+	<li>Special constructions
+
+	<ul>
+	        <li>dukke frem bag avisen
+		<li>gå over bag teltet
+	</ul> 
+<p>
+	<li>Adverbial uses (tagged as RG)
+
+	<ul>
+	        <li> bag i bilen, bag ved huset
+		<li> komme bag på
+		<li> Ligge bag, stå bag
+	</ul>
+</ul>
+<div class="stine"><p><b>RUNDT</b> Can behave as a preposition, when "rundt" occurs with a locational meaning:
+	<ul>
+		<li>De kørte <b>landet rundt</b>
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine80.png" alt="De kørte landet rundt">
+	</p>
+	as opposed to a time-indicating meaning:
+	<ul>
+		<li>De fester <b>året rundt</b>
+	</ul>
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine81.png" alt="De fester året rundt">
+	</p>
+	The reasons for choosing a different analysis for the locational and
+	time-indicating meanings are:
+	<ul>
+		<li>You can paraphrase the locational "De kørte landet rundt" to "De kørte
+		rundt i landet" or to "De kørte rundt"; this indicates that "rundt" is the
+		more important part of the phrase "landet rundt", and therefore "rundt"
+		should be the head of the phrase.
+		<li>You can paraphrase the time-indicating "De fester året rundt" to "De
+		fester hele året" or "De fester året igennem"; this indicates that "året"
+		is the more important part of the phrase "året rundt", and therefore
+		"året" should be the head of the phrase.
+	</ul>
+	</p>
+</div>
+
+
+<b>OTHERS:</b> blandt (75)
+ad (68)
+pr. (63)
+siden (53)
+før (53)
+på_grund_af (52)
+ifølge (49)
+inden (46)
+igennem (41)
+trods (38)
+via (37)
+imod (34)
+foran (33)
+Foran (2)
+indtil (22)
+overfor (20)
+
+</p>
+
+
+<div class="stine">	
+<a name="Adverbials"></a>
+<h2>Adverbials</h2>
+
+<ul>
+	<li> Peter kom tidligt <b>i_går</b> morges
+		<p align="center">
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine94.png" alt="Peter kom tidligt i_går morges">
+		</p>
+	<li> Hunden sad <b>midt</b> i rosenbedet
+		<p align="center">
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine92.png" alt="Hunden sad midt i rosenbedet">
+		</p>
+	<li> Der var store forberedelser <b>forud</b> for brylluppet
+		<p align="center">
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine93.png" alt="Der var mange forberedelser forud
+			for brylluppet">
+		</p>
+	<li> <b>Så</b> pyt med at vi kommer for sent
+		<p align="center">
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine95.png" alt="Så pyt med at vi kommer for sent">
+		</p>
+	<li> Det er for så <b>vidt</b> korrekt
+	<p align ="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine60.png" alt="Det er for så vidt korrekt">
+	</p>
+	<li> Det er <b>langt fra</b> tilfældet ("langt fra" with an adverbial
+	function, meaning "not at all").
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine58.png" alt="Det er langt fra tilfældet">
+	</p>
+	<li> Huset ligger <b>langt</b> fra hovedvejen ("langt fra" with a locativ meaning).</span>
+	<p align ="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine59.png" alt="Huset ligger langt fra hovedvejen">
+	</p>
+	<li> Inden <b>længe</b> var hun rask igen.
+	<p align ="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine96.png" alt="Inden længe var hun rask igen">
+	</p>
+	<li> Pengene strømmede ind som aldrig <b>før</b>.
+	<p align ="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine97.png" alt="Pengene strømmede ind som aldrig før">
+	</p>
+	<li> Benet vil for <b>altid</b> gøre ondt.
+	<p align ="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine98.png" alt="Benet vil for altid gøre ondt">
+	</p>
+	<li> Marie laver aldrig noget som <b>helst</b>.
+	<p align ="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine99.png" alt="Marie laver aldrig noget som helst">
+	</p>
+	</ul>
+	</div>
+
+
+
+<a name="Adverbial+PP"></a>
+<h3>Expressions with verb + adverbial + PP</h3>
+
+<div class="old">In the set of sample analyses all occurrences, but one (in ex 71), are analyzed
+in terms of pobj's as follows (cf. example 23):
+
+<p align="center">
+        <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-08.png" alt="Hun satte sig frem i stolen">
+</p> 
+
+There are two questions:
+
+<ul>
+<li> Is it reasonable to tag adverbials like "frem" frem as (heads of)
+pobj, when they are not prepositions?
+<li> Do all instances of [verb + adverbial + PP] have this structure?  
+</ul>
+
+The first question is largely theoretical. As I see it, the
+alternatives is to analyze the adverb as a particle (part), where it
+forms a close connection with the verb, and as a modifier (mod) where
+it doesn't.
+
+<p>
+The answer to the second question seems to be negative: this is not a
+uniform construction, though we might decide to gloss over the
+differences in the treebank analyses, for reasons of simplicity and
+manageability.
+
+One can distinguish at least the following types of construction:
+
+<ul>
+        <li> 1. The string forms a dependency chain where no element can be
+	left out (without changing the meaning of the others)
+	<ul>
+	        <li>ex: det <b>går ud over barnet</b>, de <b>fandt ud
+	        af det</b>, de <b>går ind for ideen</b> 
+		<li>Possible analysis:
+		<p align="center">
+                <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-09.png" alt="Det går ud over barnet">
+		</p> 
+		<li>Seems like [adv + PP] cannot be a modifier.	
+	</ul> 
+<p>
+	<li> 2. The adverbial can be left out with minimal change of
+	meaning, and [adv + PP] can be replaced with ["der"-Adv]:
+	<ul>
+	       <li>ex: de <b>kørte hen i skoven</b>, de <b>gik oppe på
+	       loftet</b>, de <b>gik ned i kælderen</b>
+	       <li> jvf: de kørte i skoven, de kørte derhen.
+	       <li>Possible analysis:
+	       <p align="center">
+               <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-10.png" alt="De kørte hen i skoven">
+	       </p> 
+	       <li>Similar [adv + PP] expressions can occur as
+	       modifiers: de byggede hus <b>henne i skoven</b> 
+	       <li>In some cases the string is ambiguous, e.g. "de <b>gik
+	       ned i kælderen</b>":
+	       <p align="center">
+               <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-11.png" alt="De gik ned i
+               kælderen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	       <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-12.png" alt="De gik ned i
+               kælderen">
+	       </p> 
+	       <li>Q: is "i kælderen" a pobj in the right-hand
+	       example, or perhaps a modifier of the verb (as in type 4)? 
+	</ul>
+<p>
+        <li>3. The noun (nobj of the preposition) can be left out
+        (under recoverability), in which case the adverb and the
+        preposition is written as one word.
+
+        <ul>
+	       <li>ex: vi <b>gik uden om busken</b>, vi <b>stod over
+	       for skolen</b>, vi <b>blev inden for rammerne</b> 
+	       <li> jvf: de gik udenom, de stod overfor, vi blev indenfor
+	</ul>
+<p>	
+	<li>4. The PP can be left out, and there is no dependency
+	relation between the adverb and the PP.
+	<ul>
+	        <li>ex: den <b>røg ud under alle omstændigheder</b>,
+	        det har <b>ligget her i flere år</b>, vi <b>var med
+	        fra første færd</b>
+		<li>jvf: den røg ud, den har ligget her, vi var med
+		<li>Possible analysis:
+		<p align="center">
+               <img src="http://www.id.cbs.dk/~mtk/treebank/figs/prep-13.png" alt="Dem røg ud under alle
+	       omstændigheder"> 
+	       </p> 
+	</ul>
+<p>	
+	<li>5. The PP can be left out, but cannot be replaced with
+	["der"-Adv]. 
+	<ul>
+	        <li>ex: de <b>skiftede ham ud med en anden</b>
+		<li>jvf: de skiftede ham ud, *de skiftede ham derud.
+	</ul>
+<p>
+	<li>6. The adverbial can be left out or the PP can be left
+	out, or both.
+	<ul>
+	        <li>ex: de <b>satte sig ned på bænken</b>, hun
+		<b>skrev det op på tavlen</b>
+		<li> jvf: de satte sig ned, de satte sig på bænken, de
+		satte sig.
+	</ul>
+</ul></div>
+<div class="stine"><p>The marked paragraph above was written before the labels avobj and lobj
+came into this manual-world. These two labels solve some of the problems discussed above. All of
+the examples in the paragraph above would now be analysed as lobj, except "gå ud over":
+this would be analysed as avobj + pobj. Below follow some general remarks:
+<ul>
+	<li>We have only tagged words tagged as RG as pobj when they clearly have an
+	element of preposition. Often genuine (by word class) prepositions are tagged RG
+	when they occur without an object. Here we have often tagged as pobj. Also
+	"i_gang",
+	"herpå" (på dette), "derved" (ved dette) and the like are tagged pobj.
+	<li>Usually the adverbial is tagged avobj or mod according to how close the
+	connection is between the verb and the adverbial. The PP is tagged pobj or mod according to whether the expression is fixed
+	or not (that is, could the preposition be exchanged with another preposition?).
+	<li>When there is a locative-directional element in the adverbial, they are tagged
+	as lobj. The PP is tagged mod or pobj according to whether the expression is fixed
+	or not (that is, could the preposition be exchanged with another preposition?).
+	See under <a href="verbs.html"> verbs </a> -> locative-directional objects for a more thorough description.
+</ul>
+See under <a href="verbs.html"> verbs </a> for principles demarkating avobj/lobj/part/mod and pobj.
+</p></div>
+
+
+<div class="stine">
+<a name="Time-indicating objects"></a>
+<h3>Time-indicating objects in relative indications of time</h3>
+	<p><b>Adverbial use</b></p>
+	<p>Time indications that are relative to a fixed point in time all follow a certain
+	pattern in construction. They are headed by an adverb, an adjectiv (used as an
+	adverb) or a preposition (used as an adverb), e.g. før, siden, tilbage, tidligere. Some can take an object, in which case they are "converted into" a
+	preposition or a subordinating conjunction (CS), if the object is a sentence (e.g.
+	før/før brylluppet/før festen begyndte). They all allow a preceeding modification by a time
+	specification, e.g. "to timer før". This time-specification is analysed as a
+	time-indicating object (tobj).
+	</p>
+	<p>The adverbs/prepositions that allow this construction, are:
+	<ul>
+		<li>inden	 
+		<li>forinden	
+		<li>før		
+		<li>efter	
+		<li>tilbage	
+		<li>frem	
+		<li>siden	
+		<li>tidligere	
+		<li>senere	
+	</ul>
+	</p>
+	<p>Examples:
+	<ul>
+		<li>Hun kom hjem to dage inden festen begyndte.
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine40.png" alt="Hun kom hjem to dage inden festen begyndte">
+	</p>
+	<ul>
+		<li>Det ligger flere uger tilbage i tiden.
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine41.png" alt="Det ligger flere uger tilbage i tiden">
+	</p>
+	<ul>
+		<li>Det skete to timer tidligere end de havde regnet med.
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine43.png" alt="Det skete to timer tidligere end de havde regnet
+		med">
+	</p>
+	<ul>
+		<li>Det er to år siden de kom hjem.
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine42.png" alt="Det er to år siden de kom hjem">
+	</p>
+	Notice the special analysis of the fixed expression "for ... siden":
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine44.png" alt="Huset blev bygget for tre år siden">
+	</p>
+	</p>
+	<p><b>Nominal use</b></p>
+	<p>The analyses above apply only to adverbial uses. The same adverbs combined with
+	relative indications of time allow a nominal use also. Take a look at these contrastive
+	examples:
+	<ul>
+		<li>1) Han kom hjem året før.
+		<li>2) Året før var det bedste år i mit liv.
+	</ul>
+	<ul>
+		<li>1) Han rejste hjem til sin mor ugen inden jul.
+		<li>2) Ugen inden jul havde været fuld af glædelige begivenheder.
+	</ul>
+	Here 1) is an example of adverbial use, while 2) shows a nominal use, where the phrase
+	is the subject of the sentence. These different kinds of use mirror a different underlying
+	meaning, which we think should be reflected by the analyses: When playing the role of an
+	adverb, the adverb is the head of the phrase, taking an optional time-indicating
+	object; when playing the role of a noun, the noun is the head of the phrase, thus:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine45.png" alt="Han kom hjem året før">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine46.png" alt="Året før var det bedste år i mit liv">
+	</p>
+	The nominal use demands that the noun is definite; the adverb must be "inden",
+	"forinden", "før" or "efter".
+	</p>
+	</div>
+	
+	<a name="Ikke"></a>	 
+	<h3>Special constructions with "ikke"</h3>
+		 <ul>
+		 	<li>ikke mere ("han kommer her <b>ikke mere</b>"/"... at han <b>ikke</b> kommer her
+			<b>mere</b>") in both cases both adverbs are modifiers to the finite verb.
+			<li>ikke længere ("hun er her <b>ikke længere</b>"/"... at hun <b>ikke</b> er her
+			<b>længere</b>") in both cases both adverbs are modifiers to the finite
+			verb.
+		 </ul>
+	</div>
+
+
+<div class="stine"> 
+<a name="Så"></a>
+<h3>Så</h3>
+	<p>Like in the discussion of "hvor" in "hun ved, hvor svært det kan være" (see the
+	discussion under <a href="verbs.html"> verbs </a>, relatives) we have been troubled by examples with "så AN ..., at ..." ("so AN ...
+	that ..."). Here we have chosen to analyse "så" as a modifier to
+	the AN, and "at"
+	as a nominal object to "så", like this:
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine06.png" alt="Han var så lykkelig at han græd">
+	</p>
+	 <p>For analysis of "så længe + [sentence]", see the paragraph "Relatives" under <a href="http://www.id.cbs.dk/~mtk/treebank/verbs">Verbs</a>.
+</p>
+</div>	
+	
+	
+
+<div class="stine">
+<a name="Obligatory modifiers"></a>
+<h3>Obligatory modifiers</h3>
+	<p>Sometimes prepositional phrases and adverbials occur in a sentence in such a way that a) one tends to
+	analyse it as a modifier since different types of phrases can occur here, but at the same time b) it is not optional in the way modifiers
+	normally are. We have decided to label these "obligatory modifiers" (edge: obl). Here are
+	some examples:
+	<ul>
+		<li>CS+SP: "Det er bedre <b>end i skolen</b>" ("It is better than in the school")
+		(15 examples in the corpus)
+		<li>U=+SP: "Det er den samme <b>som i skolen</b>" (It is the same as in the
+		scholl") (13 examples in the corpus)
+		<li>SP+SP: "Der sker ikke noget, <b>førend i syvende måned</b>" ("Nothing happens
+		until in the seventh month") (5 examples in the corpus)
+		<li>CS+RG: "Hun var stærkere <b>end nogensinde</b>" ("She was stronger than ever")
+		(5 examples in the corpus)
+		<li>CS+CS: "De kan bedre lide det, når de får en is, <b>end når</b> de får en pose slik"
+		("They like it better when they have an ice creme, than when they have a bag of
+		sweets") (1 example in the corpus)
+	</ul></p>
+	<div class="discussion">
+	<p>Both "end" and "som" are a little bit like gapping constructions: "Det er bedre end i
+	skolen" could be analysed as a short form of "Det er bedre end det er i skolen". In that
+	case the analysis should look like this:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine62.png" alt="Det er bedre end i skolen">
+	</p>
+	In spite of the plausibility of this analysis we have decided to let the analysis of "end"
+	and "som" be parallel to the other constructions; but the eliptical character should be
+	kept in mind.
+	</p>
+	</div>
+	</div>
+	
+<hr><small><a href="http://www.id.cbs.dk/~stine/manual/preps.html" target="_parent">http://www.id.cbs.dk/~stine/manual/preps.html</a> last updated by <a href="mailto:stine@id.cbs.dk">Stine Kern Lynge</a> at 2003-11-12 10:11</small></body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html> 
+<head>
+    <title>Annotation guide for the Danish Dependency Treebank: Lexicon learning</title>
+    <link rel="parent" href="http://www.id.cbs.dk/~mtk/treebank/guide.html" id="Treebank" title="Treebank">
+    <link rel="sibling" href="theory.html" id="Theory" title="Theory">
+    <link rel="sibling" href="nouns.html" id="Nouns" title="Nouns">
+    <link rel="sibling" href="verbs.html" id="Verbs" title="Verbs">
+    <link rel="sibling" href="adjs.html" id="Adjectives" title="Adjectives">
+    <link rel="sibling" href="preps.html" id="Prepositions" title="Prepositions">
+    <link rel="sibling" href="misc.html" id="Miscellaneous" title="Miscellaneous word classes">
+    <link rel="sibling" href="spoken.html" id="Spoken" title="Spoken language">
+    <link rel="sibling" href="discourse.html" id="Discourse" title="Discourse structure">
+    <link rel="sibling" href="search.html" id="Search" title="Search">
+    <link rel="self" href="learn.html" id="Learning" title="Learning">
+	<link rel="sibling" href="refs.html" id="References" title="References">
+	<link rel="stylesheet" href="text.css" media="screen" type="text/css">
+	<link rel="stylesheet" href="text.css" media="print" type="text/css">
+    <meta name="author" content="Matthias Trautner Kromann">
+    <link rel="stylesheet" href="text.css" media="screen" type="text/css"><meta name="robot" content="index"></head> 
+
+<body><script language="javascript" type="text/javascript">if (self == top) { top.location = 'learn.html'; } else { top.menu.location = 'learnM.html' }</script>
+
+<h1 align="center">Danish Dependency Treebank</h1>
+<h2 align="center">Annotation guide: lexicon learning</h2>
+
+<p align="center"><b>
+	<a href="../index.html" target="_parent">Matthias T. Kromann</a><br>
+	<a href="../../../www.cbs.dk/id" target="_parent">Department of
+		Computational Linguistics</a><br>
+	<a href="http://www.cbs.dk" target="_parent">Copenhagen Business
+		School</a>
+</b></p>
+
+<a name="Motivation"></a>
+<h2>Motivation</h2>
+
+	<p>Manual tagging of the Danish PAROLE corpus has two important
+	disadvantages: It takes a lot of time, and it is hard to avoid 
+	errors and inconsistencies in the resulting annotation. The Danish
+	PAROLE corpus contains the following number of words, sentences,
+	and text segments:</p>
+	<table border="1" align="center">
+		<tr>
+			<th></th>
+			<th>occurrences</th>
+			<th>mean length (words)</th>
+			<th>mean length (sentences)</th>
+		</tr>
+		<tr>
+			<th>words (&lt;W&gt;...&lt;/W&gt;)</th>
+			<td>290,600</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<th>sentences (&lt;s&gt;...&lt;/s&gt;)</th>
+			<td>16,062</td>
+			<td>18.09</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<th>segments (&lt;body&gt;...&lt;/body&gt;)</th>
+			<td>1,553</td>
+			<td>187.12</td>
+			<td>10.34</td>
+		</tr>
+	</table>
+	<p>Our estimate from our manual tagging is that a human annotator
+	will need approximately 10-20 seconds for each tagged word, if
+	they are trained and concentrated. Over an average working day, 
+	a human tagger can tag approximately one word every 30 seconds. 
+	This gives the following approximate rate for manual tagging of
+	the Danish PAROLE corpus (day = 7.5 hours, week = 37.5 hours,
+	month = 4 weeks, year = 10 months):</p>
+	<table align="center" border="1">
+		<tr>
+			<th></th> 
+			<th>minute</th>
+			<th>hour</th>
+			<th>day</th>
+			<th>week</th>
+			<th>month</th>
+			<th>year</th>
+		</tr>
+		<tr>
+			<th>words per:</th>
+			<td>2</td>
+			<td>120</td>
+			<td>900</td>
+			<td>4,500</td>
+			<td>18,000</td>
+			<td>180,000</td>
+		</tr>
+		<tr>
+			<th>sentences per:</th>
+			<td>0.1</td>
+			<td>6.5</td>
+			<td>50</td>
+			<td>249</td>
+			<td>995</td>
+			<td>19,900</td>
+		</tr>
+		<tr>
+			<th>segments per:</th>
+			<td>0.01</td>
+			<td>0.67</td>
+			<td>5</td>
+			<td>25</td>
+			<td>100</td>
+			<td>1,000</td>
+		</tr>
+	</table>
+	<p>Thus, it would take almost 1.5 years for a full-time person
+	to annotate the entire corpus manually, and the resulting treebank
+	would probably contain many errors and inconsistencies
+	(double-checking by two persons might help). It is therefore
+	important to design semi-automatic tagging methods that can reduce
+	the amount of work needed, and detect errors and enforce some
+	level of consistency.</p>
+
+	<p>Unfortunately, a semi-automatic tagging approach requires the
+	creation of a lexicon with a probabilistic component that can
+	disambiguate between alternatives. Often, creating such a lexicon
+	or adapting it from other sources is a time-consuming task that
+	is hard to do manually, compared with tagging. Instead of writing
+	the lexicon manually, we therefore plan to build both lexicon and
+	treebank in parallel by generating a lexicon semi-automatically
+	from a hand-verified treebank, and using the resulting lexicon to
+	build an even bigger hand-verified treebank. Some parts of the
+	lexicon are generated automatically, other parts are
+	hand-coded:</p>
+	<ul>
+		<li> <b>manual:</b> unweighted cost functions
+		<li> <b>automatic:</b> complements, adjuncts, landing
+			sites, fillers, cost function weights
+	</ul>
+
+<a name="Assumptions"></a>
+<h2>Assumptions</h2>
+
+	<p>The learning algorithm is constructed on the basis of the
+	following assumptions:</p>
+	<ul>
+		<li> The treebank specifies word class and edges for all words
+			in the graph.
+		<li> Word classes are organized in a default multiple
+			inheritance hierarchy. 
+		<li> Edge classes are organized in an inheritance hierarchy
+			that specifies whether each edge is a complement,
+			adjunct, landing, filler, or reference edge.
+		<li> If one word has a certain complement, adjunct, 
+			landing, or filler frame, then all words in its word class
+			have that frame as well (possibly with a different possibility). 
+		<li> If one word has a certain cost function, then all words 
+			in its word class have that cost function as well (possibly
+			with a different weighting).
+		<li> There is at most one complement frame for each set
+			of edge labels.
+	</ul>
+	
+	<p>The learning algorithm takes as its input a treebank with the
+	following information:</p>
+
+<a name="Hierarchy"></a>
+<h2>Hierarchy</h2>
+
+	Different kinds of information are encoded in different parts of
+	the hierarchy. 
+
+<pre>
+	type($cat)
+		-&gt;  
+		-&gt; trans(
+			c1 =&gt; comps1,
+			...
+			cC =&gt; compsC)
+		-&gt; adj(
+			a1 =&gt; adj1,
+			...
+			aA =&gt; adjA)
+		-&gt; fill(
+			fi1 =&gt; fill1,
+			...
+			fiF =&gt; fillF)
+		-&gt; functorial(
+			fu1 =&gt; func1,
+			...
+			fuU =&gt; funcF)
+		-&gt; cost(
+			co1 =&gt; cost1,
+			...
+			coD =&gt; costD)
+		-&gt; count($count)
+
+	type($lex, $cat)
+		-&gt; phon($phon)
+		-&gt; lemma($lemma)
+		-&gt; weights(
+			fu1 =&gt; weight1,
+			...
+			fuF =&gt; weightF)
+		-&gt; count($count)
+
+	word 
+		* one subtype for each complement frame
+		* all subtypes have all adjuncts, fillers, landing sites,
+		  reference edges, etc, with statistical dependencies between
+		  them encoded with cost functions
+
+DYNAMIC WEIGHTS
+
+	* transformational inheritance: 
+		trans('c1' => src('weight{c1}') * ...)
+
+	* cost operator: 
+		weight($path, $op) 
+</pre>
+
+<a name="Algorithm"></a>
+<h2>Learning algorithm</h2>
+
+	<p>Given: word in the treebank with phoneme P, lemma L, category C,
+	complements (c1=>C1, ..., cN=>CN), landing site frame 
+	(l1=>L1, ..., lN=>LN), fillers (f1=>F1,..., fN=>FN), referents 
+	(r1=>R1, ..., rN=>RN), </p>
+
+	<ul>
+		<li> <b>Category</b>: Create a lexeme W with category C,
+		phoneme P, and lemma L; give it type name W:C"I where C" is
+		the two-letter category name of C and I is some suitable
+		index, used to enumerate different complement roles within 
+		the same C" class. 
+
+		<li> <b>Complements</b>: Add complement frame (c1,...,cN) as
+		complement frame transformation to C, and ensure that the
+		complement frame allows the types (C1,...,CN);
+
+		<li> <b>Adjunct governors</b>: Add all adjunct governors
+		(a1,...,aN) to C, and ensure that the adjunct frame allows the
+		types (A1,...,AN).
+
+		<li> <b>Landed nodes</b>: Add all landed nodes (l1,...,lN) to
+		C, and ensure that the landing frame allows the types
+		(L1,...,LN).
+
+		<li> <b>Fillers</b>: Add all filler nodes (f1,...,fN) to 
+		C and ensure that the filler frame allows the types
+		(F1,...,FN)
+
+		<li> <b>Anaphora</b>: Add all anaphora roles (r1,...,rN) to 
+		C, and ensure that the anaphora frame allows the types
+		(R1,...,RN).
+	</ul>
+
+
+	The usefulness of a cost function must be evaluated by two
+	criteria:
+	<ul>
+		<li> <b>strength (predictivity)</b>: percentage of complete parses 
+			where the cost function would apply (ideal: cost function
+			should not be violated in any correct parse).
+		<li> <b>activity (usefulness, discrimination)</b>: percentage
+			of partial parses where the cost function is true (ideal:
+			cost function should be violated in all incorrect partial
+			parses which do not lead to a global optimum). 
+	</ul>
+	The optimal cost function has high strength and high activity,
+	which essentially means that the cost function is good at
+	filtering out bad analyses. 
+	
+	Estimating weights of cost functions by counting number of
+	successses/failures, computing conditional probability, -log
+	transform. 
+
+	Cost functions (discriminators) must apply to all words, in order
+	to avoid effects where one word class is favored over another
+	simply because a discriminator is missing. 
+
+
+
+<hr><small><a href="http://www.id.cbs.dk/~stine/manual/learn.html" target="_parent">http://www.id.cbs.dk/~stine/manual/learn.html</a> last updated by <a href="mailto:stine@id.cbs.dk">Stine Kern Lynge</a> at 2003-11-12 10:11</small></body>
+</html>
+

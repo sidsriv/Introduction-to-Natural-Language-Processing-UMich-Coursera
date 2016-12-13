@@ -1,0 +1,150 @@
+#ylatunniste{
+     FONT-WEIGHT: bold;
+     font-size: 40px;
+/*     height: 15px;	*/
+     width: 90%;
+     margin: 9px ;
+     padding: 0px;
+     border: 0;
+     border-width: 0 0 0 0;
+     background: #F0F0F0;
+     color: #303030;
+     }
+
+#valikko{
+        position: absolute;
+        top: 68px;
+        left: 15px;
+        width: 150px;
+        border: 0;
+/*        background: #F0F0F0;	*/
+/*        color: #F0F0F0;	*/
+        margin: 0;
+        padding: 0;
+        }
+
+
+#content{
+        position: absolute;
+        top: 70px;
+        left: 170px;
+	right: 15px;
+        border: 2px solid #000000;
+        background: white;
+        color: #191970;
+        padding: 20px;
+	FONT-FAMILY: Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+	FONT-SIZE: 12px;
+        }
+
+
+
+CODE {
+	FONT-FAMILY: Courier, "Courier New", monospace; FONT-SIZE: 1.2em
+}
+
+A:link {
+	COLOR: #383838; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #383838; FONT-WEIGHT: normal; TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: #383838; BACKGROUND-COLOR: white; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #383838; BACKGROUND-COLOR: #B0C4DE; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+
+A:link IMG {
+	BACKGROUND-COLOR: transparent; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BORDER-RIGHT: medium none; BORDER-TOP: medium none
+}
+A:visited IMG {
+	BACKGROUND-COLOR: transparent; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BORDER-RIGHT: medium none; BORDER-TOP: medium none
+}
+A:hover IMG {
+	BACKGROUND-COLOR: white; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BORDER-RIGHT: medium none; BORDER-TOP: medium none
+}
+A:active IMG {
+	BACKGROUND-COLOR: transparent; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BORDER-RIGHT: medium none; BORDER-TOP: medium none
+}
+
+
+/* from kt.css */
+H1 {
+	COLOR: #606060
+}
+H2 {
+	COLOR: #191970
+}
+H3 {
+	COLOR: #191970
+}
+H4 {
+	COLOR: #191970; MARGIN-LEFT: 1%
+}
+H5 {
+	COLOR: #191970; MARGIN-LEFT: 1%
+}
+H6 {
+	COLOR: #191970; MARGIN-LEFT: 1%
+}
+HR {
+	COLOR: #191970
+}
+
+
+.alert  { color: red }  /* all elements with CLASS alert */
+.alertb { color: red ; FONT-WEIGHT: bold}  
+
+.canceled { color: lightgray }
+
+.comm { color: green}  
+.note { color: #808080; font-size: 8px}  
+.footnote { color: #808080; font-size: xx-small}  
+
+
+DIV.new { background-color: #B0C4DE ;
+ 	border: none ; 
+	padding: 1em 1em 1em 1em ;
+	FONT-size: 120% }
+DIV.new A { background-color: white }
+DIV.new A:active { background-color: #B0C4DE; color: white}
+DIV.new A:hover { background-color: #191970; color: white }
+/* .new  { line-height: 1.3em; font-size: 1.2em } */
+
+
+
+
+/* from linguistics.css */
+BODY {
+	BACKGROUND-COLOR: #F0F0F0; FONT-FAMILY: Trebuchet, Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 12px
+}
+TD {
+	COLOR: #191970;
+	FONT-FAMILY: Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+	FONT-SIZE: 12px		
+}
+
+TD.lmenu {
+	BACKGROUND-COLOR: #B0C4DE; COLOR: black; BORDER-BOTTOM: black 2px solid; PADDING-RIGHT: 3px; TEXT-ALIGN: right
+}
+TD.lmenu A.current:link {
+	BACKGROUND-COLOR: #B0C4DE; COLOR: white; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+TD.lmenu A:link {
+	BACKGROUND-COLOR: #B0C4DE; COLOR: black; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+TD.lmenu A:visited {
+	BACKGROUND-COLOR: #B0C4DE; COLOR: black; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+TD.lmenu A:hover {
+	BACKGROUND-COLOR: #B0C4DE; COLOR: white; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+TD.lmenu A:active {
+	BACKGROUND-COLOR: #B0C4DE; COLOR: black; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+
+
+
+

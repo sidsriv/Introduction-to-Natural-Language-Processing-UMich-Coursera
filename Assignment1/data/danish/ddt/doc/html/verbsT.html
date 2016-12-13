@@ -1,0 +1,2582 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html> 
+<head>
+    <title>Annotation guide for the Danish Dependency Treebank: Verbs</title>
+    <link rel="parent" href="http://www.id.cbs.dk/~mtk/treebank/guide.html" id="Treebank" title="Treebank">
+    <link rel="sibling" href="theory.html" id="Theory" title="Theory">
+    <link rel="sibling" href="nouns.html" id="Nouns" title="Nouns">
+    <link rel="self" href="verbs.html" id="Verbs" title="Verbs">
+    <link rel="sibling" href="adjs.html" id="Adjectives" title="Adjectives">
+    <link rel="sibling" href="preps.html" id="Prepositions" title="Prepositions">
+    <link rel="sibling" href="misc.html" id="Miscellaneous" title="Miscellaneous word classes">
+    <link rel="sibling" href="spoken.html" id="Spoken" title="Spoken language">
+    <link rel="sibling" href="discourse.html" id="Discourse" title="Discourse structure">
+    <link rel="sibling" href="search.html" id="Search" title="Search">
+	<link rel="sibling" href="learn.html" id="Learning" title="Learning">
+	<link rel="sibling" href="refs.html" id="References" title="References">
+	<link rel="stylesheet" href="text.css" media="screen" type="text/css">
+	<link rel="stylesheet" href="text.css" media="print" type="text/css">
+    <meta name="author" content="Matthias Trautner Kromann">
+<meta name="robot" content="index"></head> 
+ 
+<body  background="background.gif" text="#000000" link="#0000ff" vlink="#444444">
+
+<h1 align="center">Danish Dependency Treebank</h1>
+<h2 align="center">Annotation guide: Verbs</h2>
+
+<p align="center"><b>
+	<a href="../index.html" target="_parent">Matthias T. Kromann</a><br>
+	<a href="../../../www.cbs.dk/id" target="_parent">Department of
+		Computational Linguistics</a><br>
+	<a href="http://www.cbs.dk" target="_parent">Copenhagen Business
+		School</a>
+</b></p>
+
+<p align="center"><b>
+	<a href="http://people.ucsc.edu/~lmikkels" target="_parent">Line
+		Mikkelsen</a><br>
+	<a href="http://ling.ucsc.edu" target="_parent">Department of
+		Linguistics</a><br>
+	<a href="http://www.ucsc.edu" target="_parent">University of
+		California, Santa Cruz</a>
+</b></p>
+
+	<table align="center" border="1">
+		<tr>
+			<th>Dependent</th>
+			<th>Complement roles</th>
+			<th>Adjunct roles</th>
+		</tr><tr>
+			<td>noun</td>
+			<td>subject (<a href="verbsT.html#_subj">subj</a>)<br>
+				direct object (<a href="verbsT.html#_dobj">dobj</a>)<br>
+				indirect object (<a href="verbsT.html#_iobj">iobj</a>)<br>
+				predicative (<a href="verbsT.html#_predN">pred</a>)</td>
+			<td>external topic (<a href="verbsT.html#_xtop">xtop</a>)<br>
+				vocative (<a href="verbsT.html#_voc">voc</a>)<br>
+				parenthetical apposition (<a
+					href="nounsT.html#_appaV">appa</a>)</td>
+		</tr><tr>
+			<td>verb</td>
+			<td>verbal object (<a href="verbsT.html#_Vvobj">vobj</a>)<br>
+				predicative (<a href="verbsT.html#_predV">pred</a>)<br>
+				quotation object (<a href="verbsT.html#_">qobj</a>)</td>
+			<td>verbal relative (<a href="verbsT.html#_relV">rel</a>)<br>
+				subject-oriented modifier (mods)<br>
+				object-oriented modifier (modo)<br>
+				modifier (mod)</td>
+		</tr><tr>
+			<td>adjective</td>
+			<td>predicative (<a href="verbsT.html#_predA">pred</a>)<br>
+				adjectival object (<a href="verbsT.html#_aobj">aobj</a>)<br>
+				particle (<a href="verbsT.html#_">part</a>)</td>
+			<td>modifier (mod)</td>
+		</tr><tr> 
+			<td>preposition</td>
+			<td>locational-directional object (<a href="verbsT.html#_lobj">lobj</a>)<br>
+				prepositional object (<a href="verbsT.html#_Vpobj">pobj</a>)<br>
+				predicative (<a href="verbsT.html#_predV">pred</a>)</td>
+			<td>modifier (mod)</td>
+		</tr><tr>
+			<td>adverbial</td>
+			<td>locational-directional object (<a href="verbsT.html#_">lobj</a>)<br>
+				temporal-durational object (<a href="verbsT.html#_">tobj</a>)<br>
+				adverbial object (<a href="verbsT.html#_">avobj</a>)<br>
+				predicative (<a href="verbsT.html#_predV">pred</a>)</td>
+			<td>modifier (mod)</td>
+		</tr><tr>
+			<td>other</td>
+			<td>&nbsp;</td>
+			<td>coordinator (<a href="miscT.html#_coord">coord</a>)<br>
+				conjunct (<a href="miscT.html#_conj">conj</a>)<br>
+				punctuation (<a href="miscT.html#_pnct">pnct</a>)</td>
+		</tr>
+	</table>
+
+
+<a name="Verbs"></a>
+<h1>Verbs</h1>
+
+<a name="Forms"></a>
+<h1>Forms</h1>
+
+	<p>In <b>imperatives</b>, the subject is obligatorily absent (in
+	the semantic interpretation, the subject is retrieved by
+	coreference with the intended listener; thus, a <a
+	href="verbsT.html#voc">vocative</a> within an imperative always coincides
+	with the subject, but only by coreference). All other complements
+	of the verb are realized normally.</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/imp-01.png" alt="Giv ham den nu!">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/imp-02.png" alt="Thomas, luk lige vinduet!">
+	</p>
+	<p>In <b>infinitives</b>, there is no primary subject dependency, but 
+	the logical subject is in some cases encoded with a subject filler
+	dependency. See our analysis of <a href="verbsT.html#raising">raising and
+	control</a> and our analysis of the special pronoun <a
+	href="nounsT.html#at-pronoun" target="text">'at'</a>.</p> 
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vp-02.png" alt="Han vil have set det">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/dobj-01.png" alt="Vi lod ham gå">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/inf-03.png" alt="De længtes efter at sove">
+	</p>
+	<p>In <b>present participles</b>, the subject is obligatorily
+	absent (in the semantic interpretation, it is retrieved from the
+	noun or verb that the present participle modifies). When the
+	participle modifies a noun attributively, acts as a predicative,
+	or modifies a verb while preceding another of the verbs
+	complements, all of its noun complements must be absent or be
+	realized as morphological complements (as in "den syngende
+	cowboy"). In all other situations, noun complements are realized
+	normally. Most other complements of the participle are realized
+	normally in both cases. Only certain verbs allow the use of the
+	present participle in predicative constructions.</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/presp-01.png" alt="den på Gud troende præst">
+			&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/presp-02.png" alt="Hun fandt ham liggende i græsset">	
+			&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/presp-03.png" alt="Han er irriterende">
+			&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/presp-04.png" alt="Julie kom ind, syngende en arie.">
+			&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/presp-05.png" alt="Hun gik leende hen ad gangen">
+	</p>
+	<div class="discussion">
+		<p>Semantically, the present participle in "Hun fandt ham
+		liggende" can modify either the subject or the object. In this
+		respect, present participles are just like adjectival
+		modifiers (eg, "nøgen" in "Lægen undersøgte patienten nøgen").
+		In the treebank analyses we have chosen not to include
+		information about which participant adjectives or present
+		participles modify, since it would make the manual annotation
+		too complicated, and there is not always enough information in
+		the corpus to decide this question.</p>
+	</div>
+	<p><b>Gerunds</b> behave like nouns in the external syntax and
+	should be tagged as such. In the internal syntax, they are still
+	verbs and can take prepositional objects and (slightly more
+	unusually) nominal objects in accordance with the verb's valency
+	frame.  Subjects are never realized in gerunds, and even though
+	the subject coincides with the possessor in a possessive, the
+	gerund is still marked as a "possd" complement of the possessor,
+	with no explicit subject filler between the possessor and the
+	verb.</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/gerund-03.png" alt="en tålmodig venten på fred">
+			&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/gerund-04.png" alt="ekkoets langsomme hendøen">
+			&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/gerund-05.png" alt="en engleagtig given enhver sit">
+	</p>
+	<p>In <b>perfect participles</b>, there is no primary subject
+	dependency, but all other complement roles are realized as normal.
+	Perfect participles can function as modifiers of nouns and verbs,
+	as verbal objects if they are uninflected, and as predicatives
+	if they appear with adjectival "-n" or "-e" inflection (eg,
+	"skåret"--&gt;"skåren"/"skårne").</p>
+
+	<p>When the perfect participle acts as a predicative or as a
+	modifier to a noun or a verb, there is no filler (semantically,
+	the missing subject is retrieved from the modified noun, or from
+	the subject or direct object of the modified verb).</p>
+	<p align="center"> 
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/perf-09.png" alt="De var kendte">
+	   		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/perf-05.png" alt="en tale skrevet af hende">
+	   		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 </p>
+	<p>When the participle acts as a verbal object (eg, of the
+	auxiliaries "være" ("be"), "have" ("have"), and "blive"
+	("become")), a subject filler is used to pass on the subject
+	argument to the possibly passivized perfect participle.</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/perf-04.png" alt="Hun har skrevet en tale">
+	   		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/perf-03.png" alt="Han er tidligere dømt for vold">
+	   		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/perf-07.png" alt="Han er forsøgt gjort til grin">
+	</p>
+	<p>When acting as modifiers of verbs, perfect participles should
+	be analyzed as subject-oriented (mods) or direct object-oriented
+	(modo) modifiers, if possible.</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/perf-06.png" alt="Barnet skreg, besat af angst">
+	   		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/perf-08.png" alt="Han satte gåsen ind i ovnen,
+			brunet og parteret.">
+	</p>
+	<p>Perfect participles have an active form and possibly one or
+	more passive forms. Verbs can be categorized with respect to
+	whether the active or passive form of the participle is selected
+	when the participle acts as verbal complement to the verbs "have",
+	"være", and "blive", or when it acts as modifier. This is
+	illustrated by the following table:</p> 
+	<table align="center" border="1" width="90%">
+		<tr>
+			<th>verb classes and examples</th>
+			<th>have<br>(have)</th>
+			<th>være<br>(be)</th>
+			<th>blive<br>(become)</th>
+			<th>modifier</th>
+		</tr><tr>
+			<td><p><b>accusatives:</b> ane bede bo bære dele få føle føre
+				give gøre have håbe høre koge købe lade lave lege leve
+				lide love lyde lære læse løbe mene måle nyde opnå rive
+				røre se sige slå sy søge tabe tage tale tro vide vise
+				være yde åbne</p>
+
+				<p><small><i>Hun giver børnene en ballon<br>
+				--&gt; Hun har givet børnene en ballon (subj)<br>
+				--&gt; ?Børnene er givet en ballon (?iobj)<br>
+				--&gt; ?En ballon er givet børnene (?dobj)<br>
+				--&gt; Børnene bliver givet en ballon (iobj)<br>
+				--&gt; En ballon bliver givet børnene (dobj)</i></small></p>
+
+				<!-- CANDIDATES: anbefale anbringe ane anvende arbejde
+				bede behandle beholde behøve benytte beregne beskytte
+				beslutte bestemme bestille bestå besøge betale
+				betragte betyde bevare binde blande bo bringe bruge
+				bryde brænde burde bygge bære danne danse dele deltage
+				dreje drikke dræbe drømme dukke dække elske fejre
+				finde fjerne flytte flyve forelske foretage foretrække
+				forlade forlange forstå forsøge fortælle fremstille
+				fylde få føle føre gemme gennemføre gifte give glemme
+				glæde gribe gøre hakke handle have hedde hente hjælpe
+				holde huske håbe hækle høre illustrere indeholde
+				indsende kalde kende kigge klare klippe koge koste
+				kræve kunne købe lade lave lege leve levere lide ligge
+				ligne love lukke lyde lykke lægge lære læse løbe løfte
+				mangle mene miste modtage måle måtte mærke nyde opdage
+				opleve opnå optage ordne passe pleje presse præsentere
+				prøve redde regne ringe rive røre samle se sende
+				servere sidde sige sikre skaffe skifte skrive skulle
+				skyde skære slå smage smile snakke spare spille spise
+				spørge stikke stille strikke svare sy synge sælge
+				sætte søge sørge tabe tage tale tegne tilbyde tilsende
+				tilsætte tjene tro træffe trække tænke tørre udføre
+				undersøge vaske vente vide ville vinde vise vælge være
+				yde åbne ødelægge ønske -->
+			</td>
+			<td>active</td>
+			<td>passive</td>
+			<td>passive</td>
+			<td>passive</td>
+		</tr><tr>
+			<td><p><b>unaccusatives:</b> blive dø? falde forsvinde gælde?
+				komme lykkes ske stige synes<br></p>
+
+				<p><small><i>Kursen falder<br>
+				--&gt; *Kursen[subj] har faldet<br>
+				--&gt; Kursen[subj] er faldet<br>
+				--&gt; *Kursen[subj] bliver faldet</i></small></p>
+			</td>
+			<td>*</td>
+			<td>active</td>
+			<td>*</td>
+			<td>active</td>
+		</tr><tr>
+
+			<td><p><b>neither:</b> begynde foregå fortsætte følge gå
+				komme køre medvirke møde nå optræde rejse ske skynde
+				slippe slutte sove springe standse starte stege stige
+				stå træde trænge undgå vende virke</p>
+				
+				<p><small><i>Vi går en tur i skoven<br>
+				--&gt; Vi[subj] har gået en tur i skoven<br>
+				--&gt; Vi[subj] er gået en tur i skoven<br>
+				--&gt; Ruten[dobj] er gået af os mange gange før<br>
+				--&gt; Ruten[dobj] bliver gået af os i morgen<br>
+				--&gt; *Vi[subj] bliver gået en tur i
+				skoven</i></small></p>
+
+			</td>
+			<td>active</td>
+			<td>active/<br>passive</td>
+			<td>passive</td>
+			<td>passive</td>
+	</table>
+
+	<div class="discussion">
+		<p><b>vobj or pred?</b> We have chosen to analyze uninflected
+		perfect participles as verbal objects ('vobj') rather than
+		subject-oriented predicatives ('pred'). The intuition behind
+		the predicative analysis is that perfect participles are just
+		like adjectives. The predicative analysis does have some
+		advantages: it makes the analysis of perfect participles
+		coherent with the analysis of copula constructions, explains
+		why perfect participles have '-e' and '-n' inflected forms
+		that closely resemble adjectives, and explains why perfect
+		participles are so easily coordinated with adjectives (eg,
+		"Han er vred og skuffet" ("He is angry and disappointed")).
+		However, the predicative analysis also has some disadvantages:
+		it gives a non-uniform analysis of perfect participles ('vobj'
+		in "Han har spist" ("He has eaten"), but 'pred' in "Den er
+		spist" ("It is eaten")), and does not seem to obey the usual
+		number- and gender-agreement between subjects and predicatives
+		(eg, "Mange *løsladt/løsladte/*god/gode mænd" ("Many
+		released/good men") vs.  "Mange mænd er
+		løsladt/?løsladte/*god/gode" ("Many men are
+		released/good")).</p>
+		
+		<p>One possible explanation is that perfect participles are
+		genuinely ambiguous between being verbal objects and
+		predicatives. However, we have been unable to find tests that
+		would allow us to distinguish between these two alternative
+		uses in practice. For this reason, we have chosen to always
+		prefer the 'vobj' analysis over the 'pred' analysis, except
+		when the participle is explicitly marked with the adjectival
+		'-e' or '-n' inflections.</p>
+		
+		<div class="stine">
+		These considerations also apply to examples like "få den stjålet" ("have it
+		stolen (from you)"). Such an example might be analysed as an example of
+		a resultative construction. But it is definately not resultative to the
+		same degree as "gøre nogen glad" ("make somebody happy"). Besides
+		rewording the predicative-like part ("den er stjålet" ("it is stolen"),
+		"nogen er glad" ("somebody is happy")) reveals that following the
+		considerations above, "stjålet" in "den er stjålet" should be analysed as
+		a "vobj" to "er", not "pred", whereas "glad" in "nogen er glad" should be
+		analysed as "pred".
+		</div> 
+	</div>
+
+
+<a name="*"></a>
+<a name="Dependents"></a>
+<h1>Dependents</h1>
+
+<a name="__Nouns"></a>
+<h2>Noun complements: subjects, direct objects, indirect objects, and
+predicatives</h2>
+
+	<p>Noun complements can be phrases headed by pronouns, common
+	nouns, type-shifted adjectives, and gerunds; infinitival and
+	sentential constructions headed by the special pronoun "at"; and
+	embedded wh-questions headed by interrogative pronouns like "om",
+	"hvem", "hvornår", "hvorfor", etc.</p>
+
+	<p>Verbs may license four different kinds of noun complements:
+	<i>subjects</i> ('subj'), <i>direct objects</i> ('dobj'), 
+	<i>indirect objects</i> ('iobj'), and <i>predicatives</i>
+	('pred'). 	Verbs must license exactly one subject ('subj') or
+	expletive subject ('expl'), and never license more than one noun
+	complement of each type -- in particular, <a
+	href="verbsT.html#_expl">expletives</a> turn subjects into direct objects.
+	Licensed noun complements are always optional, ie, they are not
+	necessarily realized when the verb is actually used. 
+	<span class="stine">
+	For instance the following sentence licenses a subject, but does not realize it:
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine10.png" alt="Med krig menes ikke en udstationering af 2000
+	værneplitige">
+	</p>
+	</span>
+	Noun complements should not be confused with the different kinds of
+	noun adjuncts that a verb may have: <a href="verbsT.html#_xtop">external
+	topics</a> ('xtop'), <a href="verbsT.html#_voc">vocatives</a> ('voc'), and <a
+	href="nounsT.html#_appaV">parenthetical appositions</a>
+	('appa').</p> 
+
+	<p>Verbal complements of modal or auxiliary verbs share the subject
+	via a subject filler dependency (see our analysis of <a
+	href="verbsT.html#raising">raising</a>):</p>
+	<p align="center">
+        <img src="http://www.id.cbs.dk/~mtk/treebank/figs/inf-01.png" alt="Han kan svømme">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="http://www.id.cbs.dk/~mtk/treebank/figs/copula-01.png" alt="Han er forsvundet">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/subject-01.png" alt="Han har sovet">
+	</p>
+	<p>Different noun complement roles can be disambiguated with the
+	following linguistic tests:</p>
+	<ul>
+		<li> <b>subj vs dobj</b>: (1) question test, (2) modal verb
+			test, (3) adverbial test, (4) case marking test, (6)
+			expletive test
+		<li> <b>subj vs iobj</b>: (1) question test, (2) modal verb
+			test, (3) adverbial test, (4) case marking test
+		<li> <b>subj vs pred</b>: (1) question test, (2) modal verb
+			test, (3) adverbial test, (4) case marking test
+		<li> <b>dobj vs iobj</b>: (1) question test, (6) expletive
+			test, (8) PP-paraphrase
+		<li> <b>dobj vs pred</b>: (5) paradigm test, (6) expletive test, 
+			(7) agreement test
+		<li> <b>iobj vs pred</b>: (5) paradigm test, (6) expletive test,
+			(7) agreement test, (8) PP-paraphrase
+	</ul>
+	<p>The linguistic tests are described in detail below:</p>
+	<ul>
+		<li> <b>(1) question test:</b> form the corresponding question,
+			then the noun complements must occur in the order
+			subj/expl &lt; iobj &lt; dobj/pred, and all adverbials must
+			occur after the subject (eg, "At læse ønsker hun ikke" 
+			--&gt; "Ønsker hun ikke at læse?").
+			<p align="center">
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-01.png" alt="Gav Torben den mand
+					en middag?">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-02.png" alt="Ønsker hun ikke at læse?">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-03.png" alt="Kører der en bil?">
+			</p>
+				
+		<li> <b>(2) modal verb test:</b> insert a modal verb, then the
+			subject either appears right after the finite verb, or in
+			fronted position provided there is no noun complement or
+			expletive right after the finite verb (eg, "Bogen giver
+			Marie til Jonas" --&gt; "Bogen vil Marie give til Jonas").
+			<p align="center">
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-04.png" alt="Bogen vil Marie købe">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-05.png" alt="Arnold vil være bager">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-06.png" alt="Lang tid vil der gå">
+			</p>
+
+		<li> <b>(3) adverbial test:</b> insert an adverbial like
+			"not" after the verb, then the adverbial must come
+			after the subject, but can be inserted before any other
+			noun complement (eg, "Fjolser var de" --&gt; "Fjolser var de
+			ikke").
+			<p align="center">
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-07.png" alt="Fjolser var de ikke">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-08.png" alt="Det er nu ham der lyver">
+			</p>
+
+		<li> <b>(4) case marking test:</b> replace the entire noun
+			complement with a personal pronoun with nominative
+			case-marking, then non-extracted subjects without
+			restrictive modifiers and coordinators should have
+			nominative case, whereas all other noun complements should
+			have accusative case (eg, "Peter og ham legede ofte"
+			--&gt; "De/*dem legede ofte").
+			<p align="center">
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-09.png" alt="Dér var han heldig">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-10.png" alt="Jørgen og mig legede ofte">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-11.png" alt="Ham derovre råber meget">
+			</p>
+
+		<li> <b>(5) paradigm test:</b> replace the noun complement 
+			with non-NPs; a noun complement is a predicative if and
+			only if it can be replaced with PPs and APs that can
+			appear predicatively (other than type-shifted APs) (eg, 
+			"Han bliver en god bager" --&gt; "Han bliver glad").
+			<p align="center">
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-12.png" alt="Han er en god bager">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-13.png" alt="Han bliver glad">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-14.png" alt="De kalder ham en idiot">
+			</p>
+			
+		<li> <b>(6) expletive test:</b> insert an expletive "der" in the
+			sentence and change potential direct objects to indefinite
+			noun phrases, then the result should be ungrammatical if
+			the verb licenses a direct object or predicative, and
+			grammatical otherwise (see <a href="http://www.id.cbs.dk/~mtk/treebank/expl">expletives</a>);
+			notice that expletives turn subjects into direct objects
+			(eg, "Pengene tilfalder hende" --&gt; "Der tilfalder hende
+			nogle penge" vs. "Pengene tiltrækker hende" --&gt; "*Der tiltrækker 
+			hende nogle penge"). 
+			<p align="center">
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-15.png" alt="Pengene tilfalder hende">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-16.png" alt="Der tilfalder hende
+					nogle penge">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vcompn-17.png" alt="Pengene tiltrækker hende">
+			</p>
+
+		<li> <b>(7) agreement test:</b> change number and gender of
+			adjectival predicatives; adjectival subject predicatives
+			should agree with subjects in number and gender; adjectival
+			object predicatives should agree with direct objects in number
+			and gender (eg, "De kalder dem *god/*godt/gode", "Hun
+			gjorde den god/*godt/*gode igen", .
+
+		<li> <b>(8) paraphrase:</b> predicatives can usually be
+		paraphrased by APs (cf. Hudson); indirect objects can usually
+		be paraphrased as PPs (cf. Jennifer Herriman, 1995. "The
+		Indirect Object in Present-Day English". Acta Universitatis
+		Gothoburgensis. Göteborg, Sweden.); direct objects usually
+		cannot be paraphrased by PPs or APs.
+			<ul>
+				<li> <i>De var venner</i> =&gt; <i>De var venlige mod
+					hinanden</i>
+			</ul>
+<!--
+				<li> 
+			They remained friends =&gt; they remained friendly towards each
+			other
+			
+			Huset er *god/godt/*gode
+			Maden er god/*godt/*gode
+			Udsendelserne er *god/*godt/gode.
+			De kalder dem *god/*godt/gode
+
+			Han gav hende ikke blomsterne tilbage
+			Han gav dem ikke tilbage
+			Han gav ikke blomsterne tilbage
+
+		PREFERRED NEW SUBJECT IN PASSIVES
+	-->
+	</ul>
+	<p>Direct objects ('dobj') also occur in constructions with
+	object-control (see <a href="verbsT.html#control">control</a>). Non-subject
+	complements headed by "at" are usually analyzed as direct objects,
+	but can also be predicatives (see our analysis of <a
+	href="nounsT.html#at-pronoun"
+	target="text">at</a>).</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/dobj-01.png" alt="Vi lod ham gå">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/dobj-02.png" alt="De forsøgte at sove">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/dobj-03.png" alt="Vi troede at de sov">
+	</p>
+
+	<div class="discussion">
+		<p>Note that the reflexive object of socalled "inherently
+		reflexive" verbs as well as "measure objects" are tagged as
+		'dobj', although these constructions do not allow
+		passivization:</p>
+		<ul>
+			<li>Han skyndte <b>sig</b>.
+			<li>De skammer <b>sig</b>.
+			<li>Den vejer <b>to kilo</b>.
+			<li>Den koster <b>en hel herregård</b>.
+		</ul>
+		<p>In the Dutch treebank (CGN) these two types of objects are
+		tagged with separate dependency labels (SE for obligatorily
+		reflexive complement and ME for measure complements). The
+		motivation for distinguishing these constructions from regular
+		transitive constructions (with direct objects) is that they do
+		not passivize. For us, passivizability is not a necessary
+		criterion for being a direct object. Instead, we propose to
+		tag reflexive complements and measure complements as 'dobj'
+		and encode the lack of passivization (and the restrictions on
+		what can function as 'dobj' with these verbs) in the lexical
+		entry for the verb.</p>
+	</div>
+  
+	<a name="__Indirect_objects"></a>
+<h2>Indirect objects</h2>
+
+	<p>We use "iobj" for indirect objects of ditransitive verbs.</p>
+		<ul>
+	        <li>Det har taget <b>mig</b> lang tid.
+			<li>Det blev <b>forældrene</b> for meget.
+			<li>Jeg købte <b>mig</b> en ny cykel.
+			<li>Han er <b>mig</b> noget langsom. 
+		</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/val-03.png" alt="Han viste hende den">
+	</p>
+	<p>Note that when this argument is expressed with a preposition ("Han
+	viste den til hende") it is tagged as a prepositional object, and not
+	as an indirect object.</p>
+
+	<div class="discussion">
+		<p>An alternative is to tag also the prepositional expression of the
+		beneficiary as "iobj". Our reason for not doing so is the principle that
+		"iobj" and "dobj" are always nominal. Another alternative is to
+		tag the prepositional expression as a modifier ("mod"). The main
+		reason for not doing this is that the "til"-expression behaves
+		more like a complement than a modifier. It is (almost)
+		obligatory, it is ordered before any modifiers (modulo
+		extraposition), and it seems to express the same semantic role as
+		the "iobj", which is definitely a complement.</p>
+	</div>
+
+
+<a name="__Verbs"></a>
+<h2>Verb complements: vobj, pred, and qobj</h2>
+
+	<a name="__Verbal_objects"></a>
+<h3>Verbal objects</h3>
+
+	<p>The label vobj is used for verbal complements. Bare infinitives
+	occur as verbal complements of modal verbs where they share the
+	subject of their governor via a subject filler.	Bare infinitives
+	also occur as complements to verbs of perception,
+	and some object control verbs.</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/inf-01.png" alt="Han kan svømme">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vobj-01.png" alt="Vi så ham gå">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/dobj-01.png" alt="Vi lod ham gå">
+	</p>
+	<p>Past participles occur as vobj of auxiliary verbs, including the
+	passive auxiliary "blive".</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/copula-01.png" alt="han er forsvundet">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/subject-01.png" alt="Han har sovet">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vobj-02.png" alt="Han blev narret">
+	</p>
+	<p>More complex verbal clusters form a chain of local vobj dependencies:</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vobj-03.png" alt="han har skullet undersøges">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vobj-04.png" alt="de må have været taget med">
+	</p>
+	
+	<div class="stine">
+<h3>Predicatives</h3>
+	<p>Verbal predicatives occur with present participles and with inflectet past
+	participles:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine75.png" alt="Stilheden er nærmest larmende">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine76.png" alt="Han blev stående">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine77.png" alt="Det var befriende">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine78.png" alt="Kineserne var skuffede">
+	</p>
+	Also verbal predicatives occur with object predicatives:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine79.png" alt="Jeg har set hende omtalt i avisen">
+	</p>
+	</p>
+	</div>
+	
+<div class="stine"><h3>Quotational objects</h3>
+	<p>The label "qobj" is used to indicate a connection bewteen a verb and a
+	quotation. The label demands, that the sentence is clearly a quotation, and it
+	demands that the verb semantically allows a quotation, like for instance "sige"
+	and "spørge". Here are some typical verbs that take a quotational object:
+	<ul>
+		<li>sige
+		<li>spørge
+		<li>svare
+		<li>mene
+		<li>tilføje
+		<li>rapportere
+		<li>konstatere
+		<li>fastslå
+		<li>skrive
+		<li>oplyse
+		<li>forklare
+		<li>fortælle
+		<li>mumle
+		<li>grine
+		<li>smile
+	</ul>
+	Here are some examples of analysis:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine73.png" alt="Eksperten forklarer: Det er vigtigt at
+		være glad">
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine74.png" aly="Du fortæller nogle mystiske historier,
+		grinede Lena">
+	</p>
+	If the quotation is split in two, the analysis is unchanged:
+	<ul>
+		<li>"Spis din mad, så du kan blive en stor dreng," sagde Carla.
+		<li>"Spis din mad," sagde Carla, "så du kan blive en stor dreng".
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine85.png" alt="Spis din mad, så du kan blive en stor
+		dreng, sagde Carla">
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine86.png" alt="Spis din mad, sagde Carla, så du kan blive en stor
+		dreng">
+	</p>
+	</div>
+
+<a name="__Adjectives"></a>
+<h2>Adjective complements: pred, aobj<div class="old">, part</div></h2>
+
+	<a name="_predN"></a>
+	<a name="_predV"></a>
+	<a name="__Predicatives"></a>
+<h3>Predicatives</h3>
+
+	<p><b>Predicative complement</b> The dependency label "pred" is used
+	for predicative complements. Semantically, these can be oriented
+	towards the subject or the object. A predicative complement can be
+	(headed by) a preposition, noun, adverb, adjective, article
+	(indefinite pronoun), or present participle. Subject-oriented
+	predicative complements occur with copula verbs like "være",
+	"synes", "blive":</p>
+	<p align="center">
+        <img src="http://www.id.cbs.dk/~mtk/treebank/figs/copula-04.png" alt="han er fra Norge">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="http://www.id.cbs.dk/~mtk/treebank/figs/copula-05.png" alt="han er hjemme">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="http://www.id.cbs.dk/~mtk/treebank/figs/copula-10.png" alt="han synes træt">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="http://www.id.cbs.dk/~mtk/treebank/figs/pred-03.png" alt="hun blev en god læge">
+	</p>
+	<p>Object-oriented predicative complements are found in resultative
+	constructions:</p>
+	<ul>
+		<li>De drak ham <b>fuld</b>.
+		<li>Hun løb skoene <b>i laser</b>.
+		<li>De gjorde manden <b>gal</b>.
+		<li><span class="stine">Vi holder byen <b>ren</b>/bilen <b>i
+		gang</b>.</span>
+	</ul>
+	and with verbs like "finde" and "kalde":
+	<ul>
+		<li>Jeg finder ham <b>stædig</b>.
+		<li>De kaldte ham <b>et fjols</b>.
+		<li><span class="stine">Hun havde penge <b>til_gode</b>.</span>
+		<li><span class="stine">Hun følte sig <b>respekteret</b>.</span>
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/pred-01.png" alt="de drak ham
+		fuld">&nbsp;&nbsp;&nbsp;&nbsp;
+        	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/pred-02.png" alt="jeg finder ham stædig">
+	</p>
+	<div class="stine"><p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine25.png" alt="Hun havde penge til_gode">
+	</p>
+	<p>
+	Fixed expressions:
+	<ul>
+		<li>stå <b>parat/klar</b>
+	</ul>
+	</div>
+	</p>
+	There are also constructions that could be considered
+	prepositional predicative complements (at least this is what they
+	are called in PFGA p. 77):
+	<ul>
+		<li>De anså ham for <b>utilregnelig</b>.
+		<li>De regnede ham for <b>idiot</b>.
+		<li><span class="stine">Hun betragtede det som <b>et uheld</b>.</span>
+		<li><span class="stine">Han opfattede det som <b>en fornærmelse</b>.</span>
+	</ul>
+	These could be analyzed in terms of pred as follows:
+	<p align="center">
+        <img src="http://www.id.cbs.dk/~mtk/treebank/figs/pred-05.png" alt="De anså ham for utilregnelig">
+	</p>
+	Predicative complements must be distinguished from predicative
+	adjuncts/modifiers, which describe some circumstance of the event
+	denoted by the verb:
+	<ul>
+		<li>Man bør ikke køre bil <b>fuld</b>. (subject-oriented modifier)
+		<li>Hun købte huset <b>umøbleret</b> (object-oriented modifier)
+	</ul>
+
+	<div class="discussion">
+		<!-- To distinguish predicative complements (pred) from
+		predicative modifiers (mod) we use the following diagnostics:
+		<ul>
+			<li><b>Omissability</b>: Leaving out a predicative complement
+			results in ungrammaticality or a different semantics of the
+			verb, whereas predicative modifiers are optional:
+			<ul>
+				<li>De kaldte ham <b>et fjols</b>. vs. *De kaldte
+					ham. &nbsp;&nbsp;&nbsp;["et fjols" is a pred] 
+				<li>Jeg finder ham <b>stædig</b> vs. Jeg finder
+					ham. &nbsp;&nbsp;&nbsp; ["stædig" is a pred]
+				<li>Man bør ikke køre bil
+					(<b>fuld</b>). &nbsp;&nbsp;&nbsp; ["fuld" is a mod]
+				<li>Hun købte huset (<b>umøbleret</b>).&nbsp;&nbsp;&nbsp;
+					["umøbleret" is a mod] 
+			</ul> 
+			<li> <b>Paraphrase</b>: Predicative modifiers can often be
+			paraphrased with with an adverbial clause of the form "mens/da
+			X var __" (while X was __), while this is not true for
+			predicative complements.
+			<ul>
+				<li>De fandt ham stædig. ~/~> De fandt ham mens han var
+					stædig. &nbsp;&nbsp;&nbsp; ["stædig" is a pred]
+				<li>Man bør ikke køre bil fuld. ~~> Man bør ikke køre
+					bil mens man er fuld. &nbsp;&nbsp;&nbsp; ["fuld" is a mod] 
+			</ul>
+		</ul>
+		-->
+
+		<p>An alternative is to analyse the preposition as a pobj to
+		the verb and the adjective as a dependent of the preposition.
+		The problem with this analysis is that the preposition "for"
+		does not normally allow adjectival complements.  </p>
+
+		<p>An alternative is to (more or less) follow the word class
+		of the complement and tag prepositional complements as pobj,
+		(pro)nominal complements as dobj, adverbial complements as
+		part, adjectival complements as aobj, and present participle
+		complements as vobj. This, however, seems to miss the unity of
+		these constructions.</p>
+
+		<p>The lexical entry for "være" (and other copula verbs) in
+		STO seems to take a middle position. Pred is used for nominal
+		and adjectival complements, but prepositional complements are
+		listed as pobj (e.g. "Sim var <b>over ham</b> med det samme",
+		"Nogen havde været <b>efter ham</b> i skolen", and "Hun var
+		<b>fra den egn</b>"), and some adverbs (prepositions without a
+		complement) are tagged as particles (e.g. "Bøttens låg var
+		<b>på</b>"). Til den sidste type hører muligvis også udtryk
+		som "være til", "være på", og "være med".</p>
+	</div>
+
+	<!--
+	<div class="question">
+		<p>[Q: WHAT ABOUT PAST PARTICIPLES LIKE 'VALGT' IN 'HAN ER VALGT (IND
+		I BESTYRELSEN)'? NOTE 'HAN HAR/*ER VALGT SIT EMNE', SEE EX. 66 AND
+		THE SECTION ON PERFECT PARTICIPLES]</p>
+
+		<p>[Q: IS THE PRED ANALYSIS CONSISTENT WITH THE RELATED
+		CONSTRUCTION: "DE ANTOG HAM FOR AT VÆRE UTILREGNELIG"?] </p>
+	</div>
+	There are also constructions like:
+	<ul>
+		<li>De udråbte hende <b>til formand</b>. &nbsp;&nbsp;&nbsp;
+		<li>De udpegede Svendsen <b>til kasserer</b>.
+	</ul> 
+	which we analyze as regular prepositional objects:
+	<p align="center">
+			<img src="figs/pred-04.png" alt="De udråbte hende til formand">
+	</p>
+	<div class="discussion">
+	<p>
+	An alternative analysis is to analyze the preposition as part and the
+	nominal as pred. An argument against this analysis is that this
+	constructions does not seem to allow the full range of predicative
+	complements:
+
+	<ul>
+		<li>??De udråbte hende <b>til skør</b>.
+			&nbsp;&nbsp;&nbsp;[adjective]
+		<li>*De udpegede Svendsen <b>til på tronen</b>
+			&nbsp;&nbsp;&nbsp;[preposition] 
+	</ul>
+	but only the regular complements to a preposition (nominal, infinitive
+	with "at", finite clause with "at")
+	</div>
+	-->
+
+	<b>Copula constructions:</b> These are basically covered in the
+	sections on 'pred' and 'expl'. One remaining question is whether
+	we should distinguish between predicative and
+	equative/specificational/identificational copula clauses, when
+	both dependents are nominals:
+	<ul>
+		<li> Han er en stærk svømmer. (predicative)
+		<li> Den stærkeste svømmer på holdet er ham. (specificational)
+		<li> Han er Peter. (equative)
+		<li> Peter er ham. (equative)
+		<li> Det er Peter. (identificational)
+	</ul>
+	<p>Analysis of "som X"-constructions is done as follows: 
+	(1) Analyze "som X" as a relative, if possible: </p>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/som-03.png" alt="Som Marie har sagt, er Moskva
+			en by i Rusland.">
+	</p>
+
+	<p>(2) If you can insert "så vel" ("as well") in front of "som",
+	then analyze "som X" as a coordination:</p>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/som-06.png" alt="Han ville danse, før så vel som nu.">
+	</p>
+	
+	<p>(3) If "som X" functions like a predication "er X" (ie, 
+	"historien som fortalt" ---> "historien er fortalt" / "story as
+	told" ---> "story is told", then "som X" is analyzed just like "er
+	X" ). -- that is, "X" is a predicative "pred", unless "X" is a
+	verb, in which case we choose "vobj" instead: </p>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/som-01.png" alt="Han stod som forstenet.">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/som-02.png" alt="historien som fortalt af Mette">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/som-04.png" alt="Han ville være som
+			Peter/i_går/sidste_søndag">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/som-05.png" alt="Han ville danse som
+			gammel/?vanvittig/en vanvittig">
+	</p>
+
+	<ul>
+		<li> Moskva er ganske rigtigt en by i Rusland, som hævdet af Marie.
+	</ul>
+
+	If the verb is finite, the construction is analyzed as a relative
+	clause; if the verb is perfect, "som" is analyzed as the head, and the
+	verb as the "pred" complement of "som".
+	
+	<div class="discussion">
+		<p>The English Dependency Treebank distinguishes equative from
+		predicational copular clauses, using an inversion test
+		(equatives invert, predicational clauses do not) and an
+		embedding test (predicational clauses embed as small clauses
+		without "be", equatives do not). In predicational clauses the
+		(head of the) post-copula phrase is the head of the clause,
+		and the copula and the subject are its dependents. In
+		equatives, the copula is the head, and the post-copular clause
+		is an object.</p>
+
+		<p>The Penn Treebank treats all copular clauses as
+		predicational, including ones with two nominals. The
+		post-copular phrase is uniformly analyzed as XP-PRD.</p>
+
+		<p>The Corpus Gesproken Nederlands does not discuss copula
+		clauses explicitly. Some predicational copula clauses are
+		given under the discussion of the complement label 'PREDC'.</p>
+
+		<p>This leaves two options for the Danish Dependency Treebank:
+		(1) Treat all copula clauses as predicational -- tag
+		all predicate complements as 'pred'. (2) Distinguish
+		predicational copular clauses from
+		equative/specificational/identificational copular clauses  --
+		tag  the complement of the former as 'pred' and the complement
+		of the latter as 'dobj'.</p>
+	</div>
+
+	<a name="__Adjectival_objects"></a>
+<h3>Adjectival objects</h3>
+
+	Adjectival complements bear the dependency label aobj. 
+	<ul>
+		<li>Han kørte <b>træt</b>.
+		<li>De for <b>vild</b>.
+		<li><div class="stine">Hunden gik <b>amok</b>.</div>
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/aobj-01.png" alt="De for vild.">
+	</p>
+
+	<div class="discussion">
+		<p>An alternative is to treat these as predicative complements
+		(pred). There are two arguments against this analysis. First,
+		these verbs do not accept the full range of predicative
+		complements (PPs, NPs, adverbials, present participles etc).
+		Second, the semantics is not (always) predicative: "De for
+		vild" ~/~&gt; "De er vild(e)". Another alternative is to
+		analyze the adjective as a particle (part). </p>
+	</div>
+	
+	<div class="stine">
+	<p>Some further examples:
+	<ul>
+		<li>tage noget alvorligt
+		<li>have det godt/dårligt/vidunderligt
+	</ul></p>
+	<div class="discussion">
+	<p>An alternative is here, too, to analyse "alvorligt" and "godt" as pred, but
+	these constructions are not truly predicative: "noget er alvorligt" is not
+	the correct analysis (since you can take something funny seriously) and neither is
+	"det er godt" the correct analysis. 
+	</p>
+	</div>
+	</div>
+
+
+
+<a name="__Prepositions"></a>
+<h2>Preposition complements: pobj</h2>
+
+	<a name="__Prepositional_objects"></a>
+
+	<p>We use "pobj" for complements headed by a preposition. Some
+	prepositional complement express a (physical) location or
+	direction, others express more abstract relations, including the
+	"af"-phrase in a passive construction.</p>
+	<ul>
+		<li> <div class="old">Hun lagde den <b>på bordet</b>.</div>
+		<span class="stine">(In this example, "på" would now be analysed as lobj to
+		the verb (see the paragraph on lobj). Alternatively it should be analysed
+		as a modifier, since there is
+		no close connection between the verb and the preposition: "Hun lagde den
+		på bordet/i spanden/under hovedpuden". Also "på bordet" goes with many other
+		verbs as well).</span>
+		<li> Han ventede <b>på dem</b>.
+		<li> Sagen blev undersøgt <b>af politiet</b>. 
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/val-04.png" alt="Han lagde den på bordet">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/pobj-01.png" alt="Han stoler på dem">
+	</p>
+	<div class="stine">
+	<p>Further special examples:
+	<ul>
+		<li> Det virkede/lød/så ud som_om hun var glad.
+		<li> Hun lader/opfører sig som_om hun var hjemme.
+		<li> Hun stemte ja til forslaget. ("til" pobj til "stemme")
+		<li> Han sagde nej til tilbuddet. ("til" pobj til "sige")
+	</ul>
+	</p>
+	<p><b>The preposition "med"</b></p>
+	<p>Usually "med" is analysed as mod to the verb, but fixed expressions are
+	exceptions to this rule.<ul>
+		<li><b>være med</b>: 
+		<ul>
+			<li>"være med": "med" is pred to "være"
+			<li>"være med til": "til" is pobj to "med".
+		</ul>
+		<li><b>gå med</b>:
+		<ul>
+			<li>"gå med nogen", "gå med i byen": "med" mod to "gå"
+			<li>"gå med hunden", "gå med [beklædning]", "det går [adjectiv
+			phrase] med noget",
+			"[tiden] går med noget": "med pobj to "gå"
+			<li>"gå med til noget" ("accept"): "med" pobj to "gå", "til" pobj to "med"
+		</ul>
+		<li><b>komme med</b>:
+		<ul>
+			<li>"komme med et sted hen": "med" mod to "komme"
+			<li>"komme med et udspil", "komme med [adjectiv phrase] ud af det
+			med nogen": "med" pobj to "komme"
+		</ul>
+		<li><b>følge med</b>:
+		<ul>
+			<li>"følge med (nogen)": "med" mod to "følge"; "med" can be
+			analysed as part, only if "med" cannot take an object in the
+			particular construction
+			<li>"følge noget op med noget andet": "med" pobj to "følge"
+		</ul>
+		
+		<li><b>skulle med</b>
+		<ul>
+			<li>"det skulle med i billedet": "med" mod to "skulle", "i" mod to
+			"med"
+		</ul>
+		<li><b>have med</b>:
+		<ul>
+			<li>"have noget med": "med" mod to "have"
+			<li>"at have det med at grine": "med" pobj to "have"
+			<li>"have med noget at gøre": "at" dobj to "have", "gøre" vobj to
+			"at", "med" pobj " to "gøre", "noget" nobj to "med"
+		</ul>
+		<li><b>løbe med</b>:
+		<ul>
+			<li>"løbe med nogen", "løbe med et sted hen": "med" mod to "løbe"
+			<li>"løbe med sladder": "med" pobj to "løbe"
+		</ul>
+		<li><b>synge med</b>: "med" mod to "synge"
+		<li><b>høre med</b>: "med" mod to "høre"
+		<li><b>se med</b>: "med" mod to "se"
+		<li><b>spille med</b>: "med" mod to "spille"
+		
+	</ul>
+	</div>
+	<p>To distinguish prepositional complements from prepositional modifiers,
+	we use the following diagnostics (adapted from Philp (1999)).
+	<ul>
+		<li> <b>generality</b>: prepositional complements only apply
+		to particular verbs, whereas prepositional modifiers tend to
+		apply to all verbs.
+        	<li><b>fixed preposition</b>: In prepositional complements that
+        express abstract relations the preposition is fixed in the
+        sense that it cannot be replaced with a semantically similar
+        preposition (without a non-proportional change in
+        meaning). This is not true for prepositional modifiers.
+        <ul>
+			<li>Han ventede <b>på dem/??i dem</b> (pobj)
+			<li>Han ventede <b>på stationen/i gården</b> (mod)
+        </ul>
+	<div class="stine">
+		<li> <b> linear order</b>: Prepositional complements tend to precede
+		prepositional modifiers:
+		<ul>
+	        	<li> Han venter på dem på stationen.<br>
+				 --&gt; ??Han venter på stationen på dem. ("på dem" is
+				 pobj, "på stationen" is mod)
+		</ul>
+		This really is only a tendency and cannot at all be used as an analysing
+		guideline: Search in our tagged corpus reveals that a
+		search for the
+		construction verb + prepositional modifier + prepositional complement comes out with about 50 examples. A search for the
+		construction verb + prepositional complement + prepositional modifier
+		comes out with about 120 examples. The complement + modifier word order is
+		clearly more frequent, but the word order modifier + complement is on the
+		other hand quite common.
+	</ul>
+	</div>	
+	</p>
+
+
+<a name="__Adverbials"></a>
+<h2>Adverbial complements: avobj</h2>
+
+	<div class="stine">
+	<p>The label "avobj" applies to all adverbials analysed as
+	complements (i. e. not displaying the optionality that characterize modifiers) and
+	not interpretable as a particle, a locative-directional object or a time-indicating
+	object (the last two, when applying to adverbs, being subcategories to the
+	category adverbial object. Here are some examples:
+	<ul>
+		<li>Han levede <b>op</b> til sit rygte.
+		<li>Foreningen går <b>ind</b> for dyrevelfærd.
+		<li>Forhandlingerne stod <b>på</b> i 3 dage.
+		<li>Projektet går <b>ud</b> på at beskytte søen.
+		<li>Hun ville gerne holde <b>op</b> med at ryge.
+		<li>Lad sovsen dampe lidt <b>ind</b>.
+		<li>De dukker aldrig <b>op</b> til tiden.
+		<li>Vi har god tid til at tænke tingene <b>igennem</b>.
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine26.png" alt="Han levede op til sit rygte">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine27.png" alt="Foreningen går ind for dyrevelfærd">
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine28.png" alt="Forhandlingerne stod på i 3 dage">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine29.png" alt="Projektet går ud på at beskytte søen">
+	</p>
+	The following principles can help distinguish adverbial objects from particles:
+	<ul>
+		<li><b>Word class:</b> Avobj applies <i>only</i> to adverbs, not to prepositions. Particles on
+		the other hand apply to both adverbs (e.g. "give op") and prepositions
+		(e.g. "skrive under").
+		<li><b>Prefixes:</b> Particles are separable prefixes, which together with
+		the verb form a synonymous complex word form (skrive under -> underskrive, give op
+		-> opgive). Adverbial objects cannot do this (at least not with a preservation
+		of meaning).
+		<li><b>Objects:</b> Particles do not take an object. If it takes an
+		object, it is converted into a pobj. Adverbial objects, on the other hand, often combine with a preposition (ind i, op
+		på). This preposition is analysed as a modifier (mod) or a prepositional
+		object (pobj) according to how close the connection between the adverb
+		and the preposition is in the particular phrase, i.e. whether the phrase
+		is a fixed expression ("køre ind til/i/på/under" =
+		modifier; "leve op til" = fixed expression that does not allow a change
+		of the preposition). 
+	</ul>
+	</p>
+	<p>Adverbial objects differs from lobj, tobj and modifiers too:
+	<ul>
+		<li>Lobj apply only if there is a distict locative-directional meaning involved.
+		<li>Tobj apply only if there is a distinct time-indicating meaning involved. 
+		<li>Modifiers are caracterized by being optional and combining with most verbal phrases.
+	</ul>
+	</p>
+	</div>
+	<p>Lobj (locative-directional object) and tobj (time-indicating object) should be
+	understood as sub-categories to the category avobj. Again, these are complements,
+	i. e. not optional. Below we give some examples and a list of typical
+	locative-directional and time-indicating adverbs and typical verbs/verbal phrases taking a
+	locative-directional or time-indicating object.
+	</p>
+	<p><b>Locative-directional:</b></p>
+	<ul>
+		<li>Langsomt kravlede de <b>op</b> ad bjerget.
+		<li>Min datter bor stadig <b>hjemme</b>.
+		<li>De unge rejser <b>ud</b> i verden.
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine30.png" alt="Langsomt kravlede de op ad bjerget">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine31.png" alt="Min datter bor stadig hjemme">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine32.png" alt="De unge rejser ud i verden">
+	</p>
+	<p><b>Time-indicating:</b></p>
+	<ul>
+		<li>Han blev født <b>den</b> 22 august 1917.
+		<li>Bogen udkommer <b>på</b> mandag.
+		<li>Forestillingen varede <b>3</b> timer.
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine33.png" alt="Han blev født den 22. august 1917">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine34.png" alt="Bogen udkommer på mandag">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine35.png" alt="Forestillingen varede 3 timer">
+	</p>
+	</div>
+
+
+	<a name="__Particles"></a>
+<h2>Particles</h2>
+
+	We use the label part for verbal particles. These are
+	adverbs or prepositions without a complement, which form a close
+	semantic union with the verb. 
+	<ul>
+		<li>Han skrev kontrakten <b>under</b>.
+		<li>De gav <b>op</b>. 
+		<li>De gik sagen <b>igennem</b>.
+		<li>Giften slog hunden <b>ihjel</b>. 
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/particle-02.png" alt="han skrev kontrakten under">
+	</p>
+	The particle is obligatory, in the sense that leaving it out or
+	exchanging it for a regular prepositional phrase results in a
+	different semantics of the verb:
+	<ul>
+		<li> Han skrev kontrakten 
+			&nbsp;&nbsp;&nbsp;&nbsp; [= He wrote the contract] 
+		<li>Han skrev kontrakten <b>under</b>
+			&nbsp;&nbsp;&nbsp;&nbsp;[= He signed the contract; "under" is part]
+		<li>Han skrev kontrakten <b>under</b> bordet
+			&nbsp;&nbsp;&nbsp;&nbsp;[= He wrote the contract under the
+			table; "under" is mod]  
+	</ul>
+	<div class="old">Some, but not all,</div> particles are separable prefixes, which
+	together with the verb form a synonymous complex word form:
+	<ul>
+		<li> skrive under ~ underskrive 
+		<li> give op ~ opgive 
+		<li> <div class="old">melde sig til ~ tilmelde sig
+			&nbsp;&nbsp;&nbsp;&nbsp;[though "til" might be a 'pobj',
+			since it can occur with a 'nobj' "melde sig til kurset"]</div> 
+	</ul>
+	<div class="stine"><p>The following principles can help distinguish particles from
+	adverbial objects (avobj) and prepositional objects (pobj):
+	<ul>
+		<li><b>Word class:</b> Avobj applys <i>only</i> to adverbs, not to
+		prepositions. Pobj applys <i>only</i> to prepositions. Particles on
+		the other hand apply to both adverbs (e.g. "give op") and prepositions
+		(e.g. "skrive under".
+		<li><b>Prefixes:</b> Particles are separable prefixes, which together with
+		the verb form a synonymous complex word form (skrive under -> underskrive, give op
+		-> opgive). Adverbial objects cannot do this (at least not with the preservation
+		of meaning). Prepositional objects cannot do this either.
+		<li><b>Objects:</b> Particles do not take an object. If it takes an object it is converted
+		into a prepositional object. Prepositional objects always carry the possibility of an
+		object ("melde sig til" -> "melde sig til <i>kurset</i>"). Adverbial objects often combine with a preposition (ind i, op
+		på), which is tagged as either mod or pobj. See above under Avobj. 
+	</ul>
+	</p></div>
+	<div class="discussion"><div class="old">
+		<p>For particles that are prepositions by word class an
+		alternative analysis is to tag them as pobj, with the
+		requirement that they be used without a complement. This
+		complicates the analysis of prepositions, which are normally
+		required to take a complement. For particles that are adverbs,
+		an alternative analysis is to tag them as modifiers.</p>
+
+		<p>Some difficult cases from the set of sample analyses (see
+		also the section on adverbial + PP in the chapter on
+		preposition):</p>
+        <ul>
+			<li> De var <b>med</b>. &nbsp;&nbsp;&nbsp;&nbsp;[ex. 29,
+				"med" is probably 'part' and not 'pred', since "med"
+				is not used with the other copula verbs with this
+				meaning (??synes med, *blive med), but it is used with
+				non-copula verbs with the same meaning (komme med, gå
+				med, etc.)]<span class="stine">"Være med" is analysed as
+				pred, since "være" always takes a pred. See under
+				prepositional objects above.</span>
+			<li> Jeg har svært ved at følge <b>med</b>.
+				&nbsp;&nbsp;&nbsp;&nbsp;[ex. 52, "med" is probably
+				'part', even though "med" can occur with an nobj
+				("følge med dem"). These could be considered two
+				different constructions. In the first "med" is `part',
+				in the other it is `pobj'] <span class="stine">"Følge med"
+				is usually analysed as
+				mod. See under
+				prepositional objects above.</span>
+			<li> Lønmodtagerne har mulighed for at møde <b>op</b> på
+				generalforsamlingen. &nbsp;&nbsp;&nbsp;&nbsp;[ex. 65,
+				should be tagged as tagged as 'part', and not `pobj'
+				as in the sample analysis of ex. 65] <span
+				class="stine">"Op" in "møde op" would be analysed as
+				avobj.</span>
+			<li> lægge sin stemme <b>om</b> til heltetenor
+				&nbsp;&nbsp;&nbsp;&nbsp;[ex. 61 -- "om" should be
+				tagged as 'part', cf. the existence of "omlægge"]
+		</ul>
+	</div></div>
+	<div class="stine">
+	<p>
+	In a limited number of cases adjectives can play the part of a particle. Here are some examples:
+	<ul>
+		<li>fritstille - stille frit
+		<li>fastholde - holde fast
+		<li>fastslå - slå fast
+	</ul>	
+	</p>
+	</div>
+
+	<div class="stine"><h2>Locative-directional objects</h2>
+	<p>Lobj applies to adverbs ("rejse <b>ud</b> i verden"), prepositions ("rejse <b>til</b> Frankring"), pronouns ("køre <b>en</b> tur"), nouns ("gå
+	<b>tur</b>") and adjectives ("ligge <b>forrest</b>"). Lobj can be seen as a sub-category
+	to avobj, if headed by an adverb, to pobj if headed by a preposition, to nobj if headed by
+	a noun or pronoun. The same demarcating principles, that apply to avobj, pobj and the
+	rest, apply to lobj. Special principles for the use of lobj are that it indicates
+	a locational-directional meaning. Also it should be possible to replace a
+	locative-directional phrase with other locative-directional phrases.
+	</p>
+	<p><b>Locative-directional objects:</b></p>
+	<ul>
+		<li>Min datter bor stadig <b>hjemme</b>.
+		<li>De unge rejser <b>ud</b> i verden.
+		<li>Det samme vil ske <b>i</b> Danmark.
+		<li>De kørte <b>gennem</b> Europa.
+		<li>Han går <b>tur</b> med hunden hver dag.
+		<li>Det ligger <b>et</b> helt andet sted.
+		<li>Hun stillede posen <b>allerinderst</b>.
+		<li>Vi er gået for <b>langt</b>.
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine31.png" alt="Min datter bor stadig hjemme">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine32.png" alt="De unge rejser ud i verden">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine36.png" alt="Det samme vil ske i Danmark">
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine37.png" alt="Han går tur med hunden hver dag">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine38.png" alt="Vi er gået for langt">
+	</p>
+	<p>List (unfinished) of verbs taking a lobj:
+	<ul>
+		<li>arbejde 		("Han <b>arbejder i</b> et kontorvarefirma.")
+		<li>befinde sig 	("Manden <b>befandt</b> sig <b>i</b> sin lejlighed.")
+		<li>begynde 		("Jeg <b>begyndte på</b> den nye skole i august.")
+		<li>bevæge sig		("De <b>bevæger</b> sig <b>rundt</b> mellem hinanden.")
+		<li>bo			("Hun <b>bor i</b> Grenå.")
+		<li>dreje		("Bilen <b>drejede væk</b> fra vejen.")
+		<li>dukke op		("Den <b>dukkede</b> op <b>hos</b> en af hans kammerater.")
+		<li>fare		("Hunden <b>fór ud</b> på gaden.")
+		<li>finde (uden dobj)	("Brevduerne <b>finder</b> selv <b>hjem</b>.")
+		<li>finde sted		("Arrangementet <b>finder</b> sted <b>i</b> London.")
+		<li>flakke		("Journalister <b>flakker</b> verden <b>rundt</b>.")
+		<li>flytte		("Børnene er <b>flyttet til</b> hovedstaden.")
+		<li>foregå		("Filmen <b>foregik i</b> det gamle København.")
+		<li>fragte		("Han <b>fragter</b> udstyret <b>rundt</b> i byen.")
+		<li>fødes		("Marie er <b>født på</b> Tåsinge.")
+		<li>få			("Kartl <b>fik</b> stærke smerter <b>i</b> benene.")
+		<li>gemme sig		("Katten <b>gemte</b> sig <b>under</b> sengen.")
+		<li>gå			("Hun <b>gik ind</b> gennem døren.")
+		<li>havne		("Nogle flygtninge <b>havnede i</b> et fjernt land.")
+		<li>hente		("Brandmændene <b>hentede</b> deres ejendele <b>ud</b>.")
+		<li>hjælpe		("Mange blev <b>hjulpet væk</b> fra slagmarken.")
+		<li>hælde		("<b>Hæld</b> blandingen <b>i</b> en skål.")		
+		<li>jage		("Fuglene skal <b>jages væk</b> fra frugttræet.")
+		<li>komme		("Han <b>kom ud</b> fra skuret med spindelvæv overalt.")
+		<li>kigge		("Hun <b>kiggede ned</b> på gaden.")
+		<li>kravle		("Barnet <b>kravlede ud</b> på græsplænen.")
+		<li>køre		("Vi <b>kørte til</b> Svendborg.")
+		<li>lande		("Landsholdet <b>lander i</b> København i aften.")
+		<li>ligge		("Huset <b>ligger på</b> en bakketop.")
+		<li>løbe		("Alle <b>løb ud</b> på gaden og råbte og hujede.")
+		<li>nå			("Mette <b>nåede</b> endelig <b>frem</b> til udkigspunktet.")
+		<li>opvokse		("Pigerne er <b>opvokset på</b> landet.")
+		<li>rejse		("De gamle hippier <b>rejste til</b> Indien.")
+		<li>rende		("Drengen <b>rendte op</b> på sit værelse og smækkede døren.")
+		<li>rykke		("De fredsbevarende styrker <b>rykker ind</b> i morgen.")
+		<li>se			("Han <b>så ud</b> på mig gennem ruden.")
+		<li>sejle		("Kongeskibet <b>sejler gennem</b> Lillebælt i dag.")
+		<li>sende		("De gamle blev <b>sendt afsted</b> på ferie.")
+		<li>sidde		("Malkepigen <b>sidder på</b> en lille skammel.")
+		<li>skal		("Nu <b>skal</b> de <b>til</b> Polen i stedet for Bulgarien.")
+		<li>ske			("Denne udviklen vil også <b>ske i</b> Danmark.")
+		<li>skynde sig		("Efter festen <b>skyndte</b> de sig <b>hjem</b>.")
+		<li>slippe		("Fangerne <b>slap ud</b> af fængslet om natten.")
+		<li>smutte		("Hesten <b>smuttede gennem</b> åbningen i hegnet.")
+		<li>spille		("Michael Laudrup <b>spillede</b> også <b>i</b> Italien.")
+		<li>stige		("Clara <b>steg ind</b> i bilen.")
+		<li>stille sig		("Hun <b>stillede</b> sig <b>foran</b> ham med hænderne i siden.")
+		<li>stå			("De <b>stod</b> længe <b>på</b> banegårdspladsen og ventede.")
+		<li>tage		("De unge <b>tog i</b> byen, da festen ebbede ud.")
+		<li>tilbringe (tid)	("Øllet <b>tilbringer</b> mange måneder <b>i</b> de store tønder.")
+		<li>trisse		("Bedstmor <b>trissede ud</b> i haven og satte sig.")
+		<li>trække		("Varerne er nu <b>trukket tilbage</b> fra butikkerne.")
+		<li>tumle		("Han <b>tumlede ud</b> af sengen.")
+		<li>tøffe		("Den gamle bil <b>tøffede hen</b> ad vejen.")
+		<li>vandre		("Så begyndte de at <b>vandre op</b> i bjergene.")
+		<li>vende		("Nete <b>vendte hjem</b> fra udlandet i sidste uge.")
+	</ul>
+	</p>
+	</div>
+	
+	<div class="stine"><h2>Time-indicating objects</h2>
+	<p>Tobj applies to adverbs, prepositions, pronouns and nouns. Tobj can, as lobj, be seen as a sub-category
+	to avobj, if headed by an adverb, to pobj if headed by a preposition, to nobj if headed by
+	a noun or pronoun. The same demarcating principles, that apply to avobj, pobj and the
+	rest, apply to tobj. Special principles for the use of tobj are that it the phrase
+	expresses a time-indicating meaning and could be replaced by other time-indicating
+	phrases.
+	</p>
+	<p><b>Time-indicating objects:</b></p>
+	<ul>
+		<li>Koncerten vil finde sted <b>i_dag</b>.
+		<li>Bogen udkommer <b>på</b> mandag.
+		<li>Han blev født <b>den</b> 22 august 1917.
+		<li>Forestillingen varede <b>3</b> timer.
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine39.png" alt="Koncerten vil finde sted i_dag">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine34.png" alt="Bogen udkommer på mandag">
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine33.png" alt="Han blev født den 22. august 1917">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine35.png" alt="Forestillingen varede 3 timer">
+	</p>
+	<p>List (unfinished) of verbs taking a tobj:
+	<ul>
+		<li>arbejde		("Han <b>arbejder</b> kun <b>et</b> par timer om dagen.")
+		<li>begynde		("Afstemningen <b>begynder mandag</b> klokken 12.")
+		<li>dukke op		("Den ukendte indspilning <b>dukkede</b> op <b>i</b> 1988.")
+		<li>finde sted		("Koncerten vil <b>finde</b> sted <b>i_dag</b>.")
+		<li>foregå		("Filmen <b>foregår i</b> trediverne.")
+		<li>ske			("Det <b>sker hver</b> eneste dag.")
+		<li>slutte		("Konferencen <b>slutter klokken</b> 5.")
+		<li>tage		("Turen derop <b>tager</b> næsten <b>10</b> timer.")
+		<li>udkomme		("Bogen <b>udkommer om</b> to dage.")
+		<li>vare		("Kurset <b>varer 2</b> uger.")
+	</ul>
+	</p>
+	</div>
+
+<a name="__Modifiers"></a>
+<h2>Modifiers</h2>
+
+	<p>Most verbal modifiers are annotated as mod (the three exceptions
+	to this are <a href="verbsT.html#relatives">relative clauses</a>, <a
+	href="verbsT.html#vocatives">vocatives</a>, and <a href="verbsT.html#xtop">external
+	topics</a>).  The modifers tagged as mod include:</p>
+	<ul>
+		<li><b>locative and temporal expressions</b>: mandag, i
+			haven, tidligt, altid, aldrig, mens vi venter, efter de
+			gik, imens, ofte, da vi kom hjem, allerede, nu, inden det
+			bliver mørkt, her, længe, hidtil, når, på femte år
+		<li> <b>manner adverbials</b>: med tryk på, langsomt,
+			aggressivt, godt(?), hvordan  
+		<li> <b>(discourse) particles</b>: dog, nok, jo, vel, nu(?),
+			alligevel, nemlig, imidlertid(?), faktisk(?)
+		<li> <b>expressions of modality</b>: måske, muligvis, sikkert,
+			faktisk
+		<li> <b>negation</b>: ikke
+		<li> <b>focus particles</b>: kun(? - jvf. ex 6), også, igen(?), 
+		<li> <b>purpose clauses</b>: for at trække penge til, hvorfor
+		<li> <b>conditional clauses</b>: hvis det trækker, gør du det
+			en gang til 
+		<li> <b>absolutives</b>: med/uden hende på holdet
+		<li> <b>others</b>: i mit tilfælde, til gengæld, sagt på en
+			anden måde, ligeledes, klart, -mæssigt, foruden ham,
+			bl.a., for femte gang, derfor, idet at vi er forberedte på
+			det, selv, 
+	</ul>
+	<p>In some cases it is not clear from the syntax which element the
+	modifier modifies (e.g. when a PP can modify either the direct
+	object or the verb). In these cases, we follow the principle of
+	low attachment: attach the modifier as low as possible (e.g. to
+	the direct object rather than to its governor). This should not be
+	interpreted as a claim about what speakers/language users do, but
+	simply as a way of choosing an analysis in cases where the syntax
+	allows more than one. </p>
+	<div class="stine"><h3>Series of modifiers</h3>
+	<p>When several modifiers follow each other and they are more tied to each other than
+	to the verb, the first modifier should be made the head of the entire modifying
+	phrase:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine82.png" alt="De sidder på skolebænken fra otte til
+		elleve hver morgen i to uger">
+	</p>
+	</p>
+	</div>
+	
+	
+	<div class="stine">
+	<h3>Special modifiers</h3>
+	<p><b>Modo and Mods</b><br>
+	Modifiers attached to the verb can sometimes be directed very specifically
+	towards the subject of the verb or the object of the verb. In that case the more
+	specific labels "modo" (object modifier) and "mods" (subject modifier) can be
+	used. A test for whether a modifier is directed towards the subject or object is
+	that modo's and mods's can function also as a modifier in the nominal phrase,
+	thus:
+	<ul>
+		<li>Lad dejen hvile tildækket i en time -> Lad den tildækkede dej hvile i
+		en time
+		<li>Børnene sider vandkæmmede og trætte ved bordet -> De vandkæmmede og
+		trætte børn sidder ved bordet
+	</ul>
+	Here are some examples of analysis:<br>
+	Examples of modo:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine68.png" alt="Lad dejen hvile tildækket i en time">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine69.png" alt="Det er dem vi møder på gaden, hujende og
+		skrigende">
+	</p>
+	Examples of mods:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine70.png" alt="Børnene sidder vandkæmmede og trætte ved
+		bordet">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine71.png" alt="Vaflerne blev serveret sprøde og gyldne">
+	</p>
+	</p>
+	<p><b>Modp</b><br>
+	Another sub-category to the class of modifiers are parenthetical modifiers (modp).
+	Some examples follow here:
+	<ul>
+		<li>Nu er det jo ikke ministeren, der finder på dette (<b>skønt</b> han
+		for_tiden er temmelig opfindsom).
+		<li>Således har jeg personligt, <b>op</b> til flere gange, set Dronningen gå
+		tur på Strøget.
+		<li>Her ser vi - <b>overraskende</b> - at kabinen er krympet en anelse.
+	</ul>
+	</p>
+	</div>
+
+<a name="Constructions"></a>
+<h1>Constructions</h1>
+
+<a name="__Passives"></a>
+<h2>Passives</h2> 
+
+	<p>Passivization converts the subject of an active verb into an
+	"af"-complement (tagged as pobj), and converts either a direct
+	object, an indirect object, or (more limited) the nominal object
+	of a prepositional object into a new subject (subj). Passivization
+	can be expressed morphologically (verb stem + -"s") or
+	syntactically ("blive" + past participle).</p>
+	<ul>
+		<li> Sagen <b>undersøges</b> af
+			politiet.&nbsp;&nbsp;&nbsp;&nbsp;[dobj -&gt; subj] 
+		<li> Sagen <b>bliver undersøgt</b> af
+			politiet.&nbsp;&nbsp;&nbsp;&nbsp;[dobj -&gt; subj]
+		<li> Peter <b>blev givet</b> en stor
+			gave.&nbsp;&nbsp;&nbsp;&nbsp;[iobj -&gt; subj]
+		<li> Sagen <b>bliver set</b> på af
+			politiet.&nbsp;&nbsp;&nbsp;&nbsp;[nobj of pobj -&gt; subj] 
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/passive-01.png" alt="Sagen undersøges af politiet.">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/passive-02.png" alt="Sagen blev undersøgt af politiet.">
+	</p>
+    <p>Almost all verbs in Danish have a passive infinitive, present,
+    past and past participle form. The passivization converts the
+    subject into an "af"-complement of the verb, and converts
+    either a direct object, and indirect object, or the nominal object
+    of a prepositional object into a new subject.</p>
+
+	<p>Passive verb forms occur as complements (vobj) to modals and
+	"be":</p>
+	<ul>
+		<li>Han skal <b>undersøges</b>.
+        <li>Han er <b>blevet undersøgt</b>.
+	</ul>
+	<div class="discussion">
+		<p>Alternatively, one could analyze "af"+nominal as a modifier
+		to the verb.</p>
+	</div>
+
+
+<a name="__Expletives"></a>
+<h2>Expletive subjects</h2>
+
+	<p>Expletive subjects (labeled "expl") mostly occur with the word
+	"der", but locative PPs and the place adverbial "her" is sometimes
+	used as expletive subject as well. Any verb that does not have a
+	direct object can undergo expletive shift -- that is, the subject
+	of the verb is converted into a direct object (labeled "dobj")
+	with the restriction that the new direct object must be
+	indefinite, and a locative or temporal adverbial (usually "der")
+	becomes the expletive subject (labeled "expl").</p>
+	<ul>
+		<li> <b>Der</b> mangler en gaffel.
+		<li> <b>Her</b> er tale om et klokkeklart mord. 
+		<li> <b>Der</b> er tilfaldet den ældste datter en stor pengesum. 
+		<li> <b>I en drøm</b> vil åbenbares Guds formål med dig, Johannes. 
+	</ul>
+	<p align="center">
+   		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/val-05.png" alt="Der mangler en gaffel">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/expl-03.png" alt="Her er tale om et mord">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+	<p>Verbal complements of the finite verb share the expletive
+	subject via a [expl] filler.</p>
+    <p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/expl-01.png" alt="Der er tilfaldet hende en pengesum">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/expl-02.png" alt="I en drøm vil åbenbares Guds formål">
+	</p> 
+	<p>It is important to distinguish expletive subjects from fronted
+	adverbials. In clauses with a complex verbal form, this is done by
+	the position of the logical subject: if the logical subject
+	immediately follows the finite verb (below left), the initial
+	constituent is a modifier (mod) and the logical subject is subj.
+	If the logical subject follows the right-most verbal form (below
+	right), the adverbial is expl and the logical subject is dobj.
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/expl-04.png" alt="Der er fejlen opstået.">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/expl-05.png" alt="Der er opstået en fejl.">
+	</p>
+	<p>If there is only one verb, try inserting an auxiliary "vil".
+	Alternatively, use the definiteness of the post-verbal nominal as
+	a guide: if the post-copular nominal is definite (below left), it
+	is the subject of a non-expletive construction (and the initial
+	"der" is a modifier). If the post-copular nominal is indefinite
+	(below right), it is a direct object of an expletive construction
+	(and "der" is an expletive subject).</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/expl-06.png" alt="Der opstod fejlen.">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/expl-07.png" alt="Der opstod en fejl.">
+	</p>
+
+	<div class="discussion">
+		<p>An alternative analysis is to tag the expletive as a regular
+		subject (subj), but this analysis obscures the fact that the
+		presence of the expletive subject affects the valency of the
+		verb: it is only with expletive subjects that these verbs
+		allow direct objects.</p>
+
+		<p>Another alternative is to analyze the transformed subject as a
+		subject rather than a direct object. However, this fails to
+		capture the fact that the post-verbal nominal in most respects
+		behaves as a direct object and not as a subject: it is
+		accusative (not nominative), it appears exactly in the
+		position of direct objects, and it does not allow the presence of 
+		another direct object.</p>
+	</div>
+	
+
+	<a name="_voc"></a>
+<a name="__Vocatives"></a>
+<h2>Vocatives</h2>
+
+	<p>The adjunct label voc is used for nominals that refer to the
+	intended listener, but serve no complement function with respect
+	to the verb.</p>
+	<ul>
+		<li> Luk så den dør, <b>Marie</b>!
+		<li> <b>Marie</b>, vil du/I godt lukke den dør?
+		<li> <b>Marie</b>, jeg lukker døren nu.
+	</ul>
+	Vocatives are characterized by being either:
+	<ul>
+		<li> <b>pronouns (2nd person):</b> du, I
+		<li> <b>definite adjectives (pos./superlative):</b> (du/I/min)
+			elskede, søde, gamle, sødeste
+		<li> <b>indefinite noun:</b> dreng, gamle mand, far, smed,
+			hest, brumlebi
+	</ul>
+	<p>The vocative must be placed either at the beginning or the end of
+	the sentence. A vocative can also be placed in the right field of
+	a verbal phrase before any nominal or prepositional objects, and
+	before any adverbials, but possibly before verbal objects and
+	"at"-infinitives. Examples:</p>
+	<ul>
+		<li> Marie, luk så den dør!
+		<li> Luk så den dør, Marie!
+		<li> Marie, vil du/I godt lukke den dør?
+		<li> ?Vil du/I, Marie, godt lukke den dør?
+		<li> Vil du/I godt lukke den dør, Marie?
+		<li> Marie, jeg lukker døren nu.
+		<li> Jeg lukker døren nu, Marie.
+		<li> Vil du [Marie] være så venlig [Marie] at lukke den dør nu [Marie]?
+		<li> Far/søde/elskede/min søde, vil du komme med kaffen?
+		<li> Vil du komme med kaffen, far/søde/elskede/min søde?
+		<li> Mænd/*drengene/fremmede
+		<li> Broder/gamle mand/kammerat, hent lige avisen.
+		<li> *Jeg/*mig/du der/*ham-hende-den-der/*vi/I drenge/jer
+			drenge/dem luk så den dør.
+		<li> Luk nu den dør, du/I der/I.
+		<li> Luk nu, drenge, den dør!
+		<li> Kom nu herhen, hest!
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/voc-01.png" alt=" Luk så den dør, Marie!">
+	</p>
+
+	<a name="_xtop"></a>
+<a name="__External_topics"></a>
+<h2>External topics</h2>
+
+	<p>External topics are sentence-initial or sentence-final phrases
+	that are duplicated by a pronoun within the sentence. These are
+	tagged with the special adjunct edge xtop. </p>
+	<ul>
+		<li> <b>Marie</b>, hun er da lidt underlig idag.
+		<li> Er hun ikke lidt underlig idag, <b>hende Marie</b>?
+		<li> <b>Marie</b>, hende har jeg ikke set meget til på det seneste. 
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/xtop-01.png" alt="Marie, hun er da lidt underlig idag.">
+	</p>
+	<p>If the main sentence is V2 ("declarative"), then there is a strong
+	preference for the resumptive pronoun to immediately succeed the
+	external topic by topicalization. If the main sentence is V1
+	("interrogative"), then normal word order is preserved, and the
+	resumptive pronoun does not have to immediately succeed the
+	external topic.</p>
+
+	<p>The construction "når X, så Y" is analyzed as an external topic
+	construction as well:</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/xtop-02.png" alt="Når solen står op, så er
+			livet smukt igen.">
+	</p>
+	<p>External topics are sentence-initial phrases that are
+	duplicated by a pronoun within the sentence. If the main sentence is
+	V2 ("declarative"), then there is a strong preference for the
+	resumptive pronoun to immediately succeed the external topic by
+	topicalization. If the main sentence is V1 ("interrogative"), then
+	normal word order is preserved, and the resumptive pronoun does not
+	have to immediately succeed the external topic.</p>
+	<ul>
+		<li> Marie, hun er da lidt underlig idag.
+		<li> Marie, er hun ikke lidt underlig idag.
+		<li> Marie, hende har jeg ikke set meget til på det seneste.
+		<li> ??Marie, jeg har ikke set meget til hende på det seneste.
+		<li> Og børnene, har du hørt noget til dem for nylig?
+		<li> ??Og børnene, du har vel ikke hørt meget til dem for nylig?
+		<li> Grøn, det er nu ikke nogen pæn farve.
+		<li> Grøn, synes du virkelig det er en pæn farve?
+		<li> Skrive opgave i dag, det kan jeg ikke forestille mig at han vil.
+		<li> Skrive opgave, tror du han vil det?
+		<li> Når han er sulten, så spiser han altid for meget.
+	</ul>
+
+<a name="__Raising/control"></a>
+<h2>Raising and control</h2> 
+
+	<p>In raising and subject control structures, the infinitive
+	shares the subject of the raising/control verb via a subject
+	filler:</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/raising-01.png" alt="han lader til at være hjemme">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/control-3.png" alt="de prøvede at finde den">
+	</p>
+	In object control structures, the subject filler for the
+	infinitive is the direct object of the control verb:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/control-4.png" alt="han overtalte dem til at købe it">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/control-5.png" alt="jeg anser ham for at være pålidelig">
+	</p>
+	Note that some control verbs take a bare infinitival complement
+	(without "at"):
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/control-1.png" alt="Han lader børnene svømme">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/control-2.png" alt="svømme vil han ikke lade
+			børnene gøre selv">
+	</p>
+	For a good analysis of raising and control, see Hudson's Internet
+	Encyclopedia.
+
+<div class=stine>
+	<p>Control verbs may produce both object fillers as well as subject fillers. Here is an 
+	example of a direct object filler:
+	<p align=center>
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine18.png" alt="Jeg fik en fest stablet på benene">
+	</p>
+	</p>
+</div>		
+
+	<!--
+	Flere af de anholdte ventes krævet fængslet for de omfattende
+	billetbedragerier. Politiken, 17.9. 2004.
+	-->
+
+	<div class="discussion">
+		<p>The motivation for including the subject fillers for verbal
+		complements is to indicate that they necessarily have the same
+		subject (semantically speaking) as their governor.</p>
+	</div>
+
+	<div class="question">
+		<p>Is the analysis of "jeg anser ham for at være pålidelig"
+		compatible with the analysis suggested for <a
+		href="verbsT.html#prep-pred">"jeg anser ham for pålidelig"</a>?</p>
+	</div>
+	
+	<div class="stine">
+		<p>Below is a list of the control verbs for which we have consequently
+		added a subject filler dependency:
+			<ul>
+				<li>afvise
+				<li>agte
+				<li>begynde
+				<li>beslutte
+				<li>elske
+				<li>forekomme
+				<li>foretrække
+				<li>formå
+				<li>forsøge
+				<li>håbe
+				<li>love
+				<li>magte
+				<li>nå
+				<li>pleje
+				<li>prøve
+				<li>synes (se ud til)
+				<li>søge
+				<li>tilstræbe
+				<li>vente
+				<li>vælge
+				<li>ønske
+			</ul>
+		
+		This is an incomplete list. We have not yet had the resources to work on a
+		more complete list. There are also some problems concerning parallel constructions
+		with "V + P + at", e.g. "Han vil prøve på at komme til tiden" ("He will try to be
+		on time"). These constructions should have a subject filler too, but again
+		we have not had the resources to do the necessary analysing work in order
+		to have a complete
+		picture of these constructions. We have therefore not added a subject
+		filler in such constructions.	
+		</p>		
+	</div>
+
+	<a name="_rel"></a>
+<a name="__Relatives"></a>
+<h2>Relatives</h2>
+
+	<p>Relative clauses that modify a clause are analyzed as adjuncts of
+	the finite verb. For these we use the special adjunct edge
+	rel, which is also used for relative clauses that modify
+	nominals.</p>
+	<ul>
+		<li> Jeg har lavet kage, <b>som du bad mig om</b>.
+		<li> De har restaureret kirken, <b>hvilket har pyntet en hel del</b>.
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-09.png" alt="Jeg har lavet kage, som du bad mig om.">
+	</p>
+
+
+	<p>Relatives are constructions where a clause (called the
+	<i>relative clause</i>) attaches itself as a "rel"-adjunct to its
+	governor (ie, the <i>relativized phrase</i>). The relativized phrase 
+	must satisfy a secondary role within the relativized clause,
+	either by having a secondary filler dependency to some governor
+	within the relative clause, or by being the antecedent of some 
+	relative or interrogative pronoun within the first phrase in the
+	relative clause. The verb in the relative clause must either have 
+	V2 word order, or V3 verb order where the first</p>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-01.png" alt="ham der synger">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-03.png" alt="ham som vi kender">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+	<p>Relatives can be quite confusing, when there is more than one
+	and it is combined with it-clefts and and expletives:</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-18.png" alt="hvad det er jeg mener der går galt">
+	</p>
+
+	<p>The relative pronoun is analyzed as a dependent of some head
+	inside the relative clause. In the case of subject and object
+	relatives, the governor is a verb. In other cases the relative
+	pronoun is a dependent of a preposition:</p>
+	<ul>
+		<li> kvinden <b>til hvem han sendte brevet</b>
+		<li> ham <b>på hvem vi ser</b>
+		<li> ham <b>som vi ser på</b>
+		<li> det tidspunkt <b>på hvilket han mente vi var skøre</b>
+	</ul>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-05.png" alt="ham på hvem vi ser">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-14.png" alt="ham som vi ser på ">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+	
+	<p>Note that whether the preposition is pied-piped  with the relative
+	pronoun to the front of the clause or not makes no difference for the
+	dependency structure (without pied-piping we simply have a
+	discontinuous PP). It does make a difference for the choice of
+	relative pronoun: "hv"-pronoun for pied-piping and "som" when the
+	preposition is not pied-piped. This correlation is captured in the
+	lexicon.</p>
+
+	<p>The relative pronoun is anaphorically dependent on the element
+	that the relative clause modifies, which we indicate with a
+	secondary dependency edge labelled ref.</p>
+
+	<p>The relative pronoun may itself have dependents, as in the case
+	of the genitive relative pronoun "hvis":</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-08.png" alt="barnet hvis mad vi anretter">
+	</p>
+
+	<p>Some terminology: <i>relativized word</i> = word that has been
+	extracted from below the relative verb; <i>relative verb</i> =
+	verb that heads the relative clause; <i>relativizer</i> =
+	optional relative pronoun or prepositional phrase with embedded
+	relative pronoun.</p>
+
+	<p>In relative clauses without a relative pronoun, the function of
+	the modified element with respect to the internal syntax of the
+	relative clause is indicated via a filler dependency:</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-02.png" alt="ham vi kender">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-13.png" alt="hende vi gav den til">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+	<p>Relative clauses that modify a clause are analyzed as adjuncts of
+	the finite verb. For these we use the special adjunct edge
+	rel, which is also used for relative clauses that modify
+	nominals.</p>
+	<ul>
+		<li> Jeg har lavet kage, <b>som du bad mig om</b>.
+		<li> De har restaureret kirken, <b>hvilket har pyntet en hel del</b>.
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-09.png" alt="Jeg har lavet kage, som du bad mig om.">
+	</p>
+
+
+	<div class="stine">
+	<p>
+	The relative pronoun does not always pick up the reference from the last phrase of
+	the relativized sentence. Especially in constructions with "det + være + pred",
+	the relativized phrase is "det", if "det" does not refer to something previously
+	mentioned.
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine17.png" alt="Det er den dygtigste, der vinder prisen">
+	</p>
+	A reconstruction reveals the correct analysis:
+	<ul>
+		<li>*Den dygtigste, der vinder prisen, er det"
+		<li>Det, der vinder prisen, er den dygtigste
+	</ul>
+	</div>
+
+	<a name="wh-pronoun"></a>
+	<a name="wh-question"></a>
+	<p><b>Free relatives / embedded wh-questions.</b> Free relatives 
+	are relatives where the relativized phrase is a wh-phrase. Some
+	examples are shown below:</p>
+	<ul>
+		<li> De spurgte <b>hvem der stjal kagerne</b>.
+		<li> Han spiste <b>hvad de havde</b>.
+		<li> Gør <b>hvad du vil</b>. (PFGA, p. 156)
+		<li> Jeg brød mig ikke om <b>hvad jeg så</b>.  (PFGA, p. 156)
+		<li> Han vidste <b>hvornår jeg ankom</b>.
+		<li> Han spurgte <b>hvad de manglede</b>.
+		<li> <b>Hvem de valgte</b>, er ikke afgørende.
+		<li> <div class="stine">Debatten handlede om <b>hvorvidt stavepladen var fup</b>.
+		<li> <b>Hvor der ikke er mødepligt</b>, vil der være opgaver.
+	</ul>
+	These examples are analyzed just like normal relative clauses:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/interrogative-10.png" alt="han spurgte hvem der
+			kom">&nbsp;&nbsp;&nbsp;&nbsp; 
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-16.png" alt="han spiste hvad han havde">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/interrogative-09.png" alt="han spurgte hvad de
+			manglede">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-17.png" alt="hvem de valgte er afgørende">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>	
+	<p>Wh-relatives differ from normal relatives by not allowing the
+	relative pronoun "som" for objects and subjects, but otherwise
+	they have the same properties, including the obligatory use of
+	the relative pronoun "der" in subject relatives and the
+	optionality of the relative clause, as in: </p>
+
+	<ul>
+		<li> Hvem der derimod kom ind i stuen, det var Marie. 
+		<li> Denn wem die Magie einer solchen Stunde nie bewußt
+			geworden, wird ebenso wenig verstehen.
+		<li> "Nogen ødelagde en rude -- jeg ved ikke hvem" / "Somebody
+			broke a window -- I don't know who"). 
+		<li> Hvor dygtig han end er, så får han ikke stillingen.
+		<li> Hvor gode hans kvalifikationer end er, (så) får han ikke
+			stillingen.
+	</ul>
+	<div class="stine">
+	<p>
+	In the "hvor + AN"-constructions it is difficult whether to consider "hvor" a
+	modifier of the adjective or to consider "hvor" as the head of the relative
+	clause. We have decided to follow the "hvor"-as-modifier-analysis:
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine03.png" alt="Hvor langt dette oprindelig har været, er umuligt
+	at sige">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine04.png" alt="Alle ved, hvor svært det kan være">
+	</p>
+	<div class="discussion">
+	An alternative would be to follow the intuition that "hvor" must be the head of
+	the relative clause. Such an analysis would look like this:
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine05.png" alt="Alle ved, hvor svært det kan være">
+	</p>
+	The problem with this analysis is, that it conflicts with the understanding of
+	"hvor" as a modifier to "svært" and of "svært" being the head of the predicative
+	frase. We would not like to say that "hvor" is the [pred] of "være", and the
+	consequence is that the analysis points out to heads of the frase "hvor
+	svært".</p>
+	</div>
+	</div>
+	 
+	In German (PJ, "Tysk Grammatik"):
+	<ul>
+		<li> Es gab Wirtshäuser, die zu betreten den Studenten
+			verboten war. (Böll)
+		<li> Der junge Beisem, dem die Regeln der Bruchrechnung
+			beizubringen ich mich verpflichtet hat. (Böll)
+		<li> Ich weiß nur ein Gesicht, dessen veredelte Wirklichkeit
+			durch mein Einbildungskraft korrigieren zu wollen sündhaft
+			wäre. (Mann)
+		<li> Die den Sinn des Martyrium leugneten, [die] gerieten am
+			leichtesten in Verfolgung und Folter. 
+		<li> Du zahlst jetzt [das], was du getrunken hast. 
+		<li> Wem Gott Kinder gibt, dem gibt er auch sorgen.
+	</ul>
+	Han spurgte hvem der kom" and "Han spurgte hvem. A class of more
+	problematic examples are listed below:
+	<ul>
+		<li> Vi opdagede <b>til hvem han sendte brevene</b>.
+		<li> Han redegjorde for <b>på hvilket tidspunkt og under
+			hvilke omstændigheder han købte maleriet</b>.
+		<li> Han redegjorde for <b>på hvilket tidspunkt han købte
+			maleriet ?(og) under hvilke omstændigheder</b>.
+		<li> Spørgsmålet om <b>hvor stor (en) andel af forskningsmidlerne
+			forskerne frit kan råde over</b>.
+	</ul>
+	
+	<ul>
+		<li> Han gav noget til nogen. Jeg ved ikke
+			<b>hvem/hvad/hvor/hvorfor/hvordan/hvornår/med hvem/til
+			hvem/af hvilken årsag/på hvilket grundlag</b>.
+		<li> Jeg kan ikke forklare <b>hvor/hvorfor/hvordan/hvornår/med
+			hvem/til hvem</b>.
+		<li> Han gav kuverten til nogen. Jeg så ikke <b>til
+			hvem</b>.
+		<li> Vi havde uforholdsmæssigt mange røverier , uden at jeg
+			kan forklare <b>hvorfor</b>.
+	</ul>
+	<ul>
+		<li> Det er derfor at han siger det.
+		<li> Hvorfor det er han siger det. 
+		<li> hvorfor det er at han siger den slags. 
+	</ul>
+	<p>These are sometimes called head-less relative clause (with reference
+	to the fact that they do not modify an external head), but we prefer
+	the term 'independent relative clause', since, on our analysis, they
+	do have a head, namely the relative pronoun. What is special about this
+	construction is that the relative clause functions as a complement in
+	its own right, and not as a modifier of a complement. This is
+	reflected in our analysis by having the relative pronoun function as a
+	complement to the external governor: </p>
+
+	<p>Independent relatives have the same form as embedded
+	interrogatives, but the two can be distinguished by their
+	semantics, as reflected by the subcategorization properties of
+	their governor:</p>
+	<ul>
+		<li>Han spiste {<b>hvad de havde</b>}
+			&nbsp;&nbsp;&nbsp;&nbsp;[independent relative] 
+		<li>Han spurgte {<b>hvad de havde</b>/*den}
+			&nbsp;&nbsp;&nbsp;&nbsp;[embedded interrogative] 
+	</ul>
+	<p><b>Embedded interrogatives.</b> Interrogatives can occur as
+	dependents to an external governor. Embedded wh-interrogatives are
+	analyzed like relative clauses.</p>
+
+	<p><b>VPs and APs as relativized phrases.</b> Relative clause
+	typically modify nouns, but (non-restrictive) relative clauses can
+	also modify a verb or adjective: </p>
+	<ul>
+		<li> Jeg har lavet kage, som du bad mig om.
+		<li> Huset er grønt, hvilket er en dejlig farve.
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-09.png" alt="Jeg har lavet kage, som du bad mig
+			om.">&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+
+	<b>Reduced relatives.</b> 
+	<ul>
+		<li> vin <b>købt specielt til lejligheden</b> (cf. vin <b>som
+			er</b> købt specielt til lejligheden) 
+		<li> huer <b>strikket i ren uld</b> (cf. huer <b>som er</b>
+			strikket i ren uld) 
+		<li> en maskine <b>konstrueret efter særlige principper</b>
+			(cf. en maskine <b>som er</b> konstrueret efter særlige
+			principper)
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/mod-01.png" alt="vin købt til lejligheden">
+	</p>
+
+	<div class="discussion">
+		German data (judgements by Sabine Kirchmeier-Andersen):
+		<ul>
+			<li> Wer/*wen die Schüler verachtet, is ein schlechter Lehrer.
+			<li> Wen/*wer die Schüler verachten, ist ein schlechter Lehrer.
+			<li> Ich verachte wer/*wen die Schüler haßt.
+			<li> Ich verachte wen/*wer die Schüler hassen.
+			<li> Ich frage wer/*wen die Schüler verachtet.
+			<li> Ich frage wen/*wer die Schüler verachten.
+		</ul>
+
+		<p align="center">
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/interrogative-04.png" alt="han spurgte hvad 
+				de manglede">
+		</p>
+		An alternative is to extend the analysis of <a
+		href="verbsT.html#____id_rel">independent relatives</a> to embedded
+		interrogatives. Under this analysis the "wh"-word is the head
+		of the construction which takes the finite verb as a rel
+		dependent. Arguments in favor of the relative clause analysis:
+		<ul>
+			<li> The fact that the two constructions display the same
+				word order follows naturally.
+			<li> The tagger need not distinguish the two constructions
+				in the treebank.
+			<li> It provides a natural explanation for the occurrence
+				of "der" in embedded subject interrogatives, an
+				otherwise puzzling fact (Diderichsen 1957: 183): "Han
+				spurgte hvem <b>der</b> kom."
+		</ul>
+		Arguments against the relative clause analysis:
+		<ul>
+			<li> It yields a non-uniform analysis of embedded and
+				matrix "wh"-interrogatives.
+			<li> In matrix interrogatives the finite verb is the head,
+				and the "wh"-word is its dependent
+			<li> In embedded interrogatives, the "wh"-word is the
+	        	head and the finite verb is its dependent. 
+			<li> The interpretive difference between independent
+				relatives and embedded interrogatives is not reflected
+				in the syntactic analysis.
+		</ul>
+		Arguments in favor of the interrogative analysis:
+		<ul>
+			<li>It provides a uniform analysis of embedded and matrix
+				interrogatives. 
+			<li>It follows the tradition.
+			<li>It accomodates the semantics of this construction
+		</ul>
+		Arguments against the interrogative analysis: It provides no
+		obvious account of the presence of "der" in embedded subject
+		interrogatives. Several analyses are possible, but none of
+		them are without problems.
+		<ul>
+		        <li> "der" is an expletive subject, "hvem" is a dobj
+	        	(compare: der kom en mand). 
+		        <b>advantages</b>: uses existing analysis (of
+		        expletive constructions). 
+				<b>problems</b>: the use of "der" in embedded subject
+				interrogatives is less restricted than ordinary
+				expletive constructions (han spurgte hvem der havde
+				taget af kagen -- *der havde taget en mand af kagen)
+			<li> "der" is a modifier to the finite embedded verb (I
+				believe this is the analysis proposed in diderichsen
+				(1957:183) where it is stated that in this use "der"
+				is 'clearly an adverbial and not a subject
+				pronoun'. <b>advantages:</b> no comparison with
+				expletive constructions. <b>problems</b>: ad hoc, such
+				modifiers are not allowed elsewhere
+			<li> "der" is a modifier to "hvem". <b>advantages</b>: no
+				comparison with expletive constructions.
+				<b>problems</b>: ad hoc, such modifiers are not
+				allowed elsewhere.
+			<li> "der" is a modifier to the embedding verb.
+				<b>advantages</b>: no comparison with expletive
+				constructions. <b>problems</b>: ad hoc, such modifiers
+				are not allowed elsewhere
+		</ul>
+		<p><b>What the other treebanks do.</b> Corpus Gespokenes
+		Nederlands (CGN Syntactische Annotatie pp. 47-48)))
+		distinguishes independent relatives (`hoofdloze
+		relatiefzinnen') from embedded interrogatives (`afhankelijke
+		vraagzinnen'), and give some tests for how to distinguish them
+		in the corpus (e.g. whether one can insert a personal pronoun
+		in front of the relative pronoun - if yes, it is a relative
+		clause, if no, it is an embedded interrogative.)</p>
+
+		<p>Penn Treebank (1995 Bracketing Guidelines pp. 169-170))
+		also distinguishes independent relatives ('head-less
+		relatives' in their terminology) from embedded interrogatives
+		('indirect questions' in their terminology). They give
+		semantic criteria for distinguishing the two.</p>
+	</div>
+
+	<div class="discussion">
+		<p>In the DG analysis, we always assume that the relativizing
+		phrase lands on the relativized phrase with a "relz" landing
+		edge.  This is not shown in the treebank analyses, but
+		corresponds to the following graphs:</p>
+
+		<p align="center">
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-01dg.png" alt="ham der synger">
+				&nbsp;&nbsp;&nbsp;&nbsp;
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-05dg.png" alt="ham på hvem vi ser">
+				&nbsp;&nbsp;&nbsp;&nbsp;
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-09dg.png" alt="Jeg har lavet kage, som du
+					bad mig om.">
+				&nbsp;&nbsp;&nbsp;&nbsp;
+		</p>
+		<p>Hudson analyzes relative pronouns as heads of the relative
+		clause, which allows him to avoid the use of anaphoric references
+		(he does not deal with relative prepositional phrases, eg, "til
+		hvem") and give a more uniform account of relative clauses with
+		and without relative pronouns. This analyzes may have great
+		advantages during parsing as well, because the relative pronoun
+		can be attached right away.</p>
+
+		<p>Another (perhaps even more attractive) analysis is to: (1)
+		in subject relatives, the relative pronoun lands on the relative
+		verb and has the relativized word as its antecedent,
+		giving V2 order in the verb; (2) in relatives with any other
+		relative phrase, the relative phrase lands on the relativized word
+		and has the relativized word as its antecedent, giving V2 order in
+		the relative verb; (3) in all other relatives (ie, those without a
+		relative phrase), the relative verb creates a filler node that has
+		the relativized word as its antecedent, also resulting in V2 order.</p>
+	</div>
+	<div class="discussion">
+		Post-nominal modifiers headed by a perfect participle could be
+		analyzed as reduced subject relative clauses:
+		<p align="center">
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-15.png" alt="vin købt til lejligheden">
+		</p>
+		<p>Alternatively, this construction can be analyzed as a regular
+		mod adjunct, headed by the perfect participle. The internal
+		structure of the modifier is the same under this analysis. The
+		only difference is that `mod' replaces `rel'.</p>
+	</div>
+
+	<div class="discussion">
+		<p>As discussed in Gerhard Helbig, "Studien zur deutschen Syntax", 
+		the traditional distinction between relatives, embedded
+		wh-questions, and clauses headed by a complementizer is somewhat
+		ad-hoc, since it defines the three classes in terms of mutually
+		inconsistent morphological, syntactic, semantic and pragmatic
+		criteria, and many examples are extremely hard to classify in a
+		consistent way.</p>
+	</div>
+	
+	<div class="stine">
+	<h3>Prepositional phrase as relativized phrase</h3>
+	<p>Usually the relativized phrase is a nominal phrase of some kind or a sentence,
+	that is, the relativized phrase is a verbal phrase. In a few cases the relativized
+	phrase can be a prepositional phrase - a phrase headed by a preposition. This
+	preposition then is the governor of the relative clause.</p>
+	<p>In the corpus we have only come across a few examples, 9 examples of the
+	following 6 expressions:
+	<ul>
+		<li>i den udstrækning
+		<li>i det omfang
+		<li>i hvilket omfang
+		<li>i hvilken grad
+		<li>i hvilken kategori
+		<li>for hvem
+	</ul>
+	Examples of analysis follow below:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine89a.png" alt="Huset er åbent i det omfang ressourcerne
+		tillader det">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine89b.png" alt="Marie, for hvem Peter har stor
+		betydning, er 89 år">
+	</p>
+	</div>
+	
+	<div class="stine">
+	<h3>"Ligesom" and "som"</h3>
+	<p>"Ligesom" and "som" (meaning "ligesom") often marks a relative construction, but not
+	always. To determine whether the construction is in fact a relative clause, we have used
+	the following criteria:
+	<ul>
+		<li>If the sentence is not complete on its own, the construction is
+		analysed as a relative clause with a filler dependency.
+		<li>If the sentence is complete on its own, the construction is analysed
+		as a non-relative construction, that attaches itself to its governor as a verbal object (vobj).
+	</ul>
+	Here are some examples of the different analyses:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-09.png" alt="Jeg har lavet kage, som du bad mig om.">
+	</p>
+	Here "som" could be replaced by "ligesom". If we do not analyse this as a relative
+	clause, the analysis would look like this:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine87.png" alt="Jeg har lavet kage, som du bad mig om.">
+	</p>
+	Here "bede om" obviously lacks an object, and this indicates, that the
+	relative-analysis is correct. Here is another example:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine88.png" alt="Solfangerne skal levere varmt vand,
+		ligesom solen opvarmer stuen">
+	</p>
+	This is an analysis parallel to the non-relative analysis above, but with this
+	example there is no part missing; the sentence is complete. A relative analysis
+	would therefore be wrong here.
+	</p>
+	</div>
+	
+	<div class="stine">
+	<h3>Subordinate conjunctions</h3>
+	<p>Some subordinate conjunctions (CS) (dengang, før, da, siden, hvis, når, fordi, end)
+	sometimes have some marks of a relative
+	clause: The sentence they take seems to be missing that something, that the CS
+	represents. This indicates that these constructions should be analysed as relatives. On
+	the other hand, another guideline we have followed in determining whether a construction
+	should be analysed as a relative or not, is whether the CS most likely
+	would be able to take a "som" - making it a relative - or an "at" - making it a
+	vobj. And all of the subordinate conjunctions mentioned above most likely would take an
+	"at", which indicates that an analysis that sees them as taking a relative would be wrong.</p>
+	<p>These to tests for whether it is a relative or not, point in two directions. We have decided to go with the
+	vobj-analysis, since the fact that they cannot take the relative pronoun "som" indicates
+	that they are not truly relatives. This on the other hand leaves us with an unsolved
+	problem, namely that these sentences often miss an otherwise obligatory part (direct
+	object, nominal object or even subject).
+	</p>
+	<h3>The adverbial "så længe"</h3>
+	<p>Regarding the adverbial "så længe", we believe that the correct analysis is that "så
+	længe" takes a sentence as a relative. This is because this phrase actually tends to be
+	able to take the relative pronoun "som" (e.g. "Jeg sover lige så længe, som jeg har lyst
+	til"). Here is an axample of the analysis: 
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine09.png" alt="Så længe jeg har fat i den lange ende, går det
+		godt">
+	</p>
+	</p>
+	</div>
+	
+<a name="__Interrogatives"></a>
+<h2>Interrogatives</h2>
+
+	<p>Polar questions, including alternative questions, exhibit
+	subject-verb inversion. The dependency structure, however, is
+	identical to that of the corresponding declarative:</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/interrogative-01.png" alt="gik han hjem?">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/interrogative-07.png" alt="han gik hjem.">
+	</p>
+	<p>In wh-interrogatives the "wh"-word usually occupies the
+	sentence-initial position, irrespective of its dependency
+	role:</p>
+	<ul>mak
+		<li> <b>Hvem</b> fandt cyklen? 
+		<li> <b>Hvad</b> fandt de?
+		<li> <b>Hvordan/hvornår</b> fandt de cyklen?
+		<li> <b>Hvor stor en andel</b> giver han os?
+		<li> Han fandt <b>hvad</b>?
+	</ul>
+	<p>Again, the linear order has no effect on the dependency
+	structure, which is identical to that of the corresponding
+	declarative clauses. This holds true also in cases of 'long'
+	extraction, where the governor for the wh-word belongs to an
+	embedded clause (last example).</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/interrogative-02.png" alt="hvad fandt de?">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/interrogative-08.png" alt="de fandt cyklen.">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/adj-01.png" alt="Hvor stor en andel giver han os?">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/interrogative-03.png" alt="hvad troede de at
+			hun ønskede at hun fandt?">
+	</p>
+	Note that "hvad" is also used to question verbal complements, but
+	is still tagged as "dobj" in this case:
+	<ul>
+		<li><b>Hvad</b> ville/kunne/må de? (De ville/kunne/må <b>synge</b>)
+	</ul>
+	Embedded polar questions are headed by "om", which we analyze as a
+	preposition that takes a verbal complement
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/interrogative-05.png" alt="Han spurgte om den
+			var god nok">
+	</p>
+	Tag questions are adjuncts (mod) to the finite verb of the tagged
+	clause. Note that the verb in the tag bears a filler dependency to
+	an element of the matrix clause.
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/interrogative-06.png" alt="Solen er oppe, er den ikke?">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/interrogative-11.png" alt="Solen skinner ikke, gør den?">
+	</p>
+
+	<div class="discussion">
+		<p>As an alternative one can analyze "om" as a conjunction,
+		which is linked to the external governor (the finite verb of
+		the matrix clause) by a special complement edge (or possibly
+		as a dobj). Two facts speak in favor of the preposition
+		analysis:
+		<ul>
+			<li> "spørge" can take other pobj's (eg, "Han spurgte
+				<b>efter/til</b> kokken.")
+	 		<li> "om" can also take nominal complements after "spørge" (eg, 
+	     		"Han spurgte om <b>tilladelse</b>").
+	 	</ul>
+		<p>If "om" in embedded polar questions is analyzed as a
+		preposition the two constructions would receive a unified
+		analysis.</p>
+	</div>
+
+	<div class="discussion">
+		<p>A comment on the analysis of "hjem" as a modifier to "gik":
+		alternatively "hjem" could be analyzed as a complement, either
+		part or a locative-directional complement, if we decide to
+		include such a dependency. This has no bearing on the analysis
+		of interrogatives.</p>
+	</div>
+
+<a name="__VP_ellipsis"></a>
+<h2>VP ellipsis</h2>
+
+	<p>VP ellipsis is typically realized as VP anaphora, with the proform
+	"det". The proform is tagged as a dobj to the verb:</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vpe-01.png" alt="Vi så den, og det
+			gjorde de også">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vpe-02.png" alt="Marie kan synge, men Susan kan ikke.">
+	</p>
+
+	<div class="discussion">
+		<p>An alternative is to analyze "det" as a (special type of)
+		vobj. The dobj analysis seems better in so far as it is
+		compatible with "det" being simply a personal pronoun. On the
+		other hand, the vobj analysis reflects the fact that the
+		antecedent for the proform is verbal.</p>
+
+		<p>VPE constructions without proforms are analyzed in terms
+		of [vobj] fillers also needs to be compatible with the
+		existence of VPE without proforms:</p>
+		<ul>
+			<li> Marie kan synge rent, men Susan kan ikke.
+			<li> Vi besøgte de byer (som) I gjorde. 
+		</ul>
+		The last example involves antecedent contained deletion, and
+		that here the proform is impossible: *Vi besøgte de byer (som)
+		I gjorde <b>det</b>.
+	</div>
+
+	<a name="it-clefts"></a>
+<a name="__Clefts"></a>
+<h2>Clefts</h2>
+
+	<p>Clefts are analysed as copula clauses, where the relative
+	clause is an extraposed dependent of the subject (below left).
+	This analysis is supported by the fact that exactly this
+	dependency structure found without extraposition (below right).
+	These correspond to wh-clefts in English, also known as
+	pseudo-clefts.</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/copula-08.png" alt="det er ham vi mangler">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/copula-09.png" alt="det vi mangler er ham">
+	</p>
+	<ul>
+		<li> Det var pænt af ham at komme.
+		<li> Det var pænt af ham at han kom.
+		<li> Det at komme var pænt af ham.
+		<li> Det at han kom, var pænt af ham.
+		<li> At komme var pænt af ham.
+		<li> At han kom, var pænt af ham.
+		<li> Det siges/forlyder/foreslås at han kommer.
+		<li> Det sagdes/forlød at han kom.
+		<li> Det var/blev klart at han ville komme.
+		<li> Det forskrækkede/overraskede os at hun skreg.
+	</ul>
+
+<a name="__Progressives"></a>
+<h2>Progressive</h2>
+
+	<p>Progressive aspect is expressed syntactically, either by
+	coordination (analyzed as standard coordination) or by "være" plus
+	prepositional construction (analyzed as a predicative):</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/progressive-02.png" alt="han sidder og maler">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
+        <img src="http://www.id.cbs.dk/~mtk/treebank/figs/progressive-01.png" alt="han er ved at male">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/progressive-03.png" alt="han er i gang med at male">
+	</p>
+
+	<div class="discussion">
+		<p>Alternatively, the preposition can be analyzed as a pobj to
+		"være". The fact that we analyze other prepositional
+		complements to copula verbs as pred, speaks in favor of the
+		pred analysis. On the other hand, this is a construction where
+		"være" would be said to be be used as an auxiliary verb, under
+		theories that make such a distinction, whereas in predicative
+		constructions "være" is used a main verb.</p>
+	</div>
+
+	<div class="question">
+		<p>How do we capture that this is a specialized construction,
+		including:
+		<ul>
+			<li> the prepositions cannot be exchanged for others?
+			<li> the nobj for "i" must be one of the nouns "gang" or "færd"?
+			<li>"ved" and "med" must take an "at" + infinitive complement?
+		</ul>
+		<p>Also, should the inifinitive share the subject of "være"?
+		(Probably not)</p>
+	</div>
+
+
+
+<a name="Other"></a>
+<h2>Other phenomena</h2>
+
+	Hypothetical statements and conditionals:
+	<ul>
+		<li> Vandt jeg bare i Lotto i morgen, kunne jeg købe et nyt hus.
+		<li> Vinder jeg i Lotto i morgen, kan jeg købe et nyt hus.
+		<li> Havde han ikke været så uforsigtig, var det aldrig gået så galt. 
+	</ul>
+	Other:
+	<ul>
+		<li> Så lille hun er!
+	</ul>
+	Parenthetical sentences:
+	<ul>
+		<li> De kom halvanden time for sent, (hvad der|hvilket) ikke
+		overraskede os. 
+
+		<li> Den var god, hva'?
+	</ul>
+
+	<ul>
+		<li> Har du hørt hvem der kommer i aften?
+		<li> Som X skriver: "Jeg er optimist".
+		<li> Bogen er ikke, som man kunne tro, negativ og hadefuld. 
+		<li> et sagt udsagn
+	</ul>
+
+    A main clause may be modified by another following main clause.
+    <ul>
+        <li> Stolen er da smuk, er den ikke?
+        <li> Stolen er smuk, ja.
+        <li> Stolen er smuk, ja den er.
+        <li> Stolen er da smuk. Er den ikke?
+    </ul>
+    Hypothetical statements and conditionals:
+    <ul>
+        <li> Vandt jeg bare i Lotto i morgen, kunne jeg købe et nyt hus.
+        <li> Vinder jeg i Lotto i morgen, kan jeg købe et nyt hus.
+		<li> Havde han ikke været så uforsigtig, var det aldrig gået så galt.
+		<li> De gav hunden gift, hvad han ikke vidste. 
+		<li> Han så glad ud, rolig ud, ...
+    </ul>
+	Quotation:
+	<ul>
+		<li> Jeg er et dejligt menneske, synes Marie. Hvorfor gør de
+			så den slags imod mig?
+		<li> (At) vi bliver inviteret til Firenze, fortalte Marie os i
+            går.
+	</ul>
+	Ergatives:
+	<ul>
+		<li> Han knækker grenen --&gt; Grenen knækkede
+	</ul>
+
+<a name="References"></a>
+<h2>References</h2>
+
+	<ul>
+		<li> Müller, Stefan (2002) Complex Predicates: Verbal
+		Complexes, Resultative Constructions, and Particle Verbs in
+		German, CSLI Publications, Studies in Constraint-Based
+		Lexicalism.
+	</ul>
+
+
+<hr><small><a href="http://www.id.cbs.dk/~mtk/dtag/ddt/verbs.html" target="_parent">http://www.id.cbs.dk/~mtk/dtag/ddt/verbs.html</a> last updated by <a href="mailto:mtk@id.cbs.dk">Matthias T. Kromann</a> at 2004-09-23 11:57</small></body>
+</html>
+

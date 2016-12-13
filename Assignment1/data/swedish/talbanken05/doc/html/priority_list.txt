@@ -1,0 +1,23 @@
+PR
+PA
+HD
+FV
+VG
+IV
+IF
+IM
+BS
+SP
+SS, ES, FS, VS, OO, EO, FO, IO, VO
+AA, KA, RA, OA, TA
++A, CA, MA, NA, VA, XA
+AT
+ET
+DT, XT, TT
+XX
+CJ
+CC
+C+
+++
++F, EF, XF, MD, AG, AN, DB, MS, PL, PR, PT, UK, YY
+I?, IC, IG, IK, IP, IQ, IR, IS, IT, IU, JC, JG, JR, ST

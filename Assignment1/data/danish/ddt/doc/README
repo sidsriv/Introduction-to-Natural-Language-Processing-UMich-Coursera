@@ -1,0 +1,219 @@
+This is the readme file for the Danish part of the CONLL-X Shared Task.
+
+Version: $Id: README,v 1.2 2005/12/12 16:15:46 erwin Exp $
+
+
+1. Preamble
+
+    1.1 Source
+	
+	The Danish Dependency Treebank (DDT) is available from
+	http://www.id.cbs.dk/~mtk/treebank/
+		
+	We used the Malt-XML version produced by Joakim Nivre et al.
+
+    1.2 Copyright
+
+	The Danish Dependency Treebank is copyrighted material.
+
+	    * (c) 2002-2004 by Matthias Trautner Kromann
+	      (http://www.id.cbs.dk/~mtk) and the Department of
+	      Computational Linguistics at the Copenhagen Business
+	      School (http://www.id.cbs.dk), who own the copyright to
+	      all dependency annotations in the Danish Dependency
+	      Treebank.
+
+	    * (c) 1998 by the Society for Danish Language and
+	      Literature (http://www.dsl.dk), who own the copyright to
+	      the underlying PAROLE corpus and the "msd" and "lemma"
+	      annotations.
+
+	The dependency annotations in the Danish Dependency Treebank
+	were carried out in 2002-2003 by Matthias Trautner Kromann
+	with the assistance of Stine Kern Lynge and Line Hove
+	Mikkelsen.
+
+	The PAROLE corpus was collected by Ole Norling-Christensen and
+	the Society for Danish Language and Literature, and consists
+	of quotations of 150-250 words from a wide range of randomly
+	selected linguistically representative Danish texts from
+	1983-1992. The copyright to these quotations belongs to the
+	authors of the original texts, and their inclusion in the
+	PAROLE corpus is licensed by §22 in the Danish law on
+	Copyright (lovbekendtgørelse nr.  618 af 27. juni 2001) which
+	states that it is permitted to quote from copyrighted works
+	according to a "fair use" principle. The source of each
+	quotation is listed in the DTAG encoded treebank files (for
+	technical reasons, meta information cannot be encoded in the
+	corresponding TIGER-XML encoded treebank files).
+
+    1.3 License
+
+	The copyright owners of the Danish Dependency Treebank
+	(M.T. Kromann, the Department of Computational Linguistics,
+	and the Society for Danish Language and Literature) grant you
+	the right to use the Danish Dependency Treebank free of charge
+	under the GNU Public License. This means that you are free to
+	use and distribute the Danish Dependency Treebank, both
+	commercially and non-commercially, and that you are free to
+	create derivative works, as long as they are also released
+	under the GNU Public License. The GNU Public License
+	(contained in the file LICENSE-GPL in this release) describes
+	your specific rights and obligations in this respect.
+
+2. Documentation
+
+    2.1 Data format
+
+    	Data adheres to the following rules:
+
+    	* Data files contain one or more sentences separated by a
+	  blank line.
+
+    	* A sentence consists of one or tokens, each one starting on a
+	  new line.
+
+    	* A token consists of ten fields described in the table
+	  below. Fields are separated by one tab character.
+
+	* All data files will contains these ten fields, although only
+          the ID, FORM, CPOSTAG, POSTAG, HEAD and DEPREL columns are
+          guaranteed to contain non-underscore values for all
+          languages.
+
+	* Data files are are UTF-8 encoded (unicode).
+
+
+	Field 1: ID 	
+
+	    Token counter, starting at 1 for each new sentence.
+
+	Field 2: FORM
+
+	    Word form or punctuation symbol
+
+	Field 3: LEMMA 	
+
+	    Stem of word form. Not available for Danish, so contains
+	    always an underscore.
+
+	Field 4: CPOSTAG 
+
+	    Coarse-grained part-of-speech tag. 
+
+	    --------------------------------
+	    Value:  Description:
+	    --------------------------------
+	    A	    adjectives
+	    C	    conjunction
+	    I	    interjection
+	    N	    noun
+	    P	    pronoun
+	    RG	    adverb
+	    SP	    preposition
+	    U	    unique
+	    V	    verb
+	    X	    extra-linguistic units
+	    --------------------------------
+
+	Field 5: POSTAG 	
+
+	    Fine-grained part-of-speech tag
+
+	    -------------------------------------------
+	    Value:	Description:
+	    -------------------------------------------
+	    AN		normal adjective
+	    AC		cardinals
+	    AO		ordinals 
+	    CC		coordinating conjunction
+	    CS		subordinating conjunction 
+	    I		interjection
+	    NP		proper noun
+	    NC		common noun 
+	    PP		personal pronoun
+	    PD		demonstrative pronoun
+	    PI		indefinite pronoun
+	    PT		interrogative/relative pronoun
+	    PC		reciprocal pronoun
+	    PO		possessive pronoun 
+	    RG		adverb
+	    SP		preposition
+	    U		unique
+	    VA		main verb
+	    VE		medial verb 
+	    XA		abbreviation
+	    XF		foreign word
+	    XP		punctuation
+	    XR		formulae
+	    XS		symbol
+	    XX		other 
+	    -------------------------------------------
+
+	Field 6: FEATS 	
+
+	    List of set-valued syntactic and/or morphological
+	    features. See the file paroledoc_en.pdf for more
+	    information.
+	
+	Fields 7: HEAD 	
+
+	    Non-projective head of current token, which is either a
+	    value of ID or zero ('0')
+	
+	Field 8: DEPREL 	
+
+	    Dependency relation to the non-projective-head, which is
+	    'ROOT' when the value of HEAD is zero. See html
+	    documentation for a desciption of the dependency relations.
+
+	Field 9: PHEAD 	
+
+	    Projective head of current token, which is always an
+	    underscore because it is not available from the Danish
+	    treebank
+
+	Field 10: PDEPREL 
+
+	    Dependency relation to projective head, which is always an
+    	    underscore, because it is not from the Danish treebank
+    
+    2.2 Text
+
+	The text material consists of quotations of 150-250 words from
+	a wide range of randomly selected linguistically
+	representative Danish texts from 1983-1992
+
+    2.3 Statistics
+    
+	-------------------------------
+	#sentences		  5512
+	#tokens			100238
+	#non-punct tokens	 86316
+	#non-punct types         58009
+
+	#coarse pos tags	    10
+	#fine pos tags		    25
+	#deprels		    54
+	-------------------------------	
+
+    2.4 Conversion
+
+	We departed from the Malt-XML version produced by Joakim Nivre
+	et al.
+
+
+3. Acknowledgements
+
+        Matthias Trautner Kromann, Stine Kern Lynge and Line Hove
+        Mikkelsen for creating and releasing the Danish Dependency
+        Treebank.
+		
+	Joakim Nivre, Johan Hall and Jens Nilsson for the conversion
+	of DDT to Malt-XML.
+
+	Joakim Nivre for prompt and proper respons to all our
+	questions.
+
+		
+		

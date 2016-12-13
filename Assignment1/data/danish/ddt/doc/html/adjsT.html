@@ -1,0 +1,368 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html> 
+<head>
+    <title>Annotation guide for the Danish Dependency Treebank: Adjectives</title>
+    <link rel="parent" href="http://www.id.cbs.dk/~mtk/treebank/guide.html" id="Treebank" title="Treebank">
+    <link rel="sibling" href="theory.html" id="Theory" title="Theory">
+    <link rel="sibling" href="nouns.html" id="Nouns" title="Nouns">
+    <link rel="sibling" href="verbs.html" id="Verbs" title="Verbs">
+    <link rel="self" href="adjs.html" id="Adjectives" title="Adjectives">
+    <link rel="sibling" href="preps.html" id="Prepositions" title="Prepositions">
+    <link rel="sibling" href="misc.html" id="Miscellaneous" title="Miscellaneous word classes">
+    <link rel="sibling" href="spoken.html" id="Spoken" title="Spoken language">
+    <link rel="sibling" href="discourse.html" id="Discourse" title="Discourse structure">
+	<link rel="sibling" href="search.html" id="Search" title="Search">
+	<link rel="sibling" href="learn.html" id="Learning" title="Learning">
+	<link rel="sibling" href="refs.html" id="References" title="References">
+	<link rel="stylesheet" href="text.css" media="screen" type="text/css">
+	<link rel="stylesheet" href="text.css" media="print" type="text/css">
+    <meta name="author" content="Matthias Trautner Kromann">
+<meta name="robot" content="index"></head> 
+
+<body  background="background.gif" text="#000000" link="#0000ff" vlink="#444444">
+
+<h1 align="center">Danish Dependency Treebank</h1>
+<h2 align="center">Annotation guide: Adjectives</h2>
+
+<p align="center"><b>
+	<a href="../index.html" target="_parent">Matthias T. Kromann</a><br>
+	<a href="../../../www.cbs.dk/id" target="_parent">Department of
+		Computational Linguistics</a><br>
+	<a href="http://www.cbs.dk" target="_parent">Copenhagen Business
+		School</a>
+</b></p>
+
+<a name="Adjectives"></a>
+<h2>Adjectives</h2>
+
+    <p>Adjectives are characterized by the following prototypical
+	properties:</p>
+	<ul>
+		<li> adjectives can be <b>inflected in degree</b> (positive,
+			comparative, superlative).
+		<li> adjectives can <b>form a comparative with "mere"</b>.
+		<li> adjectives can <b>form a superlative with "mest"</b>.
+		<li> adjectives can <b>modify a preceding pronoun, or a following 
+			plural noun</b>. 
+		<li> positive adjectives must exhibit <b>agreement with their
+			modified noun in gender, definiteness, and number</b>.
+		<li> adjectives can <b>modify a verb</b>, if they are either
+			positives in neut-indef-sg inflection, or inflected
+			comparatives or indefinite superlatives.
+	</ul>
+	<p>Many words do not satisfy our requirements for being
+	adjectives, even though they are commonly classified as adjectives
+	and do indeed have some of the prototypical properties of
+	adjectives. The most important are:</p>
+
+	<ul>
+		<li> <b>pronouns</b>: få/færre/færrest mange/flere/flest
+			megen/meget/mere/mest al|alt|alle hel|helt|hele
+			anden|andet|andre lidt samme
+		<li> <b>defective pronouns</b>: samme ("mangel på samme")
+		<li> <b>ordinal numerals</b>: første anden tredje ...
+		<li> <b>ordering adjectives</b>: eneste næste sidst
+		<li> <b>adverbials</b>: næst+efter forleden først 
+			nederst selv/selve/selveste øverst
+		<li> <b>perfect participles:</b> nødt
+
+		<li> <b>defective adjectives</b>: daglig dobbelt eventuel
+			faktisk gift halv hel særlig sådan øvrig ekstra gratis
+			højre venstre 
+		<li> <b>other adjectives</b>: 
+		<li> <b>nouns</b>: vrang værd
+	</ul>
+	Af alle eleverne, har flest lyst til at deltage i skolens arbejde.
+	flest mulige landmænd
+	flest mulige skal løse opgaven
+	Vi vil ændre ældreforsorgen så flest muligt kan blive i deres hjem
+		længst muligt
+	Jeg kan anbefale flest muligt at melde sig ind.
+	Der blev konkurrence om hvem der kunne spise flest.
+
+	(2) the ability of
+	the positive form to combine with "mere" and "end", and (3) the
+	ability of the positive form to combine with with "mest" and "af": 
+	<ul>
+		<li> mere glad/flot/klog/hurtig/*to/*mange end Peter
+		<li> mest glad/flot/klog/hurtig/*to/*mange af alle børnene
+	</ul>
+	The inflection in degree is not in itself a sufficient criterion,
+	since the pronouns "mange/flere/flest" and "meget/mere/mest" are
+	also inflected in degree. 
+
+<a name="Edges"></a>
+<h2>Edges</h2>
+<table border=1>
+<tr>
+    <th>Edge type</th>
+    <th>Edge label</th>
+    <th>Description</th></tr>
+<tr>
+    <td>complement</td>
+    <td>pobj</td>
+    <td>prepositional object</td></tr>
+<tr>
+    <td>adjunct</td>
+    <td>mod</td>
+    <td>modifier</td></tr>
+</table>
+
+<a name="Noun modifier"></a>
+<h2>Noun modifier</h2>
+
+<ul>
+	<li> En sød, venlig, imødekommende pige.
+	<li> ??Hun er sød, venlig.
+	<li> En god mand.
+	<li> Den gode mand. 
+</ul>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/ap-01.png" alt="en sød, venlig, imødekommende pige">
+	</p>
+<ul>
+	<li> spor sjovt
+	<li> han kommer hurtigst muligt
+</ul>
+
+<a name="Valency"></a>
+<h2>General valency of adjectives</h2>
+
+	Different examples of adjectival valency:
+	<ul>
+		<li> sund mad er god/bedre/bedst <b>for</b> børnene
+
+		<li> sund mad er *god/bedre/*bedst <b>end</b> dårlig mad
+
+		<li> kakao er rart/rarere/rarest <b>at</b> drikke
+		<li> Konflikten er vanskelig <b>at</b> løse.
+		<li> Det er en vanskelig konflikt <b>at</b> løse. 
+
+		<li> Lise er god/bedre/bedst <b>til at</b> sjippe
+		<li> den første løber <b>til at</b> komme over målstregen
+		<li> han var først/god/*glad/*betænkelig <b>til at</b> komme
+			over målstregen.
+	</ul>
+	General complements:
+	<ul>
+		<li> A for N: X = noun ("hende")
+		<li> A til N|at+Vinf: X = noun ("sejlads"), at + Vinf ("at sejle")
+		<li> A at Vinf: X = Vinf ("sejle")
+	</ul>
+
+	"så at sige"
+	"så at de kunne lege"
+
+<a name="Positives"></a>
+<h2>Positives</h2>
+
+	<p>Several modifiers apply specifically to positive
+	adjectives:</p>
+	<ul>
+		<li> A nok til X ("A enough to X")
+		<li> så A at X ("so A that X")
+
+		???
+		<li> for A til X ("too A to X")
+	</ul>
+
+	<p>The adjectival modifier "nok" ("enough") may take the following
+	prepositional objects when modifying an adjective:</p>
+	<ul>
+		ADJECTIVAL MODIFIER + PREDICATIVE + PRONOUN
+		<li> <b>nok + til + noun:</b> "god nok til os", "god nok til at glæde
+			os", "god nok til at vi jublede"
+		<li> <b>nok + til + finite verb:</b> "god nok til vi jublede". 
+
+		PRONOUN
+		<li> <b>nok + af + noun:</b> "nok af problemer"
+		<li> <b>nok + (NOUN) + at + verb:</b> "nok (mad) at tage af"
+		<li> <b>nok + (NOUN) + med + noun:</b> "nok (vrøvl) med ham"
+		<li> <b>nok + om + noun:</b> "nok om problemerne"
+		<li> <b>nok + (NOUN) + på + noun:</b> "nok på bankbogen"
+
+		<li> selvom han er nok så mærkelig
+		<li> en nok så vigtig tilføjelse
+		<li> penge nok til at rejse
+		<li> se broget nok ud
+		<li> nok en mand kom ind i stuen
+		<li> "mad nok til at stille sulten"
+		<li> "nok ikke"
+		<li> "[det er] ikke nok med at ..."
+	</ul>
+	prepositional object "til", which in turn may take a nominal or
+	finite or infinitive verbal object. 
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/pos-01.png" alt="Der var nok til at betale regningen.">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/pos-02.png" alt="Hun var flink nok til at arbejde.">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/pos-03.png" alt="Det var en god nok ide til at
+			virke.">
+	</p>
+
+	Related examples ("til" is a complement of "for", "for" is an
+	adjunct of "betænkelig"):
+	<ul>
+		<li> Han var for betænkelig 
+		<li> Han var for betænkelig til at ...
+		<li> *Han var betænkelig til at ...
+		<li> *Han var for til at ...
+	</ul>
+
+	
+	<div class="discussion">
+		<p>In the "nok" constructions, the predicative example where 
+		"nok" appears without any other adjective or noun shows that 
+		the "til"-phrase can be a dependent of "nok". 
+		
+	</div>
+
+	"nok" is an adjunct of the adjective, "til" is a complement of
+	"nok":
+	<ul>
+		<li> It is good enough for us to use it.
+		<li> Den er god nok til at vi kan bruge den.
+		<li> *Den er god til at vi kan bruge den.
+		<li> Den er god/*bedre/*bedst nok.
+		<li> Der er nok til at vi kan bruge den.
+		<li> En god nok ide til at man kan bruge 
+	</ul>
+
+	"så" is an adjunct of the adjective, "som" is a complement of
+	"så":
+	<ul> 
+		<li> Den er så god som ny.
+	</ul>
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/np-05.png" alt="en så god kage at det ikke kan
+		beskrives">&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a name="Comparatives"></a>
+<h2>Comparatives</h2>
+
+	Comparatives always subcategorize for "end":
+	<ul>
+		<li> <b>Mange flere mænd end kvinder</b> er syge. 
+		<li> <b>*Mange mænd end kvinder</b> er syge.
+	</ul>
+
+	<ul>
+		<li> andet (N) end X
+		<li> mere/flere (N) end X
+		<li> snarere (N) end X
+
+		<li> at I mere går efter manden end bolden
+		<li> Det skyldes mere omstændigheder end ønske fra vores side.
+		<li> anderledes end vi kunne ønske
+		<li> Ingen, end ikke Kongen, kunne lyve sig fra det.
+		"betaler mere i skat end de kan"
+	</ul>
+
+
+<a name="Superlatives"></a>
+<h2>Superlatives</h2>
+	
+	<ul>
+		<li> A af X: "flottest af skibene"
+		<li> A [locative] X: "det flotteste skib i havnen"
+	</ul>
+
+	Superlatives always allow the specification of a "contrast set"
+	among which the predicated individual is superlative (ie,
+	specification of :
+
+	<ul>
+		<li> den bedste/*gode/*bedre løber på hele holdet/i byen/af
+			alle børnene
+	</ul>
+
+<a name="Type-shifting"></a>
+<h2>Syntactic type-shifting to N</h2>
+
+	There are borderline cases where definite-marked adjectives
+	may appear as subjects, such as:
+	<ul>
+		<li> (10) <b>Gode</b> er bedre end dårlige.
+		<li> (11) <b>Gamle</b> er ikke velkomne.
+		<li> (10a) <b>*God</b> er bedre end dårlig.
+		<li> <b>Italiensk</b> er sværere end fransk.
+		<li> Mit italienske har det dårligere end mit tyske.
+	</ul>
+	<p>These constructions can be analyzed in at least two ways. One is to
+	assume that some kind of ellipsis is taking place, so that "Gode"
+	is understood as an elided form of "Nogle gode"/"Gode ting" (or whatever),
+	where "gode" is an adjunct to the elided noun, and the elided noun
+	is the head of the construction. This analysis has several disadvantages: 
+	the head of the construction is phonetically empty, which makes it
+	hard to predict its presence and complicates parsing. Secondly, if 
+	the head noun can be elided, one needs to explain why the whole
+	noun phrase cannot be elided, which would be difficult to encode
+	syntactically.</p>
+
+	<p>Another possibility is to assume that e-inflected adjectives
+	may typeshift to become nouns, in which case they will posit a
+	phonetically empty pronoun corresponding to the elided noun in 
+	the other construction. Syntactically, the adjective is then the
+	head of the construction, although the phonetically empty noun is
+	the semantic head. In this way, we avoid the assumption that 
+	the noun phrase is headed by a phonetically empty constituent,
+	which makes parsing a lot easier.</p>
+
+	<blockquote>
+		A: Hvad er forskellen på billige og dyre løsninger?<br>
+		 
+		B: Dyre løsninger har en god holdbarhed, mens billige
+		ofte er uholdbare.<br>
+		 
+		B': Dyre løsninger har en god holdbarhed. Billige er
+		derimod ofte uholdbare. 
+	</blockquote>
+
+<a name="Discontinuous_APs"></a>
+<h2>Discontinuous APs</h2>
+
+<ul>
+	<li> en hård nød at knække
+	<li> en vanskelig mand at overtale
+	<li> Nødden er hård at knække.
+	<li> Manden er vanskelig at overtale.
+	<li> en så god kage at det ikke kan beskrives
+</ul>
+
+<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/np-01.png" alt="en flink mand">&nbsp;&nbsp;&nbsp;&nbsp;
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/np-02.png" alt="den flinke mand">&nbsp;&nbsp;&nbsp;&nbsp;
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/np-03.png" alt="en stor hvid hest">&nbsp;&nbsp;&nbsp;&nbsp;
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/np-04.png" alt="en hård nød at
+		knække">&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+
+<h2>Other</h2>
+
+	<ul>
+		<li> <b>Hvor stor en andel</b> giver han os?
+		<li> mindst lige så mange
+		<li> så sent at de ikke kunne deltage 
+		<li> lige så glad han er, lige så utilfreds er hun.
+		<li> han har lettere ved at trække fra end at lægge til
+		<li> Parseren er mere end hurtig nok til at kunne bruges i
+			praksis.
+		<li> at straffe så hårdt som krævet af anklageren.
+		<li> Gulvet er behageligt at gå på.
+		<li> <span class="stine">(Være)
+		lykkelig/tilgængelig/vigtig/bange for noget/nogen ("for" pobj to A)</span>
+		<li> <span class="stine">Være god/dårlig/hurtig til noget ("til" pobj to
+		A)</span>
+		<li> <span class="stine">Have svært/let/nemt ved noget ("ved" pobj to A)</span>
+		<li> <span class="stine">Det samme skuespil som i sidste uge ("som" pobj
+		to "samme")</span>
+	</ul>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/adj-01.png" alt="Hvor stor en andel giver han os?">
+	</p>
+<hr><small><a href="http://www.id.cbs.dk/~mtk/dtag/ddt/adjs.html" target="_parent">http://www.id.cbs.dk/~mtk/dtag/ddt/adjs.html</a> last updated by <a href="mailto:mtk@id.cbs.dk">Matthias T. Kromann</a> at 2004-08-03 15:49</small></body>
+</html>
+

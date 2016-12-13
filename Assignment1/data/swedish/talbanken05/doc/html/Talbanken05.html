@@ -1,0 +1,182 @@
+<html><head><title>Talbanken05</title></head>
+
+<body alink="#ff0000" bgcolor="#ffffff" link="#0000ee" text="#000000" vlink="#551a8b">
+
+<h1>Talbanken05</h1>
+
+This is the home page for Talbanken05, a modernized version of Talbanken76, 
+a Swedish treebank of roughly 300,000 words, constructed at Lund University 
+in the 1970s. The treebank comes with no guarantee but is freely available 
+for research and educational purposes as long as proper credit is given for 
+the work done to produce the material (both in Lund and in Växjö).
+<ul>
+	<li>
+	[<a href="http://w3.msi.vxu.se/%7Enivre/research/Talbanken05.tar.gz">Download Talbanken05</a>]
+</li></ul>
+The archive available for download contains the entire treebank (divided into 
+sections P, G, IB and SD) in three versions:
+<ol>
+<li>MAMBA: Original syntactic and lexical annotation (original text encoding, with corrections)
+</li><li>FPS: Flat phrase structure annotation (TIGER-XML encoding)
+</li><li>DPS: Deepened phrase structure annotation (TIGER-XML encoding)
+</li><li>Dep: Dependency structure annotation (Malt-XML encoding)
+</li></ol>
+The two phrase structure versions are encoded in 
+<a href="http://www.ims.uni-stuttgart.de/projekte/TIGER/TIGERSearch/doc/html/TigerXML.html">TIGER-XML</a>,
+which means that they can be searched and displayed using 
+<a href="http://www.ims.uni-stuttgart.de/projekte/TIGER/TIGERSearch/">TIGERSearch</a>.
+The Dep version is encoded in 
+<a href="http://www.msi.vxu.se/users/nivre/research/MaltXML.html">Malt-XML</a> 
+but can be converted using 
+<a href="http://www.msi.vxu.se/users/nivre/research/MaltConverted.html">MaltConverter</a> 
+to a TIGER-XML encoding of dependency structure conforming to the 
+<a href="http://www.id.cbs.dk/%7Emtk/ntn/tiger-xml.html">guidelines</a> 
+proposed by the 
+<a href="http://www.msi.vxu.se/users/nivre/research/nt.html">Nordic Treebank Network</a>.
+
+<p>
+Below we give a brief description of the original treebank (Talbanken76), the 
+process of conversion, and the three different annotation standards (FPS, DPS, Dep).
+The conversion is described more fully in:
+</p><ul>
+<li>Nilsson, J., Hall, J. and Nivre, J. (2005) MAMBA Meets TIGER: 
+    Reconstructing a Swedish Treebank from Antiquity. In <i>Proceedings 
+    of the NODALIDA Special Session on Treebanks</i>.
+</li></ul>
+
+<h1>Talbanken76</h1>
+
+Talbanken76 was originally published as:
+<ul>
+<li>Jan Einarsson: Talbankens skriftspråkskonkordans (1976)
+</li><li>Jan Einarsson: Talbankens talspråkskonkordans (1976)
+</li></ul>
+The data were collected in several projects at Lund University in the 1970s
+and the material is described in several publications:
+<ul>
+<li>Ulf Teleman: Manual för grammatisk beskrivning av talad och skriven svenska (MAMBA) (1974)
+</li><li>Margareta Westman: Bruksprosa (1974)
+</li><li>Nils Jörgensen: Meningsbyggnaden i talad svenska (1976)
+</li><li>Tor G Hultman och Margareta Westman: Gymnasistsvenska (1977)
+</li><li>Jan Einarsson: Talad och skriven svenska (1978)
+</li></ul>
+Teleman (1974) describes the analysis principles, while the other books apply these
+principles to different authentic materials. 
+<p>
+Talbanken76 consists of a written language part and a spoken language part 
+of roughly equal size. The written language part in turn consists of two sections,
+the so-called professional prose section (P), with 
+data from textbooks, brochures, newspapers, etc., and a collection
+of high school students' essays (G). The spoken language part also
+has two sections, interviews (IB) and conversations and
+debates (SD). Altogether, the corpus contains close to 300,000 
+running tokens.
+</p><p>
+The MAMBA annotation scheme consists of two layers, the first 
+being a lexical analysis, consisting of part-of-speech 
+information including morphological features, and the second
+being a syntactic analysis, in terms of grammatical functions. 
+Both layers are flat in the sense that they consist of tags 
+assigned to individual word tokens, but the syntactic layer also 
+gives information about constituent structure, as exemplified in 
+the annotation of the sentence <i>Genom skattereformen införs 
+individuell beskattning av arbetsinkomster</i> (Through the tax 
+reform, individual taxation of work income is introduced): 
+</p><p>
+</p><pre>*GENOM                  PR        AAPR        
+SKATTEREFORMEN          NNDDSS    AA          
+INFÖRS                  VVPSSMPA  FV          
+INDIVIDUELL             AJ        SSAT        
+BESKATTNING             VN        SS          
+AV                      PR        SSETPR      
+ARBETSINKOMSTER         NN  SS    SSET        
+.                       IP        IP          
+</pre>
+<p>
+The first column of annotation is the lexical analysis, while 
+the second column is the syntactic analysis. The grammatical 
+subject of the sentence is the phrase <i>individuell beskattning
+av arbetsinkomster</i> (individual taxation of work income), 
+where the head word <i>beskattning</i> (taxation) is assigned 
+the simple tag SS for subject, while the pre-modifying 
+adjective <i>individuell</i> (individual) is tagged SS and AT 
+for adjectival modifier; in the post-modifying prepositional 
+phrase, the noun <i>arbetsinkomster</i> (work income) is tagged 
+SS and ET for post-modifier, while the preposition <i>av</i> 
+(of) is tagged SS, ET and PR for preposition.
+</p><p>
+Tables explaining the categories used can be found here:
+</p><ul>
+ <li><a href="MAMBAlex.html">Lexical categories</a>
+ </li><li><a href="MAMBAsyn.html">Syntactic functions</a>
+</li></ul>
+
+<h1>Conversion</h1>
+
+The syntactic analysis in Talbanken76 is described by its 
+creators as an eclectic combination of
+dependency grammar, topological field analysis and 
+immediate constituent analysis. This makes it
+very suitable for conversion to both 
+phrase structure and dependency annotation. The conversion 
+has proceeded in three steps:
+<ol>
+<li> 
+The original flat but multi-layered annotation is converted 
+   to a bare phrase structure annotation, i.e. a phrase 
+   structure with unlabeled nonterminal nodes, and edges labeled 
+   with grammatical functions. This conversion is rather 
+   straightforward given the partially hierarchical annotation 
+   exemplified above.
+</li><li>    
+The bare phrase structure annotation is extended to a full
+   phrase structure representation by labeling nonterminal nodes
+   with syntactic categories. These categories are not part of 
+   the original annotation and have to be inferred from 
+   other parts of the annotation.
+</li><li> 
+The full phrase structure annotation is converted to a 
+   dependency annotation using the standard technique with 
+   head-finding rules and 
+   preserving grammatical functions as edge labels. Head-finding 
+   rules are not part of the original annotation scheme and have 
+   to be constructed manually.
+</li></ol>
+
+<h1>Phrase Structure Annotation</h1>
+
+The phrase structure annotation, which is the outcome of the second
+conversion step, uses a conventional set of phrase types (S, NP, VP,
+etc.) in combination with the grammatical functions of the original
+MAMBA annotation. The representation allows discontinuous phrases,
+although discontinuous constituents are relatively rare in the treebank.
+<p>
+The phrase structure annotation comes in two versions, one with the
+flattest possible trees that can be extracted from the original 
+annotation, called Flat Phrase Structure (FPS), 
+and one where trees have been deepened by inserting,
+e.g., NPs within PPs and VPs within (larger) VPs, 
+called Deepened Phrase Structure (DPS). 
+In both cases, the conversion has necessitated the introduction
+of a small number of new syntactic functions.
+</p><p>
+</p><ul>
+ <li><a href="PS.html">Phrase categories</a>
+ </li><li><a href="FPSsyn.html">New syntactic functions in FPS</a>
+ </li><li><a href="DPSsyn.html">New syntactic functions in DPS</a>
+</li></ul>
+
+<h1>Dependency Structure Annotation</h1>
+
+The dependency annotation (Dep), which is the outcome of the third conversion
+step, consists of terminal nodes connected by edges labeled with 
+the same syntactic functions as DPS, extended with the label ROOT 
+for words that are not governed by another word in the dependency 
+structure. The representation allows non-projective
+dependency structures, which are needed to capture discontinuous 
+constituents. 
+<p>
+The conversion from phrase structure to dependency structure
+uses a <a href="priority_list.txt">priority list</a> for finding the head of a phrase.
+
+</p></body></html>

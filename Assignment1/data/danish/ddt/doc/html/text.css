@@ -1,0 +1,63 @@
+BODY			{background-image: url(textbg.gif)}
+
+TABLE			{background-color: #cccccc;
+				 border: 1}
+
+TH				{text-align: left}
+TD				{text-align: left}
+
+IMG				{ page-break-inside: avoid }
+
+.discussion		{background-color: #80ff80}
+DIV.discussion		{margin-left: 5%;
+				 margin-right: 5%}
+
+.question		{background-color: #ff9400}
+DIV.question		{margin-left: 5%;
+				 margin-right: 5%}
+
+.stine			{background-color: #ffff77}
+
+.old			{background-color: #ff8080}
+
+.example	 	{background-color: #77ffff}
+DIV.example		{margin-left: 5%;
+			     margin-right: 5%}
+
+.title 			{background-image: url(menubg.gif);
+			 	 background-color: #000044;
+			 	 color: white;
+			 	 text-align: center;
+			 	 margin-left: 5%;
+			 	 margin-right: 5%;
+			 	 margin-top: 2pt;
+			 	 margin-bottom: 2pt;
+			 	 padding: 2pt}
+
+.menu			{color: white;
+			 	 font-weight: bold;
+			 	 word-spacing: 10em}
+
+.button 		{color: white;
+			 	 background-color: #000044;
+				 text-decoration: none;
+				 margin-top: 2pt}
+
+.abstract   	{margin-left: 20%;
+				 margin-right: 20%;
+				 text-align: center}
+
+.text 			{margin-left: 10%;
+				 margin-right: 10%;
+				 text-align: left}
+
+.list 			{margin-left: 10%;
+				 margin-right: 10%;
+				 margin-bottom: 0pt;
+				 margin-top: 0pt;
+				 padding: 1.5pt;
+				 text-align: left}
+
+.table 			{margin-left: 10%;
+				 margin-right: 10%}
+

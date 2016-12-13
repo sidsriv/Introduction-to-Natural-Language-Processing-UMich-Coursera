@@ -1,0 +1,576 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>Annotation guide for the Danish Dependency Treebank: Miscellaneous word classes</title>
+    <link rel="parent" href="http://www.id.cbs.dk/~mtk/treebank/guide.html" id="Treebank" title="Treebank">
+    <link rel="sibling" href="theory.html" id="Theory" title="Theory">
+    <link rel="sibling" href="nouns.html" id="Nouns" title="Nouns">
+    <link rel="sibling" href="verbs.html" id="Verbs" title="Verbs">
+    <link rel="sibling" href="adjs.html" id="Adjectives" title="Adjectives">
+    <link rel="sibling" href="preps.html" id="Prepositions" title="Prepositions">
+    <link rel="self" href="misc.html" id="Miscellaneous" title="Miscellaneous word classes">
+    <link rel="sibling" href="spoken.html" id="Spoken" title="Spoken language">
+    <link rel="sibling" href="discourse.html" id="Discourse" title="Discourse structure">
+    <link rel="sibling" href="search.html" id="Search" title="Search">
+	<link rel="sibling" href="learn.html" id="Learning" title="Learning">
+	<link rel="sibling" href="refs.html" id="References" title="References">
+	<link rel="stylesheet" href="text.css" media="screen" type="text/css">
+	<link rel="stylesheet" href="text.css" media="print" type="text/css">
+    <meta name="author" content="Matthias Trautner Kromann">
+    <link rel="stylesheet" href="text.css" media="screen" type="text/css"><meta name="robot" content="index"></head> 
+
+<body><script language="javascript" type="text/javascript">if (self == top) { top.location = 'misc.html'; } else { top.menu.location = 'miscM.html' }</script>
+<h1 align="center">Danish Dependency Treebank</h1>
+<h2 align="center">Annotation guide: Miscellaneous word classes</h2>
+
+<p align="center"><b>
+    <a href="../index.html" target="_parent">Matthias T. Kromann</a><br>
+    <a href="../../../www.cbs.dk/id" target="_parent">Department of
+        Computational Linguistics</a><br>
+    <a href="http://www.cbs.dk" target="_parent">Copenhagen Business
+        School</a>
+</b></p>
+
+	<a name="_coord"></a>
+<a name="Coordination"></a>
+<h2>Coordination</h2>
+
+	<p>The first conjunct is analyzed as the head of the construction,
+	coordinators are analyzed as adjuncts to the first conjunct, and 
+	other conjuncts are analyzed as complements of the coordinator. If
+	no coordinator exists, then subsequent conjuncts are analyzed as 
+	conjuncts of the first conjunct. Punctuation is
+	analyzed as an adjunct of the first conjunct. In the absence of a
+	coordinator, a comma must obligatorily separate the conjuncts. 
+	If there are two or more coordinators, a comma can be used to
+	disambiguate their operator precedence, since there is a strong
+	preference for the comma to be attached to the highest
+	operator.</p>
+	<ul>
+		<li> æbler og pærer
+		<li> æbler, pærer og tomater
+		<li> æbler, pærer, tomater
+		<li> æbler og pærer, tomater
+		<li> æbler, og pærer eller tomater
+	</ul>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-01.png" alt="æbler og
+			pærer">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-02a.png" alt="æbler og pærer, eller
+			tomater">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-02b.png" alt="æbler, og pærer eller
+			tomater">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-03.png" alt="æbler, pærer og
+			tomater">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-04.png" alt="æbler, pærer,
+			tomater">&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+	<div class="stine">
+	<p> coordination of modifiers in nominal phrases:
+	<ul>
+		<li>de store(,) røde blomster
+		<li>de gule og røde blomster
+		<li>de gule, røde og violette blomster
+		<li>store(,) røde blomster
+		<li>gule og røde blomster
+		<li>gule, røde og violette blomster
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine19.png" alt="de store(,) røde blomster">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine20.png" alt="de gule og røde blomster">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine21.png" alt="de gule, røde og violette blomster">
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine22.png" alt="store(,) røde blomster">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine23.png" alt="gule og røde blomster">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine24.png" alt="gule, røde og violette blomster">
+	</p>
+	</p>
+	</div>
+	
+	<p>Discontinuous coordinations:</p>
+	<ul>
+		<li> Kage er hun rigtig glad for, og chokolade. 
+		<li> Sur kan han ikke lide at være, eller vred.
+		<li> Hun giver katten noget vand, og hunden. 
+	</ul>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-08.png" alt="Kage er hun rigtig glad for, 
+			og chokolade.">
+	</p>
+	
+	<p>In VP coordinations, the conjuncts may share peripheral dependents
+	(ie, an adjacent set of dependents at the left periphery and the
+	right periphery, respectively). (In the parser, but not the
+	treebank, these dependents receive a special "shared" dependency
+	to the head of the first conjunct.)</p>
+
+	<ul>
+		<li> Han hører og ser elefanterne.
+		<li> Han lytter til og ser elefanterne.
+		<li> Han skal lytte til og kan se på elefanterne.
+	</ul>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-05.png" alt="Han hører og ser
+			elefanterne">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-14.png" alt="Han hører fuglene og ser
+			elefanterne">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-06.png" alt="Han lytter til og ser
+			elefanterne">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-07.png" alt="Han skal lytte til og kan se
+			på elefanterne">&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+	<p>In elliptic coordinations, the first conjunct is used to create a
+	complement structure for the following conjuncts with 
+	default values provided by the first conjunct, where
+	each dependent (and its corresponding subtree) can be replaced by
+	a new dependent specified in the second conjunct. The coordinator
+	is obligatorily present in elliptic coordinations.</p>
+	<ul>
+		<li> Han serverer MARIA KAFFE og JESPER TE.
+		<li> HAN serverer os KAFFE og HUN TE.
+		<li> HAN skænker kaffe TIL OS, og HUN TIL DEM.
+		<li> Kaffe skænker HAN TIL OS, og HUN TIL DEM.
+	</ul>
+	
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-09.png" alt="Han serverer Maria kaffe, og
+			Jesper te.">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-10.png" alt="Kaffe skænker han til os, og
+			hun til dem.">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-17.png" alt="Han fortæller russerne, og
+			hun japanerne, om Kronborg">&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+	<p>Verbs often allow the coordinator to be omitted
+	altogether:</p>
+	<ul>
+		<li> Det første kapitel var spændende, det andet endnu mere 
+			nervepirrende.
+		<li> Farmor gav mig en bamse, mormor en dukke.
+		<li> Selvfølgelig er assistenten en pige, også hun en genial
+			forsker. 
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-15.png" alt="Han var kedelig, hun
+		spændende">
+	</p>
+	Correlative conjunctions ("både - og", "enten - eller", "hverken -
+	eller", "dels - dels", "ikke - men", etc.) are analyzed as obligatorily
+	extracted modifiers of the coordinator. 
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-11.png" alt="hverken USA eller Rusland">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-13.png" alt="hverken USA eller Rusland">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-12.png" alt="det vil hverken blive
+			afhængigt af USA eller Rusland">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+	In the construction "dels X, dels Y", the first "dels" is analyzed
+	as a correlative conjunction, the second "dels" is analyzed as a
+	coordinator: 
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-21.png" alt="Filmen optages dels i
+			England, dels på Jamaica.">
+	</p>
+	<!--
+	<ul>
+		<li> Det var ikke Peter, men heller ikke Søren. 
+		<li> *Ikke Peter, men ikke Søren.
+		<li> Peter, men ikke Søren.
+		<li> *Peter, men heller ikke Søren.
+	</ul>
+	-->
+	<div class="stine">
+	<p>The unique construction "jo ..., jo ..." ("The ..., the ...") could be
+	described as a coordinator with a correlative conjunction, yet this analysis seems wrong, since the
+	first "jo" cannot be placed arbitrarily in the sentence, like "både" in "både ... og",
+	"hverken" in "hverken ... eller", and the first "dels" in "dels ...
+	dels".
+	Instead vi have chosen the following analysis:
+	<p align="center">
+		<img src="figs/stine02.png" alt="Og jo mere man ved, jo bedre
+		chance har man"
+	</p>
+	This analysis has the virtue, that the "jo"s are interconnected and the
+	second "jo" functions as the head of the sentence. This makes it
+	possible for the computer to recognize this very unique construction.
+	<div class="discussion">
+	Another possibility is to analyse the "jo ..., jo ..."-construction as
+	follows:
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine01.png" alt="Og jo mere man ved, jo bedre
+		chance har man">
+	</p>
+	<p>The major problem with this anlysis is, that "jo..., jo..." are not linked by a
+	direct dependency, although they intuitively seem strongly connected. 
+	</p></div>
+	
+	<p>A parallel expression to "jo ..., jo ..." is "jo ..., desto ...", e.g.
+	"Jo færre han lytter til, desto større betydning får de". We believe this should
+	be analysed just like the "jo ..., jo ..."-construction:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine91.png" alt="Jo færre han lytter til, desto større
+		betydning får de">
+	</p>
+	</p>
+	
+	<p>We have decided to analyse "ikke blot x, men også y" as a correlative
+	conjunction:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine61.png" alt="hunden er ikke blot bidsk, men også
+		ulydig">
+	</p>
+	</p>
+	<p>The phrase "såvel x som y" should also be analysed as a correlative
+	conjunction:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine72.png" alt="Fabrikken producerer såvel råvarer som
+		færdigvarer">
+	</p>
+	</p>
+	</div>
+
+	<div class="discussion">
+		<p>Instead of using the first conjunct as the head of the 
+		coordination, an alternative analysis is to analyze the
+		coordinator as the head of the coordination. This analysis is 
+		however problematic when we look at extraction data: in
+		extractions, it is possible to separate the first conjunct
+		from the coordinator, but the second conjunct is always
+		adjacent to the coordinator. This suggests that the
+		coordinator and the second conjunct form a phrase. Thus, we
+		have discontinuous coordinations and extractions from the
+		first conjunct such as:</p>
+		<p align="center">
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-22.png" alt="Peter drikker kaffe, og
+			Marie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-23.png" alt="Peter tror jeg drikker
+				kaffe og Marie te.">
+		</p>
+	</div>	
+
+
+	<a name="_pnct"></a>
+<a name="Punctuation"></a>
+<h2>Punctuation signs and operator symbols</h2>
+
+	<p><b>Punctuation signs (markers)</b> encode prosody, pauses,
+	and segment boundaries in the input, and are not pronounced
+	directly in spoken language. We distinguish between three kinds of
+	markers, depending on the placement of the marker 
+	relative to the preceding and following word: </p>
+	<ul>
+		<li> <b>begin-markers: ( [ { &lt; ' " -</b><br>
+			<i>Marker attaches as clitic to following word
+			without any intervening spaces (ie, as a proclitic)
+			and modifies some word on its right whose presence
+			licenses the marker.</i>
+		<li> <b>end-markers: ? ! . , ; : ) ] } &gt; ' " -</b><br>
+			<i>Marker attaches as clitic to preceeding
+			word without any intervening spaces (ie, as an
+			enclitic) and modifies some word on its left whose
+			presence licenses the marker.</i>
+		<li> <b>separator markers: -</b><br>
+			<i>Marker is surrounded by spaces and modifies a
+			word to its left or right which licenses the
+			marker.</i>
+	</ul>
+	<p>Note that some punctuation signs can be used as more than one 
+	kind of marker: eg, a single quote can be used as both
+	kind of marker: eg, a single quote can be used as both
+	begin-marker and end-marker (eg, "he 'flattered' her"), and "-"
+	can be used as all three kinds of marker (eg, end-marker in "han-
+	og hunkøn", begin-marker in "jernaldermand og -kvinde", and
+	separator in "Bohr - a famous physicist - was born in
+	Copenhagen").  Along another dimension, begin- and end-markers can
+	be divided into two distinct classes: 
+	<ul>
+		<li> <b>unary markers: ? ! . , ; : ' -</b><br>
+			<i>Licensed independently of any
+			other marker.</i>
+		<li> <b>binary markers: (...) [...] {...} &lt;...&gt; '...'
+				"..."</b><br>
+			<i>Licensed as two matching begin- and end-markers.</i>
+	</ul>
+	<p>For <b>unary markers</b>, the direction of the dependency is
+	determined by whether the marker is proclitic, enclitic, or a
+	separator. We do not allow extraction of markers (ie, the
+	governor and landing site of a marker must always
+	coincide), so in order to determine the dependency, we need to
+	look at all possible landing sites in the given direction, and
+	determine which one of them licenses the marker.
+	For example, the comma in the graph below is enclitic, so it must
+	attach to an adjacent phrase whose head is on the left (eg,
+	"løbe", "ville", or "at"). The comma rules for Danish mandate a
+	comma after a finite verb with an overt subject, so the natural
+	licensor of the comma is the finite verb "ville". Periods are
+	always attached to the top node of the sentence, so in this case,
+	the period is attached to "vidste".</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/punct-01b.png" alt="At de løb, vidste vi ikke.">
+	</p>
+	<p>In the examples below, the continuity requirement on punctuation
+	signs and the enclitic nature of "," and ":" (respectively) means
+	that there is only one possible governor of "," and ":", namely
+	"fløjtede" and "et". Again, the sentence final punctuation sign is
+	analyzed as an adjunct of the top node in the sentence.</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/punct-02.png" alt="Men han fløjtede, fordi han
+				var glad.">
+	</p><p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/punct-04.png" alt="Han ønskede et: at se hende igen!">
+	</p>
+	<p>In the relative clause below, the first comma is forced by
+	continuity and the leftwards direction of the dependency, and the
+	second comma is licensed by the verbal head of the relative clause
+	(in Danish, all verb phrases containing a subject must end with a
+	comma, unless the phrase ends in an even more prominent
+	punctuation mark like ".", "!" or "?").</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/punct-07.png" alt="Huset, som vi elskede, var
+			faldefærdigt.">
+	</p>
+	<div class="stine">
+	<p><b>Special analysis for xpl and qobj sentences</b></p>
+	<p>In the case of one govenor taking a sentence as xpl (which normally requires a
+	colon) or a qobj (which normally requires a quotation), it seems that the end-sign
+	of the xpl or qobj sentence replaces the end-sign of the governing sentence. This
+	is particularly obvious if the end-sign of the xpl or qobj sentence is a
+	question mark or an exclamation mark: It does not make sense to attach a question
+	mark to a non-questioning sentence. Even though this only shows, when the end-sign
+	differs from that of the governing sentence, it is natural to let the end-sign
+	attach to the head of the xpl or qobj sentence, even when this is a period. So if
+	an xpl or a qobj is a full sentence, the end-sign should be
+	attached to the head of the xpl or qobj sentence, like this:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine55.png" alt="Sønnen fortsatte: Se mor, den ligner en
+		hund.">
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine56.png" alt="Med andre ord: rygning er forbudt i
+		bilen!">
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine57.png" alt="De har ofte stillet spørgsmålet: Hvad
+		skal det bruges til?">
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine103.png" alt="Marie spurgte: Kommer du i_morgen?">
+	</p>
+	</p>
+	</div>
+
+	<p><b>Binary markers</b> are always attached to the lowest
+	governor that dominates all words between the two markers. Thus,
+	the parentheses in the first example below are attached to the 
+	lowest governor that dominates both "tror" and "vi", eg, "tror".
+	Similarly, the single quotes in the second example are attached to
+	the lowest governor that includes "Så du hende igen?", ie, they
+	are attached to "Så". The question mark in the quotation is
+	analyzed as a modifier of the top word of the quotation, ie,
+	"Så".</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/punct-06.png" alt="Han så/hørte hende (tror vi).">
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/punct-05.png" alt="Spurgte de mon: 'Så du hende igen?'?">
+	</p>
+	<div class="stine"><p>Principly binary markers should always be attached to the
+	same governor. In practice, though, we have followed another principle, that
+	collides with this principle: The analysis stops at the end of a sentence, usually
+	marked by a period. That is, even though some part of sentence A refers to some
+	part of sentence B, this is not shown; and even though two sentences share a head,
+	this is not shown in the analysis either. For binary markers this means that
+	parentheses that surround more than one full sentence are in practice attached to
+	two different heads: one in sentence A and one in sentence B. With quotation marks
+	the same happens, if the quotated part is more than one full sentence. In that
+	case we attach
+	the starting quotation mark to the head of the first sentence in the quotation,
+	and we attach the ending quotation mark to the head of the second sentence in the
+	quotation. Here is an example:
+	<p align ="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine90.png" alt="Hun sagde: Jeg kan bedst lide kage. Men
+		jeg kan også godt lide is">
+	</p>
+	In a "cross-sentence analysis" we would attach both quotation marks to "kan". But
+	since this is not allowed by the current guidelines, we have to attach the first
+	quotation mark to the head of the first sentence, "kan", and the second to the
+	head of the second sentence, "men".
+	If the treebank analyses are ever to be extended, so that the analyses
+	will stretch accross sentence border, this will off course be corrected.
+	</p>
+	</div>
+
+	<p><b>Separator markers</b> (ie, "-") are always unary. In
+	parenthetical appositions, the head modified by the appositional
+	phrase licenses the first "-", whereas the second "-" is licensed
+	by the head of the appositional phrase. Thus, "Hans" is the
+	governor of the first "-" because it governs the head of the
+	apposition ("at"); and as head of the apposition, "at" is the
+	governor of the second "-".</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/punct-03.png" alt="Hans ønske - at se sin kone igen
+			- blev opfyldt">
+	</p>
+	
+	<p>The most important licensing conditions for punctuation signs
+	are stated below:</p>
+	<ul>
+		<li> <b>utterances [.?!]</b>: an utterance (ie, the head of an
+			entire sentence whose first word is capitalized) licenses 
+			a sentence-final ".", "?", or "!". 
+
+		<li> <b>after sentences [,]</b>: a finite verb with a subject
+			licenses a comma at its right boundary.
+
+		<li> <b>before sentences (old system) [,]</b>: any verb
+			(and any relativized noun except for wh-pronouns, and any
+			preposition that is the complement of a verb or noun) which has a
+			landed node that contains a sentence (via a chain of
+			prepositions, wh-pronouns, "at"-pronouns, or subordinating
+			conjunctions, without any intervening comma), licenses a
+			comma before the landed node. 
+
+		<li> <b>long topicalizations (old pause system) [,]</b>: if a
+			topicalized, sentence-initial phrase is very long, the
+			head of the topicalized phrase licenses a comma at its
+			right boundary. 
+
+		<li> <b>adjectives in NPs [,]</b>: a noun licenses a comma between
+			non-intersective adjectival modifiers, but no comma between
+			intersective adjectival modifiers.
+	
+		<li> <b>parentheticals [,-()]:</b> the head word in a parenthetical
+			phrase licenses a comma (or: hyphen, parenthesis) at the end
+			of the parenthetical (and a parenthesis in the beginning,
+			if there is a matching right parenthesis); the governor of
+			the parenthetical head licenses a comma (or: hyphen) at
+			the beginning of the parenthetical. 
+
+		<li> <b>coordination [,;-()]</b>: the first conjunct licenses a
+			comma between all conjuncts that are not separated by
+			a coordinator (or semi-colon, if each conjunct is a
+			sentence or a coordinated structure; or parentheses or
+			dash, if there are two conjuncts and the second is
+			parenthetical). If the first conjunct is a sentence, it
+			licenses a comma before all conjuncts, regardless of
+			whether they are headed by a coordinator or not.
+
+		<li> <b>speaker change [-]</b>: when the discourse changes to a
+			new speaker, the head of the new speaker's first utterance
+			licenses a sentence-initial dash "-". 
+
+		<li> <b>pauses [-...]</b>: any word can license a speech pause
+			(indicated by dash "-" or dots "..."); the dash or dots 
+			is then analyzed as a dependent of the highest possible
+			landing site to the left.
+
+		<li> <b>quotes ["..." '...']</b>: a head will license quotes around 
+			any continuous sequence of landed nodes. 
+	</ul>
+
+	<p><b>Operators</b> are symbolic abbreviations for other words
+	(usually arithmetic and logical operators), and are pronounced as
+	the word they abbreviate when read aloud; they are not necessarily
+	analyzed in the same way, though. <b>Unary operators</b> (eg,
+	negation of numbers) take a single argument, whereas <b>binary
+	operators</b> (eg, plus) take two arguments.  Unary operators are
+	analyzed as adjuncts of the argument they modify, binary operators
+	are analyzed like coordination: ie, the first conjunct is the
+	head, the operator is a coordinator, and the second conjunct is a
+	complement of the operator. Some examples of sentences with
+	operators, and their corresponding unabbreviated form and
+	dependency graph, are shown below:</p>
+	<ul>
+		<li> Han fik &gt; 300% ud af det. <br>
+			<i>Han fik mere end 300 procent ud af det.</i>
+			<p align="center">
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/punct-08.png" alt="Han fik &gt; 300% ud af det.">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</p>
+		<li> Han skrev "2+4^2 &lt; 23" på tavlen.<br>
+			<i>Han skrev "2 plus 4 i anden er mindre end 23" på tavlen.</i>
+			<p align="center">
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/punct-09.png" alt="Han skrev '2+4^2 &lt; 23' på
+					tavlen.">
+			</p>
+	</ul>
+
+
+<a name="Interjections"></a>
+<h2>Interjections</h2>
+
+<ul>
+	<li> <div class="stine">Ja, jeg kommer nu.
+	<li> Nej, det vil jeg ikke acceptere.</div>
+	<li> Hej Søren, hvordan går det?
+	<li> Av for Søren, det var ikke godt.
+</ul>
+<div class="stine">If the interjection can be considered a full sentence, like "ja" and "nej", then the
+interjection takes the following sentence as a conjunct. If the interjection cannot be
+considered a full sentence, then it is analysed as a modifier to the finite verb.
+<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine83.png" alt="Ja, jeg kommer nu">
+</p>
+</div>
+
+<div class="stine">
+<a name="Sikke"></a>
+<h2>Sikke/sikken/sikket</h3>
+<p>Sikke/sikken/sikket should, according to ODS, be analysed as "se + hvilken" or "se +
+hvor". "Sikke" is then analysed as the head of the entire sentence. Here are some examples:
+<ul>
+	<li> Sikke noget, at genere den gamle dame!<br>
+	This is analysed as "Se hvilket noget ..."
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine84a.png" alt="Se hvilket noget, at genere den gamle dame!">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine84.png" alt="Sikke noget, at genere den gamle dame!">
+	</p>
+	<li> Sikke (dog) en stor mund du har!<br>
+	This is analysed as "Se hvilken en ..."
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine101a.png" alt="Se hvilken en stor mund du har!">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine101b.png" alt="Sikke en stor mund du har!">
+	</p>
+	<li> Sikke (dog) han gør sig umage!<br>
+	This is analysed as "Se hvor han ..."
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine100a.png" alt="Se hvor han gør sig umage!">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine100b.png" alt="Sikke han gør sig umage!">
+	</p>
+	<li> Sikke obsternasig hun havde opført sig!<br>
+	This is analysed as "Se hvor obsternasig ..."
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine102a.png" alt="Se hvor obsternasig hun havde opført
+		dig!">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine102b.png" alt="Sikke obsternasig hun havde opført sig">
+	</p>
+</ul>
+</p>
+<p>"Hvor" and "som" seems to function as "sikke" in some constructions:
+<ul>	
+	<li> Hvor han dog gør sig umage!
+	<li> Som hun da strammer sig an!
+</ul>
+</p>
+</div>
+
+
+<a name="Lists"></a>
+<h2>Lists and uanalyzable constructions</h2>
+
+	<ul>
+		<li> book titles, etc. -- use "list" dependency to link
+			together in an unanalyzed way.
+		<li> adverbial test: see if you can place another adverbial in
+		between: if so, the phrase consists of two adverbials; eg:
+		"ikke kun" ==&gt; "at han ikke i Danmark kun kan ..."
+	</ul>
+
+<hr><small><a href="http://www.id.cbs.dk/~stine/manual/misc.html" target="_parent">http://www.id.cbs.dk/~stine/manual/misc.html</a> last updated by <a href="mailto:stine@id.cbs.dk">Stine Kern Lynge</a> at 2003-11-15 14:58</small></body>
+</html>

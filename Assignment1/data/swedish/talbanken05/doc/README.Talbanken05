@@ -1,0 +1,57 @@
+Talbanken05 (Version 1.0)
+=========================
+
+Talbanken05 is a modernized version of Talbanken76, a Swedish treebank of 
+roughly 300,000 words, constructed at Lund University in the 1970s. 
+The treebank comes with no guarantee but is freely available for research 
+and educational purposes as long as proper credit is given for the work 
+done to produce the material (both in Lund and in Växjö).
+
+The treebank consists of a written language part and a spoken language 
+part of roughly equal size. The written language part in turn consists of 
+two sections, the so-called professional prose section (P), with data 
+from textbooks, brochures, newspapers, etc., and a collection of high 
+school students' essays (G). The spoken language part also has two 
+sections, interviews (IB) and conversations and debates (SD). Altogether, 
+the corpus contains close to 300,000 running tokens.
+
+This distribution contains the entire treebank (divided into sections 
+P, G, IB and SD) in four versions:
+
+  MAMBA: Original syntactic and lexical annotation, (original text encoding)
+  FPS:   Flat phrase structure annotation (TIGER-XML encoding)
+  DPS:   Deepened phrase structure annotation (TIGER-XML encoding)
+  Dep:   Dependency structure annotation (Malt-XML encoding)
+
+More documentation can be found at the home page of Talbanken05:
+http://www.msi.vxu.se/users/nivre/research/Talbanken05.html
+
+
+Bibliography
+============
+
+Talbanken76 was originally published as:
+
+  Jan Einarsson: Talbankens skriftspråkskonkordans (1976)
+  Jan Einarsson: Talbankens talspråkskonkordans (1976)
+
+The data were collected in several projects at Lund University in the 1970s
+and the material is described in several publications:
+
+  Ulf Teleman: Manual för grammatisk beskrivning av talad och skriven 
+    svenska (MAMBA) (1974)
+  Margareta Westman: Bruksprosa (1974)
+  Nils Jörgensen: Meningsbyggnaden i talad svenska (1976)
+  Tor G Hultman och Margareta Westman: Gymnasistsvenska (1977)
+  Jan Einarsson: Talad och skriven svenska (1978)
+
+Teleman (1974) describes the analysis principles, while the other books 
+apply these principles to different authentic materials. 
+
+The conversion of Talbanken76 to Talbanken05 is described in:
+
+  Jens Nilsson, Johan Hall and Joakim Nivre: MAMBA Meets TIGER: 
+    Reconstructing a Swedish Treebank from Antiquity. I Proceedings 
+    of the NODALIDA Special Session on Treebanks (2005)
+
+

@@ -1,0 +1,121 @@
+
+                   The Danish Dependency Treebank v. 1.0
+
+                by Matthias Trautner Kromann (mtk@id.cbs.dk)
+                           revised April 2, 2004
+
+
+    1. Who owns the copyright to the Danish Dependency Treebank?
+
+   The Danish Dependency Treebank is copyrighted material.
+     * (c) 2002-2004 by [1]Matthias Trautner Kromann
+       (http://www.id.cbs.dk/~mtk) and the [2]Department of Computational
+       Linguistics at the Copenhagen Business School
+       (http://www.id.cbs.dk), who own the copyright to all dependency
+       annotations in the Danish Dependency Treebank.
+     * (c) 1998 by the [3]Society for Danish Language and Literature
+       (http://www.dsl.dk), who own the copyright to the underlying
+       PAROLE corpus and the "msd" and "lemma" annotations.
+
+   The dependency annotations in the Danish Dependency Treebank were
+   carried out in 2002-2003 by Matthias Trautner Kromann with the
+   assistance of Stine Kern Lynge and Line Hove Mikkelsen.
+
+   The PAROLE corpus was collected by Ole Norling-Christensen and the
+   Society for Danish Language and Literature, and consists of quotations
+   of 150-250 words from a wide range of randomly selected linguistically
+   representative Danish texts from 1983-1992. The copyright to these
+   quotations belongs to the authors of the original texts, and their
+   inclusion in the PAROLE corpus is licensed by §22 in the Danish law on
+   Copyright (lovbekendtgørelse nr. 618 af 27. juni 2001) which states
+   that it is permitted to quote from copyrighted works according to a
+   "fair use" principle. The source of each quotation is listed in the
+   DTAG encoded treebank files (for technical reasons, meta information
+   cannot be encoded in the corresponding TIGER-XML encoded treebank
+   files).
+
+    2. What are the license conditions under which DDT is released?
+
+   The copyright owners of the Danish Dependency Treebank (M.T. Kromann,
+   the Department of Computational Linguistics, and the Society for
+   Danish Language and Literature) grant you the right to use the Danish
+   Dependency Treebank free of charge under the GNU Public License. This
+   means that you are free to use and distribute the Danish Dependency
+   Treebank, both commercially and non-commercially, and that you are
+   free to create derivative works, as long as they are also released
+   under the GNU Public License. The GNU Public License (contained in the
+   file LICENSE-GPL in this release) describes your specific rights and
+   obligations in this respect.
+
+   Please contact Matthias Trautner Kromann ([4]mtk@id.cbs.dk) if you
+   have questions about the license, or if you would like to discuss the
+   use of the Danish Dependency Treebank under other licensing
+   conditions. Moreover, if you are using the Danish Dependency Treebank
+   commercially or for research, we would like to hear about your work --
+   praise and criticism are equally welcome.
+
+    3. Where can I find documentation for the DDT?
+
+   The dependency annotations in the Danish Dependency Treebank are
+   documented on the web page [5]http://www.id.cbs.dk/~mtk/treebank. The
+   annotation manual is work in progress, but we hope to complete it at
+   some point. The PAROLE corpus is documented in the file
+   [6]PAROLE-manual.pdf.
+
+    4. What files are included in the DDT release?
+
+   Release 1.0 of the Danish Dependency Treebank contains the following
+   files:
+     * LICENSE: a brief overview of the licensing conditions.
+     * LICENSE-GPL: a detailed description of the GNU Public License
+       under which DDT is released.
+     * PAROLE-manual.pdf: a detailed description of the Danish PAROLE
+       corpus.
+     * PAROLE-corpus.sgml: the original Danish PAROLE corpus file.
+     * README.html: the general information about DDT contained in this
+       file.
+     * ddt-1.0.tag: the Danish Dependency Treebank version 1.0, encoded
+       as one big file in DTAG format.
+     * ddt-1.0.xml: the Danish Dependency Treebank version 1.0, encoded
+       as one big file in TIGER-XML format.
+     * texts: the Danish Dependency Treebank version 1.0, encoded as
+       multiple files (one for each annotated quotation) in DTAG format.
+
+    5. What tools can I use to process the Danish Dependency Treebank?
+
+   The Danish Dependency Treebank can be used with the following tools:
+     * [7]DTAG (http://www.id.cbs.dk/~mtk/dtag): This is the tool used by
+       the developers of the Danish Dependency Treebank; it can be used
+       for viewing, editing, and searching the Danish Dependency
+       Treebank. DTAG can read the treebank both in native DTAG format
+       and in TIGER-XML format.
+     * [8]TIGERSearch
+       (http://www.ims.uni-stuttgart.de/projekte/TIGER/TIGERSearch: This
+       tool can be used to view and search the Danish Dependency
+       Treebank. It is not as powerful as DTAG, but some users may find
+       it more user-friendly and easy to install.
+
+    6. How do I get in contact with the creators of the Danish Dependency
+    Treebank?
+
+   For all questions concerning the Danish Dependency Treebank, please
+   contact [9]Matthias Trautner Kromann (mtk@id.cbs.dk) (web page:
+   [10]http://www.id.cbs.dk/~mtk). For all questions concerning the
+   Danish PAROLE corpus, please contact the [11]Society for Danish
+   Language and Literature (sekretariat@dsl.dk) (web page:
+   [12]http://www.dsl.dk).
+
+References
+
+   1. http://www.id.cbs.dk/~mtk
+   2. http://www.id.cbs.dk/
+   3. http://www.dsl.dk/
+   4. mailto:mtk@id.cbs.dk
+   5. http://www.id.cbs.dk/~mtk/treebank
+   6. file://localhost/home/mtkromann/research/ddt/PAROLE-manual.pdf
+   7. http://www.id.cbs.dk/~mtk/dtag
+   8. http://www.ims.uni-stuttgart.de/projekte/TIGER/TIGERSearch/
+   9. mailto:mtk@id.cbs.dk
+  10. http://www.id.cbs.dk/~mtk
+  11. mailto:sekretariat@dsl.dk
+  12. http://www.dsl.dk/

@@ -1,0 +1,783 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html> 
+<head>
+    <title>Annotation guide for the Danish Dependency Treebank: Theory</title>
+    <link rel="parent" href="http://www.id.cbs.dk/~mtk/treebank/guide.html" id="Treebank" title="Treebank">
+    <link rel="self" href="theory.html" id="Theory" title="Theory">
+    <link rel="sibling" href="nouns.html" id="Nouns" title="Nouns">
+    <link rel="sibling" href="verbs.html" id="Verbs" title="Verbs">
+    <link rel="sibling" href="adjs.html" id="Adjectives" title="Adjectives">
+    <link rel="sibling" href="preps.html" id="Prepositions" title="Prepositions">
+    <link rel="sibling" href="misc.html" id="Miscellaneous" title="Miscellaneous word classes">
+    <link rel="sibling" href="spoken.html" id="Spoken" title="Spoken language">
+    <link rel="sibling" href="discourse.html" id="Discourse" title="Discourse structure">
+    <link rel="sibling" href="search.html" id="Search" title="Search">
+	<link rel="sibling" href="learn.html" id="Learning" title="Learning">
+	<link rel="sibling" href="refs.html" id="References" title="References">
+	<link rel="stylesheet" href="text.css" media="screen" type="text/css">
+	<link rel="stylesheet" href="text.css" media="print" type="text/css">
+    <meta name="author" content="Matthias Trautner Kromann">
+<meta name="robot" content="index"></head> 
+
+<body  background="background.gif" text="#000000" link="#0000ff" vlink="#444444">
+
+<h1 align="center">Danish Dependency Treebank</h1>
+<h2 align="center">Annotation guide: Theory</h2>
+
+<p align="center"><b>
+	<a href="../index.html" target="_parent">Matthias T. Kromann</a><br>
+	<a href="../../../www.cbs.dk/id" target="_parent">Department of
+		Computational Linguistics</a><br>
+	<a href="http://www.cbs.dk" target="_parent">Copenhagen Business
+		School</a>
+</b></p>
+
+<a name="Graphs"></a>
+<h2>Syntax graphs</h2>
+
+	<p>The main idea in dependency theory is that syntactic structure
+	can be described as a set of typed <i>relations</i> between
+	ordered pairs of words: a main word (called a <i>head</i>) and a
+	subordinate word (called a <i>subordinate</i>).  The syntactic
+	analysis is encoded as a graph containing labeled <i>nodes</i>
+	(representing words) and labeled directed <i>edges</i>
+	(representing relations between words). Different levels of
+	syntactic structure are encoded with different types of
+	relations:</p>
+	<ul>
+		<li> <b>surface relations (landing):</b> relations between landing sites
+			and landed nodes, and filler licensors and fillers.
+		<li> <b>deep relations (dependency):</b> relations between
+			governors and their complements and adjuncts.
+		<li> <b>anaphoric relations (reference):</b> 
+			relations between antecedents and anaphora that encode
+			semantic coreference. 
+	</ul>
+
+	<p>The three graphs below show three possible visual
+	representations of the same syntax graph: the arc layout used in
+	the Danish Dependency Treebank, the layout used in classical
+	dependency theory, and the phrase-structure layout used in
+	discontinuous phrase-structure theories.</p>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/graph1.png" alt="Dependency graph (arc
+			layout): Peter will paint the wall today">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/tree2.png" alt="Dependency graph (classical
+			dependency layout): Peter will paint the wall today">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/tree3.png" alt="Phrase-structure graph
+			(classical layout): Peter will paint the wall today">
+	</p>
+
+	<p>The treebank uses the <i>arc layout</i> on the left, where
+	relations are drawn as circular arrows from heads to subordinate
+	words, with a label below each arrow head that indicates the type
+	of the relation (ie, "subj"=subject, "dobj"=direct object, etc).
+	Arcs that encode primary dependencies (ie, complements and
+	adjuncts without fillers, and gapping dependents) are shown above
+	the words, arcs that encode fillers, landing sites, and coreference
+	are displayed below the words. The word class is indicated with
+	a PAROLE tag below each word (eg, NC, VA, etc).</p>
+
+	<p>Compared to the classical dependency layout and the phrase-structure
+	layout, the arc layout has several advantages, listed below:</p>
+	<table border="1">
+	<tr><th width="25%"></th><th>Phrase-structure layout and classical layout</th><th>Arc layout</th></tr>
+	<tr><th>Words with multiple incoming edges</th>
+		<td>impossible</td>
+		<td>no problem</td></tr>
+	<tr><th>Cyclic relations</th>
+		<td>impossible</td>
+		<td>no problem</td></tr>
+	<tr><th>Discontinuities</th>
+		<td>awkward: it is hard to design good layout algorithms for 
+			discontinuous trees that ensure that discontinuous edges do
+			not cross nodes in the tree, and that edge labels do not collide
+			with node labels; in classical dependency graphs, this
+			problem is solved by reordering the words, but then the
+			original word order is lost</td>
+		<td>no problem: node labels and edges are drawn in separate
+			areas in the drawing, so arcs may cross in the drawing, but
+			they never collide with node labels</td></tr>
+	<tr><th>Multi-line and multi-page layout for long sentences</th>
+		<td>awkward: tree depth is often proportional to sentence
+			length, so very long sentences tend to result in deep trees
+			that are difficult to split across several lines and pages
+			(ie, classical dependency graphs and phrase-structure
+			graphs tend to be two-dimensional)</td>
+		<td>no problem: arc height rarely exceeds 10, even for 
+			very long sentences and texts, so long sentences result in 
+			arc graphs that are relatively flat and hence easy to split
+			across several lines and pages (ie, arc graphs tend to be 
+			one-dimensional)</td></tr>
+	<tr><th>Empty categories</th>
+		<td>no problem</td>
+		<td>no problem</td></tr>
+	<tr><th>Phrasal nodes</th>
+		<td>no problem</td>
+		<td>awkward (but not used in a dependency framework)</td></tr>
+	</table>
+
+	<p>Since our linguistic theory uses multiple heads, cyclicity,
+	discontinuities, and empty categories, but not phrasal nodes, the
+	arc layout is the best choice of graphical representation in our
+	framework -- especially because sentences in our corpus can be
+	quite long (up to 70-90 words), and because we intend to
+	eventually encode entire discourse structures in one graph, ie, we
+	eventually need to create graphs that span entire texts. One
+	relative advantage of the classical dependency layout and the
+	phrase-structure layout is that most linguists are
+	familiar with them. But the arc layout has been used in a few
+	syntax theories, including <a
+	href="http://www.phon.ucl.ac.uk/home/dick/enc-gen.htm"
+	target="_parent">Word Grammar</a>.</p>
+
+
+<a name="Valency"></a>
+<h2>Valency: complements and adjuncts</h2>
+
+	<p>Deep syntactic relations are called <i>dependencies</i>. The
+	head of the dependency (the <i>governor</i>) determines the
+	syntactic and semantic type of the combined phrase, whereas the
+	subordinate word (the <i>dependent</i>) may have a completely
+	different syntactic and semantic type. The dependency must be
+	licensed in the lexical entry of either the governor or the
+	dependent. If the dependency is lexically licensed by the
+	governor, then the dependent is called a <i>complement</i>; if the
+	dependency is lexically licensed by the dependent, then the
+	dependent is called an <i>adjunct</i>. Semantically, adjuncts act
+	as functors to their governors, whereas complements act as
+	arguments to their governors. This gives the following schematic
+	translation from <i>dependency trees</i> (or <i>deep trees</i>) to <i>functor-argument
+	trees</i> (note that the translation is one-many, since the
+	modifiers could have been applied in the opposite order):</p>
+
+		<p align="center">
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/dep-arg-trees.png" alt="Dependency tree
+				with corresponding functor-argument trees">
+		</p>
+
+	<p>There is no clear-cut distinction between complements and
+	adjuncts (cf. Helbig &amp; Schenkel 1971; Helbig 1992).
+	Prototypical complements include subjects, direct objects and
+	indirect objects (and other case-marked dependents), and
+	prototypical adjuncts include time and place adverbials.
+	Optionality is sometimes mentioned as a criterion to distinguish
+	between complements and adjuncts, because adjuncts tend to be
+	optional (ie, they can be deleted without leaving the phrase
+	ungrammatical), whereas complements tend to be obligatory (ie,
+	they cannot be deleted). But there are borderline cases where this
+	rule of thumb does not apply. For example, within an appropriate
+	context, most complements are optional (eg, objects can be omitted
+	if they can be inferred from the context, and in telegraphic
+	sentences, even the subject can be omitted).</p> 
+
+	<p>Our view is that complements and adjuncts represent
+	different mechanisms for encoding a linguistic construction in the
+	grammar, but with different consequences for the size of the
+	grammar. The grammar-writer (and the human brain during language
+	acquisition) have the objective of making the grammar as
+	economical as possible by choosing the mechanism that will
+	minimize: (1) the total size of the grammar (measured by the
+	number of times a rule is stated and the size of each rule); and
+	(2) the total number of complement or adjunct rules associated
+	with each word. Having a large grammar carries a large
+	memory cost, and having too many rules associated with one word
+	carries a large processing cost. In most cases, one of the two
+	mechanisms is much more economical than the other, but in 
+	borderline cases, the difference in economy is so small that the
+	adjunct and complement mechanisms are equally acceptable. The main
+	prototypical characteristics of complements and adjuncts are
+	summarized below:</p>
+
+	<table border="1">
+	<tr><th></th><th width="40%">Adjunct mechanism</th><th
+		width="40%">Complement mechanism</th></tr>
+	<tr><th>Optionality</th>
+		<td>Adjuncts tend to be optional.</td>
+		<td>Complements tend to be obligatory.</td>
+	</tr>
+	<tr><th>Uniqueness</th>
+		<td>A governor can have several adjuncts of the same type.</td>
+		<td>A governor can have one complement of each type only (with
+			a proper definition of "type": a verb may have more than one
+			prepositional object ("pobj"), as long as the prepositions are
+			different).</td>
+	</tr>
+	<tr><th>Selection</th>
+		<td>The possible governors are characterized by having a large 
+		easily definable syntactic and/or semantic class.</td>
+		<td>The possible complements are characterized by having a
+		large easily definable syntactic and/or semantic class.</td>
+	</tr>
+	<tr><th>Semantics</th>
+		<td>The adjunct has a natural rule for computing the interpretation 
+			of the combined phrase, given the semantic representation
+			of the governor as its argument.</td>
+		<td>The governor has a natural rule for computing the
+			interpretation of the combined phrase, given the semantic
+			representation of the complements as its argument.</td>
+	</tr></table>	
+	
+	<div class="example">
+		<p><b>Example 1.</b> To illustrate these ideas, we will
+		analyze the sentence "Peter will paint the wall today" within
+		a dependency framework.  This means that we have to
+		hypothesize complement and adjunct rules for all the words
+		involved, and test whether these rules generate all
+		grammatical sentences in English (and only those sentences).
+		The first step is to look for the grammatical category of each
+		phrase: ie, "Peter" and "wall" are nouns, "the" is a pronoun
+		(or determiner, if you like), "will" and "paint" are verbs,
+		and "today" is an adverb. The second step is to look for
+		minimal construction schemata, like: "X paints Y", "X will Y",
+		"the X", etc. These often correspond to complement schemata,
+		so it would be natural to hypothesize the following complement
+		structures:</p>
+
+		<ul>
+			<li> <b>Peter:</b> no complements 
+			<li> <b>X will Y:</b> X=subject noun (the agent), Y=verbal
+				complement (what the agent will do)
+			<li> <b>X paints Y:</b> X=subject noun (the agent who paints),
+				Y=direct object noun (what is painted)
+			<li> <b>the X:</b> X=noun complement
+			<li> <b>wall:</b> no complements 
+			<li> <b>today:</b> no complements
+		</ul>
+
+		<p>From these lexical rules, we can deduce that the only possibility
+		is that "will" must be the governor of the whole sentence, with
+		"paint" as its verbal complement and "Peter" as its subject
+		complement (note that "Peter" agrees
+		with "will", but not with "paint": "Peter paints/*paint the
+		wall"); that "Peter" must be the subject of "paint" as well
+		(so "Peter" is the complement of two verbs, but without 
+		subject agreement with the second verb "paint"), and that "the
+		wall" is the direct object of "paint"; and, finally, that
+		"wall" is the noun complement of "the". The only remaining
+		word is "today". It does not seem to be a complement of
+		"paint" or "will", since it can occur with any verb (and
+		indeed most nouns as well); nor can it be the head of the
+		whole sentence, because it does not have the same syntactic or
+		semantic type as the whole sentence (for example, you can say:
+		"I wonder whether X" where X can be "Peter will paint the wall
+		today", "Peter will", "Peter paints the wall", but you cannot
+		say "*I wonder whether today"). Thus, the only remaining
+		possibility is to analyze "today" as an adjunct of "paint" (or
+		perhaps "will"). This gives the following dependency
+		graph:</p>
+
+			<p align="center">
+				<img src="http://www.id.cbs.dk/~mtk/treebank/figs/graph1.png" alt="Peter will paint the
+					wall today">
+			</p>
+	
+		<p>Note that in most cases, other analyses are possible as
+		well. For example, many linguists analyze "the man" as a
+		phrase headed by "man" rather than "the" (we will argue
+		against this analysis later). The choice between the different
+		analyses is a question about hypothesizing an underlying
+		grammar for each of the analyses, and choosing the analysis
+		whose corresponding grammar leads to the most precise
+		predictions of what is correct English -- ie, the analysis
+		that seems most capable of generating all sentences deemed
+		grammatical by native speakers, and excluding all
+		sentences deemed ungrammatical by native speakers).</p>
+	</div>
+
+<a name="Fillers"></a>
+<h2>Fillers</h2>
+
+	<p>There are many constructions where a word has more than one
+	governor, ie, both a primary governor and one or more secondary
+	governors for which it provides a filler (semantic variable). For
+	example, in the sentence "He has seen it", "he" is the subject of
+	the main verb "has", but in some way also acts as subject for the
+	subordinate verb "seen"; and in the sentence "This is the man we
+	know", "the man" is the subject of "is", but in some way also acts
+	as direct object of "know". In the treebank, we take a slightly
+	simplified view where a word can have secondary dependencies
+	(called <i>filler dependencies</i>) that provide a "copy" (ie,
+	semantic variable) of the word to the secondary governors. Filler
+	dependencies are shown below the words, with a dependency label of
+	the form "[<i>role</i>]". The square brackets indicate that the
+	dependency is a filler dependency, and <i>role</i> states the
+	dependency role the filler has in the secondary governor (eg,
+	"[subj]" denotes a subject filler dependency). Some examples of
+	treebank analyses with filler dependencies are shown below:</p>
+	
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vp-01.png" alt="han har set det">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vp-02.png" alt="han vil have set det">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-02.png" alt="ham vi kender">	
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-06.png" alt="hvem hun kender">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-07.png" alt="hvordan de gør">
+	</p>
+	<p>Fillers are used in a wide range of constructions, including:</p>
+	<ul>
+		<li> Verbal clusters where the subject must satisfy the
+			subject role of several verbs.
+		<li> Relative clauses where the relativized phrase must
+			satisfy a dependency within the relative clause as well
+			as an external dependency.
+		<li> Raising and control (including perception verbs) where
+			a dependent of the raising/control verb must satisfy a
+			dependency role of the controlled verb.
+	</ul>
+
+
+<div class="discussion">
+	<p>The treebank analysis is a simplification of the analysis of
+	fillers in <a href="../dg/index.html" target="_parent">Discontinuous
+	Grammar</a>. The treebank analysis is more intuitive than its
+	counterpart in Discontinuous Grammar because it corresponds more
+	directly to a semantic level, and less complicated because it
+	replaces a phonetically empty node and two dependencies with one
+	filler-dependency.  However, from a technical point of view, the
+	DG analysis is more precise because it accounts for the licensing
+	conditions for fillers and their interaction with island
+	constraints. The DG analysis does this by distinguishing between a
+	phonetically empty <i>filler</i>, a <i>filler licensor</i> that
+	licenses the filler, and a <i>filler source</i> in the local
+	neighbourhood of the filler licensor (ie, a neighbour of the
+	filler licensor in the dependency graph) that is used as a forced
+	antecedent for the filler. The three graphs below left show the
+	technically precise DG analyses corresponding to 
+	the first three treebank graphs shown above. The "ref" dependency goes
+	from the filler source to the filler, the "fill"
+	dependency goes from the filler licensor to the filler. The fourth
+	graph shows a relative clause where the filler's governor and
+	licensor do not coincide.</p>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vp-01dg.png" alt="han har set det">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/vp-02dg.png" alt="han vil have set det">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-02dg.png" alt="ham vi kender">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-02Bdg.png" alt="ham vi har kendt">
+	</p>
+</div>
+
+<a name="Anaphora"></a>
+<h2>Anaphora</h2>
+	
+	<p>In the treebank, an anaphoric reference between a pronoun and
+	its antecedents can be indicated by a dependency that goes from
+	the antecedent to the anaphoric element, labeled with "ref"; the
+	dependency is usually drawn below the words. Anaphoric reference
+	is currently only specified for purely syntactically determined
+	anaphoric references, such as relative pronouns or wh-pronouns
+	that refer to a relativized dependent within a relative clause. A
+	few examples are shown below:</p>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-01.png" alt="ham der synger">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-05.png" alt="ham på hvem vi ser">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-09.png" alt="Jeg har lavet kage, som du bad mig om.">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+
+	<p>We have chosen not to specify anaphoric references in any other
+	constructions. There are four reasons for this: (1) it would be
+	too time-consuming to specify antecedents for all pronouns and
+	definite noun phrases; (2) there are usually many possible
+	antecedents for each pronoun, which leads to structural ambiguity,
+	and human annotators often have difficulties agreeing on what is 
+	the "right" antecedent; (3) it is not clear that general anaphoric
+	reference is a syntactic phenomenon -- for
+	example, pronouns may refer to objects in the physical context
+	that have not been introduced into the linguistic discourse, so
+	perhaps anaphoric resolution is part of a general semantic
+	reasoning process that involves both linguistic and non-linguistic
+	information; (4) the specification of anaphoric references
+	requires a theory of semantics, pragmatics and anaphoric
+	reference, and we currently don't have such a theory.</p>
+
+	<div class="discussion">
+		<p>The treebank analysis of relative clauses that contain a
+		relative pronoun is a simplification of the analysis in Discontinuous
+		Grammar. The main difference is that in DG, there is no direct
+		"ref" dependency between the relative pronoun and the
+		relativized noun. Instead, there is a filler licensed by the
+		relative verb that acts as the complement of the relative
+		pronoun, in analogy with the analysis of relative clauses
+		without a relative pronoun. This is shown in the examples
+		below:</p>
+		<p align="center">
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-01dg.png" alt="ham der synger">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-05dg.png" alt="ham på hvem vi ser">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-08dg.png" alt="barnet hvis mad vi anretter">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-09dg.png" alt="Jeg har lavet kage, som du
+			bad mig om.">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/rel-19.png" alt="drengen i munden på hvem vi kiggede">
+		</p>
+	</div>
+
+<a name="Gapping"></a>
+<h2>Gapping dependents</h2>
+
+	<p>In gapping coordinations (such as "John loves coffee, and Mary
+	tea"), the second conjunct has a phonetically empty head that
+	may take the same complements and adjuncts as the first conjunct. 
+	In the treebank, where empty heads are not allowed, dependents of
+	a phonetically empty head must be treated as special elliptic
+	dependents of the governor of the elided head, indicated with edge
+	label "&lt;<i>edge</i>&gt;". Some examples are shown below:</p> 
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-10.png" alt="Kaffe skænker han til os, og
+			hun til dem">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-16.png" alt="Vi serverer Anne te, Bo
+			kaffe, Clara kakao, og Dorthe mælk">
+	</p>
+	
+	<div class="discussion">
+		The treebank analysis is a simplification of the analysis in
+		Discontinuous Grammar, where the gap is represented by a
+		filler node with a special "gap" dependency to the head of the
+		ungapped conjunct, as shown below.
+
+		<p align="center">
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-10dg.png" alt="Kaffe skænker han til os, og
+				hun til dem">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/coord-16dg.png" alt="Vi serverer Anne te, Bo
+				kaffe, Clara kakao, og Dorthe mælk">
+		</p>
+
+		<br>
+	</div>
+
+<a name="Type_shifting"></a>
+<h2>Syntactic type shifting</h2>
+
+	<p>There are many instances of words that clearly belong to one
+	word class, but can be type shifted to another word class in
+	certain circumstances. For example, given the right context, any
+	adjective in Danish can be used as a noun (eg, as a subject,
+	direct or indirect object, or nominal object),  and some
+	adjectives  -- including words like "flere" ("more"), "ældre"
+	("older" = "the old people"), "unge" ("young" = "the young
+	people"), and "gående" ("walking" = "walking people")  have
+	acquired an idiomatic use as nouns. In these cases, the PAROLE tag
+	is preserved, but the word is allowed to take on a dependent role
+	that is normally preserved for other word classes (eg, "subj" can
+	be applied to adjectives that function as nouns).</p>
+
+<div class="discussion">
+	<p>Adjuncts license their adjunct governors in the lexicon, and
+	act as functors to their adjunct governors during semantic
+	interpretation -- ie, the lexical entry for the adjunct usually
+	includes a description of the syntactic and semantic category of
+	the governor. Thus, we could plausibly posit a type-shifting
+	mechanism where an adjunct is allowed to pose externally as if it
+	actually was the governor, ie, to take over the governor's word
+	class and other syntactic properties externally (ie, when acting
+	as a complement to other words), while keeping its own word class
+	internally (ie, it still looks like the old original adjunct to
+	its complements). The missing governor argument could be provided
+	by a default (eg, "people"), or retrieved anaphorically from the
+	context.  Technically, this could be done by requiring a
+	type-shifted adjunct to always generate an anaphoric filler, which
+	is bound as filler object to the adjunct, and which requires a
+	semantic antecedent  in the (linguistic or non-linguistic)
+	discourse during interpretation.  This analysis is exemplified
+	below, where the anaphoric filler generated by "grønne" has
+	selected "æbler" as its antecedent:</p>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/typeshift-01.png" alt="Røde æbler er bedre end grønne.">
+	</p>
+</div>
+
+
+<a name="Word_classes"></a>
+<h2>Word classes</h2>
+
+	The PAROLE tagset contains three morphologically defined word
+	classes:
+	
+	<ul>
+		<li> <b>AN (normal adjective):</b> inflected in <i>degree</i> (positive,
+			comparative, superlative), <i>gender</i> (commune, neuter),
+			<i>number</i> (mass/singular, plural), 
+			<i>definiteness</i> (definite, indefinite)
+
+		<li> <b>NC (common noun):</b> inflected in
+			<i>number</i> (mass/singular, plural), 
+			<i>definiteness</i> (definite, indefinite)
+		
+		<li> <b>VA (verb):</b> inflected in <i>form</i>
+			(present, past, infinitive, imperative, gerund, present
+			participle, past participle), <i>voice</i> (active,
+			passive)
+	</ul>
+	<p>Gerundium occurs with almost all verbs by addition of "+en" (eg,
+	"skaben", "undren", "løben", "syngen", "laven mad").  The full
+	PAROLE word class tagset for Danish is shown below:</p>
+	<ul>
+		<li> <b>A</b>: adjectives
+		<ul>
+			<li> <b>AN</b>: normal adjective
+			<li> <b>AC</b>: cardinals
+			<li> <b>AO</b>: ordinals
+		</ul>
+
+		<li> <b>C</b>: conjunction
+		<ul>
+			<li> <b>CC</b>: coordinating conjunction
+			<li> <b>CS</b>: subordinating conjunction
+		</ul>
+
+		<li> <b>I</b>: interjection
+
+		<li> <b>N</b>: noun
+		<ul>
+			<li> <b>NP</b>: proper noun
+			<li> <b>NC</b>: common noun
+		</ul>
+
+		<li> <b>P</b>: pronoun
+		<ul>
+			<li> <b>PP</b>: personal pronoun
+			<li> <b>PD</b>: demonstrative pronoun
+			<li> <b>PI</b>: indefinite pronoun
+			<li> <b>PT</b>: interrogative/relative pronoun
+			<li> <b>PC</b>: reciprocal pronoun
+			<li> <b>PO</b>: possessive pronoun
+		</ul>
+
+		<li> <b>RG</b>: adverb
+
+		<li> <b>SP</b>: preposition
+
+		<li> <b>U</b>: unique
+
+		<li> <b>V</b>: verb
+		<ul>
+			<li> <b>VA</b>: main verb
+			<li> <b>VE</b>: medial verb
+		</ul>
+
+		<li> <b>X</b>: extra-linguistic units
+		<ul>
+			<li> <b>XA</b>: abbreviation
+			<li> <b>XF</b>: foreign word
+			<li> <b>XP</b>: punctuation
+			<li> <b>XR</b>: formulae
+			<li> <b>XS</b>: symbol
+			<li> <b>XX</b>: other
+		</ul>
+	</ul>
+	Here is a graphical diagram of our organization of the PAROLE word
+	classes (the word class CS is not recognized as a separate word
+	class and its member words are mostly analyzed as prepositions).
+	Moreover, cardinal adjectives are analyzed as cardinal numerals,
+	a special group of pronouns. 
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/wclasses.png" alt="our PAROLE word class hierarchy">
+	</p>
+
+<a name="Edge_classes"></a>
+<h2>Edge classes</h2>
+
+	The treebank makes use of the following complement edges, shown
+	along with the word classes that typically act as governors and
+	complements in such constructions ("?" indicates that any word
+	class may be used):
+	<ul>
+		<li> <b>aobj (?->A):</b> adjectival object
+		<li> <b>avobj (?->RG/SP):</b> adverbial object
+		<li> <b>conj (CC/?->?):</b> conjunct of coordinator
+		<li> <b>dobj (V->N/P):</b> direct object
+		<li> <b>expl (V->der/RG):</b> expletive subject
+		<li> <b>fobj (PT->filler):</b> filler object
+		<li> <b>iobj (V->N/P):</b> indirect object
+		<li> <b>lobj (V->SP/RG):</b> locative-directional object
+		<li> <b>nobj (P/N/SP->N):</b> nominal object
+		<li> <b>numa (M->M):</b> additive numeral complement.
+		<li> <b>numm (M->M):</b> multiplicative numeral complement.
+		<li> <b>part (V->SP/P):</b> verbal particle
+		<li> <b>pobj (V->SP):</b> prepositional object
+		<li> <b>possd (genitive->N):</b> possessed in genitive constructions
+		<li> <b>possr (genitive->N):</b> possessor in genitive constructions (only used in morphological analysis)
+		<li> <b>pred (V->A/N):</b> subject or object predicative
+		<li> <b>qobj (V/?->?):</b> quotation object
+		<li> <b>subj (V->N/P):</b> subject
+		<li> <b>vobj (V/N/SP->V):</b> verbal object
+	</ul>
+	and the following adjunct edges:
+	<ul>
+		<li> <b>appa (N->N):</b> parenthetical apposition
+		<li> <b>appr (N->N):</b> restrictive apposition
+		<li> <b>coord (?->CC):</b> coordination
+		<li> <b>err (?->?):</b> unanalyseable part of the
+			sentence or phrase (used for syntactic errors)
+		<li> <b>list (?->?):</b> next element in unanalyzed sequence of words 
+		<li> <b>mod (?->?):</b> modifier
+		<li> <b>modo (V->?):</b> direct object-oriented modifier
+		<li> <b>modp (?->?):</b> parenthetical modifier
+		<li> <b>modr (?->?):</b> restrictive modifier
+		<li> <b>mods (V->?):</b> subject-oriented modifier
+		<li> <b>name (NP->NP):</b> modifying proper name
+		<li> <b>namef (NP->NP):</b> modifying first name
+		<li> <b>namel (NP->NP):</b> modifying last name
+		<li> <b>pnct (?->XP):</b> punctuation modifier
+		<li> <b>rel (N->V):</b> relative clause modification
+		<li> <b>title (NP->N):</b> title of person
+		<li> <b>xpl (?->?):</b> explification of previous phrase
+	</ul>
+	In addition, there are edges used for encoding landing sites, 
+	coreference, fillers, and gaps:
+	<ul>
+		<li> <b>land (?->?):</b> landed node
+		<li> <b>xland (?-?):</b> external landed node (which is not a
+			local dependent)
+		<li> <b>ref (?->?):</b> anaphoric reference from antecendent
+			to anaphor
+		<li> <b>[<i>dtype</i>] (?->?):</b> filler dependency of type
+			<i>dtype</i> between a governor and a filler 
+		<li> <b>&lt;<i>dtype</i>&gt; (?->?):</b> gapping dependency
+			of type <i>dtype</i> between a dependent and an elided
+			head in an elliptic coordination, encoded as a dependency
+			between the dependent and the governor of the elided head
+	</ul>	
+	The following edges are not used in the tagging, but are reserved
+	for future annotations:
+	<ul>
+		<li> <b>temp (?->?):</b> temporal adjunct
+		<li> <b>loc (?->?):</b> locative adjunct
+		<li> <b>fill (?->filler):</b> dependency from filler
+			licensor to filler (subtype of <b>land</b>)
+		<li> <b>gap (?->filler):</b> dependency from a gap licensor to
+			the gap in a gapping coordination
+		<li> <b>relz (N->Ñ):</b> a landing site dependency between a
+			relativized noun and the relative pronoun (or PP
+			containing a relative pronoun) which comes right after the
+			relativized noun.
+	</ul>
+	The edges used in the treebank are ordered in a type hiearchy:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/edges.png" alt="Edge type hierarchy">
+	</p>
+	Complements are subdivided into the following types:
+	<p align="center"
+		<img src="figs/comps.png" alt="Complement hierarchy">
+	</p>
+	Adjuncts are subdivided into the following types:
+	<p align="center"
+		<img src="figs/adjs.png" alt="Adjunct hierarchy">
+	</p>
+
+
+<a name="Principles"></a>
+<h2>Principles for selecting the best analysis</h2>
+
+	In many cases, more than one analysis is possible. In that case, 
+	the following principles will be used to select the "best" analysis:
+	<ul>
+		<li> P1. Prefer analyses where governors are phonetically non-empty.
+		<li> P2. Keep agreement as local as possible.
+		<li> P3. Look at neighbouring languages (German, English, Swedish,
+			etc.) for additional evidence.
+		<li> P4. Prefer analyses where heads precede their dependents, if
+			possible.
+	</ul>
+	Here are some tests that should be considered when weighing two
+	analyses against each other:
+	<ul>
+		<li> <b>deletion test:</b> delete some words and see what
+			happens -- it tends to be impossible to delete a head without
+			deleting the entire phrase.
+		<li> <b>permutation test:</b> permute some of the words -- 
+			phrases tend to stick together, and only one complement
+			phrase can be placed in the frontal field of a finite VP.
+		<li> <b>agreement test:</b> agreement must be completely local,
+			ie, directly between a dependent and its governor without
+			any intervening nodes (unless they also agree by means of
+			an explicit morphological marker).
+		<li> <b>embedding test:</b> use the phrase as complement or
+			adjunct of other phrases -- this will reveal whether it
+			really is a phrase and help determine its word class.
+		<li> <b>generation test:</b> what kind of phrases does the 
+			corresponding lexicon generate -- look for undergeneration
+			and overgeneration.
+		<li> <b>paradigm test:</b> examine the entire paradigm of
+			words that can replace the word you are considering --
+			this may generate related constructions that may help you
+			disambiguate between the choices.
+		<li> <b>generalization test:</b> try to think of as many
+			related constructions as possible, and make an analysis
+			for all of them at the same time -- the analyses should be
+			as similar as possible, and create as little ambiguity as
+			possible in the hypothesized lexicon.
+	</ul>
+
+<a name="Software"></a>
+<h2>Software for manipulating and searching the treebank</h2>
+
+	<p>The Danish Dependency Treebank has been created with the <a
+	href="../dtag/index.html" target="_parent">DTAG</a> treebank tool. DTAG also
+	allows the user to search a treebank for syntactic constructions,
+	specified with a constraint-based query language. We are currently
+	working on extending DTAG with modules for learning a massively
+	probabilistic dependency grammar from a treebank, and for parsing
+	texts with a massively probabilistic dependency grammar.</p>
+
+<a name="File_format"></a>
+<h2>File format for saving analyses</h2>
+
+	<p>There are obviously many ways to store the dependency analyses 
+	in the treebank. So far, the annotation program implements a very
+	primitive XML-like data format. An example is shown below:</p>
+
+	<pre>
+&lt;W msd="PP" gloss="He" in="1:subj|2:[subj]" out=""&gt;Han&lt;/W&gt;
+&lt;W msd="VA" gloss="has" in="" out="-1:subj|1:vobj"&gt;har&lt;/W&gt;
+&lt;W msd="VA" gloss="seen" in="-1:vobj" out="-2:[subj]|1:dobj"&gt;set&lt;/W&gt;
+&lt;W msd="PD" gloss="it" in="-1:dobj" out=""&gt;det&lt;/W&gt;
+	</pre>
+
+	<p>The word itself is enclosed within the &lt;W&gt; tags, and
+	the attributes of the &lt;W&gt; tag are used to encode arbitrary
+	variables associated with the word, as well as incoming and
+	outgoing edges to other words.  The reserved attribute names are
+	shown below:</p>
+
+	<ul>
+		<li> <b>msd</b>: PAROLE tag
+		<li> <b>lemma</b>: PAROLE lemma
+		<li> <b>gloss</b>: English gloss
+		<li> <b>lexeme</b>: lexeme name in the lexicon
+		<li> <b>in</b>: list of in-coming edges of the form
+			"$rpos:$edge", separated by "|", where $rpos is the
+			relative position of the governor ("+1" means next word, "+2"
+			two words ahead, "-1" previous word, etc.), and $edge is
+			the type of the edge.
+		<li> <b>out</b>: list of out-going edges of the form 
+			"$rpos:$edge", separated by "|", where $rpos is the
+			relative position of the dependent.
+	</ul>
+	<p>The annotation format is an extension of the notation used in the
+	Danish PAROLE corpus. The tagging software treats all non-&lt;W&gt; tags
+	as comments, so these tags are left unchanged by the software.</p>
+
+	<p>In the future, we would like to add support for TIGER XML. 
+	In the distant future, we would also like to add support for the
+	ATLAS interchange format.</p>
+<hr><small><a href="http://www.id.cbs.dk/~mtk/dtag/ddt/theory.html" target="_parent">http://www.id.cbs.dk/~mtk/dtag/ddt/theory.html</a> last updated by <a href="mailto:mtk@id.cbs.dk">Matthias T. Kromann</a> at 2004-08-03 15:49</small></body>
+</html>
+

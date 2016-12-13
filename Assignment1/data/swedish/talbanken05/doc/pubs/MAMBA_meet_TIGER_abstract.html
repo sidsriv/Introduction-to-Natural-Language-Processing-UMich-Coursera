@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>NODALIDA 2005</title>
+
+<link rel="STYLESHEET" href="MAMBA_meet_TIGER_abstract_files/nodalida2005.css" type="text/css">
+<link rel="shortcut icon" href="MAMBA_meet_TIGER_abstract_files/brushedm"></head>
+
+
+<body>
+<!-- Header -->
+<div id="ylatunniste"><a href="http://phon.joensuu.fi/nodalida2005/"><img src="MAMBA_meet_TIGER_abstract_files/brushedm" alt="Logo" border="0" width="30"></a> NODALIDA2005</div>
+
+<!-- end of header -->
+<!-- menu -->
+<div id="valikko">
+<table border="0" cellpadding="3" cellspacing="2" width="100%">
+<tbody><tr>
+<td class="lmenu"><a href="http://phon.joensuu.fi/nodalida/index.shtml">Home</a></td>
+</tr>
+<tr>
+<td class="lmenu"><a href="http://phon.joensuu.fi/nodalida/satellite.shtml">Satellite
+events</a></td>
+</tr>
+<tr>
+<td class="lmenu"><a href="http://phon.joensuu.fi/nodalida/maksu.shtml">Payment</a></td>
+</tr>
+<tr>
+<td class="lmenu"><a href="http://phon.joensuu.fi/nodalida/ohjelma.shtml">Program</a></td>
+</tr>
+<tr>
+<td class="lmenu"><a href="http://phon.joensuu.fi/nodalida/osallistujat.shtml">Participants</a></td>
+</tr>
+<tr>
+<td class="lmenu">Photos</td>
+</tr>
+<tr>
+<td class="lmenu"><a href="http://phon.joensuu.fi/nodalida/julkaisu2.shtml">Proceedings</a></td>
+</tr>
+<tr>
+<td class="lmenu"><a href="http://phon.joensuu.fi/nodalida/komiteat.shtml">Committees</a></td>
+</tr>
+<tr>
+<td class="lmenu"><a href="http://www.joensuu.fi/englishindex.html">Univ. of Joensuu</a></td>
+</tr>
+</tbody></table>
+</div>
+
+<!-- end of menu -->
+<!-- content -->
+<div id="content">
+<h1>15th NODALIDA, Joensuu, May 20-21, 2005</h1>
+
+<h2>Joakim Nivre, Johan Hall, Jens Nilsson: MAMBA meets TIGER: reconstructing a Swedish treebank from antiquity  </h2>
+Treebanks have become an essential resource for the development,
+optimization and evaluation of broad-coverage syntactic parsers. Given
+that the number of languages for which treebanks are available is
+growing steadily, there is a remarkable lack of treebank resources for
+the Nordic languages with the notable exception of Danish, which is
+blessed with not only one but two treebanks of substantial size (the
+VISL Arboretum and the Danish Dependency Treebank). For Swedish, the
+lack of resources is especially surprising, since some of the earliest
+examples of syntactically annotated corpora, Talbanken in the 70's
+(Einarsson 1976a, 1976b) and SynTag in the 80's (Järborg 1986), were
+based on Swedish data. Talbanken contains close to 300,000 words of
+both written and spoken Swedish, manually annotated with partial phrase
+structure and grammatical functions according to the MAMBA scheme
+(Teleman 1974), and was a very impressive achievement at the time of
+its creation. By modern standards, however, Talbanken is probably best
+characterized as a "proto-treebank", since the annotation format makes
+it rather difficult to use with contemporary parsers and treebank
+tools.
+<p> In this paper, we report on a project aiming at the reconstruction
+of Talbanken in a modern framework. The purpose of the project is
+twofold. First of all, by converting Talbanken to a more usable format,
+we want to create a useful resource for research on syntactic parsing
+of Swedish. Secondly, we want to see whether Talbanken can be used to
+realize the notion of a theory-supporting treebank, in the sense of
+Nivre (2003), i.e. a richly annotated source treebank from which we can
+generate target treebanks in different theoretical frameworks. More
+precisely, the goal is to extract two treebanks from Talbanken, one
+with phrase structure annotation, and one with dependency annotation. </p><p> The MAMBA annotation scheme consists of two layers, the first
+being a lexical analysis, consisting of part-of-speech information
+including morphological features, and the second being a syntactic
+analysis, in terms of grammatical functions. Both layers are flat in
+the sense that they consist of tags assigned to individual word tokens,
+but the syntactic layer also gives information about constituent
+structure, as exemplified in the annotation of the sentence <i>Genom skattereformen införs individuell beskattning av arbetsinkomster</i> (Through the tax reform, individual taxation of work income is introduced): 
+</p><pre>*GENOM                  PR        AAPR        
+SKATTEREFORMEN          NNDDSS    AA          
+INFÖRS                  VVPSSMPA  FV          
+INDIVIDUELL             AJ        SSAT        
+BESKATTNING             VN        SS          
+AV                      PR        SSETPR      
+ARBETSINKOMSTER         NN        SSET        
+.                       IP        IP          
+</pre>                        
+<p> The first column of annotation is the lexical analysis, while the
+second column is the syntactic analysis. The grammatical subject of the
+sentence is the phrase <i>individuell beskattning av arbetsinkomster</i> (individual taxation of work income), where the head word <i>beskattning</i> (taxation) is assigned the simple tag SS for subject, while the pre-modifying adjective <i>individuell</i> (individual) is tagged SS and AT for adjectival modifier; in the post-modifying prepositional phrase, the noun <i>arbetsinkomster</i> (work income) is tagged SS and ET for post-modifier, while the preposition <i>av</i> (of) is tagged SS, ET and PR for preposition.
+</p><p> The syntactic analysis in MAMBA represents an eclectic approach
+based on dependency grammar, Diderichsen's field model and immediate
+constituent analysis (Teleman 1974). This makes it very suitable as a
+source annotation for conversion to both phrase structure and
+dependency annotation. The conversion proceeds in three steps:
+</p><p>    1. The original flat but multi-layered annotation is 
+converted to a bare phrase structure annotation, i.e. 
+a phrase structure with unlabeled nonterminal nodes, 
+and edges labeled with grammatical functions. This
+conversion is relatively straightforward given the
+partially hierarchic annotation exemplified above.
+</p><p>    2. The bare phrase structure annotation is extended to a
+full phrase structure representation by labeling
+nonterminal nodes with syntactic categories. These
+categories are not part of the original MAMBA annotation
+and have to be inferred from other parts of the
+annotation.
+</p><p>    3. The full phrase structure annotation is converted to a
+dependency annotation using the standard technique with
+head-finding rules (Magerman 1995, Collins 1996) and
+preserving grammatical functions as edge labels.
+Head-finding rules are not part of the original
+annotation scheme and have to be constructed manually.
+</p><p> The extracted treebanks will be encoded in TIGER-XML, and the
+phrase structure version will in fact be very close to the NEGRA/TIGER
+annotation scheme for German (Brants et al. 2002), an adaptation of
+which has previously been applied to Swedish by Volk and Samuelsson
+(2004). This scheme allows discontinuous phrases, which do occur in the
+MAMBA annotation, and has edges labeled with grammatical functions. The
+dependency version, which consists of terminal nodes connected by edges
+labeled with grammatical functions, will also be encoded in TIGER-XML,
+following the guidelines endorsed by the Nordic Treebank Network
+(Kromann 2004). The reconstructed treebank, in both versions, will be
+made freely available for research and educational purposes. We are
+planning a first release in connection with NODALIDA 2005.
+</p><p>
+REFERENCES
+</p><p>    Brants, S., Dipper, S., Hansen, S., Lezius, W. and Smith, G.
+(2002) TIGER Treebank. In Hinrichs, E. and Simov, K.
+(eds.) Proceedings of the First Workshop on Treebanks and
+Linguistic Theories, pp. 24-42.
+</p><p>    Collins, M. (1996) A New Statistical Parser Based on Bigram
+Lexical Dependencies. In Proceedings of the 34th Annual
+Meeting of the Association for Computational Linguistics
+(ACL), pp. 184--191.
+</p><p>    Einarsson, J. (1976a) Talbankens skriftspråkskonkordans.
+Lund University, Department of Scandinavian Languages.
+</p><p>    Einarsson, J. (1976b) Talbankens talspråkskonkordans. Lund
+University, Department of Scandinavian Languages.
+</p><p>    Magerman, D, M. (1995) Statistical Decision-Tree Models for
+Parsing. In Proceedings of the 33rd Annual Meeting of the
+Association for Computational Linguistics (ACL), pp.
+276-283.
+</p><p>    Nivre, J. (2003) Theory-Supporting Treebanks. In Nivre, J.
+and Hinrichs, E. (eds.) Proceedings of the Second
+Workshop on Treebanks and Linguistic Theories. Växjö
+University Press, pp. 117-128.
+</p><p>    Kromann, M. T. (2004) Nordic Treebank Network TIGER-XML:
+Proposals for Extensions and Conventions in TIGER-XML
+within the Nordic Treebank Network. September 1, 2004.
+URL: http://www.id.cbs.dk/mtk/ntn/tiger-xml.html.
+</p><p>    Teleman, U. (1974) Manual för grammatisk beskrivning av
+talad och skriven svenska. Lund: Studentlitteratur.
+</p><p>    Volk, M. and Samuelsson, Y. (2004) Bootstrapping Parallel
+Treebanks. In Proceedings of the 5th International
+Workshop on Linguistically Interpreted Corpora, pp.
+63-70.
+
+</p><hr>
+<table summary="footer"><tbody>
+<tr> <td></td> <td width="100%"> <address style="text-align: right;"><em><small><a href="mailto:nodalida2005@joensuu.fi">nodalida2005@joensuu.fi</a><br>
+<!-- hhmts start -->Last modified: Sat Apr 16 10:43:22 EEST 2005 <!-- hhmts end -->
+</small></em></address> </td> </tr>
+</tbody></table>
+
+</div><!-- end content -->
+</body></html>

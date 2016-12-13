@@ -1,0 +1,142 @@
+This is the readme file for the Swedish part of the CONLL 2006 Shared Task.
+
+Version: $Id: README,v 1.3 2006/01/09 15:15:37 erwin Exp $
+
+
+1. Preamble
+
+    1.1 Source
+
+        Talbanken05 is available from
+	http://w3.msi.vxu.se/~nivre/research/Talbanken05.html
+
+    1.2 Copyright
+
+	Copyright of Talbanken05 belongs to Jan Einarsson and Joakim
+	Nivre.
+
+    1.3 License
+
+	Talbanken05 is a modernized version of Talbanken76, a treebank
+	constructed at Lund University in the 1970s.  The treebank
+	comes with no guarantee but is freely available for research
+	and educational purposes as long as proper credit is given for
+	the work done to produce the material (both in Lund and in
+	Växjö).
+
+2. Documentation
+
+    2.1 Data format
+
+    	Data adheres to the following rules:
+
+    	* Data files contain one or more sentences separated by a
+	  blank line.
+
+    	* A sentence consists of one or tokens, each one starting on a
+	  new line.
+
+    	* A token consists of ten fields described in the table
+	  below. Fields are separated by one tab character.
+
+	* All data files will contains these ten fields, although only
+          the ID, FORM, CPOSTAG, POSTAG, HEAD and DEPREL columns are
+          guaranteed to contain non-underscore values for all
+          languages.
+
+	* Data files are are UTF-8 encoded (unicode).
+
+
+	Field 1: ID 	
+
+	    Token counter, starting at 1 for each new sentence.
+
+	Field 2: FORM
+
+	    Word form or punctuation symbol
+
+	Field 3: LEMMA 	
+
+	    Stem of word form. Not available for Swedish, so contains 
+	    always an underscore.
+
+	Field 4: CPOSTAG 
+
+	    Coarse-grained part-of-speech tag; see the html
+	    documentation.
+
+	Field 5: POSTAG 	
+
+	    Fine-grained part-of-speech tag. Not available for
+	    Swedish, so identical to the coarse-grained part-of-speech
+
+	Field 6: FEATS 	
+
+	    List of set-valued syntactic and/or morphological
+	    features.  Not available for Swedish, so this is always an
+	    underscore
+	
+	Fields 7: HEAD 	
+
+	    Non-projective head of current token, which is either a
+	    value of ID or zero ('0')
+	
+	Field 8: DEPREL 	
+
+	    Dependency relation to the non-projective-head, which is
+	    'ROOT' when the value of HEAD is zero; see html
+	    documentation for the set dependency relations.
+
+	Field 9: PHEAD 	
+
+	    Projective head of current token, which is always an
+	    underscore because it is not available from the Swedish
+	    treebank
+
+	Field 10: PDEPREL 
+
+	    Dependency relation to projective head, which is always an
+    	    underscore, because it is not available from the Swedish
+    	    treebank.
+    
+    2.2 Text
+
+	The text material consists of two sections, the so-called
+	professional prose section (P), with data from textbooks,
+	brochures, newspapers, etc., and a collection of high school
+	students' essays (G).
+
+    2.3 Statistics
+    
+	-------------------------------
+	#sentences		 11431
+	#tokens			197123
+	#non-punct tokens	175692
+	#non-punct types 
+
+	#coarse pos tags	    41
+	#fine pos tags		    41
+	#deprels		    64
+	-------------------------------	
+
+    2.4 Conversion
+
+	The conversion of Talbanken76 to Talbanken05 is described in:
+
+	    Jens Nilsson, Johan Hall and Joakim Nivre: MAMBA Meets
+	    TIGER: Reconstructing a Swedish Treebank from Antiquity. I
+	    Proceedings of the NODALIDA Special Session on Treebanks
+	    (2005)
+	
+
+4. Acknowledgements
+
+    	Jan Einarsson, Tor G Hultman, Nils Jörgensen, Ulf Teleman, and
+	Margareta Westman for construction of the original Talbanken76.
+
+    	Jens Nilsson, Johan Hall and Joakim Nivre for the conversion
+	of Talbanken76 to Talbanken05, and for making it freely
+	available fro research purposes.
+
+	Joakim Nivre for prompt and proper respons to all our
+	questions.

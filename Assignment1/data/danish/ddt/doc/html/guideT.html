@@ -1,0 +1,343 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html> 
+<head>
+	<title>Annotation guide for the Danish Dependency Treebank</title>
+	<link rel="self" href="index.html" id="Treebank" title="Treebank">
+	<link rel="child" href="theory.html" id="Theory" title="Theory">
+	<link rel="child" href="nouns.html" id="Nouns" title="Nouns">
+	<link rel="child" href="verbs.html" id="Verbs" title="Verbs">
+	<link rel="child" href="adjs.html" id="Adjectives" title="Adjectives">
+    <link rel="child" href="preps.html" id="Prepositions" title="Prepositions">
+	<link rel="child" href="misc.html" id="Miscellaneous" title="Miscellaneous word classes">
+    <link rel="child" href="spoken.html" id="Spoken" title="Spoken language">
+    <link rel="child" href="discourse.html" id="Discourse" title="Discourse structure">
+    <link rel="child" href="search.html" id="Search" title="Search">
+	<link rel="child" href="learn.html" id="Learning" title="Learning">
+	<link rel="child" href="refs.html" id="References" title="References">
+	<link rel="stylesheet" href="text.css" media="screen" type="text/css">
+	<link rel="stylesheet" href="text.css" media="print" type="text/css">
+    <meta name="author" content="Matthias Trautner Kromann">
+<meta name="robot" content="index"></head>
+
+<body  background="background.gif" text="#000000" link="#0000ff" vlink="#444444">
+
+<h1 align="center">Danish Dependency Treebank</h1>
+<h2 align="center">Annotation guide</h2>
+
+<p align="center"><b>
+	<a href="../index.html" target="_parent">Matthias T. Kromann</a><br>
+	<a href="../../../www.cbs.dk/id" target="_parent">Department of
+		Computational Linguistics</a><br>
+	<a href="http://www.cbs.dk" target="_parent">Copenhagen Business
+		School</a><br>
+	(project coordinator, main author)
+</b></p>
+
+<p align="center"><b>
+	<a href="http://people.ucsc.edu/~lmikkels" target="_parent">Line
+		Mikkelsen</a><br>
+	<a href="http://ling.ucsc.edu" target="_parent">Department of
+		Linguistics</a><br>
+	<a href="http://www.ucsc.edu" target="_parent">University of
+		California, Santa Cruz</a><br>
+	(research assistant)
+</b></p>
+
+<p align="center"><b>
+	<a href="http://www.id.cbs.dk/~stine" target="_parent">Stine Kern
+		Lynge</a><br>
+	<a href="../../../www.cbs.dk/id" target="_parent">Department of
+		Computational Linguistics</a><br>
+	<a href="http://www.cbs.dk" target="_parent">Copenhagen Business
+		School</a><br>
+	(research assistant)
+</b></p>
+
+<!--
+<p align="center"><b>with a linguistic advisory board consisting of:</b></p>
+
+<p align="center"><b>
+	<a href="http://www.id.cbs.dk/~slh" target="_parent">Steffen Leo
+		Hansen</a><br>
+	<a href="http://www.id.cbs.dk/~dh" target="_parent">Daniel Hardt</a><br>
+	<a href="http://www.id.cbs.dk/~pjuel" target="_parent">Peter Juel
+		Henrichsen</a><br>
+	<a href="http://www.id.cbs.dk/~ska" target="_parent">Sabine
+		Kirchmeier-Andersen</a>
+</b></p>
+-->
+
+<a name="Purpose"></a>
+<h2>Purpose</h2>
+
+	This annotation guide describes the principles behind the
+	syntactic analyses of sentences in the Danish Dependency Treebank.
+	The treebank has several purposes:
+	<ul>
+		<li> to enable linguists to search for particular syntactic
+		constructions in Danish (eg, topicalized objects, verbs with a
+		particular valency frame, discontinuities, passives,
+		expletives), and categorize the search results according to
+		syntactic criteria;
+
+		<li> to act as a computational linguistics resource for
+		statistical parsing, grammar development, term extraction,
+		semantic analysis, discourse parsing, etc;
+
+		<li> to obtain a comprehensive understanding of syntactic
+		constructions in Danish and their frequency;
+
+		<li> to specify a syntactic analysis of Danish within the
+		dependency-based syntax formalism "<a href="../dg/index.html"
+		target="_parent">Discontinuous Grammar</a>".
+	</ul>
+	The quality of a treebank depends mostly on the quality of the
+	underlying syntactic analyses. Therefore it is vital that:
+	<ul>
+		<li> the analyses must be motivated by a precise,
+		comprehensive and coherent theory of Danish grammar (ie, the
+		grammar must lead to valid predictions about sentence
+		grammaticality in written Danish);
+
+		<li> the annotation principles must be formulated in a
+		computational grammar of Danish that can be used to check the
+		consistency of the annotation;
+
+		<li> the analyses must have a semantic functor-argument
+		structure that is compatible with a reasonable compositional
+		semantics for Danish;
+
+		<li> the treebank analyses must be easy to relate to analyses
+		within the widest possible range of syntactic frameworks (eg,
+		HPSG, LFG, TAG, GB, Dependency Grammar and Functional
+		Grammar).
+	</ul>
+	<p>There is currently no generally accepted standard on how to
+	create a treebank. Some treebanks, like the Penn treebank, are
+	based on phrase structure; other treebanks, like the Prague
+	treebank, are based on dependency structure. In many computational
+	applications (eg, training of statistical parsers), it is
+	important to be able to read off argument and valency structure
+	from the treebank, ie, these applications require a 
+	lexical view where the lexical properties of the words can be
+	deduced directly from the treebank analyses. Phrase structure
+	trees do not directly reflect argument or valency structure 
+	(eg, in long-distance dependencies, valents can be arbitrarily
+	far from their governors), whereas dependency trees encode
+	argument and valency structure directly, although most phrase-structure
+	based theories assume a level of analysis that roughly corresponds
+	to a dependency graph (D-structure in GB, valency structure in
+	HPSG, f-structure in LFG, the parse tree in TAG). Consequently,
+	Owen Rambow (personal communication) has strongly recommended that
+	treebanks should be based on dependency structure rather than
+	phrase structure, and we intend to follow his recommendation.</p> 
+
+	<p>Our thoughts on these issues are described in more detail in
+	the following <a href="http://www.id.cbs.dk/~mtk/treebank/files/stb-2002.pdf">abstract for the
+	Swedish Treebank Symposium</a> at Växjö University, November 2002. 
+
+	<p>The treebank is therefore based on Discontinuous Grammar (DG), a
+	computationally oriented syntax formalism created by M.T. Kromann,
+	based on dependency theory. DG combines ideas from many different 
+	syntax formalisms: GB, GPSG/HPSG, LFG, TAG, Word Grammar, and
+	classical dependency theory.</p>
+
+
+<a name="Credits"></a>
+<h2>Credits</h2>
+
+	<p>In our analyses of linguistic phenomena in Danish, we try to
+	state references from the linguistic literature if the
+	reference has directly influenced our analysis, or if the
+	phenomenon is controversial and the reference has a particularly
+	insightful analysis of it. However, many analyses in linguistics
+	have been absorbed into linguistic "folklore", where it is no
+	longer possible for non-historians to trace the ideas back to their
+	origin and assign proper credit for them, or mention all the
+	linguists who have discussed the phenomenon in the past. Thus, the
+	absence of a reference by no means implies any originality on our
+	part. Indeed, more often than not, we are heavily indebted to the
+	many linguists before us who have contributed ideas that inform
+	the analyses we present here, even if we are unaware of their
+	origin. We therefore apologize if we have omitted important
+	references, and kindly request you to contact us if you are aware
+	of an important reference that we missed.</p>
+
+	<p>Some of our sources deserve special mention. We have been
+	inspired by the work of the dependency grammarians
+	Gerhard Helbig and Richard Hudson, by the great tradition 
+	of Danish linguists like Otto Jespersen and Paul Diderichsen,
+	by the great body of highly informed analyses in formal syntactic
+	theories like GB, HPSG, LFG, TAG, and by the many insights from
+	functional theories. We also wish to thank the following
+	linguists, who in both large and small ways helped us with advice,
+	encouragement, and linguistic ideas: Niels Davidsen-Nielsen, Per
+	Anker Jensen, Alex Klinge, Barbara Partee, Geoff Pullum, Owen
+	Rambow, Carl Vikner, Sten Vikner. </p> 
+
+	<p>More specific references can be found in our list of <a
+	href="refs.html" target="_parent">references</a>. The document
+	revision history can be browsed in the following <a
+	href="http://cvs.sf.net/cgi-bin/viewcvs.cgi/disgram/tagging/danish/"
+	target="_parent">CVS tree</a>.</p>
+
+<a name="Colors"></a>
+<h2>Colors</h2>
+
+	<p>In the annotation manual, we have used the following color coding to 
+	distinguish between different types of text.</p>
+
+	<blockquote>
+		<p align="center" class="old">
+			<b>old:</b> Text on red background is old deprecated stuff which
+			has been marked for deletion by Stine. It may contain a lot of
+			errors and should be ignored when reading the annotation manual.
+		</p>
+
+		<p align="center" class="question">
+			<b>question:</b> Text on orange background is used when an author
+			wants to insert a question into the annotation manual, directed to
+			the other authors of the manual.
+		</p>
+
+		<p align="center" class="stine">
+			<b>stine:</b> Text on yellow background indicates additions to the
+			tagging manual created by Stine.
+		</p>
+
+		<p align="center" class="discussion">
+			<b>discussion:</b> Text on green background indicates that the text
+			presents alternative analyses and theoretical discussions. Note
+			that the analyses presented here are usually <i>not</i> recommended
+			by the annotation manual.
+		</p>
+
+		<p align="center" class="example">
+			<b>example:</b> Text on cyan background is used in some example
+			boxes.
+		</p>
+		</blockquote>
+
+<a name="Links"></a>
+<h2>Links</h2>
+
+	For a general introduction to dependency theory, we recommend
+	Richard Hudson's: 
+	<ul>
+		<li> <a
+		href="http://www.phon.ucl.ac.uk/home/dick/encyclopedia/encframe.htm"
+		target="_parent">Encyclopedia of Word Grammar</a>
+	</ul>
+
+	<p>The list below provides links to all treebanks and
+	associated annotation manuals that are known to us:</p>
+	<ul>
+		<li> <a href="http://www.id.cbs.dk/~mtk/files/011001-entcs.pdf"
+			target="_parent">Alpino Dependency Treebank</a>
+
+		<li> <a href="http://lands.let.kun.nl/cgn/ehome.htm"
+			target="_parent">Corpus Gesproken Nederlands</a> (<a
+			href="http://lands.let.kun.nl/cgn/protocs/syn_prot.pdf"
+			target="_parent">tagging manual</a>)
+
+		<li> <a href="http://www.cis.upenn.edu/~creswell/dependency/"
+			target="_parent">English Dependency Treebank</a>
+
+		<li> <a href="http://www.bultreebank.org/"
+			target="_parent">HPSG-based Syntactic Treebank of Bulgarian
+			(BulTreeBank)</a>
+
+		<li> <a href="http://dach.ipipan.waw.pl/CRIT2/"
+			target="_parent">HPSG treebank for Polish</a>
+
+		<li> <a href="http://lingo.stanford.edu/redwoods/"
+			target="_parent">LinGO Redwoods HPSG treebank</a>
+
+		<li> <a href="http://www.ii.metu.edu.tr/~corpus/treebank/"
+			target="_parent">METU treebank for Turkish</a>
+
+		<li> <a href="http://www.cis.upenn.edu/~treebank/"
+			target="_parent">Penn Treebank</a> (<a
+			href="ftp://ftp.cis.upenn.edu/pub/treebank/doc/manual/root.ps.gz">tagging
+			manual</a>)
+
+		<li> <a href="http://fairway.ms.mff.cuni.cz/~hladka/pdt2000/Corpora/PDT_1.0/index.html"
+			target="_parent">Prague Dependency Treebank</a> (<a
+			href="http://shadow.ms.mff.cuni.cz/pdt/Corpora/PDT_1.0/Doc/aman-en/index.html"
+			target="_parent">tagging manual for analytical layer</a>)
+
+		<li> <a href="http://www.ims.uni-stuttgart.de/projekte/TIGER"
+			target="_parent">TIGER treebank for German</a>
+
+		<li> <a href="http://www.di.unito.it/~tutreeb/project.html">Turin
+			University Treebank for Italian</a>
+
+		<li> <a href="http://visl.hum.sdu.dk/visl/da"
+			target="_parent">VISL Constraint-Grammar based Treebank for
+			Danish (Arboretum)</a>
+
+	</ul>
+	Here are some links to other relevant theories and resources:
+	<ul>
+		<li> <a href="http://www.ims.uni-stuttgart.de/projekte/TIGER/related/links.shtml"
+			target="_parent">Treebank links from the TIGER project</a>
+
+		<li> <a href="http://www.isi.edu/~marcu/discourse"
+			target="_parent">Tagging maual for an RST-tagged corpus of
+			English by Marcu et al</a>
+		<li> <a href="http://www.sil.org/~mannb/rst/rintro99.htm"
+			target="_parent">An Introduction to Rhetorical Structure
+			Theory</a>
+		<li> <a href="http://www.isi.edu/~marcu/"
+			target="_parent">Daniel Marcu's Homepage</a>, with links on
+			RST-annotated corpora.
+		<li> <a href="http://www.cis.upenn.edu/~pdtb/"
+			target="_parent">Penn Discourse Treebank</a> (<a href="http://www.cis.upenn.edu/~pdtb/dltag-webpage-stuff/pdtb-tutorial.ps">annotation
+			manual</a>)
+		<li> <a href="http://www.ldc.upenn.edu/annotation/"
+		target="_parent">LDC: Linguistic Annotation Tools and
+		Formats</a>
+		<li> <a href="../../~pjuel/BySoc/index.html"
+			target="_parent">BySoc corpus of spoken Danish</a>
+		<li> <a href="http://www.icsi.berkeley.edu/~framenet/"
+			target="_parent">FrameNet</a>
+		<li> <a href="http://www.bultreebank.org/Proceedings.html"
+			target="_parent">Proceedings of the Treebanks and Linguistic
+			Theories 2002 Workshop</a>
+	</ul>
+
+
+<a name="Download"></a>
+<h2>Download</h2>
+
+	<p>The Danish Dependency Treebank currently consists of 474 Parole
+	texts, consisting of 5.540 sentences, 100.200 words, or 34.4% of
+	the morphosyntactically annotated part of the Danish Parole
+	corpus. The treebank is distributed under the GNU Public
+	License, an open-source license. The treebank is encoded both in 
+	in
+	<a href="../dtag/index.html" target="_parent">DTAG
+	format</a> and in <a
+	href="http://www.ims.uni-stuttgart.de/projekte/TIGER/TIGERSearch/doc/html/TigerXML.html"
+	target="_parent">TIGER-XML</a>.  You can download the treebank
+	compressed with either "zip" (Windows) or "tar" and "gzip" (UNIX)
+	by clicking on the appropriate link below.</p>
+	<ul>
+		<li> <a href="http://www.id.cbs.dk/~mtk/treebank/files/ddt-1.0.zip">Danish Dependency Treebank
+			version 1.0 (zip compression)</a> (6,876 kB)
+		<li> <a href="http://www.id.cbs.dk/~mtk/treebank/files/ddt-1.0.tgz">Danish Dependency Treebank
+			version 1.0 (tar.gz compression)</a> (4,639 kB)
+	</ul>
+	<p>The included <a href="files/README.html" target="_parent">README
+	file</a> describes how to install and use the treebank. 
+	You can also view a graphical visualization of the <a
+	href="http://www.id.cbs.dk/~mtk/treebank/files/parole00-0.8.pdf">first 18 texts</a> (233 kB) or <a
+	href="http://www.id.cbs.dk/~mtk/treebank/files/parole-0.8.pdf">all 474 texts</a> (5,681 kB).
+	Alternatively, you can download the Danish Dependency Treebank
+	from <a href="http://korpus.dsl.dk/e-resurser">Society for Danish
+	Language and Literature</a>. If you have any questions about the
+	treebank, please contact <a
+	href="mailto:mtk@id.cbs.dk">mtk@id.cbs.dk</a>.</p>
+
+<hr><small><a href="http://www.id.cbs.dk/~mtk/dtag/ddt/guide.html" target="_parent">http://www.id.cbs.dk/~mtk/dtag/ddt/guide.html</a> last updated by <a href="mailto:mtk@id.cbs.dk">Matthias T. Kromann</a> at 2004-11-29 07:56</small></body>
+</html>

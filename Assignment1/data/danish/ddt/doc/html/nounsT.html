@@ -1,0 +1,1770 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html> 
+<head>
+	<title>Annotation guide for the Danish Dependency Treebank: Nouns</title>
+	<link rel="parent" href="http://www.id.cbs.dk/~mtk/treebank/guide.html" id="Treebank" title="Treebank">
+	<link rel="sibling" href="theory.html" id="Theory" title="Theory">
+    <link rel="self" href="nouns.html" id="Nouns" title="Nouns">
+    <link rel="sibling" href="verbs.html" id="Verbs" title="Verbs">
+    <link rel="sibling" href="adjs.html" id="Adjectives" title="Adjectives">
+    <link rel="sibling" href="preps.html" id="Prepositions" title="Prepositions">
+    <link rel="sibling" href="misc.html" id="Miscellaneous" title="Miscellaneous word classes">
+    <link rel="sibling" href="spoken.html" id="Spoken" title="Spoken language">
+    <link rel="sibling" href="discourse.html" id="Discourse" title="Discourse structure">
+	<link rel="sibling" href="search.html" id="Search" title="Search">
+	<link rel="sibling" href="learn.html" id="Learning" title="Learning">
+	<link rel="sibling" href="refs.html" id="References" title="References">
+	<link rel="stylesheet" href="text.css" media="screen" type="text/css">
+	<link rel="stylesheet" href="text.css" media="print" type="text/css">
+    <meta name="author" content="Matthias Trautner Kromann">
+    <link rel="stylesheet" href="text.css" media="screen" type="text/css"><meta name="robot" content="index"></head>
+
+<body><script language="javascript" type="text/javascript">if (self == top) { top.location = 'nouns.html'; } else { top.menu.location = 'nounsM.html' }</script>
+
+<h1 align="center">Danish Dependency Treebank</h1>
+<h2 align="center">Annotation guide: Nouns</h2>
+
+<p align="center"><b>
+	<a href="../index.html" target="_parent">Matthias T. Kromann</a><br>
+	<a href="../../../www.cbs.dk/id" target="_parent">Department of
+		Computational Linguistics</a><br>
+	<a href="http://www.cbs.dk" target="_parent">Copenhagen Business
+		School</a>
+</b></p>
+
+    <table align="center" border="1">
+        <tr>
+            <th>Dependent</th>
+            <th>Complement roles</th>
+            <th>Adjunct roles</th>
+        </tr><tr>
+            <td>noun</td>
+            <td>nominal object (nobj)<br>
+				possessed (<a href="nounsT.html#_possd">possd</a>)<br>
+				multiplicative numeral (<a href="nounsT.html#_numm">numm</a>)<br>
+				additive numeral (<a href="nounsT.html#_numa">numa</a>)</td>
+            <td>parenthetical apposition (<a href="nounsT.html#_appa">appa</a>)<br>
+				restrictive apposition (<a href="nounsT.html#_appr">appr</a>)<br>
+				first name (<a href="nounsT.html#_namef">namef</a>)<br>
+				last name (<a href="nounsT.html#_namel">namel</a>)<br>
+				title (<a href="nounsT.html#_title">title</a>)</td>
+        </tr><tr>
+            <td>verb</td>
+            <td>verbal object (vobj)</td>
+            <td>relative (<a href="verbsT.html#_rel">rel</a>)<br>
+                modifier (mod)</td>
+        </tr><tr>
+            <td>adjective</td>
+            <td>adjectival object (<a href="nounsT.html#_aobj">aobj</a>)</td> 
+            <td>modifier (mod)</td>
+        </tr><tr>
+            <td>preposition</td>
+            <td>prepositional object (pobj)</td>
+            <td>modifier (mod)</td>
+        </tr><tr>
+            <td>adverbial</td>
+            <td>&nbsp;</td>
+            <td>modifier (mod)</td>
+        </tr><tr>
+			<td>other</td>
+			<td>&nbsp;</td>
+			<td>coordinator (<a href="miscT.html#_coord">coord</a>)<br>
+				punctuation (<a href="miscT.html#_pnct">pnct</a>)</td>
+		</tr>
+    </table>
+
+<a name="Nouns"></a>
+<h2>Nouns</h2>
+
+	<p>Nouns can be subdivided into common nouns, proper names, and pronouns
+	(which include cardinal numerals and special pronouns like "at"
+	(infinitival "to" and complementizer "that") and "om"
+	("whether")).  Determiners are simply viewed as pronouns that take
+	a usually optional noun complement. Common nouns
+	are inflected in number and definiteness, proper names are inflected in
+	number (although this is somewhat rare), and pronouns do not
+	exhibit any systematic inflection at all.</p>
+
+	<p>Noun phrases are characterized by their ability to occur
+	as subjects or objects of verbs like "have" (have), "være" (be),
+	"løbe" (run), etc. The following example sentences show different
+	kinds of basic Danish noun phrases:</p>
+	<ul>
+		<li> (1) <b>pron+adj+cnoun:</b> <i>Den festlige
+			skuespiller</i> var særdeles underholdende.
+		<li> (2) <b>pron+adj+cnoun:</b> <i>En festlig skuespiller</i>
+			deltog i vores selskab.
+		<li> (3) <b>pron+adj+cnoun:</b> <i>Disse festlige
+			skuespillere</i> spiller nu ret godt.
+		<li> (4) <b>pron+adj:</b> <i>Den festligste</i> var også den sjoveste.
+		<li> (5) <b>pron+cnoun:</b> <i>Dette stykke</i> har gået på
+			teatret siden i fredags.
+		<li> (6) <b>adj+cnoun:</b> <i>Festlige skuespillere</i> er
+			altid velkomne.
+		<li> (7) <b>pron:</b> <i>Den</i> kan jeg ikke lide.
+		<li> (8) <b>adj:</b> <i>Røde</i> smager bedre end grønne. 
+		<li> (9) <b>cnoun:</b> <i>Skuespillere</i> skal man ikke foragte.
+		<li> (10) <b>cnoun:</b> <i>Vand</i> smager dejligt.
+	</ul>
+	As the examples show, Danish noun phrases may consist of all combinations
+	of pronouns, adjectives, and common nouns. The adjective agrees
+	with the pronoun, if present, as shown by (1) and (2) -- ie, the
+	pronoun "den" requires a definite-marked adjective, whereas the
+	pronoun "en" requires an indefinite-marked adjective. For this
+	reason we analyze the adjective as a dependent of the pronoun, if
+	possible, and as a dependent of the common noun otherwise. Groups
+	of adjectives used attributively (eg, "en stor hvid hest") are
+	analyzed as separate modifiers of the pronoun or common noun,
+	unlesss the group could be used predicatively as well (eg, "en
+	stor og hvid hest" --&gt; "hesten er stor og hvid"). Cases where
+	an adjective acts as an NP on its own are analyzed as <a
+	href="adjsT.html#Type-shifting" target="text">syntactic
+	type-shifting</a>. 
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/np-01.png" alt="en flink mand">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/np-02.png" alt="den flinke mand">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/np-03.png" alt="en stor hvid hest">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/np-08.png" alt="de store hvide">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/np-07.png" alt="store hvide heste">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/np-10.png" alt="den store gruppe aber">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/np-11.png" alt="den store gruppe af aber">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/np-09.png" alt="den festligste af skuespillerne">
+	</p>
+	<p>The treebank does not distinguish between mass nouns and count
+	nouns. Our view is that all nouns have a mass reading by
+	default, which for most nouns can be type-shifted to a count
+	meaning by an appropriate semantic operator (provided by plural
+	morphemes and count determiners).</p>
+	
+	<div class="discussion">
+	<p>Noun phrases have been analyzed in many different ways in the
+	literature. The main division lines are: Should constructions with
+	a pronoun and a common noun be headed by the common noun or the
+	pronoun (NP or DP analysis)? Should all noun phrases be analyzed
+	uniformly as NPs or DPs, by positing phonetically empty
+	nouns or determiners if they are absent? Should adjectives be
+	analyzed as dependents of the pronoun or the common noun (if both
+	are present)? Should we distinguish between mass nouns and count
+	nouns?</p>
+
+	<p><b>NP vs DP analysis:</b> Richard Hudson's analysis ("Grammar
+	without functional categories", 1998; cf., Steven Abney, "The
+	English Noun Phrase in its Sentential Aspects", MIT dissertation,
+	1987) is that determiners are pronouns with an optional (or, in
+	some cases, obligatory) noun complement, and that pronouns are
+	merely a kind of noun. This DP analysis is supported by the
+	following observations: (1) In most languages, words acting as
+	determiners may also act as pronouns.  This is true for all
+	determiners in Danish and German, and true for most determiners in
+	English (eg, "these", "many", "this", "that", "all") -- the
+	English exceptions ("the", "a", "an") can be analyzed as pronouns
+	with an obligatory noun complement. (2) Historically, most
+	determiners originate from pronouns. (3) In German, adjectives and
+	verbs agree with determiners rather than nouns in terms of 
+	strong-weak inflection of adjectives and case marking on
+	determiners and adjectives. Since it is desirable to analyze
+	agreement as local rather than long-distance, this suggests that
+	the determiner should be chosen as the head of the
+	construction. (4) According to our theoretical preference P3, we
+	should prefer analyses where heads precede their dependents,
+	everything else being equal.</p> 
+
+	<p>The most common counter-argument against the DP analysis is
+	a semantic intuition that the construction should be headed
+	by the common noun rather than the pronoun (ie, "function" words
+	aren't considered important enough to be heads).  However, the
+	validity of this intuition is questionable.  For example, in
+	partitive constructions like "den gruppe af aber", the "content"
+	noun ("aber") is embedded within a prepositional complement.
+	Similarly, agreement data from quantity nouns like "flaske"
+	("bottle"), "gruppe" ("group"), etc.  seem to indicate that the
+	predicative adjective agrees with the quantity noun rather than
+	the "content" noun, which suggests that the quantity noun
+	governs the "content" noun.</p>
+	<ul>
+		<li> den store gruppe er flot/*flotte
+		<li> den store gruppe aber er flot/*flotte
+		<li> den store gruppe af aber er flot/*flotte
+		<li> aber er flotte/*flot
+	</ul>
+	<p>A second objection against our analysis (raised by Daniel
+	Hardt) is that from a semantic point of view, pronouns should act
+	as variables and determiners as quantifiers, but our analysis
+	treats them in the same way.  Dynamic Predicate Logic might
+	provide an elegant solution to this problem, because it replaces
+	the general quantifier structure Q(var, restriction, predication)
+	with the quantifier structure Q(var, restriction) and allows
+	subsequent predications to refer to a quantified variable outside
+	its quantifier scope. Intuitively, this means that the meaning of
+	"alle mænd" is ALL(x,men(x)) in DPL instead of &lambda;P.ALL(x,
+	men(x), P(x)) as in the Generalized Quantifier Theory for
+	Montagovian semantics. Then the natural DPL analysis is to analyze
+	the pronoun/determiner "all" as ALL(x,R(x)) where the restriction
+	R is provided by the noun complement, if present, or by the
+	default relation "true" in the absence of a noun complement, thus
+	giving the analysis ALL(x,true) for the bare pronoun "alle".</p>
+
+	<p><b>Phonetically empty heads:</b> DP and NP analyses sometimes
+	assume that, in the absence of a pronoun or common noun, we should
+	posit a phonetically empty governor so that all noun phrases are
+	headed by a pronoun (or common noun), even when no pronoun (common
+	noun) is present in the input.  However, there is no compelling
+	reason why noun phrases should be headed by only one kind of noun,
+	and phonetically empty governors greatly complicate the parsing
+	task because they can be built without any evidence for them in
+	the input. We therefore follow our theoretical principle P1 to
+	avoid phonetically empty heads, by preferring the analysis where
+	noun phrases can be headed by all kinds of nouns, as well as
+	adjectives (after appropriate type-shifting).</p>
+
+	<p><b>Adjectival attachment:</b> In most linguistic theories,
+	adjectives are analyzed as dependents of the common noun rather
+	than the pronoun. WG analyzes adjectives as dependents of both the
+	pronoun and the noun. Our choice is to analyze adjectives as
+	adjuncts to pronouns, if present, for the following reasons: (1)
+	In Danish, adjectives agree with the form of their pronoun ("den
+	røde hest" vs. "en rød hest"), although the common noun is not
+	morphologically marked for the form of the pronoun.  Similarly, in
+	German, the adjective agrees with the pronoun wrt the
+	strong-weak-einiger inflection ("ein guter Mann" vs. "der gute
+	Mann"), although the common noun is not morphologically marked for
+	the form of the pronoun. (2) In German, adjectives agree with
+	their pronoun wrt case marking ("ein guter Mann" vs. "einem guten
+	Mann"), although the common noun is not marked for case.  (3) In
+	Swedish, it is possible to say "den goda mannen" ("the good
+	man-the"), but not "*goda mannen" ("good man-the") -- ie, an
+	adjective can act as a modifier in the presence of a pronoun, but
+	not in the presence of a definite-marked common noun alone (an
+	observation due to Joakim Nivre). (4) If we want to avoid
+	phonetically empty heads, we are forced to analyze adjectives as
+	modifiers of the pronoun in "de røde" ("the red") and as modifiers
+	of the common noun in "røde heste" ("red horses") or "rødt kød"
+	("red meat"); thus, in our analysis, "de røde heste" is analogous
+	to "de røde" rather than "røde heste", whereas "de røde heste" is
+	analogous to "røde heste" rather than "de røde" in the traditional
+	analysis, so our analysis and the traditional analysis are equally
+	good wrt structural similarity to other noun phrases. (5)
+	According to our theoretical preference P3, we should prefer
+	analyses where heads precede their dependents, everything else
+	being equal.</p>
+
+	<p>An adjectival phrase can normally be used predicatively, so we
+	can test whether a group of adjectives used attributively
+	constitute one phrase or not by examining the corresponding
+	predicative construction, which allows only one adjectival phrase
+	(a test proposed to us by Richard Hudson):</p>
+	<ul>
+		<li> en stor og hvid hest (<i>A big and white horse</i>)<br>
+			--&gt; Hesten er stor og hvid. (<i>The horse is big and white</i>)
+		<li> en stor hvid hest (<i>A big white horse</i>)<br>
+			--&gt; *Hesten er stor hvid. (<i>*The horse is big
+			white</i>.)
+	</ul>
+	<p>Usually, groups of attributive adjectival phrases only
+	constitute a single phrase in coordinated constructions, where
+	there must be an explicit coordinator like "og" ("and") or "eller"
+	("or").</p>
+
+	<p><b>Mass and count nouns:</b> It is often assumed that nouns are
+	either count nouns, mass nouns or ambiguous between the two
+	readings. However, while there is clearly a semantic difference
+	between the mass reading (unindividuated) and the count reading
+	(individuated), there is good reason to argue that all nouns are
+	ambiguous between the two readings. This view is supported by the
+	observation that even nouns that are traditionally classified as
+	count nouns, have a mass reading.  While the mass reading of some
+	nouns (traditional "count nouns") may be semantically implausible
+	in many contexts, it is usually possible to construct a context
+	that will make the mass reading plausible for any given noun. The
+	noun "corner" was suggested by Richard Hudson (personal
+	correspondence) as the ultimate challenge, but even that seems to
+	have a mass reading:</p>
+	<ul>
+		<li> A: What part of the cake do you like? B: I like corner
+			more than top.
+		<li> I would like to eat shark.
+		<li> I want idea more than feeling.
+	</ul>
+	Similarly, the count readings of other nouns (traditional
+	"mass nouns") are semantically implausible in many contexts, but
+	one rarely sees mass nouns that do not have a corresponding
+	individuated count reading:
+	<ul>
+		<li> The wines just arrived.
+		<li> The sands of Sahara.
+		<li> The waters were divided. 
+		<li> The beers are delicious.
+	</ul>
+	<p>Thus, we do not see any need to distinguish between two classes
+	of nouns, "count nouns" and "mass nouns". Rather, we believe that
+	all nouns have a mass reading which may be type-shifted to a count
+	reading by an external semantic operator provided by a plural
+	morpheme or certain determiners.</p>
+</div>
+
+<a name="Pronouns"></a>
+<h2>Pronouns</h2>
+
+	<p>Pronouns are characterized by their ability to appear as
+	subjects and direct objects on their own, without any
+	complements.</p>
+	<ul>
+		<li> <b>subject test:</b> if a word can appear as a subject
+		on its own, and it is not a common noun, proper name, or
+		type-shifted adjective, then it is a pronoun.
+
+		<li> <b>partitive test:</b> pronouns allow a partitive "af"
+			prepositional complement.
+
+		<li> <b></b>
+	</ul>
+	Pronouns are subdivided into definite/indefinite,
+	mass/singular/plural, common/neuter:
+	<ul>
+		<li> <b>adjectival definiteness test:</b> a singular pronoun is
+			definite if an associated adjectival modifier is e-marked
+			-- eg, "en gammel" (indefinite) vs. "den gamle"
+			(definite).
+		<li> 
+	</ul>
+
+
+	<p>The table below lists our analysis of different classes of Danish
+	pronouns with respect to type, complements and adjunct
+	governors. We distinguish between common nouns, pronouns, and
+	adjectives, with three kinds of number (mass, singular and
+	plural), and two kinds of definiteness (definite and indefinite),
+	using the following notation:</p>
+	<ul>
+		<li> <b>word class:</b> <b>N</b> = common noun, <b>P</b> =
+		pronoun, <b>A</b> = adjective
+
+		<li> <b>number:</b> <b>m</b> = mass, <b>s</b> = singular,
+		<b>p</b> = plural, <b>c</b> = countable = singular or plural 
+
+		<li> <b>definiteness:</b> <b>d</b> = definite, <b>i</b> =
+		indefinite
+	</ul>
+	The paradigms of "mange af X" allows definite plural
+	nouns and pronouns, but not indefinite plurals; the paradigm of
+	"de X" is the reverse. This can be used to classify possible
+	plural nominals with respect to definiteness.
+
+	<div class="discussion">
+		Tests:
+		<ul>
+			<li> <b>adjectival agreement:</b> does the pronoun require
+				singular adjectival modifiers to be definite or
+				indefinite? Eg: "en/enhver/ingen gammel mand" /
+				"den/denne gamle mand" 
+		</ul>
+	</div>
+
+	<table border="1">
+	<tr><th>type</th><th>words</th>
+		<th>comps</th>
+		<th>adjs</th>
+		<th width="50%">examples</th>
+		</tr>
+
+	<tr><th align="left">Pi<br>A</th><th>to tre ...
+		få/færre/færrest mange/flere/flest samtlige samme</th>
+		<td>Ni,(ud)+af+NPd</td><td>-</td>
+		<td>to mænd<br>
+			flere af alle byens indbyggere<br>
+			to mænd ud af hundrede</td></tr>
+	<tr><th align="left">Pi</th><th>en/et hvilken/hvilket/hvilke
+	hver/hvert nogen/noget/nogle anden <span class="stine">(tagged PI)</span>/andet/andre</th>
+		<td>NPi,(ud)+af+NPd</td><td>-</td>
+		<td>hvilke nogle bøger<br>
+			hvert et hus<br>
+			hver af alle disse bøger<br>
+			en to-tre rækker kartofler
+			</td>
+		</tr>
+	<tr><th align="left">Pi</th><th>sådan/sådant/sådanne</th>
+		<td>NPi</td><td>-</td>
+		<td>sådanne huse<br>
+			sådan et hus<br>
+			sådan nogle huse</td>
+		</tr>
+	<tr><th align="left">Pd</th><th>hvad</th>
+		<td>for+NPi</td><td>-</td>
+		<td>hvad for bog/nogle bøger</td>
+		</tr>
+	<tr><th align="left">Pd</th><th>enhver/ethvert ingen/intet den/det
+		denne/dette
+		: de disse</th>
+		<td>Ni,af+NPd</td><td>-</td>
+		<td>ethvert hus<br>
+			disse [få] mænd]<br>
+			de af vore forældre der...<br></td> 
+		</tr>
+	<tr><th align="left">Pd</th><th>al/alt/alle begge</th>
+		<td>NP</td><td>-</td>
+		<td>al den peber<br>
+			alle dem<br>
+			alle disse dygtige cellister<br>
+			begge hendes børn<br>
+			alle cellisterne<br>
+		</td>
+		</tr>
+	<tr><th align="left">Pd</th><th>meget/mere/mest <span
+	class="stine">lidt/mindre/mindst</span></th>
+		<td>NPm,af+NP</td><td>-</td>
+		<td>alt sand</td>
+		</tr>
+	<tr><th align="left">Pd</th><th>hvem</th>
+		<td>af+NPd</td><td>-</td>
+		<td>hvem af alle disse drenge</td>
+		</tr>
+	<tr><th align="left">Pd</th><th>jeg mig du dig : 
+	vi os I jer</th>
+		<td>Nci</td><td>-</td>
+		<td>jeg arme menneske<br>
+			vi to bagere</td>
+		</tr>
+	<tr><th align="left">Pd</th><th>ham hende</th>
+		<td>Nsd</td><td>-</td>
+		<td>ham smeden</td>
+		</tr>
+	<tr><th align="left">Pd</th><th>hvis min/mit
+			din/dit hans hendes dens dets ens Deres
+			vor/vort 's : mine dine hans hendes dens dets ens Deres
+			vore/vores jeres deres 's</th>
+		<td>Ni</td><td>-</td>
+		<td>mit hus<br>
+			mine huse</td>
+		</tr>
+	<tr><th align="left">Pd</th><th>man alting nogenting
+	ingenting han hun dem De Dem</th>
+		<td>&nbsp;</td><td>-</td>
+		<td>&nbsp;</td>
+		</tr>
+	<tr><th align="left">Pd</th><th>som der</th>
+		<td>&nbsp;</td><td>-</td>
+		<td>&nbsp;</td>
+		</tr>
+	<tr><th align="left">Pd</th><th>sig hinanden</th>
+		<td>&nbsp;</td><td>-</td>
+		<td>&nbsp;</td>
+		</tr>
+	<tr><th align="left">A</th><th>hele</th>
+		<td>Npi|NPsd</td><td>card noun</td>
+		<td>hele kager<br>
+			hele den store kage<br>
+			[[hele] to] kager</td>
+		</tr>
+	<tr><th align="left">A</th><th>færreste fleste</th>
+		<td></td><td>NPp</td>
+		</tr>
+	<tr><th align="left">A</th><th>al hel/helt megen</th>
+		<td>Nmi</td><td>card</td>
+		<td>hel peber<br>
+			?al den peber</td>
+		</tr>
+	<tr><th align="left">adverb?</th><th>selv</th>
+		<td>&nbsp;</td><td>noun verb</td>
+		<td>fanden selv har sagt det</td>
+		</tr>
+	<tr><th align="left">ModA</th><th>hvor</th>
+		<td>A+pos</td><td>-</td>
+		<td>hvor lidt|meget|godt</td>
+		</tr>
+	<tr><th align="left">ModV</th><th>hvordan
+		hvornår hvorfor hvorved hvorpå</th>
+		<td>&nbsp;</td><td>-</td>
+		</tr>
+	<tr><th align="left">adv</th><th>hver</th>
+		<td></td><td>?</td>
+		<td>vi gav dem en bog hver</td>
+		</tr>
+	<tr><th align="left">A:adj_ord</th><th>første <span class="stine">anden (tagged
+	AO)</span> tredje øvrige næste
+		sidste</th>
+		<td>?</td><td>?</td>
+		</tr>
+</table>
+	<p>The question here is whether the construction is headed by the
+	determiner or the common noun, and whether the adjective is an
+	adjunct of the determiner or the common noun -- a question that
+	has been discussed at length in the literature. We will choose an
+	analysis based on Richard Hudson's NP-analysis, with one slight
+	difference due to the different formal frameworks employed: in
+	constructions with a determiner and a noun, Hudson treats
+	adjectives as dependents of both determiner and noun; since our
+	formal framework does not allow double dependencies, and since
+	there is definiteness-agreement between adjectives and determiners
+	(and in German, strong-weak-mixed inflectional agreement),
+	adjectives will be analyzed as dependents of the determiner.</p>
+
+
+	<p>Nouns can be subdivided into the following subclasses. The
+	following restrictions are understood:</p>
+	<ul>
+		<li> there is number and gender agreement between pronouns and
+		their noun complement, ie, mass/singular/plural pronouns can
+		only select mass/singular/plural nouns
+	</ul>
+
+
+<ul>
+	<li> X sand/mad
+	<li> X dreng/hus
+	<li> X drengen/huset
+	<li> X drenge/huse
+	<li> X drengene/husene
+	<li> hvilke/n/t af X: X[def] = mændene, disse mænd, alle disse mænd
+	<li> hvilke/n/t X: X[indef] = mand, en mand, nogle mænd
+	<li> hvad for X: X[indef] = kvinde, en kvinde, nogle kvinder, ti kvinder
+	<li> de/n X: X[indef] = ene mand, ti mænd, *nogle mænd,
+	<li> hvem af X: X[def] = mændene, disse mænd, alle disse mænd
+	<li> alle X: X[def+indef] = mænd, mændene, ti mænd, 
+	<li> en fem til ti mand			
+	<li> X hvad jeg ejer: X = alt
+	<li> alt X jeg ejer: X = det Y, de Y, andet
+</ul>
+
+
+
+
+Eksempler fra Sabines ph.d.:
+<ul>
+	<li> første ulempe er at ... / *første er at ... / *ulempe er at /
+		den første ulempe er at
+	<li> en eneste bil
+	<li> sådan en god bil
+	<li> hele det første lange møde med ham
+	<li> alle partiets mange gode forslag vedtaget af Rådet
+	<li> begge disse trufne beslutninger
+	<li> ?selve denne hans eneste store sag
+	<li> begge de to søde små børn i huset som legede
+	<li> jeg så de sødeste to elefanter i går / jeg så de to sødeste
+		elefanter i går
+	<li> jeg så de mest bedårende mange elefanter
+	<li> partiets første få forslag
+	<li> partiets få første forslag
+	<li> tredje foredrag var sjovere end fjerde (ellipsis?)
+	<li> Tredje foredrag syntes han godt om. Fjerde kunne han derimod ikke lide.
+	<li> Gode foredrag syntes han om. Dårlige kunne han derimod ikke lide.
+	<li> God mad syntes han om. Dårlig kunne han derimod ikke lide.
+	<li> Færre vil komme i morgen end vi havde regnet med.
+</ul>
+
+
+<p>Word classes:</p>
+<table border="1">
+	<tr><th align="left">noun_sim</th><th>frygt sand</th>
+		<td>sim</td><td></td><td></td>
+		</tr>
+	<tr><th align="left">noun_sdm</th><th>frygten sandet</th>
+		<td>sdm</td><td></td><td></td>
+		</tr>
+	<tr><th align="left">noun_sic</th><th>dreng hus</th>
+		<td>sic</td><td></td><td></td>
+		</tr>
+	<tr><th align="left">noun_sdc</th><th>drengen huset</th>
+		<td>sdc</td><td></td><td></td>
+		</tr>
+	<tr><th align="left">noun_pic</th><th>drenge huse</th>
+		<td>pic</td><td></td><td></td>
+		</tr>
+	<tr><th align="left">noun_pdc</th><th>drengene husene</th>
+		<td>pdc</td><td></td><td></td>
+		</tr>
+	<tr><th align="left">noun_prop</th><th>Peter Jensen Novo</th>
+		<td>d</td><td></td><td></td>
+		</tr>
+	<tr><th align="left">adjective</th><th>gammel/gammelt/gamle ældre
+			ældst/ældste</th>
+		<td></td><td></td><td></td>
+		</tr>
+	</table>
+
+	<p>Many theorists, eg, Ivan Sag, has pointed out noun phrases with a
+	rather complicated structure. Følgende eksempler er oversat fra
+	(Pollard-Sag, 1994, p. 364-365):</p>
+	<ul>
+		<li> mange/få/nogle få/flere/færre studerende
+		<li> meget/lidt/en lille smule/mere/mindre vin
+		<li> mange færre studerende (end professorer)
+		<li> meget mere øl (end vin)
+
+		<li> mange/*meget færre 
+		<li> tre tønder med vin
+		<li> tre liter vin
+		<li> tre liter mindre vin end øl
+		<li> tre timer senere
+		<li> tre kilometer uden for Chicago
+		<li> tre kilometer nærmere Chicago
+		<li> tre meter bred
+		<li> tre færre studerende end professorer
+
+		<li> [Mange flere end 50 mænd] kom til syne i horisonten.
+		<li> [Hvor meget mere komfortabel end den første stol] var den
+			anden stol?
+		<li> Dette bord er [tre gange så langt som det andet er
+			bredt].
+		<li> Denne fabrik er [mange gange mere produktiv end den anden fabrik].
+		<li> Kim er [50 IQ points flere mindre intelligent end Sandy
+			end Chris er mindre intelligent end Dana].
+		<li> Kim er [tre gange så meget mere intelligent end Sandy end
+			Chris er mere intelligent end Dana].
+
+		<li> Hewlett-Packard ansætter flere konsulenter end Xerox 
+			ansætter ingeniører.
+		<li> Kim er så bred som Sandy er høj.
+		<li> Kim bor så tæt på Chicago som Sandy bor tæt på Detroit.
+		<li> Kim drikker så hurtigt (i liter per sekund) som Sandy
+			drikker uopdragent (i bøvs per sekund).
+		<li> Kim er så meget mere intelligent end Sandy som Chris er
+			mere intelligent end Dana.
+		<li> Hewlett-Packard hyrede så mange flere konsulenter end
+			Xerox som DEC fyrede flere ingeniører end Sun.
+
+		<li> <b>Peters smagfulde portræt af Picasso som en kunstner</b>
+			vakte stor begejstring. (noun)
+		<li> <b>Peters smagfulde portrættering af Picasso som en
+			kunstner</b> vakte stor begejstring. (deverbative noun)
+
+		<li> meget/lidt/en lille smule højere (end Kim)
+		<li> meget/lidt/en lille smule tættere på Chicago (end Cleveland)
+		<li> meget/lidt/en lille smule senere (end kl. 17)
+		<li> meget mere intelligent (end Sandy)
+		<li> tredive centimeter højere
+	</ul>
+
+	få-færre-færrest, mange-flere-flest, megen/meget-mere-mest, 
+	samme sådan
+
+	pronominer: anden, begge, de, den, denne, din, du, enhver, disse, 
+	al, alle, alt anden begge de den denne din du en enhver han
+	hinanden hun hvad hvem hver hvilken i ingen ingenting jeg man min
+	nogen selv sig sin vi vor
+
+	PersPron: 	jeg, du, han/hun/den/De, vi, I, de
+	Det: 		en/et, den/det, de, 
+	NumCard: 	en, to, tre, ...
+	NumOrd: 	ene/første, anden/andre, tredje, ...
+	Adj:		gammel-ældre-ældst
+
+	PersPron > 
+	ham > den > første > gamle > mand.
+	alle > de > sidste > gamle > mænd.
+	de > tre , sidste > gamle > mænd.
+	alle > de > mange > gamle > mænd.
+
+May occur with definite NP (bold); may only occur with indefinite NP
+(roman):
+<ul>
+	<li> 1. <b>al/alt/alle</b> hel/helt/<b>hele</b>
+	<ul>
+		<li> complements: [noun]
+		<li> adjuncts: [adj]
+	</ul>
+
+	<li> 3. <b>mig dig ham hende</b> den det Dem sig hinanden <b>os jer
+	dem</b> hvad hvem
+
+	<li> 13. <b>begge</b>
+</ul>
+May only occur with indefinite NP:
+<ul>
+	<li> 2. jeg du han hun den det man De vi I
+	de hvad hvem
+	<ul>
+		<li> complements: [af+noun]
+	</ul>
+
+	<li> 7. min/mit/mine din/dit/dine hans hendes dens
+		dets sin/sit/sine vor/vort/vores jeres deres hvis
+	<ul>
+		<li> complement: [noun]
+	</ul>
+
+	<li> 8. en/et/de den/det/de denne/dette/disse
+	ingen/intet nogen/noget/nogle hvilken/hvilket/hvilke hver/hvert
+	enhver/ethvert
+	<ul>
+		<li> complement: [af+noun, noun]
+	</ul>
+
+	<li> 18. sådan/sådant/sådanne
+
+
+	<li> en to tre fire fem seks ...
+
+	<li> mange/flere/flest få/færre/færrest megen/meget/mere/mest<br>
+	ene/første andet/anden/andre tredje fjerde ...
+
+
+	<li> 12. gammel/ældre/ældst
+
+
+	<li> 14. samme
+
+	<li> 15. selv
+
+	<li> 16. ingenting nogenting
+
+</ul>
+
+	al/alt/alle hel/helt/hele mig dig ham hende den det Dem sig
+	hinanden os jer dem hvad hvem begge jeg du han hun den det man De
+	vi I de hvad hvem min/mit/mine din/dit/dine hans hendes dens dets
+	sin/sit/sine vor/vort/vores jeres deres hvis en/et/de den/det/de
+	denne/dette/disse ingen/intet nogen/noget/nogle
+	hvilken/hvilket/hvilke hver/hvert enhver/ethvert
+	sådan/sådant/sådanne en to tre fire fem seks ...
+	mange/flere/flest få/færre/færrest megen/meget/mere/mest
+	ene/første andet/anden/andre tredje fjerde ...  gammel/ældre/ældst
+	samme selv ingenting nogenting
+
+<ul>
+	<li> <b>noun+def:</b> al/alt/alle begge: comps = [noun]
+	<li> <b>noun+def:</b> pron,
+</ul>
+
+
+<ul>
+	<li> <b>X mad:</b> al hel den det min din hans hendes dens dets
+		sin vor jeres deres hvis en den denne ingen intet noget
+		hvilken hver enhver sådan en megen meget mere 
+		første anden andet tredje fjerde gammel ældre samme 
+	<li> <b>al X mad:</b> *al hel den det min din hans hendes dens
+		dets sin vor jeres deres hvis en den denne *ingen *intet *noget
+		hvilken *hver *enhver sådan *en *megen *meget *mere 
+		første anden *andet *tredje *fjerde gammel ældre *samme
+	<li> <b>X vand:</b> alt alle hel helt den det begge min mit mine
+		din dit dine hans hendes dens dets sin sit sine vor vort vores
+		jeres deres hvis en et de den det det de denne dette disse
+		ingen intet nogen noget nogle hvilken hvilket hvilke hver
+		enhver ethvert sådant sådanne en to tre ... mange flere flest
+		få færre færrest megen meget mere mest første andet anden
+		andre tredje fjerde ... gammel gammelt ældre ældst ældste
+		samme 
+	<li> <b>X vandet:</b> alt hele ?ham ?hende 
+	<li> <b>X dreng/hus:</b> ?al ?alt hel helt mig dig den det hvem
+		jeg du min mit din dit hans hendes dens dets sin sit vor vort
+		jeres deres hvis en et den det denne dette ingen intet nogen
+		noget hvilken hvilket hver hvert enhver ethvert sådant en
+		megen meget mere mest ene første andet anden tredje fjerde
+		gammel ældre ældst samme 
+	<li> <b>X drengen/huset:</b> al alt hele ham hende 
+	<li> <b>X den dreng/det hus:</b> al alt hele ham hende 
+	<li> <b>X drenge/huse:</b> alle hele os jer begge vi I de mine
+		dine hans hendes dens dets sine vores jeres deres hvis de disse
+		ingen nogle hvilke sådanne to tre fire fem seks ... mange flere
+		få færre andre gamle ældre
+	<li> <b>X drengene/husene:</b> alle begge
+	<li> <b>X de drenge/huse:</b> alle begge 
+	<li> <b>alle X drenge/huse:</b> *alle hele os jer *begge vi I de mine 
+		dine hans hendes dens dets sine vores jeres deres hvis de disse *ingen
+		*nogle hvilke sådanne to tre fire fem seks ... *mange *flere ?få
+		?færre andre gamle ældre
+	<li> <b>mange X drenge:</b> hele sådanne ^flere ^færre andre gamle ældre
+	<li> <b>X af skuespillerne</b>: ham hende den os jer dem hvem
+		begge ?jeg ?du ?han ?hun den vi I de hvem de den ingen nogle
+		hvilken hvilke hver enhver en to tre fire fem seks ... mange
+		flere ?flest få færre ?færrest andre
+
+	<li> <b>noun+def -> [noun]:</b> alle begge hele ham hende
+
+	<li> <b>determiner:</b> alle begge ?hele os jer vi I de mine dine
+		hans hendes dens dets sine vores jeres deres hvis de disse 
+
+
+	<li> <b>noun+def+count -> [noun+indef], num+gender agreement:</b> 
+	</ul>
+
+	<ul>
+		<li> Alle de mange børn vrimlede rundt på stedet.
+		<li> De alle børn.
+		<li> Hun så dem alle.
+		<li> Dem alle så hun ikke den dag.
+	</ul>
+
+<div class="stine">
+	The pronoun "ham" ("him") may take any definite noun or pronoun 
+	as its nominal complement:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/np-12.png" alt="Ham den grønlandske gut">
+	</p>
+</div>
+
+
+<h2>Pronominer</h2>
+
+<ul>
+	<li> en grov, hæmningsløs forbrydelse
+	<li> en usædvanligt grov fornærmelse
+	<li> den søde lille dreng
+	<li> den flinke selv-lærte elev
+	<li> grov, nærmest hæmningsløs
+</ul>
+
+<h2>Nominaler</h2>
+
+<ul>
+	<li> et kraftigt slag i nakken
+	<li> en hård nød at knække
+</ul>
+
+<a name="Numerals"></a>
+<h2>Numerals</h2>
+
+	<p>A numeral phrase has a <i>phrasal value</i>, which is the
+	numerical value of the entire phrase, and a <i>head value</i>,
+	which is the numerical value of the head word. 	For example, "tre
+	hundrede og to" has phrasal value 302, and head value 100
+	(assuming that "hundrede" is the head word). In our analysis, the
+	head word in a numeral phrase is always the numeral with the
+	largest head value  -- unless the larger numeral can be analyzed
+	as the second conjunct in a coordination, in which case the
+	numeral that acts as first conjunct is chosen as the head. Thus,
+	in "to og tyve" ("two and twenty" = 22), "to" is the head word,
+	although "tyve" has larger head value.</p>
+
+	<a name="_numm"></a>
+	<a name="_numa"></a>
+	<p>In addition to being determiners (ie, pronouns that take an
+	optional noun complement) when they are not governed by another
+	numeral, numerals can also take two optional numeral complements:
+	a <i>multiplicative numeral complement</i> on the immediate left
+	(with complement edge "numm"), and an <i>additive numeral
+	complement</i> on the immediate right (with complement edge
+	"numa"). In the absence of an additive complement, the numeral may
+	be coordinated with another numeral by means of the coordinator
+	"og" ("and"), and the coordinator and the second conjunct are then
+	interpreted as an additive adjunct of the head numeral. Some
+	example analyses of numeral phrases are shown below:</p>
+
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/num-01.png" alt="to hundrede og tre">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/num-02.png" alt="to hundrede syv og tredive
+			tusind fem hundrede og tolv">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/num-03.png" alt="syv millioner fjorten hundrede">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+
+	<p>The phrasal value of any composite numeral phrase can be
+	computed by multiplying the head value of the head with the
+	phrasal value of the multiplicative complement, and then adding
+	the phrasal value of any additive complement or adjunct. Thus, the
+	value of "tre hundrede og to" is computed as (3) * 100 + (2) =
+	302, and the value of "to og tyve tusind tre hundrede og to" is
+	computed as (2 + (20)) * 1000 + ((3) * 100 + (2)) = 22,302.</p>
+
+	<p>The numerals can be grouped into subclasses according to the 
+	requirements they place on their multiplicative and additive
+	complements, and their second conjuncts in coordinations (some
+	notation: if N is a numeral, we let ||N|| denote its phrase value
+	and |N| denote its head value; "*" indicates that the construction
+	is never allowed):</p>
+
+	<table border="1">
+	<tr>
+		<th>head numeral H</th>
+		<th>multiplicative<br>complement M</th>
+		<th>additive<br>complement A</th>
+		<th>second<br>conjunct C</th>
+	</tr>
+	<tr>
+		<td>nul (0)</td>
+		<td>*</td>
+		<td>*</td>
+		<td>*</td>
+	</tr>
+	<tr>
+		<td>en/et to tre fire fem seks syv otte ni (1-9)</td>
+		<td>*</td>
+		<td>*</td>
+		<td>20&nbsp;&le;&nbsp;|C|&nbsp;&le;&nbsp;90</td>
+	</tr>
+	<tr>
+		<td>ti elleve tolv tretten fjorten femten seksten sytten atten
+			nitten (10-19)</td>
+		<td>*</td>
+		<td>*</td>
+		<td>*</td>
+	</tr>
+	<tr>
+		<td>tyve tredive fyrre halvtres tres halvfjers firs halvfems
+			(20-90)</td>
+		<td>*</td>
+		<td>*</td>
+		<td>*</td>
+	</tr>
+	<tr>
+		<td>hundrede (100)</td>
+		<td>1 &le; |M| &lt; |H|</td>
+		<td>1 &le; ||A|| &lt; |H|</td>
+		<td>0 &le; ||C|| &lt; |H|</td>
+	</tr>
+	<tr>
+		<td>tusind (1000)</td>
+		<td>1 &le; |M| &lt; |H|<br>
+			multiplicative complement is obligatory in the presence of
+			an additive complement</td>
+		<td>100 &le; ||A|| &lt; |H|<br>
+			any A must obligatorily have a multiplicative complement</td>
+		<td>0 &le; ||C|| &lt; |H|<br>
+			any C with |C| &ge; 100 must obligatorily have a
+			multiplicative complement</td>
+	</tr>
+	<tr>
+		<td>million milliard billion trillion (10<sup>6</sup>/10<sup>9</sup>/10<sup>12</sup>/10<sup>18</sup>)</td>
+		<td>1 &le; |M| &lt; |H|<br>
+			multiplicative complement is obligatory</td>
+		<td>100 &le; ||A|| &lt; |H|<br>
+			any A must obligatorily have a multiplicative complement</td>
+		<td>0 &le; ||C|| &lt; |H|<br>
+			any C with |C| &ge; 100 must obligatorily have a
+			multiplicative complement</td>
+	</tr>
+</table>	
+	<p>The numerals "million", "milliard", "billion", and "trillion"
+	have a plural inflection, which must be used whenever their
+	multiplicative complement has head value larger than 1. All other
+	numerals are always singular. In particular, the plural forms of
+	"hundrede" ("hundreder") and "tusind" ("tusinde/tusinder")
+	are analyzed as plurals of the common nouns "hundrede" and
+	"tusind", and can not take any numeral complements or
+	adjuncts. The numbers between 20 and 90 are partly based on a
+	number system with base 10 ("tyve" = 2*10, "tredive" = 3*10, "fyrre"
+	= 4*10), partly based on a number system with base 20, as is
+	evident from the old forms of these numbers ("halvtres" =
+	"halvtresindstyve" = 2.5
+	* 20 = 50, "tres" = "tresindstyve" = 3 * 20 = 60, "halvfjers" =
+	"halvfjersindstyve" = 3.5 * 20 = 70, "firs" = "firsindstyve" = 4
+	* 20 = 80, and "halvfems" = "halvfemsindstyve" = 4.5 * 20 = 90).
+	Syntactically, the old forms behave exactly like the new
+	abbreviated forms, although ordinal numeral phrases can only be
+	formed with the old forms.</p>
+
+	<p>Here are some further examples of numeral phrases in Danish:</p>
+	<ul>
+		<li> 1001 = et tusind og en = tusind og en = *tusind en = *et tusind et
+		<li> 1100 = et tusind et hundrede = *tusind hundrede = *tusind
+			et hundrede = *et tusind hundrede = elleve hundrede
+		<li> 237,512 = to hundrede syv og tredive tusind fem hundrede og tolv
+		<li> 2,300 = tre og tyve hundrede = to tusind tre hundrede
+		<li> 7,001,400 = syv millioner fjorten hundrede = syv
+			millioner et tusind fire hundrede
+	</ul>
+	<p>A numeral can also be transformed into a common noun by adding the
+	suffix "+er", eg.: to+er/to+er+en/to+er+e/to+er+ne. </p>
+	<ul>
+		<li> tre et halvt
+		<li> tre komma en fire en fem ...
+		<li> tre komma fjorten femten ...
+		<li> minus to
+	</ul>
+
+	<div class="question">
+	Ordinal numerals:
+	<ul>
+		<li> nulte
+		<li> første anden tredje fjerde femte sjette syvende ottende
+		niende
+		<li> tiende ellevte tolvte trettende fjortende femtende
+		sekstende syttende attende nittende
+		<li> tyvende tredivete fyrretyvende halvtresindstyvende
+		tresindstyvende halvfjersindstyvende firsindstyvende
+		halvfemsindstyvende 
+		<li> ?hundredte
+		<li> ?tusindte
+		<li> ?millionte ?milliardte ?billionte ?trillionte
+	</ul>
+	</div>
+
+<div class="discussion">
+	<p><b>Are numerals pronouns or cardinal adjectives?</b> Numerals 
+	are usually classified as either adjectives or special nouns. 
+	While the PAROLE tagset allows both analyses, the Danish PAROLE
+	corpus has explicitly chosen the adjectival analysis. However, Otto
+	Jespersen writes in "Philosophy of Grammar", p. 85: "Numerals are
+	often given as a separate part of speech; it would probably be
+	better to treat them as a separate sub-class under the pronouns,
+	with which they have some points in common." Jespersen argues (1)
+	that "indefinite articles" such as "en" and "et" are best analyzed
+	as pronouns; since they coincide with cardinal numerals in many
+	languages, this suggests that cardinal numerals ought to be
+	analyzed as pronouns as well; (2) that cardinal numerals can be
+	used as pronouns, ie, on their own; and (3) that cardinal numerals
+	are difficult to use predicatively, unlike normal adjectives.</p>
+
+	<p>Numerals also differ from adjectives by having no inflection
+	for degree or definiteness, and by lacking the ability to appear in
+	prototypical adjectival constructions like "mere X end Y" ("more X
+	than Y"). The most frequently proposed argument for the adjectival
+	analysis is that numerals superficially seem to appear in the same
+	position as adjectives in examples like "de
+	sødeste tre små elefanter", ie, between the determiner and the
+	common noun.  However, the pronominal analysis (below left) --
+	where "tre" is a pronoun that acts as complement of "de" and takes
+	"elefanter" as its complement -- explains the word order just as
+	well, so the adjectival analysis (below right) has no advantage
+	over the pronominal analysis in this respect either.</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/num-04a.png" alt="de sødeste tre små elefanter (pronominal)">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/num-04b.png" alt="de sødeste tre små elefanter (adjectival)">
+	</p>
+
+	<p>Thus, the end result is that we have found no compelling
+	evidence in favour of the adjectival analysis, whereas we have
+	found many compelling reasons to analyze numerals as special
+	pronouns -- particularly because of their ability to function as
+	determiners, and to function as subjects and objects on their own.
+	For these reasons, we think that numerals should be classified as
+	a special subclass of pronouns.</p>
+
+	<p><b>What is the syntactic structure of numeral phrases?</b> When
+	comparing our analysis of numeral phrases with our analysis of
+	noun phrases, there is a striking difference between the analysis
+	of the numeral phrase "et hundrede" (where "et" is a complement)
+	and the noun phrase "et hus" (where "et" is the head). For noun
+	phrases, we have earlier argued that there are compelling reasons
+	for selecting the determiner as the head of the noun phrase.
+	Thus, an intuitive analogy seems to suggest that numerals should
+	be analyzed similarly, with "et" as the head in "et hundrede".
+	However, we have been unable to find an analysis with the first
+	numeral as head that satisfies the most important requirement of
+	any syntactic analysis of numeral phrases: that it should lead to
+	an easy algorithm for finding the corresponding numerical value of
+	the numeral phrase.</p>
+	
+	<p>In contrast, the analysis of numerals that we have presented
+	above does satisfy this requirement in a very natural way, and
+	since we have been unable to find any arguments against it -- or
+	indeed any convincing arguments why numeral phrases should be
+	analogous to noun phrases -- we believe that our analysis of
+	numerals is the most natural one. One alternative, which is
+	probably viable, is to analyze "multiplicative complements" and
+	"additive complements" as adjuncts instead, but then one has to be
+	very careful with multiple adjuncts, the order of application of
+	the adjuncts in the functor-argument structure, etc. In the end,
+	we felt that the complement approach was simpler from a conceptual
+	and computational point of view.</p>
+	
+	<p>Another alternative, which seems perfectly viable, is to
+	analyze the "og" plus second conjunct as a "coord"-complement
+	instead of an adjunct. This analysis has the great advantage that
+	the restrictions on the second conjunct can be expressed very
+	easily, but differs from the normal analysis of coordination by
+	analyzing the coordinator as an optional complement instead of an
+	adjunct. Fortunately, this analysis is annotated in the same
+	way as the ordinary coordination analysis that we have chosen, so
+	the choice between the two analyses reduces to how one interprets
+	the treebank annotation.</p> 
+</div>
+
+
+<a name="Names"></a>
+<h2>Proper names</h2>
+
+	<a name="_namef"></a>
+	<a name="_namel"></a>
+	<a name="_title"></a>
+	<p>A <i>proper name</i> cannot be inflected as a noun, but can be
+	modified by other names and nouns. We distinguish between <i>first
+	names</i> (eg, "Peter"), <i>last names</i> (eg, "Nielsen"),
+	<i>non-person names</i> (eg, "Volvo", "Buller", "København"),
+	<i>titles</i> (eg, "Hr."), and <i>professions</i> (eg, "doktor",
+	"bager"). The analysis of proper names is guided by the following
+	rules (with the edge type shown in bold):</p>
+	<ul>
+		<li> <b>title</b>: a title can modify a following profession
+			or last name.
+		<li> <b>title</b>: a profession can modify a following last
+			name, or a preceding first name.
+		<li> <b>namef</b>: a first name can modify a preceding first name,
+			or a following last name.
+		<li> <b>namel</b>: a last name can modify a following last name.
+	</ul>
+	Note that a profession is always an indefinite singular noun (eg,
+	"bager", "sanger", "direktør"), and that definite nouns followed
+	by a proper noun (eg, "komponisten Carl Nielsen") are analyzed as 
+	<a href="nounsT.html#__Apposition">restrictive apposition</a>. The principles
+	above result in the analyses below:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/name-01.png" alt="Ole Michael Lindholm Sørensen">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/name-02.png" alt="hr. direktør Hans Ove greve
+			von Schimmelmann">
+	</p>
+	<p>In a name consisting of a proper name and a noun, the noun is
+	analyzed as "nobj"-dependent of the proper name. In a name
+	consisting of two proper names which cannot be analyzed in terms
+	of first names and last names, the second name is analyzed as a
+	"name"-dependent of the first name. This can be expressed by the
+	following rules:</p>
+	<ul>
+		<li> <b>nobj</b>: a name can sometimes take a following
+			particular noun as its complement.
+		<li> <b>name</b>: a non-person name can sometimes take a
+			following particular non-person name as its complement.
+	</ul>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/name-04.png" alt="Ebberød Bank">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/name-05.png" alt="Lyngby Centret">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/name-06.png" alt="Firmaet Merciri Urval">
+	</p>
+	<p>Names of banks, companies, songs, etc. that are composed of
+	ordinary nouns, are analyzed as if they were normal compounds.
+	Thus, their status as names can only be deduced from their
+	capitalization. An example is shown below:</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/name-03.png" alt="Foreningen for Nulevende
+			Danske Helte">
+		<!-- This is a ficticious Society (apparently invented by Ole
+		Krarup) that appears in the "Blå Bog" entry of the former
+		Danish minister of justice, Ole Espersen, around 1978. -->
+	</p>
+
+	<div class="discussion">
+		<p>The internal structure of proper nouns can be revealed by
+		looking at how first and last names combine with titles and
+		professions. Eg, we have "Peter bager", but "*Jensen bager",
+		which indicates that "bager" may modify a preceding first
+		name, but not a last name. Moreover, "*Peter Jensen bager"
+		suggests that the last name is the head of the construction.
+		This is confirmed by the observation that "hr.  Jensen" and
+		"hr. Peter Jensen" are quite natural, whereas "???hr. Peter"
+		is highly unnatural. The same applies to "bager Jensen", "bager
+		Peter Jensen", and "???bager Peter". In the external syntax,
+		our analysis of titles and professions as modifiers to the
+		proper noun is confirmed by examples like "Jeg kender
+		bager/hr. Jensen", as contrasted with "*Jeg kender
+		bager/hr.".</p>
+
+		<p>In morphological composition where words are connected by a
+		hyphen, titles are perfectly capable of modifying any
+		following proper name ("bager-Peter", "direktør-Jensen"), and
+		the same holds for almost any other noun ("fodbold-Peter",
+		"kage-Jensen"), and infinitive verb ("svømme-Peter",
+		"gruble-Jensen").</p>
+	</div>	
+<div class="stine">
+<a name="Modifiers"></a>
+<h2>Modifiers</h2>
+	<p>All noun phrases allow a modifier to attach to them:
+	<ul>
+		<li> (1) <b>pron+adj+cnoun:</b> Den festlige
+			skuespiller <i>fra truppen</i> var særdeles underholdende.
+		<li> (2) <b>pron+adj+cnoun:</b> En festlig skuespiller <i>med en sjov hat
+		på </i>
+			deltog i vores selskab.
+		<li> (3) <b>pron+adj+cnoun:</b> Disse festlige
+			skuespillere <i>inde på Det Kongelige Teater</i> spiller nu ret godt.
+		<li> (4) <b>pron+adj:</b> Den festligste <i>i selskabet</i> var også den sjoveste.
+		<li> (5) <b>pron+cnoun:</b> Dette stykke <i>med Bodil Udsen i hovedrollen</i> har gået på
+			teatret siden i fredags.
+		<li> (6) <b>adj+cnoun:</b> Festlige skuespillere <i>i godt humør</i> er
+			altid velkomne.
+		<li> (7) <b>pron:</b> Den <i>oppe på taget</i> kan jeg ikke lide.
+		<li> (8) <b>adj:</b> Røde <i>fra denne pose</i> smager bedre end grønne. 
+		<li> (9) <b>cnoun:</b> Skuespillere <i>uden for klassen af fastansatte</i> skal man ikke foragte.
+		<li> (10) <b>cnoun:</b> Vand <i>fra den rene kilde</i> smager dejligt.
+	</ul>
+	By convention, we always attach the modifying phrase to the head of the noun phrase:
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine16.png" alt="Den festlige skuespiller fra truppen var særdeles
+	underholdende">
+	</p>
+	</p>
+	<h3>Modp</h3>
+	<p>The label parenthetical modifier (modp) denotes a modifier that attaches to a
+	noun phrase in a parenthetical manner. That it is parenthetical is often indicated
+	by brackets or dashes, or it is simply reflected in the syntax. Here are some examples:
+	<ul>
+		<li>På samme tidspunkt - <b>i</b> tidsrummet mellem klokken 12.00 og 13.00
+		- skulle hun til undervisning.
+		<li>Alle pensionister (både <b>enlige</b> og ægtepar) har ret til denne
+		ydelse.
+		<li>Døre til boliger, såvel <b>hoveddør</b> som bagdør, bør være solide.
+	</ul>
+	</p>
+</div>
+
+
+<div class="stine">
+<a name="Locative-directional objects"></a>
+<h2>Locative-directional objects</h2>
+	<p>A small class of common nouns allow a locative-directional object (lobj) to
+	attach to them. Some have inherited this ability from the verb they are derived
+	from, e.g. "en rejse" from "at rejse". Others simply carry this optional lobj as
+	part of their meaning, e.g. "en tur" with the indication of starting and ending
+	point by the prepositions "fra" and "til". The reason for using the label lobj
+	instead of pobj is, that these "fra" and "til"'s always express a
+	locative-directional meaning. Here is a (most likely unfinished) list of nouns
+	taking an lobj, extracted from our tagged corpus (41 occurences):
+	<ul>
+		<li>rejse	("Rejsen <b>til</b> Berlin tager kun cirka 5 timer.")
+		<li>tur		("Så tager vi en tur <b>i</b> tivoli!")
+		<li>vej		("Vi er på vej <b>til</b> fest.")
+		<li>gang	("Peter måtte gå den trælse gang <b>til</b> bistandkontoret.")
+	</ul>
+	</p>
+	</div>
+	
+
+<a name="Appositions"></a>
+<h2>Appositions</h2>
+
+	<a name="_appa"></a>
+	<p>The treebank distinguishes between <i>parenthetical
+	apposition</i> and <i>restrictive apposition</i>. In
+	<b>parenthetical apposition</b>, a definite noun is modified by a
+	following coreferential NP (with edge "appa"), which is
+	parenthetical in the sense that the semantic reference of the
+	first NP can be determined from the first NP alone -- ie, the
+	second NP is not needed to determine the reference, but merely
+	provides additional information about the first NP.
+	Parenthetical apposition is easily recognized because the
+	apposition is always enclosed in commas, dashes, or parentheses.
+	An example of parenthetical apposition is shown below:</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/appo-01.png" alt="Romanen, et værk på 800
+			sider, var lang.">
+	</p>
+	<a name="_appaV"></a>
+	<p>A parenthetical apposition may also modify a verb, if the
+	apposition can be used predicatively about the infinitival version
+	of the verb phrase. Eg, "Han var vred, en dårlig egenskab" (="He
+	was angry, a bad trait") is possible because "At være vred er en
+	dårlig egenskab" (="To be angry is a bad trait") is possible. Some
+	examples are shown below:</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/appo-05.png" alt="Han var vred, en dårlig egenskab.">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/appo-06.png" alt="Han slog hende ihjel, en
+			forfærdelig handling.">
+	</p>
+
+	<a name="_appr"></a>
+	<p>In <b>restrictive apposition</b>, a definite NP is modified by
+	a following noun phrase (with edge "appr"), which must denote a
+	name. The second NP is normally more specific in terms of semantic
+	reference than the first NP, and the two NPs are never separated
+	by any punctuation.  
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/appo-02.png" alt="geniet Albert Einstein">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!--	<img src="figs/appo-03.png" alt="nabostaten Massachusetts">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/appo-04.png" alt="diagnosen kræft">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/appo-08.png" alt="ægteparret Inge og Jens Hansen">
+	</p>
+	<p>Note that the first NP is always definite in this construction:
+	If it is indefinite, it should probably be analyzed as a title
+	that modifies a <a href="nounsT.html#Names">proper name</a>. Note also that
+	many pronouns allow a proper noun as their nominal object, and
+	that a proper noun should be analyzed as "nobj" if possible, so
+	that the analysis with restrictive apposition only applies where
+	the pronoun already has an "nobj". Compare:</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/appo-09.png" alt="den berømte Albert Einstein">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/appo-07.png" alt="den berømte fysiker Albert Einstein">
+	</p>
+
+	<div class="discussion">
+		<p>In parenthetical appositions, agreement data support the
+		analysis of the first NP as the head:</p>
+		<ul>
+			<li> Romanen, et værk på 800 sider, var uforståelig/*uforståeligt.
+			<li> Huset i Rødovre, en gammel kasse, var grimt/*grim.
+			<li> årsagen -- et defekt kontrolsystem -- var uheldig/*uheldigt.
+		</ul>
+		<p>In restrictive appositions, agreement data seem to support the
+		analysis of the first NP as the head:</p>
+		<ul>
+			<li> Huset "Roligheden" er *pæn/pænt.<br>
+				 Ejendommen "Roligheden" er pæn/*pænt.
+
+			<li> Goethes hovedværk "Faust" var *genial/genialt.<br>
+				 Goethes roman "Faust" var genial/*genialt. 
+
+			<li> Aktieselskabet Den Danske Bank er
+					*god/godt at investere i.<br>
+				 Virksomheden Den Danske Bank er god/*godt at
+				 	investere i.
+		</ul>
+		<p>However, the agreement data for restrictive apposition are
+		somewhat confusing when the appositional phrase denotes a
+		person. In these cases, the entire phrase preferably
+		receives common gender, and sounds slightly more odd when it
+		receives neuter gender from its head noun:</p> 
+		<ul>
+			<li> Geniet Einstein var altid opfindsom/?opfindsomt.<br>
+				 Fysikeren Einstein var altid opfindsom/*opfindsomt.
+
+			<li> Folketingsmedlemmet Ole Espersen var ærlig/?ærligt.<br>
+				 Ministeren Ole Espersen var ærlig/*ærligt.
+		</ul>
+		<p>This can perhaps be explained by a strong semantic preference
+		for assigning common gender to words that denote persons, regardless 
+		of their grammatical gender. This explanation is supported by
+		a similar observation for neuter NPs that appear on their own,
+		without apposition:</p>
+		<ul>
+			<li> Folketingsmedlemmet var uenig/?uenigt med ministeren.
+			<li> Barnet var uenig/?uenigt med sine forældre.
+			<li> Pop-idolet var vred/?vredt på sine fans.
+		</ul>
+	</div>
+
+	<a name="_possd"></a>
+<a name="Possessives"></a>
+<h2>Possessives</h2>
+
+	<p>Possessive pronouns are analyzed like determiners, except that the
+	dependency between the possessive pronoun and its noun complement
+	is labeled "possd" (=possessed) rather than "nobj". Possessives
+	can also be formed by combining two noun phrases with the clitic
+	possessive marker "s", which takes a "possr" (=possessor) noun
+	phrase complement to its left, and a "possd" noun complement to
+	its right. Unfortunately, in the PAROLE corpus, the clitic "s" is
+	not tagged as a separate entity, but is glued on to the last word
+	in the possessor phrase. We therefore have to encode our
+	analysis as a dependency graph where the clitic-marked possessor
+	noun phrase is the head, and the possessed noun phrase is a
+	"possd" complement of the possessor:</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/poss-01.png" alt="min far">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/poss-02b.png" alt="et barns far">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/poss-03b.png" alt="min klassekammerats mors chefs kone">
+	</p>
+	<p>Thus, in the second graph above, "et barns" (headed by "et") acts
+	like a possessive pronoun, so "et" takes "far" as its
+	"possd"-complement. Similarly, in the second graph, "min
+	klassekammerats", "min klassekammerats mors", and "min
+	klassekammerats mors chefs" (all headed by "min") all act like
+	possessive pronouns that take their following noun as their
+	"possd" complement. The final "possd" complement is optional, as
+	shown in the predicative below:</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/poss-04b.png" alt="det er et barns">
+	</p>
+
+	<div class="discussion">
+		<p>In Discontinuous Grammar and treebanks that encode
+		morphological structure, the possessive "s" should be analyzed
+		as a separate lexeme. This gives the following more intuitive
+		analyses, where the clitic possessive "s" has been detached from the
+		last word in its possessor phrase:</p>
+		<p align="center">
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/poss-02.png" alt="et barns far">
+				&nbsp;&nbsp;&nbsp;&nbsp;
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/poss-03.png" alt="min klassekammerats mors
+				chefs kone">
+				&nbsp;&nbsp;&nbsp;&nbsp;
+			<img src="http://www.id.cbs.dk/~mtk/treebank/figs/poss-04.png" alt="det er et barns">
+		</p>
+	</div>
+	<div class="stine">
+	<p><b>Special possesives</b><br>
+	Some possesives are not so clearly possesive as the examples above. We have
+	decided to analyse them as possesives, even if they have some characteristics of
+	being modifying phrases instead. Here are some examples:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine63a.png" alt="Han har 25 års jubilæum">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine64a.png" alt="Der var 35 graders varme">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine65a.png" alt="Tyven fik to års fængsel">
+	</p>
+	<div class="discussion">
+	The alternative modifier-analysis would look like this:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine63b.png" alt="Han har 25 års jubilæum">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine64b.png" alt="Der var 35 graders varme">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine65b.png" alt="Tyven fik to års fængsel">
+	</p>
+	</div>
+	</p>
+	
+	<p><b>Possesive or "fuge-s"?</b><br>
+	These examples could look like possesives, but they really are not. We analyse
+	them as modifiers, and in fact they should be written and understood as one word,
+	making it clear that the s is a "fuge-s": "en treværelses lejlighed" should be
+	written "en treværelseslejlighed" according to the rules for danish
+	orthography. Here are som examples of analysis:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine66.png" alt="De bor i en tre værelses lejlighed">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine67.png" alt="Hun fremlagde en fem års plan">
+	</p>
+	</div>
+
+<a name="Words_at+om"></a>
+	<a name="at-pronoun"></a>
+<h2>The words "at" and "om"</h2>
+
+	<p>The words "at" and "om" are analyzed as special pronouns that
+	take a verbal object, ie, in the external syntax, they are always
+	analyzed as if they were ordinary noun phrases. "At" can take a
+	finite or infinitive verb as its verbal object, whereas "om" only
+	takes a finite verb as its verbal object. Also see our analysis of
+	<a href="verbsT.html#it-clefts">it-clefts</a> and <a
+	href="verbsT.html#wh-pronoun" target="text">interrogative
+	pronouns</a>.</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/at-01.png" alt="at ødelægge hans Picasso var en
+				dårlig ide">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/at-02.png" alt="at vi ødelægde hans Picasso gjorde 
+				ham meget vred">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/om-01.png" alt="om vi ødelægger hans Picasso er
+			lige meget">
+	</p>
+	<p>"At" and "om" phrases may also be used as direct objects and
+	nominal objects of prepositions:</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/at-03.png" alt="Man kan høre at Menuhin spiller godt">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/at-04.png" alt="De ønskede at drukne deres sorg i kakao">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/om-03.png" alt="Marie spurgte om kaffen var varm">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/om-02.png" alt="Vi tænkte på om de var hjemme">
+	</p>
+	<p>If the phrase headed by "at" is a non-subject and the verbal
+	complement of "at" is finite, then there often exists a parallel
+	construction where "at" is omitted:</p>
+	<ul>
+		<li> Marie fortæller os (at) hun inviterer os til Firenze.<br>
+			<i>Marie tells us (that) she invites us to Firenze.</i><br>
+		<li> Marie ønsker ikke *(at) invitere os til Firenze.<br>
+			<i>Marie wants not *(to) invite us to Firenze.</i>
+		<li> ??(At) invitere os til Firenze ønsker Marie ikke.<br>
+			<i>??(To) invite us to Firenze wants Marie not.</i>
+		<li> *(At) vi mødes i morgen, er uheldigt.<br>
+			<i>(*That) we meet tomorrow, is unfortunate.</i>
+	</ul>
+	In this case, what would have been analyzed as the verbal object
+	of "at", is analyzed as a verbal object of what would have been
+	the governor of "at" (however, see also our analysis of <a
+	href="verbsT.html#quotation">quotation</a>):
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/at-none-01.png" alt="Therese synes selv hun er glad">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/at-none-02.png" alt="Marie tror på Therese er glad">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/at-none-03.png" alt="Jeg er en sød dreng, synes
+			min mormor">
+	</p>
+	<div class="discussion">
+	<p>The main reasons for analyzing "at" and "om" as pronouns are:
+	(1) Phrases headed by "at" and "om" may function as subjects,
+	whereas phrases headed by finite verbs, prepositions, or other
+	so-called "complementizers" (eg, "hvis" ("if"), "når" ("when"),
+	"fordi" ("because")) cannot function as subjects. (2) "at" and
+	"om" phrases can be replaced with the pronoun "det" ("it"). (3)
+	"at" and "om" phrases and noun phrases have nearly identical
+	distribution, ie, whereever a noun phrase may appear, a phrase
+	headed by "at" can usually appear instead if its semantics is
+	compatible with the context, and conversely. Thus, "at han taler
+	løber" ("that he speaks runs") is ill-formed, because an action
+	cannot be the agent of a running event, whereas "at han kom i
+	fængsel slog hans mor ihjel" ("that he went to prison killed his
+	mother") is well-formed because it has a reasonable semantic
+	interpretation (a certain event causing the mother's dead). (4)
+	The alternative to our analysis is to analyze phrases headed by
+	"om" and "at" as PPs or CPs, which forces us to say that subjects,
+	direct objects and nominal objects of prepositions are not only NPs,
+	but can be PPs and CPs as well, thus greatly expanding the number
+	of valency frames for almost all verbs and prepositions, which is
+	highly undesirable.</p>
+
+	<p>Many differences between "at" and "om" can be explained by the
+	fact that "om" is an interrogative pronoun (like "hvem", "hvad",
+	"hvornår", "hvorfor"), while "at" is non-interrogative. Verbs can
+	either be indifferent wrt interrogativity, or place restrictions
+	on the interrogativity of the noun complement: eg, "tror"
+	("think") and "mene" ("mean) require a non-interrogative noun
+	complement, "spørge" ("ask") requires an interrogative noun
+	complement, whereas "vide" ("know"), "se" ("see") and "høre"
+	("hear") allow both: </p>
+	<ul>
+		<li> Jeg tror [at han spiser|*om han spiser|*hvorfor han
+			spiser].<br>
+			<i>I think [that he eats|*whether he eats|*why he eats].</i>
+		<li> Jeg spørger [*at han spiser|om han spiser|hvorfor han spiser].<br>
+			<i>I ask [*that he eats|whether he eats|why he eats].</i>
+		<li> Jeg hører [at han spiser|om han spiser|hvorfor han spiser].<br>
+			<i>I hear [that he eats|whether he eats|why he eats].</i>
+	</ul>
+
+	<p><span class="question">The ODS claims that the Danish word "at"
+	historically originates from two words: the demonstrative pronoun
+	<span class="question">"?at"</span> (like English "that") when
+	used in constructions like "at"+sentence, and the preposition
+	<span class="question">"ad"</span> (like English "to", German
+	"zu") when used in constructions like "at"+infinitive. ODS also
+	states that the spelling "at" for both forms is very old and goes
+	back at least to Old Norse, so the syncretism between the two
+	forms into "at" happened at a very early stage in the development
+	of Danish.</span></p>
+
+	<p>The examples below show "at" and "om" phrases appearing as
+	subjects of predicatives and other verbs:</p>
+	<ul>
+		<li> [Diskussionen|at diskutere bogen|at de diskuterede
+			bogen|om de diskuterede bogen] var uinteressant.<br>
+			<i>[The discussion|to discuss the book|that they discussed
+			the book|whether they discussed the book] was uninteresting.</i>
+
+		<li> [Fejltagelsen|at tage sådan fejl|at jeg tog sådan
+			fejl] gjorde mig mismodig.<br>
+			<i>[The mistake|to be so mistaken|that I was so mistaken] made
+				me sad.</i>
+
+		<li> [Fodring af hesten|at fodre hesten|at han fodrer hesten] vil glæde
+			ejeren.<br>
+			<i>[Feeding of the horse|to feed the horse|that he feeds the horse]
+			will please the owner.</i>
+	</ul>
+	<p>The examples below show "at" and "om" phrases appearing as
+	direct objects:</p>
+	<ul>
+		<li> Kunne du tænke dig [en hund|at købe en hund|at vi køber en
+			hund]?<br>
+			<i>Would you like [a dog|to buy a dog|that we buy a
+			dog]?</i>
+		<li> Hun håbede (det bedste|at bestå eksamen|at han ville
+			bestå eksamen).<br>
+			<i>She hoped [the best|to pass the exam|that she would
+			pass the exam].</i>
+		<li> Til fødselsdagen lovede hun dem (en bil|at køre bilen|at
+			hun ville køre bilen).<br>
+			<i>At the birthday, she promised them [a car|to drive the
+			car|that she would drive the car].</i>
+		<li> Hun spurgte dem om de kunne bidrage.<br>
+			<i>She asked them whether they could contribute.</i>
+	</ul>
+	<p>The examples below show "at" and "om" phrases appearing as
+	nominal objects of prepositions:</p> 
+	<ul>
+		<li> Hun tænkte på [sit hus|at gå hjem|at hun ville gå hjem|om
+			hun ville gå hjem].<br>
+			<i>She thought about [her house|to go home|that she would
+			go home|whether she would go home].</i>
+		<li> håbet på [et mirakel|at undslippe|at de ville
+			undslippe|*om de ville undslippe].<br>
+			<i>The hope of [a miracle|to escape|that they would
+			escape|*whether they would escape].</i>
+		<li> Han spurgte om [en kage|at få en kage|?at han ikke får
+			kager nok|?om de ville give ham en kage].<br>
+			<i>He asked about [a cake|to get a cake|?that he not does
+			get cakes enough|?whether they would give him a cake]</i>
+		<li> Elefanten var træt af at blive skubbet til.<br>
+			<i>Elephant-the was tired of to be pushed to.</i>
+		<li> Hånden var ret våd og klam efter at være blevet spist
+			af.<br>
+			<i>Hand-the was rather wet and moist after to be been eaten
+			of.</i>
+	</ul>
+	</div>
+	
+<div class="stine">
+	<p><b>Analysis of frequent constructions</b></p>
+	
+	<p><b>"At" in it-clefts: "Det ... at + VP":</b>
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine11.png" alt="Det er godt at have en have">
+	</p></p>
+	
+	<p><b>"At" in "Så AN ... at + VP":</b>
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine12.png" alt="Det kan være så smertefuldt, at man besvimer">
+	</p></p>
+	
+	<p><b>Analysis of the expression "en måde at ..." ("a way to ..."):</b>
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine13.png" alt="Han har en måde at gå på">
+	</p>
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine49.png" alt="Han har en sjov måde at gå på">
+	</p></p>
+	<p>In some examples it can be difficult to tell, whether "at" should attach to the
+	adjectiv in the noun phrase or to the common noun. We believe that the following
+	test may help:
+	<ul>
+		<li>"at" should be attached to the <b>adjective</b> if the phrase
+		<b>allows</b> a predicative
+		paraphrase, that is, if it is possible to say "N er A at...", with
+		preservation of meaning. Example: "et
+		rart gulv at gå på" -> "gulvet er rart at gå på".
+		<li>"at" should be attached to the <b>common noun</b> if the phrase <b>does not
+		allow</b> a predicative paraphrase, that is, if it is not possible to say "N
+		er A at...", with preservation of meaning. Example: "en sjov måde at gå på" -> "*måden er sjov at gå
+		på".
+	</ul>
+	</p>
+	
+	<p><b>Analysis of "få + at + VP":</b>
+	There seems to be two parallel expressions in the corpus: "Få noget at vide" and
+	"Få at vide, at/om jeg kan fortsætte". The expressions being so parallel, we would
+	like the analysis of them to be identical. The last one seems straightforward:
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine14.png" alt="I_morgen får jeg at vide, om jeg kan fortsætte">
+	</p>
+	A parallel analysis of the first would then look like this:
+	<p align="center">
+	<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine15.png" alt="I_morgen får jeg noget at vide">
+	</p>
+	The problem with this is, that normally we would analyse "noget" in "få noget" as
+	dobj to "få". Besides, if we think that "noget" has moved forward in the sentence,
+	because it is a "light" term, we will have other problems: usually "light" terms
+	has the <i>possibility</i> to move forward, but it is an option, not a necessity.
+	Here "noget" necessarily has to precede "at vide" - that "noget" should follow "at
+	vide" is not an option. These two problems forces us to bring up another analysis.
+	Another possible analysis would be a predicative analysis, where "at vide" would
+	be pred to "få", while "noget" would be dobj to "få". This analysis still allows a
+	parallel analysis of the first example:
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine48.png" alt="I_morgen får jeg noget at vide">
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine47.png" alt="I_morgen får jeg at vide, om jeg kan
+		fortsætte">
+	</p>
+	</p>
+	
+	<p><b>Rules for other constructions with "at":</b></p>
+	<p>"At" can attach to both adjectives and nouns. If it is uncertain whether "at" attaches to the noun or the adjectiv in a
+	particular noun phrase, we presented a guiding principle above. Usually though,
+	there is not any problems determining what "at" attaches to, but rather what kind
+	of attachment "at" represents. As a special kind of noun, "at" should be analysed as nobj, if "at"
+	plays the role of an object in the sentence, and "at" should carry the label
+	mod, if "at" is the head of a modifier. To tell wheter "at" in a certain
+	construction should be analysed as nobj or mod, we have used the following
+	principle: 
+	<ul>
+		<li>If "at" attaches to an adjectiv, "at" should be analysed as nobj, if
+		the adjectiv, in this construction, cannot be replaced with other adjectives,
+	or only with a few other adjectives; "at" should be analysed as
+	mod, if the adjectiv could be replaces by almost any other adjectiv. The same
+	principle applies, if "at" attches to a noun: if the noun is generally
+	replaceable, "at" is mod to the noun; if the noun is not generally replaceable,
+	"at" is nobj to the noun. 
+	</ul>
+	Here is a table with examples:</p>
+	<p><table align="center" border="1">
+        <tr>
+            <th>&nbsp;</th>
+            <th>Restricted Use (Not Generally Replaceable)<br>
+	    Nominal Object (nobj)</th>
+            <th>Non-Restricted Use (Generally Replaceable)<br>
+	    Modifier (mod)</th>
+        </tr><tr>
+            <td><b>Adjectiv</b></td>
+            <td>1) ?Det gjorde ondt at se på</td>
+            <td>3) Den stol er vanskelig at flytte</td>
+        </tr><tr>
+            <td><b>Noun</b></td>
+            <td>2) Han fik det indtryk, at alt var godt</td>
+            <td>4) De fik en øl at drikke til maden</td>
+        </tr>
+	</table></p>
+	<p>In our tagged corpus 2) and 3) are the most frequent
+	examples, while 1) and 4) are very poorly represented with 1 and 3
+	occurences.</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine50.png" alt="Det gjorde ondt at se på">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine51.png" alt="Det gjorde ondt at se på">
+	</p>
+	This is our only example of 1) - and it is not a very good example for two reasons. First, the sentence is difficult to analyse because the "det" is ambiguous between being
+	the subject of "gjorde" and being the complement of "på". Paraphrases show,
+	though, that it must be the subject of "gjorde" only, since we can add a
+	complement to "på": "Det gjorde ondt at se på Lars". Also, this "Lars" cannot
+	replace the "det": "*Lars gjorde ondt at se på". It would therefore be wrong to
+	add a filler from "på" to "det". Second, it is not clear whether the example is
+	really an example of an it-cleft, as shown by the second graph. It seems that to
+	be an example of an it-cleft, the "på" must have a complement: "*Det at se på
+	gjorde ondt" vs. "Det at se på Lars gjorde ondt". It seems then, that the "på"
+	acting as an adverb here forces us to choose the first analysis. The example,
+	though a poor one, is still an example of Adjectiv + Nobj.
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine52.png" alt="Han fik det indtryk, at alt var godt">
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine53.png" alt="Den stol er vanskelig at flytte">
+	</p>
+	<p align="center">
+		<img src="http://www.id.cbs.dk/~mtk/treebank/figs/stine54.png" alt="De fik en øl at drikke til maden">
+	</p>
+</p>
+</div>
+	
+
+<a name="Other"></a>
+<h2>Other phenomena</h2>
+
+<ul>
+	<li> sikke dog et regnvejr
+	<li> Det kan give den enkelte en bedre livskvalitet end før
+		<b>vedkommende</b> blev ramt.
+	<li> samtidig med at værnepligten enten er stærkt på retur eller
+		helt afskaffet i de vestlige lande.
+	<li> samtidig med at værnepligten enten vil kunne tænkes at være
+		stærkt på retur eller helt afskaffet i de vestlige lande
+	<li> de traditionelle to minutters stilhed
+</ul>
+
+
+	In <b>prepositional apposition</b>: the N-phrase is the head, the
+	P-phrase is a modifier; however, gender agreement seems to break
+	partly down, so that the entire phrase is always marked as commune; 
+	there also seems to be a preference that the N-complement of the
+	P-phrase is commune.
+	<ul>
+		<li> den idiot til Birger
+		<li> den psykopat til Hardinger
+		<li> den tyran til Ludvig Munk
+		<li> <b>det fæhovede til en turist</b> er temmeligt dum/dumt
+		<li> <b>det fjols til en løjtnant</b> er flink/flinkt nok
+		<li> <b>det krapyl til ham landsbyens tyr</b> er skummelt/skummel
+		<li> <b>det krapyl til et æsel</b> er temmeligt
+			genstridig/genstridigt
+	</ul>
+
+	<ul>
+		<li> "hele landet": "hele" er et pronomen, fordi adjektiver
+		ikke kan modificere et bestemt substantiv. 
+		<li> ridning -- under kontrol -- viser at ...
+	</ul>
+	Bjarne Ørsnes: extracted elements must often be marked in some
+	way:
+	<ul>
+		<li> Ham tror jeg kommer i morgen.
+		<li> Jeg har ingen penge.
+		<li> *Jeg har ingen af penge.
+		<li> *Penge har jeg ingen.
+		<li> Penge har jeg ingen af.
+	</ul>
+	Explanation: non-locally landed subjects must be accusative, only
+	locally landed subjects are nominative. "Ingen" takes either a
+	obligatorily local nobj-complement, or a pobj-complement which is
+	obligatorily extracted if the noun-complement of the preposition
+	is indefinite.
+	<ul>
+		<li> de sidste to datoer / de to sidste datoer
+	</ul>
+<hr><small><a href="http://www.id.cbs.dk/~stine/manual/nouns.html" target="_parent">http://www.id.cbs.dk/~stine/manual/nouns.html</a> last updated by <a href="mailto:stine@id.cbs.dk">Stine Kern Lynge</a> at 2003-11-13 22:04</small></body>
+</html>

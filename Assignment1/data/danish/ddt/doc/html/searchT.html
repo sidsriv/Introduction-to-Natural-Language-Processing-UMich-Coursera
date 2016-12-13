@@ -1,0 +1,297 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html> 
+<head>
+    <title>Annotation guide for the Danish Dependency Treebank: Search language</title>
+    <link rel="parent" href="http://www.id.cbs.dk/~mtk/treebank/guide.html" id="Treebank" title="Treebank">
+    <link rel="sibling" href="theory.html" id="Theory" title="Theory">
+    <link rel="sibling" href="nouns.html" id="Nouns" title="Nouns">
+    <link rel="sibling" href="verbs.html" id="Verbs" title="Verbs">
+    <link rel="sibling" href="adjs.html" id="Adjectives" title="Adjectives">
+    <link rel="sibling" href="preps.html" id="Prepositions" title="Prepositions">
+    <link rel="sibling" href="misc.html" id="Miscellaneous" title="Miscellaneous word classes">
+    <link rel="sibling" href="spoken.html" id="Spoken" title="Spoken language">
+    <link rel="sibling" href="discourse.html" id="Discourse" title="Discourse structure">
+    <link rel="self" href="search.html" id="Search" title="Search">
+	<link rel="sibling" href="learn.html" id="Learning" title="Learning">
+	<link rel="sibling" href="refs.html" id="References" title="References">
+	<link rel="stylesheet" href="text.css" media="screen" type="text/css">
+	<link rel="stylesheet" href="text.css" media="print" type="text/css">
+    <meta name="author" content="Matthias Trautner Kromann">
+    <link rel="stylesheet" href="text.css" media="screen" type="text/css"><meta name="robot" content="index"></head> 
+
+<body><script language="javascript" type="text/javascript">if (self == top) { top.location = 'search.html'; } else { top.menu.location = 'searchM.html' }</script>
+
+<h1 align="center">Danish Dependency Treebank</h1>
+<h2 align="center">Annotation guide: search language</h2>
+
+<p align="center"><b>
+	<a href="../index.html" target="_parent">Matthias T. Kromann</a><br>
+	<a href="../../../www.cbs.dk/id" target="_parent">Department of
+		Computational Linguistics</a><br>
+	<a href="http://www.cbs.dk" target="_parent">Copenhagen Business
+		School</a>
+</b></p>
+
+<a name="Text search"></a>
+<h2>Text-based search language</h2>
+
+	<p>A graph search is specified as a constraint satisfaction
+	problem where we must find all possible variable instantiations
+	that make those variables satisfy a given constraint. The
+	constraint is a term composed of simple constraints connected by
+	the logical operators "&amp;" or "," (and), "|" (or), and "!"
+	(negation). Parentheses can be inserted to disambiguate operator
+	arguments.</p>
+
+	<p>Possible constraints:</p>
+	<ul>
+		<li> <b>$node1 &lt; $node2</b>: node $node1 must precede node $node2.
+
+		<li> <b>$node1 &gt; $node2</b>: node $node1 must succede node
+		$node2.
+
+		<li> <b>$node1 != $node2</b>: node $node1 must not coincide
+		with node $node2.
+
+		<li> <b>$node1 == $node2</b>: node $node1 must coincide with
+		node $node2.
+
+		<li> <b>$node:$type</b>: node $node must have super type $type
+		in the type hierarchy.
+
+		<li> <b>$node[$var] =~ $regexp</b>: variable $var in node $node must 
+		match regular expression $regexp.
+
+		<li> <b>$node1 $espec $node2</b>: node $node1 must be a
+		dependent of node $node2 with edge type satisfying edge
+		specification $espec.
+
+		<li> <b>$node1 path($path) $node2</b>: node $node1 must have
+		a path to $node2 matching path specification $path; a path
+		specification has the form:
+		<ul>
+			<li> <i>path</i> ::= <i>spath</i> | <i>spath</i> <i>path</i>
+			<li> <i>spath</i> ::= <b>&lt;</b> <i>etype</i>
+				| <b>&gt;</b> <i>etype</i> | <b>{</b> <i>spath</i> <b>}+</b>
+		</ul>
+		where <tt>&lt;<i>etype</i></tt> denotes an downwards edge (to
+		a dependent) of type <i>etype</i>, and
+		<tt>&gt;<i>etype</i></tt> denotes an upwards edge (to a
+		governor) of type <i>etype</i>.
+
+		<li> <b>sort($level, $expr):</b> always true; has the
+		side-effect of using expression $expr as sorting key at level
+		$level; $expr must specify a variable of one of the words,
+		using the notation "$node-&gt;$var".
+	</ul>
+
+<a name="Examples"></a>
+<h2>Examples of search queries</h2>
+
+
+	<ul>
+		<li> <i>find graph with an expletive before its main verb:</i> 
+				<blockquote><tt>
+					$1 expl $2,<br>
+					$1:word,<br>
+					$2:verb,<br>
+					$1&lt;$2
+				</tt></blockquote>
+
+		<li> <i>find graph with a topicalized non-subject</i>: 
+				<blockquote><tt>
+					$1 land-subj $2,<br>
+					$1:noun-vmod,<br>
+					$2:verb,<br>
+					$1&lt;$2
+				</tt></blockquote>
+
+		<li> <i>find a relativized object:</i>:
+				<blockquote><tt>
+					$3 rel $1,<br>
+					$2 ref $1,<br>
+					$2 path({&gt;dep}+) $3,<br>
+					$1:noun+[obj],<br>
+					$2:word,<br>
+					$3:verb,<br>
+					$1&lt;$2,<br>
+					$2&lt;$3
+				</tt></blockquote>
+	</ul>
+
+<a name="BNF_syntax"></a>
+<h2>BNF syntax of search language</h2>
+
+<ul>
+	<li> <i>search</i> ::= 
+		<i>node</i> <tt><b>:</b></tt> <i>tspec</i>
+		| <i>node</i> <tt><b>&lt;</b></tt> <i>node</i>
+		| <i>node</i> <tt><b>&gt;</b></tt> <i>node</i> 
+		| <i>node</i> <tt><b>==</b></tt> <i>node</i> 
+		| <i>node</i> <tt><b>!=</b></tt> <i>node</i> 
+		| <i>node</i> <tt><b>!=</b></tt> <i>node</i> 
+		| <i>node</i> <i>espec</i> <i>node</i> 
+		| <i>node</i> <tt><b>path(</b></tt><i>pspec</i><tt><b>)</b></tt> 
+			<i>node</i> 
+		| <tt><b>sort(</b></tt> <i>level</i> <tt><b>,</b></tt>
+			<i>sexpr</i> <b><tt>)</tt></b>
+		| <tt><b>(</b></tt> <i>search</i> <tt><b>)</b></tt>
+		| <tt><b>!</b></tt> <i>search</i>
+		| <i>search</i> <b><tt>,</tt></b> <i>search</i>
+		| <i>search</i> <b><tt>&</tt></b> <i>search</i>
+		| <i>search</i> <b><tt>|</tt></b> <i>search</i>
+
+
+	<li> <i>node</i> ::= <b><tt>$</tt> </b><i>token</i>
+
+	<li> <i>tspec</i> ::= <i>token</i> 
+		| <tt><b>(</b></tt> <i>tspec</i> <tt><b>)</b></tt>
+		| <i>tspec</i> <tt><b>+</b></tt> <i>tspec</i>
+		| <i>tspec</i> <tt><b>|</b></tt> <i>tspec</i>
+		| <i>tspec</i> <tt><b>-</b></tt> <i>tspec</i>
+		| <tt><b>-</b></tt> <i>tspec</i>
+
+	<li> <i>espec</i> ::= <i>tspec</i>
+
+	<li> <i>pspec</i> ::= <tt><b>&lt;</b></tt> <i>espec</i> 
+		| <tt><b>&gt;</b></tt> <i>espec</i> 
+		| <tt><b>{</b></tt> <i>espec</i> <tt><b>}+</b></tt>
+		| <i>pspec</i> <i>pspec</i>
+	
+	<li> <i>level</i> ::= <i>integer</i>
+
+	<li> <i>sexpr</i> ::= <i>node</i> <tt><b>-&gt;</b></tt> <i>var</i>
+
+	<li> <i>var</i> ::= <i>token</i>
+</ul>
+
+<a name="Algorithm"></a>
+<h2>Search algorithm</h2>
+
+	The search algorithm is given as follows:
+
+<ul>
+	<li> 0. Take as input a constraint C. 
+
+	<li> 1. Rewrite the constraint C in disjunctive normal form p1 \/
+		... \/ pN, where each pI is a conjunction cI1 /\ ... /\ cIM of
+		simple terms or negated simple terms, by applying the
+		following reductions until no further reduction is possible: 
+		<ul>
+			<li> rewrite  ~(~X)  as  X
+			<li> rewrite  ~(X /\ Y)  as  (~X) \/ (~Y)
+			<li> rewrite  ~(X \/ Y)  as  (~X) /\ (~Y)
+			<li> rewrite  X /\ (Y \/ Z)  as  (X /\ Y) \/ (X /\ Z)
+			<li> rewrite  (X \/ Y) /\ Z  as  (X /\ Z) \/ (Y /\ Z)
+		</ul>
+
+	<li> 2. Solve each subproblem pI in p1,...,pN separately, with
+		pI = c1 /\ ... /\ cM where c1,...,cM are either simple
+		constraints or negated simple constraints, using steps 3-4,
+		and return the union of possible variable instantiations for
+		problems p1,...,pN.
+
+	<li> 3. Given p = c1 /\ ... /\ cM and prior variable assignments V,
+		pick the constraint cI with the smallest number of minimal
+		solutions (ie, variable assignments to unassigned variables 
+		that occur in the constraint); pick a minimal
+		constraint randomly if more than one constraint is minimal.
+
+	<li> 4. For each vJ in v1,...,vA, let p' be the conjunction of all
+		c1,...,cM except for cI, and let V' be the variable assignment V plus 
+		vJ, and solve the modified problem (p',V') recursively, using
+		steps 3-4.
+</ul>
+
+<pre>
+function solve(constraint C) {
+    # 1. Rewrite the constraint C in disjunctive normal form p1 \/
+    # ... \/ pN.
+    ($p1,...,$pN) = reduce_dnf(C);
+
+    # 2. Solve each subproblem pI in p1,...,pN separately, with
+    # pI = c1 /\ ... /\ cM where c1,...,cM are either simple
+    # constraints or negated simple constraints, and return the
+    # union of possible variable instantiations for
+    # problems p1,...,pN.
+
+    @solutions = ();
+    foreach $p (@p) {
+        find ($c1,...,$cM) so that $p = $c1 /\ ... /\ $cM
+        @s = ($s1,...,$sK) = solve_simple({}, ($c1,...,$cM));
+        push @solutions, @s;
+    }
+      
+    # 3. Return union of all solutions to subproblems p1,...,pN
+    return @solutions;
+}
+
+
+function reduce_dnf(constraint C) {
+    # Return constraint C in disjunctive normal form p1 \/ ... \/ pN, 
+    # where each pI is a conjunction cI1 /\ ... /\ cIM of
+    # simple terms or negated simple terms, by applying the
+    # following reductions until no further reduction is possible:
+    #   
+    #   - rewrite  ~(~X)  as  X
+    #   - rewrite  ~(X /\ Y)  as  (~X) \/ (~Y)
+    #   - rewrite  ~(X \/ Y)  as  (~X) /\ (~Y)
+    #   - rewrite  X /\ (Y \/ Z)  as  (X /\ Y) \/ (X /\ Z)
+    #   - rewrite  (X \/ Y) /\ Z  as  (X /\ Z) \/ (Y /\ Z)
+
+    if ($C == ~(~($X))) {
+        return reduce_dnf($X);
+    } elsif ($C == ~($X /\ $Y)) {
+        return reduce_dnf(~$X) \/ reduce_dnf(~$Y);
+    } elsif ($C == ~($X \/ $Y)) {
+        return reduce_dnf(reduce_dnf(~X) /\ reduce_dnf(~Y));
+    } elsif ($C == X /\ (Y \/ Z)) {
+        return reduce_dnf(X /\ Y) \/ reduce_dnf(X /\ Z);
+    } elsif ($C == (X \/ Y ) /\ Z) {
+        return reduce_dnf(X /\ Z) \/ reduce_dnf(Y /\ Z);
+    } elsif ($C == (X /\ Y)) {
+        return reduce_dnf(reduce_dnf($X) /\ reduce_dnf($Y));
+    } elsif ($C == (X \/ Y)) {
+        return reduce_dnf($X) \/ reduce_dnf($Y);
+    } else {
+        return $C;
+    }
+}
+
+
+function solve_simple(conjuncts (c1,..., cN), vars V) {
+    # Find constraint with smallest number of solutions
+    my $best = 0;
+    while (! $best) {
+        find $i in 1,...,N such that $count[$i] is minimal
+        find next solution $sol = $c[i]-&gt;next_solution() for $c[i]
+        if (! $sol) {
+            $best = $i;
+        } else {
+            ++$count[$i];
+        }
+    }
+
+    # Find all possible values for minimal constraint
+    @values = $c[$best]-&gt;values();
+
+    # Find solutions for each value setting
+    @cnew = splice(@c, $best, 1);
+    foreach $v (@values) {
+        %Vnew = union(%V, %$v);
+        if (! @cnew) {
+            push @solutions, $Vnew;
+        } else {
+            push @solutions, solve_simple(@cnew, %Vnew);
+        }
+    }
+
+    # Return solutions
+    return @solutions;
+}
+</pre>
+
+
+<hr><small><a href="http://www.id.cbs.dk/~stine/manual/search.html" target="_parent">http://www.id.cbs.dk/~stine/manual/search.html</a> last updated by <a href="mailto:stine@id.cbs.dk">Stine Kern Lynge</a> at 2003-11-12 10:11</small></body>
+</html>
+
