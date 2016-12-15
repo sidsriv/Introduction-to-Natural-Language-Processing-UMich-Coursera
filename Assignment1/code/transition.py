@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 class Transition(object):
     """
     This class defines a set of transitions which are applied to a
@@ -14,62 +17,64 @@ class Transition(object):
 
     @staticmethod
     def left_arc(conf, relation):
-        """
-            :param configuration: is the current configuration
+        """Add the arc (b, L, s) to A (arcs), and pop Σ (a stack).
+
+        That is, draw an arc between the next node on the buffer and the next node on the stack, with the label L.
+
+            :param conf: is the current configuration
             :return : A new configuration or -1 if the pre-condition is not satisfied
         """
         if not conf.buffer or not conf.stack:
             return -1
-
-        idx_wj = conf.stack[-1]
-
-        if idx_wj == 0: 
+        s = conf.stack[-1]
+        # check that s is not the ROOT
+        if s == 0:
             return -1
-
-        if any(idx_wj == wj for wi, l, wj in conf.arcs):
+        # check that s is not already a dependant of some other word
+        if any(s == wj for wi, l, wj in conf.arcs):
             return -1
-
-        idx_wi = conf.buffer[0]
+        # take an item from the buffer, but do not pop it
+        b = conf.buffer[0]
         conf.stack.pop()
-
-        conf.arcs.append((idx_wi, relation, idx_wj))
+        conf.arcs.append((b, relation, s))
 
     @staticmethod
     def right_arc(conf, relation):
-        """
-            :param configuration: is the current configuration
+        """Add the arc (s, L, b) to A (arcs), and push b onto Σ.
+
+            :param conf: is the current configuration
             :return : A new configuration or -1 if the pre-condition is not satisfied
         """
         if not conf.buffer or not conf.stack:
             return -1
 
-        
-        idx_wi = conf.stack[-1]
-        idx_wj = conf.buffer.pop(0)
-
-        conf.stack.append(idx_wj)
-        conf.arcs.append((idx_wi, relation, idx_wj))
+        s = conf.stack[-1]
+        # pop the buffer
+        b = conf.buffer.pop(0)
+        conf.stack.append(b)
+        conf.arcs.append((s, relation, b))
 
     @staticmethod
     def reduce(conf):
-        """
-            :param configuration: is the current configuration
+        """Pop Σ (a stack).
+
+            :param conf: is the current configuration
             :return : A new configuration or -1 if the pre-condition is not satisfied
         """
         if not conf.stack:
             return -1
+        s = conf.stack[-1]
 
-        idx_wi = conf.stack[-1]
-
-        if any(idx_wi == wi for wi, l, wj in conf.arcs):
+        if any(s == wi for wk, l, wi in conf.arcs):
             conf.stack.pop()
         else:
             return -1
 
     @staticmethod
     def shift(conf):
-        """
-            :param configuration: is the current configuration
+        """Remove b from B (buffer) and add it to Σ (a stack).
+
+            :param conf: is the current configuration
             :return : A new configuration or -1 if the pre-condition is not satisfied
         """
         if not conf.buffer:
