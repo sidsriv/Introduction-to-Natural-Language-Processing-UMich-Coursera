@@ -1,4 +1,5 @@
 import math
+import collections
 import nltk
 import time
 
@@ -12,9 +13,37 @@ MINUS_INFINITY_SENTENCE_LOG_PROB = -1000
 # training_corpus: is a list of the sentences. Each sentence is a string with tokens separated by spaces, ending in a newline character.
 # This function outputs three python dictionaries, where the keys are tuples expressing the ngram and the value is the log probability of that ngram
 def calc_probabilities(training_corpus):
-    unigram_p = {}
-    bigram_p = {}
-    trigram_p = {}
+    unigram_c = collections.defaultdict(int)
+    bigram_c = collections.defaultdict(int)
+    trigram_c = collections.defaultdict(int)
+
+
+    for sentence in training_corpus:
+        tokens0 = sentence.strip().split()
+        tokens1 = tokens0 + [STOP_SYMBOL]
+        tokens2 = [START_SYMBOL] + tokens0 + [STOP_SYMBOL]
+        tokens3 = [START_SYMBOL] + [START_SYMBOL] + tokens0 + [STOP_SYMBOL]
+        # unigrams
+        for unigram in tokens1:
+            unigram_c[unigram] += 1
+
+        # bigrams
+        for bigram in nltk.bigrams(tokens2):
+            bigram_c[bigram] += 1
+
+        # trigrams
+        for trigram in nltk.trigrams(tokens3):
+            trigram_c[trigram] += 1
+
+    unigrams_len = sum(unigram_c.itervalues())
+    unigram_p = {k: math.log(float(v) / unigrams_len, 2) for k, v in unigram_c.iteritems()}
+
+    # calc P(W2|W1) = P(W2,W1) / P(W1) = C(W2,W1) / C(W1)
+    unigram_c[START_SYMBOL] = len(training_corpus)
+    bigram_p = {k: math.log(float(v) / unigram_c[k[0]], 2) for k, v in bigram_c.iteritems()}
+
+    bigram_c[(START_SYMBOL, START_SYMBOL)] = len(training_corpus)
+    trigram_p = {k: math.log(float(v) / bigram_c[k[:2]], 2) for k, v in trigram_c.iteritems()}
     return unigram_p, bigram_p, trigram_p
 
 # Prints the output for q1
@@ -49,6 +78,24 @@ def q1_output(unigrams, bigrams, trigrams, filename):
 # This function must return a python list of scores, where the first element is the score of the first sentence, etc. 
 def score(ngram_p, n, corpus):
     scores = []
+    for sentence in corpus:
+        sentence_score = 0
+        tokens0 = sentence.strip().split()
+        if n == 1:
+            tokens = tokens0 + [STOP_SYMBOL]
+        elif n == 2:
+            tokens = nltk.bigrams([START_SYMBOL] + tokens0 + [STOP_SYMBOL])
+        elif n == 3:
+            tokens = nltk.trigrams([START_SYMBOL] + [START_SYMBOL] + tokens0 + [STOP_SYMBOL])
+        else:
+            raise ValueError('Parameter "n" has an invalid value %s' % n)
+        for token in tokens:
+            try:
+                p = ngram_p[token]
+            except KeyError:
+                p = MINUS_INFINITY_SENTENCE_LOG_PROB
+            sentence_score += p
+        scores.append(sentence_score)
     return scores
 
 # Outputs a score to a file
@@ -65,7 +112,31 @@ def score_output(scores, filename):
 # Each ngram argument is a python dictionary where the keys are tuples that express an ngram and the value is the log probability of that ngram
 # Like score(), this function returns a python list of scores
 def linearscore(unigrams, bigrams, trigrams, corpus):
+    """Linear interpolate the probabilities.
+
+    See http://web.stanford.edu/~jurafsky/slp3/4.pdf paragraph 4.4.3
+    """
     scores = []
+    # Set lambda equal to all the n-grams so that it sums up to 1.
+    lambda_ = 1.0 / 3
+    for sentence in corpus:
+        interpolated_score = 0
+        tokens0 = sentence.strip().split()
+        for trigram in nltk.trigrams([START_SYMBOL] + [START_SYMBOL] + tokens0 + [STOP_SYMBOL]):
+            try:
+                p3 = trigrams[trigram]
+            except KeyError:
+                p3 = MINUS_INFINITY_SENTENCE_LOG_PROB
+            try:
+                p2 = bigrams[trigram[1:3]]
+            except KeyError:
+                p2 = MINUS_INFINITY_SENTENCE_LOG_PROB
+            try:
+                p1 = unigrams[trigram[2]]
+            except KeyError:
+                p1 = MINUS_INFINITY_SENTENCE_LOG_PROB
+            interpolated_score += math.log(lambda_ * (2 ** p3) + lambda_ * (2 ** p2) + lambda_ * (2 ** p1), 2)
+        scores.append(interpolated_score)
     return scores
 
 DATA_PATH = 'data/'
