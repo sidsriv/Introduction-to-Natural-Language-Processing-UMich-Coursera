@@ -94,7 +94,6 @@ if '1' in partIdx:
     output1 = str(evaluate_part(1))
 if '2' in partIdx:
     output2 = str(evaluate_part(2))
-
 #======================Submit Score========================
 
 cmd = 'curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/json" -d '
